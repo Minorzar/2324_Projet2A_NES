@@ -1,0 +1,23 @@
+|displayer
+Switch[0] => Led[0].DATAIN
+Switch[1] => Led[1].DATAIN
+Switch[2] => Led[2].DATAIN
+Switch[3] => Led[3].DATAIN
+Switch[4] => Led[4].DATAIN
+Switch[5] => Led[5].DATAIN
+Switch[6] => Led[6].DATAIN
+Switch[7] => Led[7].DATAIN
+Switch[8] => Led[8].DATAIN
+Switch[9] => Led[9].DATAIN
+Led[0] << Switch[0].DB_MAX_OUTPUT_PORT_TYPE
+Led[1] << Switch[1].DB_MAX_OUTPUT_PORT_TYPE
+Led[2] << Switch[2].DB_MAX_OUTPUT_PORT_TYPE
+Led[3] << Switch[3].DB_MAX_OUTPUT_PORT_TYPE
+Led[4] << Switch[4].DB_MAX_OUTPUT_PORT_TYPE
+Led[5] << Switch[5].DB_MAX_OUTPUT_PORT_TYPE
+Led[6] << Switch[6].DB_MAX_OUTPUT_PORT_TYPE
+Led[7] << Switch[7].DB_MAX_OUTPUT_PORT_TYPE
+Led[8] << Switch[8].DB_MAX_OUTPUT_PORT_TYPE
+Led[9] << Switch[9].DB_MAX_OUTPUT_PORT_TYPE
+
+
