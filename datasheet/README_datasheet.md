@@ -13,6 +13,9 @@
 - Website: [Hanson's Block Diagram](https://www.nesdev.org/wiki/Visual6502wiki/Hanson%27s_Block_Diagram)
 - PDF Document: [6502-Block-Diagram.pdf](https://www.witwright.com/DonPub/6502-Block-Diagram.pdf)
 
+## W65C02S 8–bit Microprocessor
+  - PDF Document: [w65c02s.pdf] (https://www.westerndesigncenter.com/wdc/documentation/w65c02s.pdf)
+
 # Useful Links
 
 - Nintendo Entertainment System (NES) Architecture: [copetti.org](https://www.copetti.org/writings/consoles/nes/)
