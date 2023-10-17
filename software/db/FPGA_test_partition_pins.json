@@ -42,46 +42,6 @@
 				{
 					"name" : "Led[9]",
 					"strict" : false
-				},
-				{
-					"name" : "Switch[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[7]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[8]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch[9]",
-					"strict" : false
 				}
 			]
 		}
