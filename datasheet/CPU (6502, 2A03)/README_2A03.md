@@ -32,9 +32,7 @@
 ### 2A03 Technical Reference (Brad Taylor)
 - Document: [2A03 technical reference.txt](https://www.nesdev.org/2A03%20technical%20reference.txt)
 
-### 6502 Colorized Block Diagram
-- Source: [6502 Colorized Block Diagram](http://forum.6502.org/viewtopic.php?t=1744)
-- Document: [6502-Block-Diagram-Colorized.png](http://i.imgur.com/BkZ9o.png)
+
 
 
 ## PPU: 2C02
@@ -50,7 +48,6 @@
 - Website: [Nintendo Entertainment System (NES) Architecture: Rodrigo Copetti](https://www.copetti.org/writings/consoles/nes/)
 - Website: [Nintendo Entertainment System (NES) Documentation: 8bitworkshop](https://8bitworkshop.com/docs/platforms/nes/)
 - Website: [Obelisk's 6502 Guide](https://www.nesdev.org/obelisk-6502-guide/)
-- Website: [Reconstruction of the MOS 6502 on the Cyclone II FPGA](https://www.cs.columbia.edu/~sedwards/classes/2013/4840/reports/6502.pdf)
 
 
 
