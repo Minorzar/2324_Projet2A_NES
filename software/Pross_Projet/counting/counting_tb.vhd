@@ -1,8 +1,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-entity test_tb is
-end test_tb;
+entity counting_tb is
+end counting_tb;
 
 architecture TEST_ZORD of counting_tb is 
 
@@ -13,6 +14,8 @@ architecture TEST_ZORD of counting_tb is
     signal OUT_COMP :std_logic;
     signal RESET : std_logic;
 
+    constant CLK_PERIOD : time := 10 ns;
+    signal finished : boolean := false;
 begin 
     count_640 : entity work.counting_N
     generic map (
@@ -45,27 +48,27 @@ begin
     );
 
 
-benche : process
+p_clk : process
+begin
+    while (finished = false) loop
+        clk <= '0';
+        wait for CLK_PERIOD/2;
+        clk <= '1';
+        wait for CLK_PERIOD/2;
+    end loop;
+    wait;
+end process;
 
+benche : process
 begin
     First_oder<='1';
     ceo2<='0';
-    for k in 0 to 10000 loop
-        if (mod(k,2)= 0) then
 
-        else
+    wait for 3 * CLK_PERIOD;
 
-        end if;
-        
-
-            First_oder<='1';
-            clk<=mod(k);
-            wait for 10 ns ;
-            if (k = 6969)
-            wait for 100 ns ;
-            end if;
-    end loop;
-end process;
+    finished <= true;
+    wait;
+end process benche;
 
 
 
