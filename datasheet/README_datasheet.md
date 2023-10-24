@@ -14,9 +14,12 @@
 - Source: [PPU pinout](https://www.nesdev.org/wiki/PPU_pinout)
 - Document: [Neswires.jpg](https://www.nesdev.org/wiki/File:Neswires.jpg)
 
+## NES Hardware Development Guide (Brad Taylor)
+- Document: [NES hardware development guide.txt](https://www.nesdev.org/NES%20hardware%20development%20guide.txt)
 
 
-## CPU: 2A03
+
+## CPU: 6502 / 2A03
 
 ### Reverse Engineering the MOS 6502 CPU
 - Source: [Hanson's Block Diagram](https://www.nesdev.org/wiki/Visual6502wiki/Hanson%27s_Block_Diagram)
@@ -26,11 +29,16 @@
 - Source: [W65C02S 8-bit Microprocessor](https://www.westerndesigncenter.com/wdc/w65c02s-chip.php)
 - Document: [w65c02s.pdf](https://www.westerndesigncenter.com/wdc/documentation/w65c02s.pdf)
 
+### 2A03 Technical Reference (Brad Taylor)
+- Document: [2A03 technical reference.txt](https://www.nesdev.org/2A03%20technical%20reference.txt)
+
+
 
 
 ## PPU: 2C02
-- Source: [NES Dev PPU](https://www.nesdev.org/wiki/PPU)
-- Document: [NTSC 2C02 technical reference.txt](https://www.nesdev.org/2C02%20technical%20reference.TXT)
+
+### 2C02 Technical Reference (Brad Taylor)
+- Document: [NTSC 2C02 technical reference.txt](https://www.nesdev.org/2C02%20technical%20reference.txt)
 
 
 
