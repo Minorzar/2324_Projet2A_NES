@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Tue Oct 10 23:47:04 2023
+Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+Revision Name : FPGA_test
+Top-level Entity Name : displayer
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 36
+Total pins : 12
+Total virtual pins : 0
+Total block memory bits : 0
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1
+Total DLLs : 0
