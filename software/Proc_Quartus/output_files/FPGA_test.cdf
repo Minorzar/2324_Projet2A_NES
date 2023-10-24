@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("D:/Git/Projet/2324_Projet2A_NES/software/output_files/") File("FPGA_test.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/output_files/") File("FPGA_test.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
