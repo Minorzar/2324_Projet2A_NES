@@ -1,0 +1,16 @@
+Library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity diplayer is
+	Port(Switch : in STD_LOGIC_VECTOR(9 down to 0);
+		  Led : out STD_LOGIC_VECTOR(9 down to 0);)
+end displayer;
+
+
+architecture Behavioral of displayer is
+
+begin
+
+	Led <= Switch
+
+end Behavioral;

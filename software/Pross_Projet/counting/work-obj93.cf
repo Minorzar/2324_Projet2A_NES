@@ -1,0 +1,10 @@
+v 4
+file . "counting_tb.vhd" "ea9e4c1223db0acf5a7220bb1ba1db808cd31ea8" "20231024132336.632":
+  entity counting_tb at 1( 0) + 0 on 71;
+  architecture test_zord of counting_tb at 8( 117) + 0 on 72;
+file . "counting_N.vhd" "ca4d3423e271e795e3e614f03708dac632301f26" "20231024132336.397":
+  entity counting_n at 1( 0) + 0 on 67;
+  architecture counting_n_rt1 of counting_n at 18( 349) + 0 on 68;
+file . "comparater.vhd" "0bfd192c4f351c5abba2f2f33a8310970586e7c3" "20231024132336.509":
+  entity comparater at 1( 0) + 0 on 69;
+  architecture comparater_rt1 of comparater at 12( 188) + 0 on 70;
