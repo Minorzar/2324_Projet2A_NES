@@ -1,0 +1,7 @@
+v 4
+file . "RAM_RWtb.vhd" "5e04af401c527d025c6cb9931eccac220971034f" "20231102092927.023":
+  entity ram_rwtb at 1( 0) + 0 on 57;
+  architecture firstram of ram_rwtb at 8( 112) + 0 on 58;
+file . "RAM_RW.vhd" "6e24a45b1cb5313fb7c13bc9817caf5fd4f64358" "20231102092926.904":
+  entity ram_rw at 1( 0) + 0 on 55;
+  architecture ram_rw_rtf of ram_rw at 22( 355) + 0 on 56;
