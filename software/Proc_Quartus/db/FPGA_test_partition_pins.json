@@ -4,43 +4,23 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Led[0]",
+					"name" : "hs",
 					"strict" : false
 				},
 				{
-					"name" : "Led[1]",
+					"name" : "vs",
 					"strict" : false
 				},
 				{
-					"name" : "Led[2]",
+					"name" : "inDisp",
 					"strict" : false
 				},
 				{
-					"name" : "Led[3]",
+					"name" : "clk25",
 					"strict" : false
 				},
 				{
-					"name" : "Led[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Led[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Led[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Led[7]",
-					"strict" : false
-				},
-				{
-					"name" : "Led[8]",
-					"strict" : false
-				},
-				{
-					"name" : "Led[9]",
+					"name" : "reset",
 					"strict" : false
 				}
 			]
