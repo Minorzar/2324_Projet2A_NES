@@ -14,7 +14,7 @@ architecture TEST_ZORD of counting_tb is
     signal OUT_COMP :std_logic;
     signal RESET : std_logic;
 
-    constant CLK_PERIOD : time := 10 ns;
+
     signal finished : boolean := false;
 begin 
     count_640 : entity work.counting_N
@@ -50,7 +50,7 @@ begin
 
 p_clk : process
 begin
-    while (finished = false) loop
+    while (finished = false) loop -- need to have an end
         clk <= '0';
         wait for CLK_PERIOD/2;
         clk <= '1';
@@ -63,8 +63,9 @@ benche : process
 begin
     First_oder<='1';
     ceo2<='0';
+    RESET<='0';
 
-    wait for 3 * CLK_PERIOD;
+    wait for 700 * CLK_PERIOD;
 
     finished <= true;
     wait;
