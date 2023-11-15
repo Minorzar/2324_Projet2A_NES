@@ -1,5 +1,6 @@
 Library IEEE;
 use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity H_sync is
 	Port(
@@ -49,15 +50,16 @@ begin
 			counter <= 0 ;
 		elsif (rising_edge(clk25)) then
 			counter <= counter + 1 ;
-			if (counter = 800) then
+			if (counter = 799) then
 				counter <= 0 ;
 			end if ;
 		end if ;
 	end process ;
 
-	H_S <= '1' when (counter > 95 and counter < 144) else '0' ;
+	H_S <= '0' when (counter >= 0 and counter < 96) else '1' ;
 	inDispH <= '1' when (counter > 143 and counter < 784) else '0' ;
-	cnt_y_enable <= '1' when counter = 799 else '0' ;
+	cnt_y_enable <= '1' when (counter = 799) else '0' ;
+	x_value <= std_logic_vector(to_unsigned(counter, x_value'length)) ;
 	
 
 end Behavioral;

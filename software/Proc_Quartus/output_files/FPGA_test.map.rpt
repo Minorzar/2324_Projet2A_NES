@@ -1,5 +1,5 @@
-Analysis & Synthesis report for FPGA_test
-Tue Nov 14 19:22:56 2023
+Analysis & Elaboration report for FPGA_test
+Wed Nov 15 03:25:13 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -7,16 +7,10 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Analysis & Elaboration Messages
 
 
 
@@ -40,31 +34,42 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
-+---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Nov 14 19:22:56 2023          ;
-; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
-; Revision Name                   ; FPGA_test                                      ;
-; Top-level Entity Name           ; VGA_Sync                                       ;
-; Family                          ; Cyclone V                                      ;
-; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 20                                             ;
-; Total pins                      ; 25                                             ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 0                                              ;
-; Total DSP Blocks                ; 0                                              ;
-; Total HSSI RX PCSs              ; 0                                              ;
-; Total HSSI PMA RX Deserializers ; 0                                              ;
-; Total HSSI TX PCSs              ; 0                                              ;
-; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 0                                              ;
-; Total DLLs                      ; 0                                              ;
-+---------------------------------+------------------------------------------------+
++--------------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                                 ;
++-------------------------------+------------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Wed Nov 15 03:25:13 2023          ;
+; Quartus Prime Version         ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                 ; FPGA_test                                      ;
+; Top-level Entity Name         ; VGA_Sync                                       ;
+; Family                        ; Cyclone V                                      ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                      ;
+; Total registers               ; N/A until Partition Merge                      ;
+; Total pins                    ; N/A until Partition Merge                      ;
+; Total virtual pins            ; N/A until Partition Merge                      ;
+; Total block memory bits       ; N/A until Partition Merge                      ;
+; Total PLLs                    ; N/A until Partition Merge                      ;
+; Total DLLs                    ; N/A until Partition Merge                      ;
++-------------------------------+------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
+; Analysis & Elaboration Settings                                                                                           ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
@@ -150,130 +155,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.01        ;
-; Maximum used               ; 4           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.2%      ;
-+----------------------------+-------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                              ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                       ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
-; VGA_Sync.vhd                     ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd ;         ;
-; H_sync.vhd                       ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd   ;         ;
-; V_sync.vhd                       ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd   ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 19          ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 34          ;
-;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 4           ;
-;     -- 5 input functions                    ; 6           ;
-;     -- 4 input functions                    ; 3           ;
-;     -- <=3 input functions                  ; 21          ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 20          ;
-;                                             ;             ;
-; I/O pins                                    ; 25          ;
-;                                             ;             ;
-; Total DSP Blocks                            ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; clk25~input ;
-; Maximum fan-out                             ; 20          ;
-; Total fan-out                               ; 225         ;
-; Average fan-out                             ; 2.16        ;
-+---------------------------------------------+-------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |VGA_Sync                  ; 34 (2)              ; 20 (0)                    ; 0                 ; 0          ; 25   ; 0            ; |VGA_Sync           ; VGA_Sync    ; work         ;
-;    |H_sync:u1|             ; 16 (16)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA_Sync|H_sync:u1 ; H_sync      ; work         ;
-;    |V_sync:u2|             ; 16 (16)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA_Sync|V_sync:u2 ; V_sync      ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 20    ;
-; Number of registers using Synchronous Clear  ; 20    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 20    ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 10    ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_ff             ; 20                          ;
-;     CLR SCLR          ; 10                          ;
-;     ENA CLR SCLR      ; 10                          ;
-; arriav_lcell_comb     ; 37                          ;
-;     arith             ; 20                          ;
-;         1 data inputs ; 20                          ;
-;     normal            ; 17                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 3                           ;
-;         5 data inputs ; 6                           ;
-;         6 data inputs ; 4                           ;
-; boundary_port         ; 25                          ;
-;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.93                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:02     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Tue Nov 14 19:22:39 2023
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_test -c FPGA_test
+    Info: Processing started: Wed Nov 15 03:25:02 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_test -c FPGA_test --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file de1_soc_golden_top.v
@@ -287,59 +176,32 @@ Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
     Info (12023): Found entity 1: PLL_0002 File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL/PLL_0002.v Line: 2
 Info (12021): Found 2 design units, including 1 entities, in source file vga_sync.vhd
-    Info (12022): Found design unit 1: VGA_Sync-behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 16
-    Info (12023): Found entity 1: VGA_Sync File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 4
+    Info (12022): Found design unit 1: VGA_Sync-behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 17
+    Info (12023): Found entity 1: VGA_Sync File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file h_sync.vhd
-    Info (12022): Found design unit 1: H_sync-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd Line: 41
-    Info (12023): Found entity 1: H_sync File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd Line: 4
+    Info (12022): Found design unit 1: H_sync-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd Line: 42
+    Info (12023): Found entity 1: H_sync File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file v_sync.vhd
-    Info (12022): Found design unit 1: V_sync-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 41
-    Info (12023): Found entity 1: V_sync File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 4
+    Info (12022): Found design unit 1: V_sync-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 42
+    Info (12023): Found entity 1: V_sync File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file vga_sync_tb.vhd
+    Info (12022): Found design unit 1: VGA_Sync_tb-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync_tb.vhd Line: 9
+    Info (12023): Found entity 1: VGA_Sync_tb File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync_tb.vhd Line: 5
 Info (12127): Elaborating entity "VGA_Sync" for the top level hierarchy
-Info (12128): Elaborating entity "H_sync" for hierarchy "H_sync:u1" File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 26
-Warning (10541): VHDL Signal Declaration warning at H_sync.vhd(11): used implicit default value for signal "x_value" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd Line: 11
-Warning (10492): VHDL Process Statement warning at H_sync.vhd(48): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd Line: 48
-Info (12128): Elaborating entity "V_sync" for hierarchy "V_sync:u2" File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 28
-Warning (10541): VHDL Signal Declaration warning at V_sync.vhd(11): used implicit default value for signal "y_value" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 11
-Warning (10492): VHDL Process Statement warning at V_sync.vhd(48): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 48
-Warning (10492): VHDL Process Statement warning at V_sync.vhd(50): signal "cnt_y_enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 50
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "x[0]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[1]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[2]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[3]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[4]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[5]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[6]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[7]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[8]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "x[9]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 11
-    Warning (13410): Pin "y[0]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[1]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[2]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[3]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[4]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[5]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[6]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[7]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[8]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-    Warning (13410): Pin "y[9]" is stuck at GND File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 12
-Info (286030): Timing-Driven Synthesis is running
+Info (12128): Elaborating entity "H_sync" for hierarchy "H_sync:u1" File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at H_sync.vhd(49): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd Line: 49
+Info (12128): Elaborating entity "V_sync" for hierarchy "V_sync:u2" File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd Line: 29
+Warning (10492): VHDL Process Statement warning at V_sync.vhd(49): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 49
+Warning (10492): VHDL Process Statement warning at V_sync.vhd(51): signal "cnt_y_enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd Line: 51
 Warning (20013): Ignored 16 assignments for entity "PLL" -- entity does not exist in design
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity PLL -sip PLL.sip -library lib_PLL was ignored
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 22.1 -entity PLL -sip PLL.sip -library lib_PLL was ignored
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity PLL -sip PLL.sip -library lib_PLL was ignored
 Warning (20013): Ignored 317 assignments for entity "PLL_0002" -- entity does not exist in design
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 59 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 23 output pins
-    Info (21061): Implemented 34 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 4890 megabytes
-    Info: Processing ended: Tue Nov 14 19:22:56 2023
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:16
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4857 megabytes
+    Info: Processing ended: Wed Nov 15 03:25:13 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:11
 
 

@@ -1,5 +1,6 @@
 Library IEEE;
 use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity V_sync is
 	Port(
@@ -49,14 +50,15 @@ begin
 			counter <= 0 ;
 		elsif (rising_edge(clk25) and (cnt_y_enable = '1')) then
 			counter <= counter + 1 ;
-			if (counter = 525) then
+			if (counter = 524) then
 				counter <= 0 ;
 			end if ;
 		end if ;
 	end process ;
 
-	V_S <= '1' when (counter > 1 and counter < 35) else '0' ;
+	V_S <= '0' when (counter >= 0 and counter < 2) else '1' ;
 	inDispV <= '1' when (counter > 34 and counter < 515) else '0' ;
+	y_value <= std_logic_vector(to_unsigned(counter, y_value'length)) ;
 	
 
 end Behavioral;

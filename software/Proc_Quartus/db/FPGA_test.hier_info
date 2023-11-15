@@ -3,29 +3,29 @@ clk25 => h_sync:u1.clk25
 clk25 => v_sync:u2.clk25
 reset => h_sync:u1.reset
 reset => v_sync:u2.reset
-hs <= h_sync:u1.H_S
-vs <= v_sync:u2.V_S
-inDisp <= inDisp.DB_MAX_OUTPUT_PORT_TYPE
-x[0] <= h_sync:u1.x_value[0]
-x[1] <= h_sync:u1.x_value[1]
-x[2] <= h_sync:u1.x_value[2]
-x[3] <= h_sync:u1.x_value[3]
-x[4] <= h_sync:u1.x_value[4]
-x[5] <= h_sync:u1.x_value[5]
-x[6] <= h_sync:u1.x_value[6]
-x[7] <= h_sync:u1.x_value[7]
-x[8] <= h_sync:u1.x_value[8]
-x[9] <= h_sync:u1.x_value[9]
-y[0] <= v_sync:u2.y_value[0]
-y[1] <= v_sync:u2.y_value[1]
-y[2] <= v_sync:u2.y_value[2]
-y[3] <= v_sync:u2.y_value[3]
-y[4] <= v_sync:u2.y_value[4]
-y[5] <= v_sync:u2.y_value[5]
-y[6] <= v_sync:u2.y_value[6]
-y[7] <= v_sync:u2.y_value[7]
-y[8] <= v_sync:u2.y_value[8]
-y[9] <= v_sync:u2.y_value[9]
+hs << h_sync:u1.H_S
+vs << v_sync:u2.V_S
+inDisp << inDisp.DB_MAX_OUTPUT_PORT_TYPE
+x[0] << h_sync:u1.x_value[0]
+x[1] << h_sync:u1.x_value[1]
+x[2] << h_sync:u1.x_value[2]
+x[3] << h_sync:u1.x_value[3]
+x[4] << h_sync:u1.x_value[4]
+x[5] << h_sync:u1.x_value[5]
+x[6] << h_sync:u1.x_value[6]
+x[7] << h_sync:u1.x_value[7]
+x[8] << h_sync:u1.x_value[8]
+x[9] << h_sync:u1.x_value[9]
+y[0] << v_sync:u2.y_value[0]
+y[1] << v_sync:u2.y_value[1]
+y[2] << v_sync:u2.y_value[2]
+y[3] << v_sync:u2.y_value[3]
+y[4] << v_sync:u2.y_value[4]
+y[5] << v_sync:u2.y_value[5]
+y[6] << v_sync:u2.y_value[6]
+y[7] << v_sync:u2.y_value[7]
+y[8] << v_sync:u2.y_value[8]
+y[9] << v_sync:u2.y_value[9]
 
 
 |VGA_Sync|H_sync:u1
@@ -49,19 +49,19 @@ reset => counter[6].ACLR
 reset => counter[7].ACLR
 reset => counter[8].ACLR
 reset => counter[9].ACLR
-cnt_y_enable <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+cnt_y_enable <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 H_S <= H_S.DB_MAX_OUTPUT_PORT_TYPE
 inDispH <= inDispH.DB_MAX_OUTPUT_PORT_TYPE
-x_value[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-x_value[1] <= x_value[1].DB_MAX_OUTPUT_PORT_TYPE
-x_value[2] <= x_value[2].DB_MAX_OUTPUT_PORT_TYPE
-x_value[3] <= x_value[3].DB_MAX_OUTPUT_PORT_TYPE
-x_value[4] <= x_value[4].DB_MAX_OUTPUT_PORT_TYPE
-x_value[5] <= x_value[5].DB_MAX_OUTPUT_PORT_TYPE
-x_value[6] <= x_value[6].DB_MAX_OUTPUT_PORT_TYPE
-x_value[7] <= x_value[7].DB_MAX_OUTPUT_PORT_TYPE
-x_value[8] <= x_value[8].DB_MAX_OUTPUT_PORT_TYPE
-x_value[9] <= x_value[9].DB_MAX_OUTPUT_PORT_TYPE
+x_value[0] <= counter[0].DB_MAX_OUTPUT_PORT_TYPE
+x_value[1] <= counter[1].DB_MAX_OUTPUT_PORT_TYPE
+x_value[2] <= counter[2].DB_MAX_OUTPUT_PORT_TYPE
+x_value[3] <= counter[3].DB_MAX_OUTPUT_PORT_TYPE
+x_value[4] <= counter[4].DB_MAX_OUTPUT_PORT_TYPE
+x_value[5] <= counter[5].DB_MAX_OUTPUT_PORT_TYPE
+x_value[6] <= counter[6].DB_MAX_OUTPUT_PORT_TYPE
+x_value[7] <= counter[7].DB_MAX_OUTPUT_PORT_TYPE
+x_value[8] <= counter[8].DB_MAX_OUTPUT_PORT_TYPE
+x_value[9] <= counter[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |VGA_Sync|V_sync:u2
@@ -97,15 +97,15 @@ cnt_y_enable => counter[6].ENA
 cnt_y_enable => counter[7].ENA
 cnt_y_enable => counter[8].ENA
 cnt_y_enable => counter[9].ENA
-y_value[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-y_value[1] <= y_value[1].DB_MAX_OUTPUT_PORT_TYPE
-y_value[2] <= y_value[2].DB_MAX_OUTPUT_PORT_TYPE
-y_value[3] <= y_value[3].DB_MAX_OUTPUT_PORT_TYPE
-y_value[4] <= y_value[4].DB_MAX_OUTPUT_PORT_TYPE
-y_value[5] <= y_value[5].DB_MAX_OUTPUT_PORT_TYPE
-y_value[6] <= y_value[6].DB_MAX_OUTPUT_PORT_TYPE
-y_value[7] <= y_value[7].DB_MAX_OUTPUT_PORT_TYPE
-y_value[8] <= y_value[8].DB_MAX_OUTPUT_PORT_TYPE
-y_value[9] <= y_value[9].DB_MAX_OUTPUT_PORT_TYPE
+y_value[0] <= counter[0].DB_MAX_OUTPUT_PORT_TYPE
+y_value[1] <= counter[1].DB_MAX_OUTPUT_PORT_TYPE
+y_value[2] <= counter[2].DB_MAX_OUTPUT_PORT_TYPE
+y_value[3] <= counter[3].DB_MAX_OUTPUT_PORT_TYPE
+y_value[4] <= counter[4].DB_MAX_OUTPUT_PORT_TYPE
+y_value[5] <= counter[5].DB_MAX_OUTPUT_PORT_TYPE
+y_value[6] <= counter[6].DB_MAX_OUTPUT_PORT_TYPE
+y_value[7] <= counter[7].DB_MAX_OUTPUT_PORT_TYPE
+y_value[8] <= counter[8].DB_MAX_OUTPUT_PORT_TYPE
+y_value[9] <= counter[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
