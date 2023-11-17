@@ -63,13 +63,15 @@ vcom "D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL_sim/PLL.vho"
 
 vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd}
 vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd}
+vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd}
 vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd}
+vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd}
 
-vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync_tb.vhd}
+vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd}
 
-vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs="+acc"  VGA_Sync_testbench
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs="+acc"  VGA_ctrl_test
 
 add wave *
 view structure
 view signals
-run 17 sec
+run 20 ns

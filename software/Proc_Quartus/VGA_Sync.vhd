@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity VGA_Sync is
     Port(
-        clk25   : in std_logic;
+        clk108   : in std_logic;
         reset   : in std_logic;
         hs      : out std_logic;
         vs      : out std_logic;
@@ -25,9 +25,9 @@ architecture behavioral of VGA_Sync is
 
 begin
     u1 : entity work.H_sync
-        port map (clk25 => clk25, reset => reset, cnt_y_enable => EN, H_S => HS_sig, inDispH => dispH, x_value => x_val);
+        port map (clk108 => clk108, reset => reset, cnt_y_enable => EN, H_S => HS_sig, inDispH => dispH, x_value => x_val);
     u2 : entity work.V_sync
-        port map (clk25 => clk25, reset => reset, cnt_y_enable => EN, V_S => VS_sig, inDispV => dispV, y_value => y_val);
+        port map (clk108 => clk108, reset => reset, cnt_y_enable => EN, V_S => VS_sig, inDispV => dispV, y_value => y_val);
 
     hs <= HS_sig;
     vs <= VS_sig;
