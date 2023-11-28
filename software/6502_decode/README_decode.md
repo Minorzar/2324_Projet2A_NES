@@ -42,51 +42,87 @@ These values were assigned for the creation of `decode.vhdl` and are not officia
 | BNE          | "011101"             |
 | BEQ          | "011110"             |
 | BRK          | "011111"             |
-| JSR          | "100000"             |
-| abs          | "100001"             |
-| RTI          | "100010"             |
-| RTS          | "100011"             |
-| PHP          | "100100"             |
-| PLP          | "100101"             |
-| PHA          | "100110"             |
-| PLA          | "100111"             |
-| DEY          | "101000"             |
-| TAY          | "101001"             |
-| INY          | "101010"             |
-| INX          | "101011"             |
-| CLC          | "101100"             |
-| SEC          | "101101"             |
-| CLI          | "101110"             |
-| SEI          | "101111"             |
-| TYA          | "110000"             |
-| CLV          | "110001"             |
-| CLD          | "110010"             |
-| SED          | "110011"             |
-| TXA          | "110100"             |
-| TXS          | "110101"             |
-| TAX          | "110110"             |
-| TSX          | "110111"             |
-| DEX          | "111000"             |
-| NOP          | "111001"             |
+| JSR abs      | "100000"             |
+| RTI          | "100001"             |
+| RTS          | "100010"             |
+| PHP          | "100011"             |
+| PLP          | "100100"             |
+| PHA          | "100101"             |
+| PLA          | "100110"             |
+| DEY          | "100111"             |
+| TAY          | "101000"             |
+| INY          | "101001"             |
+| INX          | "101010"             |
+| CLC          | "101011"             |
+| SEC          | "101100"             |
+| CLI          | "101101"             |
+| SEI          | "101110"             |
+| TYA          | "101111"             |
+| CLV          | "110000"             |
+| CLD          | "110001"             |
+| SED          | "110010"             |
+| TXA          | "110011"             |
+| TXS          | "110100"             |
+| TAX          | "110101"             |
+| TSX          | "110110"             |
+| DEX          | "110111"             |
+| NOP          | "111000"             |
 
 ## Addressing Modes for 6502 Instructions
 
 In the context of 6502 instructions, different addressing modes determine how the operands of an instruction are specified. Here are the addressing modes along with the associated values for `register_select` and `addressing_mode`:
 
-| Addressing Mode  | `register_select` | `addressing_mode` |
+| Addressing Mode   | `register_select` | `addressing_mode` |
 |-------------------|-------------------|-------------------|
-| Accumulator       | "0"               | "000"             |
-| Absolute          | "0"               | "001"             |
-| Absolute, X       | "0"               | "001"             |
-| Absolute, Y       | "1"               | "001"             |
-| Immediate         | No need           | "010"             |
-| Implied           | No need           | "011"             |
-| Indirect          | "0"               | "100"             |
-| X, Indirect       | "0"               | "100"             |
-| Indirect, Y       | "1"               | "101"             |
-| Relative          | No need           | "110"             |
-| Zero page         | "0"               | "111"             |
-| Zero page, X      | "0"               | "111"             |
-| Zero page, Y      | "1"               | "111"             |
+| Accumulator       | "00"              | "000"             |
+| Absolute          | "00"              | "001"             |
+| Absolute, X       | "01"              | "001"             |
+| Absolute, Y       | "10"              | "001"             |
+| Immediate         | "00"              | "010"             |
+| Implied           | "00"              | "011"             |
+| Indirect          | "00"              | "100"             |
+| X, Indirect       | "01"              | "100"             |
+| Indirect, Y       | "10"              | "101"             |
+| Relative          | "00"              | "110"             |
+| Zero page         | "00"              | "111"             |
+| Zero page, X      | "01"              | "111"             |
+| Zero page, Y      | "10"              | "111"             |
+
+**Note on `register_select`:**
+- "00" may refer to the selection of the accumulator.
+- "01" may refer to the selection of the X register.
+- "10" may refer to the selection of the Y register.
 
 Reference: [6502 Addressing Modes Wiki](https://wiki.cdot.senecacollege.ca/wiki/6502_Addressing_Modes).
+
+## Additional Components
+
+### Predecode Register:
+
+- **VHDL File:** `predecode.vhdl`
+- **Functionality:** The predecode register holds the raw instruction input and is responsible for extracting relevant fields like `cc`, `aaa`, `bbb`, `xx`, and `y` from the instruction.
+
+### Predecode Logic:
+
+- **VHDL File:** `predecode.vhdl`
+- **Functionality:** The predecode logic interprets the fields extracted by the predecode register to determine the `active_instruction`, `addressing_mode`, and `register_select`. It acts as an intermediate stage between the raw instruction and the subsequent processing stages.
+
+### Instruction Register:
+
+- **VHDL File:** `instruction_register.vhdl`
+- **Functionality:** The instruction register holds the processed instruction and makes it available for other components. It plays a role in the instruction fetch phase.
+
+### Timing Generation Logic:
+
+- **VHDL File:** `timing_generation_logic.vhdl`
+- **Functionality:** The timing generation logic is responsible for generating timing signals that coordinate the execution of instructions. It helps synchronize the activities of different components and ensures proper sequencing of operations.
+
+### Decode ROM:
+
+- **VHDL File:** `decode.vhdl`
+- **Functionality:** The decode ROM (Read-Only Memory) takes the `active_instruction` as input and outputs control signals that direct the behavior of the processor during the execution of the corresponding instruction. It essentially translates instruction codes into actionable signals for the processor.
+
+### Random Control Logic:
+
+- **VHDL File:** `random_control_logic.vhdl`
+- **Functionality:** The random control logic is responsible for generating control signals based on specific conditions or events within the processor. It may handle various control aspects, such as branching conditions, interrupts, or other non-deterministic behaviors.

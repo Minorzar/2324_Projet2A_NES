@@ -1,0 +1,6 @@
+|top_entity
+clk => ~NO_FANOUT~
+data_input => ~NO_FANOUT~
+data_output << comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
