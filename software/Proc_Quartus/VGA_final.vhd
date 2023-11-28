@@ -1,49 +1,60 @@
-library IEEE ;
+library ieee ;
 use ieee.std_logic_1164.all ;
 
-entity VGA_ctrl is
+library pll25 ;
+use pll25.all ;
+
+
+entity VGA_final is
 	Port(
-		clk25   : in std_logic;
-		reset   : in std_logic;
-		HS : out std_logic ;
-		VS : out std_logic :
-		R : out std_logic_vector(7 downto 0) ;
-		G : out std_logic_vector(7 downto 0) ;
-		B : out std_logic_vector(7 downto 0) ;
-		BLANK_N : std_logic ;
-		SYNC_N : std_logic);
+		i_clk50   : in std_logic;
+		i_reset   : in std_logic;
+		o_HS : out std_logic ;
+		o_VS : out std_logic ;
+		o_R : out std_logic_vector(7 downto 0) ;
+		o_G : out std_logic_vector(7 downto 0) ;
+		o_B : out std_logic_vector(7 downto 0) ;
+		o_BLANK_N : out std_logic ;
+		o_SYNC_N : out std_logic;
+		o_CLK : out std_logic ) ;
 		
-end VGA_ctrl ;
+end VGA_final ;
 
-architecture Behavioral of VGA_ctrl is
-	signal h_s : std_logic ;
-	signal v_s : std_logic ;
-	signal inDisp : std_logic ;
-	signal Rout : std_logic_vector(7 downto 0) ;
-	signal Gout : std_logic_vector(7 downto 0) ;
-	signal Bout : std_logic_vector(7 downto 0) ;
-	signal sync : std_logic ;
-	signal x : std_logic_vector(9 downto 0) ;
-	signal y : std_logic_vector(9 downto 0) ;
+architecture Behavioral of VGA_final is
+	signal sclk_25 : std_logic ;
+	signal spll_locked : std_logic;
+	signal shs : std_logic ;
+	signal svs : std_logic ;
+	signal rR : std_logic_vector(7 downto 0) ;
+	signal rG : std_logic_vector(7 downto 0) ;
+	signal rB : std_logic_vector(7 downto 0) ;
+	signal sblank : std_logic ;
+	signal ssync : std_logic ;
+	signal sclk : std_logic ;
+
+		
+begin
+
+		clk25: entity pll25.pll25 
+			port map (
+				refclk => i_clk50,
+				rst => not i_reset ,
+				outclk_0 => sclk_25,
+				locked => spll_locked
+		);
+		
+		ctrl : entity work.VGA_ctrl
+			Port map(i_clk25 => sclk_25, i_reset => spll_locked, o_HS => shs, o_VS => svs, o_R => rR, o_G => rG, o_B => rB, o_BLANK_N => sblank, o_SYNC_N => ssync, o_CLK => sclk) ;
+			
+			
+		o_HS <= shs ;
+		o_VS <= svs ;
+		o_R <= rR ;
+		o_G <= rG ;
+		o_B <= rB ;
+		o_BLANK_N <= sblank ;
+		o_SYNC_N <= ssync ;
+		o_CLK <= sclk ;
+
+end behavioral ;
 	
-	begin
-		
-		vga-sync : entity work.VGA_Sync
-						Port map(clk25=>clk25, reset => reset, hs => h_s, vs => v_s, inDisp => inDisp, x => x, y => y) ;
-						
-		
-		
-		
-	
-	
-	VS <= v_s ;
-	HS <= h_s ;
-	R <= Rout ;
-	B <= Bout ;
-	G <= Gout ;
-	BLANK_N <= inDisp ;
-	SYNC_N <= h_s and v_s ;
-
-
-
-end Behavioral ;

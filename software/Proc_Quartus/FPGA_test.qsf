@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY VGA_ctrl
+set_global_assignment -name TOP_LEVEL_ENTITY VGA_final
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "THU JUL 11 11:26:45 2013"
 set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.1 Lite Edition"
@@ -237,44 +237,13 @@ set_location_assignment PIN_B3 -to TD_DATA[7]
 set_location_assignment PIN_A5 -to TD_HS
 set_location_assignment PIN_F6 -to TD_RESET_N
 set_location_assignment PIN_A3 -to TD_VS
-set_location_assignment PIN_B13 -to VGA_B[0]
-set_location_assignment PIN_G13 -to VGA_B[1]
-set_location_assignment PIN_H13 -to VGA_B[2]
-set_location_assignment PIN_F14 -to VGA_B[3]
-set_location_assignment PIN_H14 -to VGA_B[4]
-set_location_assignment PIN_F15 -to VGA_B[5]
-set_location_assignment PIN_G15 -to VGA_B[6]
-set_location_assignment PIN_J14 -to VGA_B[7]
-set_location_assignment PIN_F10 -to VGA_BLANK_N
-set_location_assignment PIN_A11 -to VGA_CLK
-set_location_assignment PIN_J9 -to VGA_G[0]
-set_location_assignment PIN_J10 -to VGA_G[1]
-set_location_assignment PIN_H12 -to VGA_G[2]
-set_location_assignment PIN_G10 -to VGA_G[3]
-set_location_assignment PIN_G11 -to VGA_G[4]
-set_location_assignment PIN_G12 -to VGA_G[5]
-set_location_assignment PIN_F11 -to VGA_G[6]
-set_location_assignment PIN_E11 -to VGA_G[7]
-set_location_assignment PIN_B11 -to VGA_HS
-set_location_assignment PIN_A13 -to VGA_R[0]
-set_location_assignment PIN_C13 -to VGA_R[1]
-set_location_assignment PIN_E13 -to VGA_R[2]
-set_location_assignment PIN_B12 -to VGA_R[3]
-set_location_assignment PIN_C12 -to VGA_R[4]
-set_location_assignment PIN_D12 -to VGA_R[5]
-set_location_assignment PIN_E12 -to VGA_R[6]
-set_location_assignment PIN_F13 -to VGA_R[7]
-set_location_assignment PIN_C10 -to VGA_SYNC_N
-set_location_assignment PIN_D11 -to VGA_VS
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_global_assignment -name VERILOG_FILE DE1_SOC_golden_top.v
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name CDF_FILE Chain1.cdf
-set_global_assignment -name VHDL_FILE displayer.vhd
 set_location_assignment PIN_Y21 -to Led[9]
 set_location_assignment PIN_W21 -to Led[8]
 set_location_assignment PIN_W20 -to Led[7]
@@ -295,25 +264,20 @@ set_location_assignment PIN_AD12 -to Switch[5]
 set_location_assignment PIN_AE11 -to Switch[6]
 set_location_assignment PIN_AC9 -to Switch[7]
 set_location_assignment PIN_AD10 -to Switch[8]
-set_global_assignment -name QIP_FILE PLL.qip
-set_global_assignment -name SIP_FILE PLL.sip
-set_location_assignment PIN_AF14 -to clk50
-set_location_assignment PIN_AA14 -to reset_n
 set_global_assignment -name VHDL_FILE VGA_Sync.vhd
 set_global_assignment -name VHDL_FILE H_sync.vhd
 set_global_assignment -name VHDL_FILE V_sync.vhd
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (VHDL)"
 set_global_assignment -name EDA_TIME_SCALE "10 us" -section_id eda_simulation
-set_global_assignment -name VHDL_FILE VGA_Sync_tb.vhd
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH VGA_ctrl_test -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME VGA_Sync_testbench -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id VGA_Sync_testbench
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "20 ns" -section_id VGA_Sync_testbench
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME VGA_Sync_testbench -section_id VGA_Sync_testbench
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH VGA_test -section_id eda_simulation
 set_global_assignment -name VHDL_FILE VGA_ctrl.vhd
 set_global_assignment -name VHDL_FILE VGA_comm.vhd
+set_global_assignment -name VHDL_FILE VGA_ctrl_tb.vhd
+set_global_assignment -name QIP_FILE PLL25.qip
+set_global_assignment -name SIP_FILE PLL25.sip
+set_global_assignment -name VHDL_FILE VGA_final.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -687,11 +651,40 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk50
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to reset_n
-set_global_assignment -name VHDL_FILE VGA_ctrl_tb.vhd
-set_global_assignment -name EDA_TEST_BENCH_FILE VGA_Sync_tb.vhd -section_id VGA_Sync_testbench
-set_global_assignment -name EDA_TEST_BENCH_NAME VGA_ctrl_test -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id VGA_ctrl_test
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "20 ns" -section_id VGA_ctrl_test
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME VGA_ctrl_test -section_id VGA_ctrl_test
-set_global_assignment -name EDA_TEST_BENCH_FILE VGA_ctrl_tb.vhd -section_id VGA_ctrl_test
+set_global_assignment -name EDA_TEST_BENCH_NAME VGA_test -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME VGA_ctrl_tb.vhd -section_id VGA_test
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "100 ns" -section_id VGA_test
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME VGA_test -section_id VGA_test
+set_global_assignment -name EDA_TEST_BENCH_FILE VGA_ctrl_tb.vhd -section_id VGA_test
+set_location_assignment PIN_J14 -to o_B[7]
+set_location_assignment PIN_G15 -to o_B[6]
+set_location_assignment PIN_F15 -to o_B[5]
+set_location_assignment PIN_H14 -to o_B[4]
+set_location_assignment PIN_F14 -to o_B[3]
+set_location_assignment PIN_H13 -to o_B[2]
+set_location_assignment PIN_G13 -to o_B[1]
+set_location_assignment PIN_B13 -to o_B[0]
+set_location_assignment PIN_AF14 -to i_clk50
+set_location_assignment PIN_E11 -to o_G[7]
+set_location_assignment PIN_F11 -to o_G[6]
+set_location_assignment PIN_G12 -to o_G[5]
+set_location_assignment PIN_G11 -to o_G[4]
+set_location_assignment PIN_G10 -to o_G[3]
+set_location_assignment PIN_H12 -to o_G[2]
+set_location_assignment PIN_J10 -to o_G[1]
+set_location_assignment PIN_J9 -to o_G[0]
+set_location_assignment PIN_F13 -to o_R[7]
+set_location_assignment PIN_E12 -to o_R[6]
+set_location_assignment PIN_D12 -to o_R[5]
+set_location_assignment PIN_C12 -to o_R[4]
+set_location_assignment PIN_B12 -to o_R[3]
+set_location_assignment PIN_E13 -to o_R[2]
+set_location_assignment PIN_C13 -to o_R[1]
+set_location_assignment PIN_A13 -to o_R[0]
+set_location_assignment PIN_A11 -to o_CLK
+set_location_assignment PIN_D11 -to o_VS
+set_location_assignment PIN_AA14 -to i_reset
+set_location_assignment PIN_F10 -to o_BLANK_N
+set_location_assignment PIN_B11 -to o_HS
+set_location_assignment PIN_C10 -to o_SYNC_N
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

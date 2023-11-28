@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/simulation/modelsim
 Eh_sync
-Z1 w1700216326
+Z1 w1701175594
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -18,13 +18,13 @@ Z5 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd
 Z6 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd
 l0
 L5
-Ve?zFFE:Z]0aN2bIV^Eg1:0
-!s100 cKU@RhML_8Ogoji0eO]XA3
+VcWJeSA7M>FY75LbM7cR9B3
+!s100 ]bJI22=o]61@1;V;V_ko[2
 Z7 OV;C;10.5b;63
 31
-Z8 !s110 1700216437
+Z8 !s110 1701179472
 !i10b 1
-Z9 !s108 1700216437.000000
+Z9 !s108 1701179471.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd|
 Z11 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/H_sync.vhd|
 !i113 1
@@ -34,11 +34,11 @@ Abehavioral
 R2
 R3
 R4
-Z14 DEx4 work 6 h_sync 0 22 e?zFFE:Z]0aN2bIV^Eg1:0
-l45
-L42
-VNY@<3;z9oc5B`2zXg]Q9Q2
-!s100 fh]T<C<f<P:gjd:aBYi0_3
+Z14 DEx4 work 6 h_sync 0 22 cWJeSA7M>FY75LbM7cR9B3
+l20
+L17
+VfJDil@?fhee6C`>8z5?=f0
+!s100 XiH=Y;9jiM[NNYYR[8?>S0
 R7
 31
 R8
@@ -49,64 +49,64 @@ R11
 !i113 1
 R12
 R13
-Epll
-Z15 w1698107104
+Epll25
+Z15 w1701177050
 R3
 R4
 Z16 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 j2UP9CC=Y_B?SOL73A]P;2
 R0
-Z17 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL_sim/PLL.vho
-Z18 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL_sim/PLL.vho
+Z17 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL25_sim/PLL25.vho
+Z18 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL25_sim/PLL25.vho
 l0
 L34
-V]g;64N<>NkKmXm>TGlXI_0
-!s100 Ve6iUMX>eXM07Y5e7KSEZ2
+VFZJ[@6f]ZZcPIo0oOMDQ[3
+!s100 PgKIU?^eD:HKzkJn<FIL91
 R7
 32
-R8
+Z19 !s110 1701179471
 !i10b 1
 R9
-Z19 !s90 -reportprogress|300|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL_sim/PLL.vho|
-Z20 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL_sim/PLL.vho|
+Z20 !s90 -reportprogress|300|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL25_sim/PLL25.vho|
+Z21 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL25_sim/PLL25.vho|
 !i113 1
 R13
 Artl
 R3
 R4
 R16
-DEx4 work 3 pll 0 22 ]g;64N<>NkKmXm>TGlXI_0
+DEx4 work 5 pll25 0 22 FZJ[@6f]ZZcPIo0oOMDQ[3
 l51
 L44
-VL0j`?84I;e5jfH7EYLIG:0
-!s100 `1`8S:Dl@V^BeH=?^zek82
+V;P[9D8ElMmZODba8L[zAM1
+!s100 XV:CL^5bBghK<8c:TdSjh0
 R7
 32
-R8
+R19
 !i10b 1
 R9
-R19
 R20
+R21
 !i113 1
 R13
 Ev_sync
-Z21 w1700216321
+Z22 w1701175602
 R2
 R3
 R4
 R0
-Z22 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd
-Z23 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd
+Z23 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd
+Z24 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd
 l0
 L5
-V0?0^Rn4WIZf=0SY=YHNlL2
-!s100 SZWoh3WHPVL=>XYMG2;Qn0
+V2<?:P9426e;jAaZY9N?@20
+!s100 6;ASlPe3m];YHVM>Y82^21
 R7
 31
 R8
 !i10b 1
-R9
-Z24 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd|
-Z25 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd|
+Z25 !s108 1701179472.000000
+Z26 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd|
+Z27 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/V_sync.vhd|
 !i113 1
 R12
 R13
@@ -114,181 +114,181 @@ Abehavioral
 R2
 R3
 R4
-Z26 DEx4 work 6 v_sync 0 22 0?0^Rn4WIZf=0SY=YHNlL2
-l45
-L42
-VMzM2KLFHN@M0zcbi1OF550
-!s100 T?`B;aGlj^PL;J6z@4iF53
+Z28 DEx4 work 6 v_sync 0 22 2<?:P9426e;jAaZY9N?@20
+l21
+L18
+Vf?cj8eZ5OV[SWHV4]FiL;2
+!s100 CHM8Ni7?DSa<YjKkj8me<2
 R7
 31
 R8
 !i10b 1
-R9
-R24
 R25
+R26
+R27
 !i113 1
 R12
 R13
 Evga_comm
-Z27 w1700214868
+Z29 w1700948191
 R3
 R4
 R0
-Z28 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd
-Z29 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd
+Z30 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd
+Z31 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd
 l0
 L4
-VEHEefkjf>eU5]K738k6[M0
-!s100 QzG3OWa?E:bRh_j7M5flg0
+V1>f@k2in2fOPMAgL1fd<i3
+!s100 EX5<P?CzPGFW@8VjGS4mW3
 R7
 31
 R8
 !i10b 1
-R9
-Z30 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd|
-Z31 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd|
+R25
+Z32 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd|
+Z33 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_comm.vhd|
 !i113 1
 R12
 R13
 Abehavioral
 R3
 R4
-Z32 DEx4 work 8 vga_comm 0 22 EHEefkjf>eU5]K738k6[M0
+Z34 DEx4 work 8 vga_comm 0 22 1>f@k2in2fOPMAgL1fd<i3
 l23
 L18
-V3c8XaYVZVTjRj=bQJC>fW0
-!s100 ^X>oeb;<MA6O[;`JlFnmV3
+VTVKUYRnSf;Y2N[[d^QgLU0
+!s100 X_EKYa4lUJoUUZh2nLn:Z1
 R7
 31
 R8
 !i10b 1
-R9
-R30
-R31
+R25
+R32
+R33
 !i113 1
 R12
 R13
 Evga_ctrl
-Z33 w1700214872
+Z35 w1701179357
 R3
 R4
 R0
-Z34 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd
-Z35 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd
+Z36 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd
+Z37 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd
 l0
 L4
-Vl`]WG39F7B^lQeM_ZC^[H3
-!s100 2i:E;N2Y:k_l<2^WdJ`F03
+VMUAXk=D_P@9Q99@T13Yga0
+!s100 [;U_>zai2n<:m?440;^>k0
 R7
 31
 R8
 !i10b 1
-R9
-Z36 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd|
-Z37 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd|
+R25
+Z38 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd|
+Z39 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl.vhd|
 !i113 1
 R12
 R13
 Abehavioral
-R32
+R34
 R2
-Z38 DEx4 work 8 vga_sync 0 22 ^Q[_:1g7R_<>[E2D?RM]U3
+Z40 DEx4 work 8 vga_sync 0 22 gf>`L@cg=nV^3b?]XaS`d2
 R3
 R4
-DEx4 work 8 vga_ctrl 0 22 l`]WG39F7B^lQeM_ZC^[H3
-l28
-L18
-VmJ]6UI<3Xe_>nF2@nA:jH3
-!s100 Ee0zzKfL8]PA9bd>SX@UI3
+DEx4 work 8 vga_ctrl 0 22 MUAXk=D_P@9Q99@T13Yga0
+l29
+L19
+VCY[_7DcgkiMEIzN_>[<`K3
+!s100 4^_XmC;J23<AcYifURVBJ1
 R7
 31
 R8
 !i10b 1
-R9
-R36
-R37
+R25
+R38
+R39
 !i113 1
 R12
 R13
 Evga_ctrl_tb
-Z39 w1700216390
+Z41 w1701179153
 R3
 R4
 R0
-Z40 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd
-Z41 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd
+Z42 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd
+Z43 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd
 l0
 L5
-VkdZ_bDCV6;?:?l^OD6c4S2
+Vc0AGj0cXmPKQeN:ZPM6i80
 !s100 >IgG^B:3]o2RSk?Lg[D;V0
 R7
-31
-R8
+32
+Z44 !s110 1701185519
 !i10b 1
-R9
-Z42 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd|
-Z43 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd|
+Z45 !s108 1701185518.000000
+Z46 !s90 -reportprogress|300|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd|
+Z47 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_ctrl_tb.vhd|
 !i113 1
-R12
+Z48 o-work work
 R13
 Abehavioral
 R3
 R4
-DEx4 work 11 vga_ctrl_tb 0 22 kdZ_bDCV6;?:?l^OD6c4S2
-l37
+DEx4 work 11 vga_ctrl_tb 0 22 c0AGj0cXmPKQeN:ZPM6i80
+l39
 L9
-VaRD9zPj1TLAPi2@@?jY4G0
-!s100 LZ:1^WW@z>KK7]fNRY52C1
+VmgE@nO3_aY[Wcj0FS11E62
+!s100 nWX?mU4IokD`J_H2o_7f70
 R7
-31
-R8
+32
+R44
 !i10b 1
-R9
-R42
-R43
+R45
+R46
+R47
 !i113 1
-R12
+R48
 R13
 Evga_sync
-Z44 w1700214864
+Z49 w1700948305
 R2
 R3
 R4
 R0
-Z45 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd
-Z46 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd
+Z50 8D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd
+Z51 FD:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd
 l0
 L5
-V^Q[_:1g7R_<>[E2D?RM]U3
-!s100 29f;Lmg>9U`FZDETPVLVc1
+Vgf>`L@cg=nV^3b?]XaS`d2
+!s100 gnjRW>PVmTkhIfCGM>:7D1
 R7
 31
 R8
 !i10b 1
-R9
-Z47 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd|
-Z48 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd|
+R25
+Z52 !s90 -reportprogress|300|-93|-work|work|D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd|
+Z53 !s107 D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/VGA_Sync.vhd|
 !i113 1
 R12
 R13
 Abehavioral
-R26
+R28
 R14
 R2
 R3
 R4
-R38
+R40
 l26
 L17
-Vi^^OjmAi;;Bif=5BP;Ija0
-!s100 FkfRzd0IBmzO3QP?ck^1O3
+V@HcB>ARS[Z;W]dzA5`cKM2
+!s100 C^Og^zIZKo=7QPLG692J:3
 R7
 31
 R8
 !i10b 1
-R9
-R47
-R48
+R25
+R52
+R53
 !i113 1
 R12
 R13

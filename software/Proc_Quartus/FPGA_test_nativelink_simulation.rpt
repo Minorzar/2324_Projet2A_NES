@@ -1,5 +1,5 @@
 Info: Start Nativelink Simulation process
-executing command line: ip-make-simscript --nativelink-mode --output-directory=FPGA_test_iputf_input --spd=D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL.spd 
+executing command line: ip-make-simscript --nativelink-mode --output-directory=FPGA_test_iputf_input --spd=D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/PLL25.spd 
 
 ========= EDA Simulation Settings =====================
 

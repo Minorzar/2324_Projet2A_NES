@@ -1,2 +1,21 @@
-library IEEE ;
-use ieee.std_logic_1164.all ;
+library ieee ;
+use ieee.std_logic.all ;
+
+library pll25 ;
+use pll25.all ;
+
+
+
+
+
+
+
+
+
+clk25: entity pll25.pll25 
+			port map (
+				refclk => clk50,
+				rst => not reset ,
+				outclk_0 => clk_pll,
+				locked => pll_locked
+		);

@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Fri Nov 17 11:20:04 2023
+Analysis & Synthesis Status : Successful - Tue Nov 28 21:56:34 2023
 Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 Revision Name : FPGA_test
-Top-level Entity Name : VGA_ctrl
+Top-level Entity Name : VGA_final
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 46
-Total pins : 30
+Total registers : 44
+Total pins : 31
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
@@ -13,5 +13,5 @@ Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0
 Total HSSI PMA TX Serializers : 0
-Total PLLs : 0
+Total PLLs : 1
 Total DLLs : 0

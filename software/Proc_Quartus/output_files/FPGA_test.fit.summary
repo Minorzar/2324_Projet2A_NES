@@ -1,13 +1,13 @@
-Fitter Status : Successful - Tue Oct 10 23:47:52 2023
+Fitter Status : Successful - Tue Nov 28 21:57:17 2023
 Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 Revision Name : FPGA_test
-Top-level Entity Name : displayer
+Top-level Entity Name : VGA_final
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 21 / 32,070 ( < 1 % )
-Total registers : 41
-Total pins : 12 / 457 ( 3 % )
+Logic utilization (in ALMs) : 411 / 32,070 ( 1 % )
+Total registers : 52
+Total pins : 31 / 457 ( 7 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )
 Total RAM Blocks : 0 / 397 ( 0 % )
