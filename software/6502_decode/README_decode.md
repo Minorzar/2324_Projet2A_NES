@@ -93,8 +93,6 @@ In the context of 6502 instructions, different addressing modes determine how th
 - "01" may refer to the selection of the X register.
 - "10" may refer to the selection of the Y register.
 
-Reference: [6502 Addressing Modes Wiki](https://wiki.cdot.senecacollege.ca/wiki/6502_Addressing_Modes).
-
 ## Additional Components
 
 ### Predecode Register:
@@ -126,3 +124,8 @@ Reference: [6502 Addressing Modes Wiki](https://wiki.cdot.senecacollege.ca/wiki/
 
 - **VHDL File:** `random_control_logic.vhdl`
 - **Functionality:** The random control logic is responsible for generating control signals based on specific conditions or events within the processor. It may handle various control aspects, such as branching conditions, interrupts, or other non-deterministic behaviors.
+
+## References
+
+- [The 6502/65C02/65C816 Instruction Set Decoded](https://llx.com/Neil/a2/opcodes.html)
+- [6502 Addressing Modes Wiki](https://wiki.cdot.senecacollege.ca/wiki/6502_Addressing_Modes)
