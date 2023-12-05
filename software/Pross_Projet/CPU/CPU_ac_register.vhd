@@ -13,20 +13,20 @@ entity CPU_ac_register is
 end CPU_ac_register;
 
 architecture Behavioral of CPU_ac_register is
-	signal ac_reg: unsigned (7 downto 0);
+	signal reg_ac: unsigned (7 downto 0);
 begin
 	process(i_clk)
 		begin
 			if (rising_edge(i_clk)) then
 				if i_sb_to_ac = '1' then
-					ac_reg <= io_s_bus;
+					reg_ac <= io_s_bus;
 				end if;
 			end if;
 		end process;
 
-	io_s_bus <= ac_reg when i_ac_to_sb = '1' else
+	io_s_bus <= reg_ac when i_ac_to_sb = '1' else
 		(others => 'Z');
 
-	o_d_bus <= ac_reg when i_ac_to_db = '1' else
+	o_d_bus <= reg_ac when i_ac_to_db = '1' else
 		(others => 'Z');
 end Behavioral;

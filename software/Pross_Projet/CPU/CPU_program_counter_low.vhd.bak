@@ -28,18 +28,17 @@ begin
 
                 if i_pcl_increment = '1' then
                     pcl_reg <= reg_pcl_select + 1;
-                    if reg_pcl_select = "11111111" then
-                       o_carry <= '1';
+                    if reg_pcl_select = (others => '1') then
+                       o_carry = '1';
                     else
-                        o_carry <= '0';
+                        o_carry = '0';
                     end if;
-                else pcl_reg <= reg_pcl_select;
-                    o_carry <= '0';
+                else pcl_reg = reg_pcl_select;
+                    o_carry = '0';
                 end if;
 
                 if i_pcl_reload = '1' then
                     reg_pcl_select <= pcl_reg;
-						  end if;
 			end if;
 		end process;
 

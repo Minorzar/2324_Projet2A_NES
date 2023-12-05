@@ -22,7 +22,7 @@ begin
 		end if;
 	end process;
 
-	io_s_bus <= reg_x when i_x_to_sb = '1' else
+	s_bus <= reg_x when i_x_to_sb = '1' else
 		(others => 'Z');
 
 end Behavioral;
