@@ -30,7 +30,8 @@ architecture ROM_6502_rft of ROM_6502 is
     signal ROM: MEMORY; 
     
         RAM <=(
-
+                0=>
+                1=>
 
         );
 
