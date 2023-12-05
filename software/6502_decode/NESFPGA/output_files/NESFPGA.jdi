@@ -1,8 +1,8 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="e0b1cc55a6b5427a84d0"/>
+    <hash md5_digest_80b="963efbb1f4a4f5829441"/>
   </project>
   <file_info>
-    <file device="5CGXFC7C7F23C8" path="NESFPGA.sof" usercode="0xFFFFFFFF"/>
+    <file device="10M08DAF484C8G" path="NESFPGA.sof" usercode="0xFFFFFFFF"/>
   </file_info>
 </sld_project_info>

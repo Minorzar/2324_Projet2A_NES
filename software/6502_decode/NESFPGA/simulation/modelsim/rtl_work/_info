@@ -1,0 +1,102 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim
+Epredecode
+Z1 w1701241493
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z6 8/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd
+Z7 F/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd
+l0
+L6 1
+V1HG5c7X<Cgm?Qja72j5mV3
+!s100 kXk9WMUB5;eZf:kHOKCjf0
+Z8 OV;C;2020.1;71
+31
+!s110 1701783416
+!i10b 1
+Z9 !s108 1701783416.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd|
+Z11 !s107 /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+R5
+Z14 DEx4 work 9 predecode 0 22 1HG5c7X<Cgm?Qja72j5mV3
+!i122 0
+l27
+L16 272
+VZ6KG`j2OFajc_J2lPE=Xm2
+!s100 IA:FeJ`9k<Th]_kVUD]T73
+R8
+31
+Z15 !s110 1701783417
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etb_predecode
+Z16 w1701186142
+R2
+R3
+R4
+R5
+!i122 1
+R0
+Z17 8/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd
+Z18 F/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd
+l0
+L8 1
+VBC[=0kda8VI6U^E]ILcPJ3
+!s100 G6^NNVelHcAWHQ9@b2Q5_2
+R8
+31
+R15
+!i10b 1
+Z19 !s108 1701783417.000000
+Z20 !s90 -reportprogress|300|-93|-work|work|/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd|
+!s107 /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R14
+R2
+R3
+R4
+R5
+DEx4 work 12 tb_predecode 0 22 BC[=0kda8VI6U^E]ILcPJ3
+!i122 1
+l18
+L11 44
+VdeEQI[FGUOMR>P6m8g]0_3
+!s100 Y^UR]zhSk2E[CA>4J2fJK0
+R8
+31
+R15
+!i10b 1
+R19
+R20
+Z21 !s107 /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd|
+!i113 1
+R12
+R13

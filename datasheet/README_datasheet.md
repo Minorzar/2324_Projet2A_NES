@@ -21,8 +21,10 @@
 
 ## CPU: 6502 / 2A03
 
-### 6502 Instructions Chart
+### 6502 Instructions Set
 - Web: [The 6502 Instruction Set Decoded.webarchive](https://llx.com/Neil/a2/opcodes.html)
+- Web: [6502 Addressing Modes.webarchive](https://wiki.cdot.senecacollege.ca/wiki/6502_Addressing_Modes)
+- Document: [MC6500 Microcomputer Family Programming Manual](https://archive.org/details/mos_microcomputers_programming_manual/page/n3/mode/2up)
 
 ### 65xx Opcode Chart / List / Data
 - Source [CPU unofficial opcodes](https://www.nesdev.org/wiki/CPU_unofficial_opcodes)
@@ -42,6 +44,7 @@
 ### 6502 Colorized Block Diagram
 - Source: [6502 Colorized Block Diagram](http://forum.6502.org/viewtopic.php?t=1744)
 - Document: [6502-Block-Diagram-Colorized.png](http://i.imgur.com/BkZ9o.png)
+
 
 
 ## PPU: 2C02

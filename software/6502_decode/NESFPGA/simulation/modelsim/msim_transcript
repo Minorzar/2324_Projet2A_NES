@@ -1,0 +1,30 @@
+# do NESFPGA_run_msim_rtl_vhdl.do
+# if ![file isdirectory vhdl_libs] {
+# 	file mkdir vhdl_libs
+# }
+# 
+# vlib vhdl_libs/altera
+# ** Warning: (vlib-34) Library already exists at "vhdl_libs/altera".
+# vmap altera ./vhdl_libs/altera
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap altera ./vhdl_libs/altera 
+# Copying /home/nightfore/intelFPGA/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# vcom -93 -work altera {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_syn_attributes.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:38:01 on Dec 05,2023
+# vcom -reportprogress 300 -93 -work altera /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_syn_attributes.vhd 
+# -- Loading package STANDARD
+# -- Compiling package altera_syn_attributes
+# End time: 14:38:02 on Dec 05,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work altera {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_standard_functions.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:38:02 on Dec 05,2023
+# vcom -reportprogress 300 -93 -work altera /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_standard_functions.vhd 
+# -- Loading package STANDARD
+# -- Compiling package altera_standard_functions
+# -- Compiling package body altera_standard_functions
+# -- Loading package altera_standard_functions
+# End time: 14:38:02 on Dec 05,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

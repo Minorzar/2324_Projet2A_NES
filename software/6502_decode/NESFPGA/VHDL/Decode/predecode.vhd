@@ -18,7 +18,7 @@ architecture Behavioral of predecode is
 	signal s_aaa : STD_LOGIC_VECTOR(2 downto 0);
 	signal s_bbb : STD_LOGIC_VECTOR(2 downto 0);
 	signal s_xx : STD_LOGIC_VECTOR(1 downto 0);
-	signal s_y : STD_LOGIC_VECTOR;
+	signal s_y : STD_LOGIC;
 	signal s_flag_C : STD_LOGIC := i_status_register(0);
 	signal s_flag_Z : STD_LOGIC := i_status_register(1);
 	signal s_flag_V : STD_LOGIC := i_status_register(6);
@@ -37,11 +37,6 @@ begin
 	s_flag_Z <= i_status_register(1);
 	s_flag_V <= i_status_register(6);
 	s_flag_N <= i_status_register(7);
-
-	-- Default output values
-	o_active_instruction <= "000000";
-	o_addressing_mode <= "000";
-	o_register_select <= "00";
 
 	process (i_instruction)
 	begin
@@ -187,7 +182,7 @@ begin
 
 					-- === Conditional branches (xxy10000) ===
 					when "100" =>
-						case s_xx is
+						case s_xx & s_y is
 							when "000" =>
 								if s_flag_N = '0' then	   -- BPL (Branch on PLus)
 									o_active_instruction <= "010111";
@@ -226,63 +221,67 @@ begin
 
 					-- === Single-byte instruction ===
 					when others =>
-							case i_instruction is
-									when "00000000" =>
-										o_active_instruction <= "011111";	   -- BRK
-									when "00100000" =>
-										o_active_instruction <= "100000";	   -- JSR abs
-									when "01000000" =>
-										o_active_instruction <= "100001";	   -- RTI
-									when "01100000" =>
-										o_active_instruction <= "100010";	   -- RTS
-									when "00001000" =>
-										o_active_instruction <= "100011";	   -- PHP
-									when "00101000" =>
-										o_active_instruction <= "100100";	   -- PLP
-									when "01001000" =>
-										o_active_instruction <= "100101";	   -- PHA
-									when "01101000" =>
-										o_active_instruction <= "100110";	   -- PLA
-									when "10001000" =>
-										o_active_instruction <= "100111";	   -- DEY
-									when "10101000" =>
-										o_active_instruction <= "101000";	   -- TAY
-									when "11001000" =>
-										o_active_instruction <= "101001";	   -- INY
-									when "11101000" =>
-										o_active_instruction <= "101010";	   -- INX
-									when "00011000" =>
-										o_active_instruction <= "101011";	   -- CLC
-									when "00111000" =>
-										o_active_instruction <= "101100";	   -- SEC
-									when "01011000" =>
-										o_active_instruction <= "101101";	   -- CLI
-									when "01111000" =>
-										o_active_instruction <= "101110";	   -- SEI
-									when "10011000" =>
-										o_active_instruction <= "101111";	   -- TYA
-									when "10111000" =>
-										o_active_instruction <= "110000";	   -- CLV
-									when "11011000" =>
-										o_active_instruction <= "110001";	   -- CLD
-									when "11111000" =>
-										o_active_instruction <= "110010";	   -- SED
-									when "10001010" =>
-										o_active_instruction <= "110011";	   -- TXA
-									when "10101010" =>
-										o_active_instruction <= "110100";	   -- TXS
-									when "11001010" =>
-										o_active_instruction <= "110101";	   -- TAX
-									when "11101010" =>
-										o_active_instruction <= "110110";	   -- TSX
-									when "11011010" =>
-										o_active_instruction <= "110111";	   -- DEX
-									when "11111010" =>
-										o_active_instruction <= "111000";	   -- NOP
-									when others =>
-										o_active_instruction <= "000000";	   -- Default case
-							end case;
+						case i_instruction is
+								when "00000000" =>
+									o_active_instruction <= "011111";	   -- BRK
+								when "00100000" =>
+									o_active_instruction <= "100000";	   -- JSR abs
+								when "01000000" =>
+									o_active_instruction <= "100001";	   -- RTI
+								when "01100000" =>
+									o_active_instruction <= "100010";	   -- RTS
+								when "00001000" =>
+									o_active_instruction <= "100011";	   -- PHP
+								when "00101000" =>
+									o_active_instruction <= "100100";	   -- PLP
+								when "01001000" =>
+									o_active_instruction <= "100101";	   -- PHA
+								when "01101000" =>
+									o_active_instruction <= "100110";	   -- PLA
+								when "10001000" =>
+									o_active_instruction <= "100111";	   -- DEY
+								when "10101000" =>
+									o_active_instruction <= "101000";	   -- TAY
+								when "11001000" =>
+									o_active_instruction <= "101001";	   -- INY
+								when "11101000" =>
+									o_active_instruction <= "101010";	   -- INX
+								when "00011000" =>
+									o_active_instruction <= "101011";	   -- CLC
+								when "00111000" =>
+									o_active_instruction <= "101100";	   -- SEC
+								when "01011000" =>
+									o_active_instruction <= "101101";	   -- CLI
+								when "01111000" =>
+									o_active_instruction <= "101110";	   -- SEI
+								when "10011000" =>
+									o_active_instruction <= "101111";	   -- TYA
+								when "10111000" =>
+									o_active_instruction <= "110000";	   -- CLV
+								when "11011000" =>
+									o_active_instruction <= "110001";	   -- CLD
+								when "11111000" =>
+									o_active_instruction <= "110010";	   -- SED
+								when "10001010" =>
+									o_active_instruction <= "110011";	   -- TXA
+								when "10101010" =>
+									o_active_instruction <= "110100";	   -- TXS
+								when "11001010" =>
+									o_active_instruction <= "110101";	   -- TAX
+								when "11101010" =>
+									o_active_instruction <= "110110";	   -- TSX
+								when "11011010" =>
+									o_active_instruction <= "110111";	   -- DEX
+								when "11111010" =>
+									o_active_instruction <= "111000";	   -- NOP
+								when others =>
+									o_active_instruction <= "000000";	   -- Default case
+						end case;
 				end case;
+			when others =>				
+				o_active_instruction <= "000000";
+				o_addressing_mode <= "000";
+				o_register_select <= "00";
 		end case;
 	end process;
 end Behavioral;
