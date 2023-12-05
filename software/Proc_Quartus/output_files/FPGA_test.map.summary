@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Tue Nov 28 21:56:34 2023
+Analysis & Synthesis Status : Successful - Tue Dec  5 17:21:31 2023
 Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 Revision Name : FPGA_test
 Top-level Entity Name : VGA_final
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 44
-Total pins : 31
+Total registers : 88
+Total pins : 32
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

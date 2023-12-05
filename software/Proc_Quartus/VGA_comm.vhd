@@ -3,14 +3,13 @@ use ieee.std_logic_1164.all ;
 
 entity VGA_comm is
 	Port(
-		i_clk25 : in std_logic ;
-		i_reset : in std_logic ;
-		i_inDisp : in std_logic ;
-		i_x : in std_logic_vector(9 downto 0) ;
-		i_y : in std_logic_vector(9 downto 0) ;
-		o_R : out std_logic_vector(7 downto 0) ;
-		o_G : out std_logic_vector(7 downto 0) ;
-		o_B : out std_logic_vector(7 downto 0)
+		i_clk25 	: in std_logic ;
+		i_reset	: in std_logic ;
+		i_x 		: in std_logic_vector(9 downto 0) ;
+		i_y 		: in std_logic_vector(9 downto 0) ;
+		o_R 		: out std_logic_vector(7 downto 0) ;
+		o_G 		: out std_logic_vector(7 downto 0) ;
+		o_B 		: out std_logic_vector(7 downto 0)
 	);
 
 end VGA_comm ;
@@ -37,8 +36,8 @@ begin
 		end if ;
 	end process ;
 	
-	o_R <= rR when(i_inDisp = '1') else "00000000" ;
-	o_B <= rB when(i_inDisp = '1') else "00000000" ;
-	o_G <= rG when(i_inDisp = '1') else "00000000" ;
+	o_R <= rR ;
+	o_B <= rB ;
+	o_G <= rG ;
 
 end Behavioral ;

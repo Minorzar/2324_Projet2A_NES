@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "o_led",
+					"strict" : false
+				},
+				{
 					"name" : "o_HS",
 					"strict" : false
 				},
@@ -112,7 +116,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "o_SYNC_N",
+					"name" : "i_reset",
 					"strict" : false
 				}
 			]
