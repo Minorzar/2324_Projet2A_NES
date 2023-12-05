@@ -5,6 +5,7 @@ use ieee.numeric_std.all;
 entity RAM_6116 is 
     port(
     --clock
+<<<<<<< HEAD
     clk : in std_logic;
 
     -- chip select
@@ -14,6 +15,15 @@ entity RAM_6116 is
     WE_n: in std_logic;
     -- desable output
     OE_n: in std_logic;
+=======
+
+    CS: in std_logic;
+
+    -- enable 
+    WE: in std_logic;
+    -- desable output
+    OE: in std_logic;
+>>>>>>> 424011948608416313d87c2cf5c8f0130b37d12b
      
     -- all pin to select a row (pin coding an adress)
 
@@ -27,6 +37,7 @@ end RAM_6116;
 
 architecture RAM_6116_rft of RAM_6116 is 
     subtype word_8 is unsigned(7 downto 0);
+<<<<<<< HEAD
     type MEMORY is array(0 to (2**11)-1) of word_8;
     signal RAM: MEMORY;
 
@@ -59,4 +70,24 @@ signal s_out_port : unsigned(7 downto 0);
    io_data <= s_out_port when (OE_n = '0') else "ZZZZZZZZ";
    --pour faire en sorte que ce qui sort devient ce qui est bien présen
 
+=======
+    type MEMORY is array(2**10 downto 0) of word_8;
+    signal RAM: MEMORY;
+
+    begin 
+
+    process(CS)
+    begin
+            if (CS='0') then
+                if(WE='1') then 
+                    if(OE='0') then 
+                        io_data <=RAM(to_integer(i_Adress));
+                    end if;
+
+                else
+                    RAM(to_integer(i_Adress))<=io_data;
+                end if;
+            end if;
+    end process;
+>>>>>>> 424011948608416313d87c2cf5c8f0130b37d12b
 end RAM_6116_rft; 
