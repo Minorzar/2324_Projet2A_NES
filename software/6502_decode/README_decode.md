@@ -89,9 +89,9 @@ In the context of 6502 instructions, different addressing modes determine how th
 | Zero page, Y      | "10"              | "111"             |
 
 **Note on `register_select`:**
-- "00" may refer to the selection of the accumulator.
-- "01" may refer to the selection of the X register.
-- "10" may refer to the selection of the Y register.
+- "00" refer to the selection of the accumulator.
+- "01" refer to the selection of the X register.
+- "10" refer to the selection of the Y register.
 
 ## Additional Components
 

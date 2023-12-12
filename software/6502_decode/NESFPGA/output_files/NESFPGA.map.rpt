@@ -1,5 +1,5 @@
-Analysis & Elaboration report for NESFPGA
-Tue Dec  5 14:24:26 2023
+Analysis & Synthesis report for NESFPGA
+Tue Dec 12 13:38:27 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -7,9 +7,16 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Analysis & Elaboration Settings
-  4. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. General Register Statistics
+  8. Multiplexer Restructuring Statistics (Restructuring Performed)
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -34,29 +41,29 @@ https://fpgasoftware.intel.com/eula.
 
 
 +-------------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                      ;
+; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Tue Dec  5 14:24:26 2023          ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 12 13:38:27 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; NESFPGA                                        ;
 ; Top-level Entity Name              ; predecode                                      ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; N/A until Partition Merge                      ;
-;     Total combinational functions  ; N/A until Partition Merge                      ;
-;     Dedicated logic registers      ; N/A until Partition Merge                      ;
-; Total registers                    ; N/A until Partition Merge                      ;
-; Total pins                         ; N/A until Partition Merge                      ;
-; Total virtual pins                 ; N/A until Partition Merge                      ;
-; Total memory bits                  ; N/A until Partition Merge                      ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
-; Total PLLs                         ; N/A until Partition Merge                      ;
-; UFM blocks                         ; N/A until Partition Merge                      ;
-; ADC blocks                         ; N/A until Partition Merge                      ;
+; Total logic elements               ; 36                                             ;
+;     Total combinational functions  ; 36                                             ;
+;     Dedicated logic registers      ; 11                                             ;
+; Total registers                    ; 11                                             ;
+; Total pins                         ; 28                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
 +------------------------------------+------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                            ;
+; Analysis & Synthesis Settings                                                                              ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
@@ -142,49 +149,145 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                              ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
+; VHDL/Decode/predecode.vhd        ; yes             ; User VHDL File  ; /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                          ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Estimated Total logic elements              ; 36                     ;
+;                                             ;                        ;
+; Total combinational functions               ; 36                     ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 25                     ;
+;     -- 3 input functions                    ; 6                      ;
+;     -- <=2 input functions                  ; 5                      ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 36                     ;
+;     -- arithmetic mode                      ; 0                      ;
+;                                             ;                        ;
+; Total registers                             ; 11                     ;
+;     -- Dedicated logic registers            ; 11                     ;
+;     -- I/O registers                        ; 0                      ;
+;                                             ;                        ;
+; I/O pins                                    ; 28                     ;
+;                                             ;                        ;
+; Embedded Multiplier 9-bit elements          ; 0                      ;
+;                                             ;                        ;
+; Maximum fan-out node                        ; i_instruction[0]~input ;
+; Maximum fan-out                             ; 15                     ;
+; Total fan-out                               ; 196                    ;
+; Average fan-out                             ; 1.90                   ;
++---------------------------------------------+------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |predecode                 ; 36 (36)             ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 28   ; 0            ; 0          ; |predecode          ; predecode   ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 11    ;
+; Number of registers using Synchronous Clear  ; 2     ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 3     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |predecode|o_addressing_mode[0]~reg0    ;
+; 21:1               ; 3 bits    ; 42 LEs        ; 36 LEs               ; 6 LEs                  ; Yes        ; |predecode|o_active_instruction[0]~reg0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 28                          ;
+; cycloneiii_ff         ; 11                          ;
+;     ENA               ; 1                           ;
+;     ENA SCLR          ; 1                           ;
+;     ENA SLD           ; 1                           ;
+;     SCLR              ; 1                           ;
+;     plain             ; 7                           ;
+; cycloneiii_lcell_comb ; 36                          ;
+;     normal            ; 36                          ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 25                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.35                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Tue Dec  5 14:24:00 2023
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NESFPGA -c NESFPGA --analysis_and_elaboration
+    Info: Processing started: Tue Dec 12 13:37:57 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NESFPGA -c NESFPGA
 Info (12021): Found 2 design units, including 1 entities, in source file VHDL/Decode/predecode.vhd
-    Info (12022): Found design unit 1: predecode-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 16
+    Info (12022): Found design unit 1: predecode-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 17
     Info (12023): Found entity 1: predecode File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file simulation/tb_predecode.vhd
     Info (12022): Found design unit 1: tb_predecode-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd Line: 11
     Info (12023): Found entity 1: tb_predecode File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd Line: 8
 Info (12127): Elaborating entity "predecode" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at predecode.vhd(44): signal "s_cc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 44
-Warning (10492): VHDL Process Statement warning at predecode.vhd(47): signal "s_aaa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 47
-Warning (10492): VHDL Process Statement warning at predecode.vhd(68): signal "s_bbb" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 68
-Warning (10492): VHDL Process Statement warning at predecode.vhd(100): signal "s_aaa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 100
-Warning (10492): VHDL Process Statement warning at predecode.vhd(121): signal "s_bbb" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 121
-Warning (10492): VHDL Process Statement warning at predecode.vhd(147): signal "s_aaa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 147
-Warning (10492): VHDL Process Statement warning at predecode.vhd(166): signal "s_bbb" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 166
-Warning (10492): VHDL Process Statement warning at predecode.vhd(185): signal "s_xx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 185
-Warning (10492): VHDL Process Statement warning at predecode.vhd(185): signal "s_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 185
-Warning (10492): VHDL Process Statement warning at predecode.vhd(187): signal "s_flag_N" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 187
-Warning (10492): VHDL Process Statement warning at predecode.vhd(191): signal "s_flag_N" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 191
-Warning (10492): VHDL Process Statement warning at predecode.vhd(195): signal "s_flag_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 195
-Warning (10492): VHDL Process Statement warning at predecode.vhd(199): signal "s_flag_V" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 199
-Warning (10492): VHDL Process Statement warning at predecode.vhd(203): signal "s_flag_C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 203
-Warning (10492): VHDL Process Statement warning at predecode.vhd(207): signal "s_flag_C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 207
-Warning (10492): VHDL Process Statement warning at predecode.vhd(211): signal "s_flag_Z" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 211
-Warning (10492): VHDL Process Statement warning at predecode.vhd(215): signal "s_flag_Z" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 215
-Warning (10631): VHDL Process Statement warning at predecode.vhd(41): inferring latch(es) for signal or variable "o_addressing_mode", which holds its previous value in one or more paths through the process File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 41
-Warning (10631): VHDL Process Statement warning at predecode.vhd(41): inferring latch(es) for signal or variable "o_register_select", which holds its previous value in one or more paths through the process File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 41
-Info (10041): Inferred latch for "o_register_select[0]" at predecode.vhd(41) File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 41
-Info (10041): Inferred latch for "o_register_select[1]" at predecode.vhd(41) File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 41
-Info (10041): Inferred latch for "o_addressing_mode[0]" at predecode.vhd(41) File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 41
-Info (10041): Inferred latch for "o_addressing_mode[1]" at predecode.vhd(41) File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 41
-Info (10041): Inferred latch for "o_addressing_mode[2]" at predecode.vhd(41) File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 41
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 727 megabytes
-    Info: Processing ended: Tue Dec  5 14:24:26 2023
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:19
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "i_status_register[2]" File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_status_register[3]" File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_status_register[4]" File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_status_register[5]" File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 10
+Info (21057): Implemented 64 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 17 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 36 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 422 megabytes
+    Info: Processing ended: Tue Dec 12 13:38:27 2023
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:20
 
 

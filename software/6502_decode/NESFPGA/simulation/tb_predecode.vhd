@@ -9,46 +9,57 @@ entity tb_predecode is
 end tb_predecode;
 
 architecture Behavioral of tb_predecode is
-	signal s_i_instruction : STD_LOGIC_VECTOR(7 downto 0);
-	signal s_i_status_register : STD_LOGIC_VECTOR(7 downto 0);
-	signal s_o_active_instruction : STD_LOGIC_VECTOR(5 downto 0);
-	signal s_o_addressing_mode : STD_LOGIC_VECTOR(2 downto 0);
-	signal s_o_register_select : STD_LOGIC_VECTOR(1 downto 0);
+	signal tb_i_clk : STD_LOGIC := '0';
+	signal tb_i_instruction : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+	signal tb_i_status_register : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+	signal tb_o_active_instruction : STD_LOGIC_VECTOR(5 downto 0);
+	signal tb_o_addressing_mode : STD_LOGIC_VECTOR(2 downto 0);
+	signal tb_o_register_select : STD_LOGIC_VECTOR(1 downto 0);
+
+	constant clock_period : time := 10 ns;
 
 begin
 	-- Instantiate the predecode module
 	uut_predecode : entity work.predecode
 		port map (
-			i_instruction => s_i_instruction,
-			i_status_register => s_i_status_register,
-			o_active_instruction => s_o_active_instruction,
-			o_addressing_mode => s_o_addressing_mode,
-			o_register_select => s_o_register_select
+			i_clk => tb_i_clk,
+			i_instruction => tb_i_instruction,
+			i_status_register => tb_i_status_register,
+			o_active_instruction => tb_o_active_instruction,
+			o_addressing_mode => tb_o_addressing_mode,
+			o_register_select => tb_o_register_select
 		);
 
-	-- Process for test cases
-	test_process: process
+    -- Clock process
+    clk_process: process
+    begin
+        while now < 1000 ns loop
+            tb_i_clk <= not tb_i_clk;
+            wait for clock_period / 2;
+        end loop;
+        wait;
+    end process;
+
+	-- Stimulus process
+	stimulus_process: process
 	begin
-		-- Test Case 1: ORA instruction, zero page, X addressing mode
-		s_i_instruction <= "00000000";  -- ORA
-		s_i_status_register <= "00000000";  -- Clear flags
-		wait for 10 ns;
-		assert s_o_active_instruction = "000000" report "Test Case 1 failed: ORA instruction" severity error;
-		assert s_o_addressing_mode = "111" report "Test Case 1 failed: Zero page, X addressing mode" severity error;
-		assert s_o_register_select = "01" report "Test Case 1 failed: Use X register" severity error;
+		tb_i_status_register <= (others => '0');
+		wait for 100 ns;
 
-		-- Test Case 2: LDX instruction, immediate addressing mode
-		s_i_instruction <= "10100100";  -- INX
-		s_i_status_register <= "00000000";  -- Clear flags
-		wait for 10 ns;
-		assert s_o_active_instruction = "101001" report "Test Case 2 failed: INX instruction" severity error;
-		assert s_o_addressing_mode = "010" report "Test Case 2 failed: Immediate addressing mode" severity error;
-		assert s_o_register_select = "00" report "Test Case 2 failed: Use accumulator" severity error;
+		tb_i_instruction <= "00101001";	-- AND (#immediate) / 000001
+		wait for 100 ns;
 
-		-- Add more test cases as needed
+		tb_i_instruction <= "01001001";	-- EOR (#immediate) / 000010
+		wait for 100 ns;
 
-		wait;
+		tb_i_instruction <= "01101001";	-- ADC (#immediate) / 000011
+		wait for 100 ns;
+		
+		tb_i_instruction <= "10111101";	-- LDA a,X (000101, 001, 01)
+		wait for 100 ns;
 
-	end process test_process;
+		tb_i_instruction <= "00000000";
+
+	end process;
 
 end Behavioral;

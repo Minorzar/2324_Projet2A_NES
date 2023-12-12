@@ -24,6 +24,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "o_active_instruction[5]",
+					"strict" : false
+				},
+				{
 					"name" : "o_addressing_mode[0]",
 					"strict" : false
 				},
@@ -44,11 +48,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "i_instruction[5]",
+					"strict" : false
+				},
+				{
 					"name" : "i_instruction[3]",
 					"strict" : false
 				},
 				{
-					"name" : "i_instruction[0]",
+					"name" : "i_instruction[4]",
+					"strict" : false
+				},
+				{
+					"name" : "i_status_register[0]",
 					"strict" : false
 				},
 				{
@@ -56,7 +68,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "i_status_register[7]",
+					"name" : "i_instruction[0]",
 					"strict" : false
 				},
 				{
@@ -72,11 +84,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "i_instruction[4]",
+					"name" : "i_clk",
 					"strict" : false
 				},
 				{
-					"name" : "i_instruction[5]",
+					"name" : "i_status_register[6]",
+					"strict" : false
+				},
+				{
+					"name" : "i_status_register[7]",
+					"strict" : false
+				},
+				{
+					"name" : "i_status_register[1]",
 					"strict" : false
 				}
 			]
