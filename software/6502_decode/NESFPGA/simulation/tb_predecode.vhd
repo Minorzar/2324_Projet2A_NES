@@ -46,16 +46,36 @@ begin
 		tb_i_status_register <= (others => '0');
 		wait for 100 ns;
 
-		tb_i_instruction <= "00101001";	-- AND (#immediate) / 000001
+		tb_i_instruction <= "00101001";			-- AND (#immediate) / 000001
 		wait for 100 ns;
 
-		tb_i_instruction <= "01001001";	-- EOR (#immediate) / 000010
+		tb_i_instruction <= "01001001";			-- EOR (#immediate) / 000010
 		wait for 100 ns;
 
-		tb_i_instruction <= "01101001";	-- ADC (#immediate) / 000011
+		tb_i_instruction <= "01101001";			-- ADC (#immediate) / 000011
 		wait for 100 ns;
 		
-		tb_i_instruction <= "10111101";	-- LDA a,X (000101, 001, 01)
+		tb_i_instruction <= "10111101";			-- LDA a,X (000101, 001, 01)
+		wait for 100 ns;
+
+		tb_i_status_register <= "00000000";		-- Zero status flag
+		tb_i_instruction <= "11010000";			-- BNE (011101)
+		wait for 100 ns;
+
+		tb_i_status_register <= "11111101";		-- Zero status flag
+		tb_i_instruction <= "11010000";			-- BNE (011101)
+		wait for 100 ns;
+
+		tb_i_status_register <= "11111111";		-- N/A
+		tb_i_instruction <= "11010000";			-- N/A
+		wait for 100 ns;
+
+		tb_i_status_register <= "00000010";		-- Zero status flag
+		tb_i_instruction <= "11110000";			-- BEQ (011110)
+		wait for 100 ns;
+
+		tb_i_status_register <= "00000000";		-- N/A
+		tb_i_instruction <= "11110000";			-- N/A
 		wait for 100 ns;
 
 		tb_i_instruction <= "00000000";

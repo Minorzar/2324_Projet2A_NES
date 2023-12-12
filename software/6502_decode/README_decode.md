@@ -70,28 +70,28 @@ These values were assigned for the creation of `decode.vhdl` and are not officia
 
 ## Addressing Modes for 6502 Instructions
 
-In the context of 6502 instructions, different addressing modes determine how the operands of an instruction are specified. Here are the addressing modes along with the associated values for `register_select` and `addressing_mode`:
+In the context of 6502 instructions, different addressing modes determine how the operands of an instruction are specified. Here are the addressing modes along with the associated values for `addressing_mode` and `register_select`:
 
-| Addressing Mode   | `register_select` | `addressing_mode` |
+| Addressing Mode   | `addressing_mode` | `register_select` |
 |-------------------|-------------------|-------------------|
-| Accumulator       | "00"              | "000"             |
-| Absolute          | "00"              | "001"             |
-| Absolute, X       | "01"              | "001"             |
-| Absolute, Y       | "10"              | "001"             |
-| Immediate         | "00"              | "010"             |
-| Implied           | "00"              | "011"             |
-| Indirect          | "00"              | "100"             |
-| X, Indirect       | "01"              | "100"             |
-| Indirect, Y       | "10"              | "101"             |
-| Relative          | "00"              | "110"             |
-| Zero page         | "00"              | "111"             |
-| Zero page, X      | "01"              | "111"             |
-| Zero page, Y      | "10"              | "111"             |
+| Accumulator       | "000"             | "00"              |
+| Absolute          | "001"             | "00"              |
+| Absolute, X       | "001"             | "01"              |
+| Absolute, Y       | "001"             | "10"              |
+| Immediate         | "010"             | "00"              |
+| Implied           | "011"             | "00"              |
+| Indirect          | "100"             | "00"              |
+| X, Indirect       | "100"             | "01"              |
+| Indirect, Y       | "101"             | "10"              |
+| Relative          | "110"             | "00"              |
+| Zero page         | "111"             | "00"              |
+| Zero page, X      | "111"             | "01"              |
+| Zero page, Y      | "111"             | "10"              |
 
 **Note on `register_select`:**
-- "00" refer to the selection of the accumulator.
-- "01" refer to the selection of the X register.
-- "10" refer to the selection of the Y register.
+- "00" refers to the selection of the accumulator.
+- "01" refers to the selection of the X register.
+- "10" refers to the selection of the Y register.
 
 ## Additional Components
 
