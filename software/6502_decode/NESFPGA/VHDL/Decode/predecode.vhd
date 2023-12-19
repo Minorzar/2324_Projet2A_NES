@@ -222,9 +222,6 @@ begin
 										o_active_instruction <= "011110";	   -- BEQ (Branch on Equal)
 									end if;
 							end case;
-							
-							-- Reset o_active_instruction value
-							o_active_instruction <= "000000";
 
 						-- === s_cc = "00" - Single-byte instruction ===
 						when others =>

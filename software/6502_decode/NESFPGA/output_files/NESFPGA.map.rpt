@@ -1,5 +1,5 @@
 Analysis & Synthesis report for NESFPGA
-Tue Dec 12 17:24:41 2023
+Tue Dec 19 14:25:48 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -9,15 +9,7 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   1. Legal Notice
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
-  4. Analysis & Synthesis Source Files Read
-  5. Analysis & Synthesis Resource Usage Summary
-  6. Analysis & Synthesis Resource Utilization by Entity
-  7. Registers Removed During Synthesis
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  4. Analysis & Synthesis Messages
 
 
 
@@ -44,22 +36,22 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 12 17:24:41 2023          ;
+; Analysis & Synthesis Status        ; Failed - Tue Dec 19 14:25:48 2023              ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; NESFPGA                                        ;
-; Top-level Entity Name              ; predecode                                      ;
+; Top-level Entity Name              ; top_entity                                     ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 71                                             ;
-;     Total combinational functions  ; 59                                             ;
-;     Dedicated logic registers      ; 23                                             ;
-; Total registers                    ; 23                                             ;
-; Total pins                         ; 28                                             ;
-; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
-; Embedded Multiplier 9-bit elements ; 0                                              ;
-; Total PLLs                         ; 0                                              ;
-; UFM blocks                         ; 0                                              ;
-; ADC blocks                         ; 0                                              ;
+; Total logic elements               ; N/A until Partition Merge                      ;
+;     Total combinational functions  ; N/A until Partition Merge                      ;
+;     Dedicated logic registers      ; N/A until Partition Merge                      ;
+; Total registers                    ; N/A until Partition Merge                      ;
+; Total pins                         ; N/A until Partition Merge                      ;
+; Total virtual pins                 ; N/A until Partition Merge                      ;
+; Total memory bits                  ; N/A until Partition Merge                      ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
+; Total PLLs                         ; N/A until Partition Merge                      ;
+; UFM blocks                         ; N/A until Partition Merge                      ;
+; ADC blocks                         ; N/A until Partition Merge                      ;
 +------------------------------------+------------------------------------------------+
 
 
@@ -69,7 +61,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M08DAF484C8G     ;                    ;
-; Top-level entity name                                            ; predecode          ; NESFPGA            ;
+; Top-level entity name                                            ; top_entity         ; NESFPGA            ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Maximum processors allowed for parallel compilation              ; 1                  ;                    ;
 ; Use smart compilation                                            ; Off                ; Off                ;
@@ -150,129 +142,13 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                              ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                       ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
-; VHDL/Decode/predecode.vhd        ; yes             ; User VHDL File  ; /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 71          ;
-;                                             ;             ;
-; Total combinational functions               ; 59          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 47          ;
-;     -- 3 input functions                    ; 5           ;
-;     -- <=2 input functions                  ; 7           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 59          ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 23          ;
-;     -- Dedicated logic registers            ; 23          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 28          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; i_clk~input ;
-; Maximum fan-out                             ; 23          ;
-; Total fan-out                               ; 302         ;
-; Average fan-out                             ; 2.19        ;
-+---------------------------------------------+-------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |predecode                 ; 59 (59)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 28   ; 0            ; 0          ; |predecode          ; predecode   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+--------------------------------------------------------------+
-; Registers Removed During Synthesis                           ;
-+---------------------------------------+----------------------+
-; Register name                         ; Reason for Removal   ;
-+---------------------------------------+----------------------+
-; s_xx[1]                               ; Merged with s_aaa[2] ;
-; s_xx[0]                               ; Merged with s_aaa[1] ;
-; s_y                                   ; Merged with s_aaa[0] ;
-; Total Number of Removed Registers = 3 ;                      ;
-+---------------------------------------+----------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 23    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |predecode|o_addressing_mode[0]~reg0    ;
-; 21:1               ; 3 bits    ; 42 LEs        ; 36 LEs               ; 6 LEs                  ; Yes        ; |predecode|o_active_instruction[0]~reg0 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 28                          ;
-; cycloneiii_ff         ; 23                          ;
-;     plain             ; 23                          ;
-; cycloneiii_lcell_comb ; 59                          ;
-;     normal            ; 59                          ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 5                           ;
-;         4 data inputs ; 47                          ;
-;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.45                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:01     ;
-+----------------+--------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Tue Dec 12 17:24:14 2023
+    Info: Processing started: Tue Dec 19 14:25:21 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NESFPGA -c NESFPGA
 Info (12021): Found 2 design units, including 1 entities, in source file VHDL/Decode/predecode.vhd
     Info (12022): Found design unit 1: predecode-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 16
@@ -280,23 +156,14 @@ Info (12021): Found 2 design units, including 1 entities, in source file VHDL/De
 Info (12021): Found 2 design units, including 1 entities, in source file simulation/tb_predecode.vhd
     Info (12022): Found design unit 1: tb_predecode-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd Line: 11
     Info (12023): Found entity 1: tb_predecode File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd Line: 8
-Info (12127): Elaborating entity "predecode" for the top level hierarchy
-Info (286030): Timing-Driven Synthesis is running
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "i_status_register[2]" File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 9
-    Warning (15610): No output dependent on input pin "i_status_register[3]" File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 9
-    Warning (15610): No output dependent on input pin "i_status_register[4]" File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 9
-    Warning (15610): No output dependent on input pin "i_status_register[5]" File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 9
-Info (21057): Implemented 99 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 17 input pins
-    Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 71 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 422 megabytes
-    Info: Processing ended: Tue Dec 12 17:24:41 2023
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:19
+Info (12021): Found 2 design units, including 1 entities, in source file VHDL/top_entity.vhd
+    Info (12022): Found design unit 1: top_entity-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/top_entity.vhd Line: 14
+    Info (12023): Found entity 1: top_entity File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/top_entity.vhd Line: 6
+Error (10481): VHDL Use Clause error at top_entity.vhd(16): design library "work" does not contain primary unit "flip_flop_d". Verify that the primary unit exists in the library and has been successfully compiled. File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/top_entity.vhd Line: 16
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 0 warnings
+    Error: Peak virtual memory: 413 megabytes
+    Error: Processing ended: Tue Dec 19 14:25:48 2023
+    Error: Elapsed time: 00:00:27
+    Error: Total CPU time (on all processors): 00:00:20
 
 

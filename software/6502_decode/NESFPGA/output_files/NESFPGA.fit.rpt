@@ -1,5 +1,5 @@
 Fitter report for NESFPGA
-Tue Dec 12 17:20:21 2023
+Tue Dec 19 14:18:02 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -65,17 +65,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Tue Dec 12 17:20:21 2023          ;
+; Fitter Status                      ; Successful - Tue Dec 19 14:18:02 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; NESFPGA                                        ;
 ; Top-level Entity Name              ; predecode                                      ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M08DAF484C8G                                 ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 46 / 8,064 ( < 1 % )                           ;
-;     Total combinational functions  ; 46 / 8,064 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 19 / 8,064 ( < 1 % )                           ;
-; Total registers                    ; 19                                             ;
+; Total logic elements               ; 14 / 8,064 ( < 1 % )                           ;
+;     Total combinational functions  ; 9 / 8,064 ( < 1 % )                            ;
+;     Dedicated logic registers      ; 10 / 8,064 ( < 1 % )                           ;
+; Total registers                    ; 10                                             ;
 ; Total pins                         ; 28 / 250 ( 11 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 387,072 ( 0 % )                            ;
@@ -144,19 +144,19 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------+---------------------------------------+---------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------+
-; Incremental Compilation Preservation Summary                                                     ;
-+---------------------+--------------------+----------------------------+--------------------------+
-; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
-+---------------------+--------------------+----------------------------+--------------------------+
-; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 140 ) ; 0.00 % ( 0 / 140 )         ; 0.00 % ( 0 / 140 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 140 ) ; 0.00 % ( 0 / 140 )         ; 0.00 % ( 0 / 140 )       ;
-;                     ;                    ;                            ;                          ;
-; Routing (by net)    ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
-;     -- Achieved     ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
-+---------------------+--------------------+----------------------------+--------------------------+
++-------------------------------------------------------------------------------------------------+
+; Incremental Compilation Preservation Summary                                                    ;
++---------------------+-------------------+----------------------------+--------------------------+
+; Type                ; Total [A + B]     ; From Design Partitions [A] ; From Rapid Recompile [B] ;
++---------------------+-------------------+----------------------------+--------------------------+
+; Placement (by node) ;                   ;                            ;                          ;
+;     -- Requested    ; 0.00 % ( 0 / 94 ) ; 0.00 % ( 0 / 94 )          ; 0.00 % ( 0 / 94 )        ;
+;     -- Achieved     ; 0.00 % ( 0 / 94 ) ; 0.00 % ( 0 / 94 )          ; 0.00 % ( 0 / 94 )        ;
+;                     ;                   ;                            ;                          ;
+; Routing (by net)    ;                   ;                            ;                          ;
+;     -- Requested    ; 0.00 % ( 0 / 0 )  ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
+;     -- Achieved     ; 0.00 % ( 0 / 0 )  ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
++---------------------+-------------------+----------------------------+--------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -174,7 +174,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 124 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 78 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -190,29 +190,29 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 +---------------------------------------------+----------------------+
 ; Resource                                    ; Usage                ;
 +---------------------------------------------+----------------------+
-; Total logic elements                        ; 46 / 8,064 ( < 1 % ) ;
-;     -- Combinational with no register       ; 27                   ;
-;     -- Register only                        ; 0                    ;
-;     -- Combinational with a register        ; 19                   ;
+; Total logic elements                        ; 14 / 8,064 ( < 1 % ) ;
+;     -- Combinational with no register       ; 4                    ;
+;     -- Register only                        ; 5                    ;
+;     -- Combinational with a register        ; 5                    ;
 ;                                             ;                      ;
 ; Logic element usage by number of LUT inputs ;                      ;
-;     -- 4 input functions                    ; 32                   ;
-;     -- 3 input functions                    ; 11                   ;
-;     -- <=2 input functions                  ; 3                    ;
-;     -- Register only                        ; 0                    ;
+;     -- 4 input functions                    ; 7                    ;
+;     -- 3 input functions                    ; 1                    ;
+;     -- <=2 input functions                  ; 1                    ;
+;     -- Register only                        ; 5                    ;
 ;                                             ;                      ;
 ; Logic elements by mode                      ;                      ;
-;     -- normal mode                          ; 46                   ;
+;     -- normal mode                          ; 9                    ;
 ;     -- arithmetic mode                      ; 0                    ;
 ;                                             ;                      ;
-; Total registers*                            ; 19 / 9,287 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 19 / 8,064 ( < 1 % ) ;
+; Total registers*                            ; 10 / 9,287 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 10 / 8,064 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 1,223 ( 0 % )    ;
 ;                                             ;                      ;
-; Total LABs:  partially or completely used   ; 4 / 504 ( < 1 % )    ;
+; Total LABs:  partially or completely used   ; 2 / 504 ( < 1 % )    ;
 ; Virtual pins                                ; 0                    ;
 ; I/O pins                                    ; 28 / 250 ( 11 % )    ;
-;     -- Clock pins                           ; 3 / 4 ( 75 % )       ;
+;     -- Clock pins                           ; 2 / 4 ( 50 % )       ;
 ;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )      ;
 ;                                             ;                      ;
 ; M9Ks                                        ; 0 / 42 ( 0 % )       ;
@@ -228,12 +228,12 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; CRC blocks                                  ; 0 / 1 ( 0 % )        ;
 ; Remote update blocks                        ; 0 / 1 ( 0 % )        ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )        ;
-; Average interconnect usage (total/H/V)      ; 0.1% / 0.1% / 0.1%   ;
-; Peak interconnect usage (total/H/V)         ; 0.7% / 0.6% / 0.7%   ;
-; Maximum fan-out                             ; 19                   ;
-; Highest non-global fan-out                  ; 15                   ;
-; Total fan-out                               ; 253                  ;
-; Average fan-out                             ; 1.81                 ;
+; Average interconnect usage (total/H/V)      ; 0.0% / 0.0% / 0.0%   ;
+; Peak interconnect usage (total/H/V)         ; 0.1% / 0.0% / 0.2%   ;
+; Maximum fan-out                             ; 10                   ;
+; Highest non-global fan-out                  ; 10                   ;
+; Total fan-out                               ; 100                  ;
+; Average fan-out                             ; 1.01                 ;
 +---------------------------------------------+----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -246,26 +246,26 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 +---------------------------------------------+---------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                 ; Low                            ;
 ;                                             ;                     ;                                ;
-; Total logic elements                        ; 46 / 8064 ( < 1 % ) ; 0 / 8064 ( 0 % )               ;
-;     -- Combinational with no register       ; 27                  ; 0                              ;
-;     -- Register only                        ; 0                   ; 0                              ;
-;     -- Combinational with a register        ; 19                  ; 0                              ;
+; Total logic elements                        ; 14 / 8064 ( < 1 % ) ; 0 / 8064 ( 0 % )               ;
+;     -- Combinational with no register       ; 4                   ; 0                              ;
+;     -- Register only                        ; 5                   ; 0                              ;
+;     -- Combinational with a register        ; 5                   ; 0                              ;
 ;                                             ;                     ;                                ;
 ; Logic element usage by number of LUT inputs ;                     ;                                ;
-;     -- 4 input functions                    ; 32                  ; 0                              ;
-;     -- 3 input functions                    ; 11                  ; 0                              ;
-;     -- <=2 input functions                  ; 3                   ; 0                              ;
-;     -- Register only                        ; 0                   ; 0                              ;
+;     -- 4 input functions                    ; 7                   ; 0                              ;
+;     -- 3 input functions                    ; 1                   ; 0                              ;
+;     -- <=2 input functions                  ; 1                   ; 0                              ;
+;     -- Register only                        ; 5                   ; 0                              ;
 ;                                             ;                     ;                                ;
 ; Logic elements by mode                      ;                     ;                                ;
-;     -- normal mode                          ; 46                  ; 0                              ;
+;     -- normal mode                          ; 9                   ; 0                              ;
 ;     -- arithmetic mode                      ; 0                   ; 0                              ;
 ;                                             ;                     ;                                ;
-; Total registers                             ; 19                  ; 0                              ;
-;     -- Dedicated logic registers            ; 19 / 8064 ( < 1 % ) ; 0 / 8064 ( 0 % )               ;
+; Total registers                             ; 10                  ; 0                              ;
+;     -- Dedicated logic registers            ; 10 / 8064 ( < 1 % ) ; 0 / 8064 ( 0 % )               ;
 ;     -- I/O registers                        ; 0                   ; 0                              ;
 ;                                             ;                     ;                                ;
-; Total LABs:  partially or completely used   ; 4 / 504 ( < 1 % )   ; 0 / 504 ( 0 % )                ;
+; Total LABs:  partially or completely used   ; 2 / 504 ( < 1 % )   ; 0 / 504 ( 0 % )                ;
 ;                                             ;                     ;                                ;
 ; Virtual pins                                ; 0                   ; 0                              ;
 ; I/O pins                                    ; 28                  ; 0                              ;
@@ -283,8 +283,8 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ;     -- Registered Output Connections        ; 0                   ; 0                              ;
 ;                                             ;                     ;                                ;
 ; Internal Connections                        ;                     ;                                ;
-;     -- Total Connections                    ; 253                 ; 8                              ;
-;     -- Registered Connections               ; 72                  ; 0                              ;
+;     -- Total Connections                    ; 100                 ; 8                              ;
+;     -- Registered Connections               ; 33                  ; 0                              ;
 ;                                             ;                     ;                                ;
 ; External Connections                        ;                     ;                                ;
 ;     -- Top                                  ; 0                   ; 0                              ;
@@ -316,23 +316,23 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 +----------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name                 ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; i_clk                ; M8    ; 2        ; 0            ; 6            ; 14           ; 19                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_instruction[0]     ; E9    ; 8        ; 13           ; 25           ; 14           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_instruction[1]     ; F4    ; 1A       ; 10           ; 22           ; 21           ; 11                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_instruction[2]     ; A2    ; 8        ; 11           ; 25           ; 14           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_instruction[3]     ; E4    ; 1A       ; 10           ; 22           ; 0            ; 12                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_instruction[4]     ; C6    ; 8        ; 13           ; 25           ; 21           ; 9                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_instruction[5]     ; F5    ; 1A       ; 10           ; 22           ; 14           ; 9                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_instruction[6]     ; E3    ; 1A       ; 10           ; 22           ; 7            ; 9                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_instruction[7]     ; J8    ; 1A       ; 10           ; 21           ; 14           ; 9                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_status_register[0] ; W6    ; 3        ; 3            ; 0            ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_status_register[1] ; N5    ; 2        ; 0            ; 7            ; 21           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_status_register[2] ; N15   ; 6        ; 31           ; 9            ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_status_register[3] ; M14   ; 6        ; 31           ; 13           ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_status_register[4] ; AB6   ; 3        ; 13           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_status_register[5] ; A15   ; 7        ; 27           ; 25           ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_status_register[6] ; C17   ; 7        ; 29           ; 25           ; 21           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
-; i_status_register[7] ; AA15  ; 4        ; 24           ; 0            ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_clk                ; M8    ; 2        ; 0            ; 6            ; 14           ; 10                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_instruction[0]     ; K6    ; 1A       ; 10           ; 19           ; 21           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_instruction[1]     ; K9    ; 1B       ; 10           ; 18           ; 21           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_instruction[2]     ; K8    ; 1B       ; 10           ; 18           ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_instruction[3]     ; J3    ; 1A       ; 10           ; 19           ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_instruction[4]     ; D1    ; 1B       ; 10           ; 17           ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_instruction[5]     ; W15   ; 4        ; 27           ; 0            ; 21           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_instruction[6]     ; C7    ; 8        ; 17           ; 25           ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_instruction[7]     ; C4    ; 8        ; 6            ; 10           ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_status_register[0] ; J13   ; 7        ; 27           ; 25           ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_status_register[1] ; Y3    ; 3        ; 9            ; 0            ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_status_register[2] ; B2    ; 8        ; 3            ; 10           ; 28           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_status_register[3] ; U22   ; 5        ; 31           ; 4            ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_status_register[4] ; E16   ; 7        ; 29           ; 25           ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_status_register[5] ; D10   ; 8        ; 13           ; 25           ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_status_register[6] ; AB4   ; 3        ; 11           ; 0            ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
+; i_status_register[7] ; E12   ; 7        ; 24           ; 25           ; 28           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; 0         ;
 +----------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -341,35 +341,36 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 +-------------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name                    ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +-------------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
-; o_active_instruction[0] ; A3    ; 8        ; 11           ; 25           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_active_instruction[1] ; B3    ; 8        ; 11           ; 25           ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_active_instruction[2] ; J9    ; 1A       ; 10           ; 21           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_active_instruction[3] ; D10   ; 8        ; 13           ; 25           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_active_instruction[4] ; F3    ; 1A       ; 10           ; 21           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_active_instruction[5] ; A5    ; 8        ; 15           ; 25           ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_addressing_mode[0]    ; B7    ; 8        ; 15           ; 25           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_addressing_mode[1]    ; D7    ; 8        ; 13           ; 25           ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_addressing_mode[2]    ; A4    ; 8        ; 13           ; 25           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_register_select[0]    ; D8    ; 8        ; 15           ; 25           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; o_register_select[1]    ; A6    ; 8        ; 15           ; 25           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_active_instruction[0] ; J10   ; 8        ; 17           ; 25           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_active_instruction[1] ; Y2    ; 3        ; 6            ; 0            ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_active_instruction[2] ; AA10  ; 3        ; 19           ; 0            ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_active_instruction[3] ; C5    ; 8        ; 3            ; 10           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_active_instruction[4] ; K21   ; 6        ; 31           ; 11           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_active_instruction[5] ; L9    ; 1B       ; 10           ; 15           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_addressing_mode[0]    ; K5    ; 1A       ; 10           ; 19           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_addressing_mode[1]    ; K4    ; 1A       ; 10           ; 19           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_addressing_mode[2]    ; D3    ; 1B       ; 10           ; 18           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_register_select[0]    ; D2    ; 1B       ; 10           ; 18           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; o_register_select[1]    ; C1    ; 1B       ; 10           ; 17           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 +-------------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Dual Purpose and Dedicated Pins                                                                                                             ;
-+----------+----------------------------------------------------+--------------------------------+-------------------------+------------------+
-; Location ; Pin Name                                           ; Reserved As                    ; User Signal Name        ; Pin Type         ;
-+----------+----------------------------------------------------+--------------------------------+-------------------------+------------------+
-; H2       ; DIFFIO_RX_L11n, DIFFOUT_L11n, TMS, Low_Speed       ; Reserved as secondary function ; ~ALTERA_TMS~            ; Dual Purpose Pin ;
-; G2       ; DIFFIO_RX_L11p, DIFFOUT_L11p, TCK, Low_Speed       ; Reserved as secondary function ; ~ALTERA_TCK~            ; Dual Purpose Pin ;
-; L4       ; DIFFIO_RX_L12n, DIFFOUT_L12n, TDI, Low_Speed       ; Reserved as secondary function ; ~ALTERA_TDI~            ; Dual Purpose Pin ;
-; M5       ; DIFFIO_RX_L12p, DIFFOUT_L12p, TDO, Low_Speed       ; Reserved as secondary function ; ~ALTERA_TDO~            ; Dual Purpose Pin ;
-; D10      ; DIFFIO_RX_T18p, DIFFOUT_T18p, DEV_OE, Low_Speed    ; Use as regular IO              ; o_active_instruction[3] ; Dual Purpose Pin ;
-; H10      ; CONFIG_SEL, Low_Speed                              ; Reserved as secondary function ; ~ALTERA_CONFIG_SEL~     ; Dual Purpose Pin ;
-; H9       ; nCONFIG, Low_Speed                                 ; Reserved as secondary function ; ~ALTERA_nCONFIG~        ; Dual Purpose Pin ;
-; G9       ; DIFFIO_RX_T24p, DIFFOUT_T24p, nSTATUS, Low_Speed   ; Reserved as secondary function ; ~ALTERA_nSTATUS~        ; Dual Purpose Pin ;
-; F8       ; DIFFIO_RX_T24n, DIFFOUT_T24n, CONF_DONE, Low_Speed ; Reserved as secondary function ; ~ALTERA_CONF_DONE~      ; Dual Purpose Pin ;
-+----------+----------------------------------------------------+--------------------------------+-------------------------+------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Dual Purpose and Dedicated Pins                                                                                                          ;
++----------+----------------------------------------------------+--------------------------------+----------------------+------------------+
+; Location ; Pin Name                                           ; Reserved As                    ; User Signal Name     ; Pin Type         ;
++----------+----------------------------------------------------+--------------------------------+----------------------+------------------+
+; K9       ; DIFFIO_RX_L9p, DIFFOUT_L9p, JTAGEN, Low_Speed      ; Use as regular IO              ; i_instruction[1]     ; Dual Purpose Pin ;
+; H2       ; DIFFIO_RX_L11n, DIFFOUT_L11n, TMS, Low_Speed       ; Reserved as secondary function ; ~ALTERA_TMS~         ; Dual Purpose Pin ;
+; G2       ; DIFFIO_RX_L11p, DIFFOUT_L11p, TCK, Low_Speed       ; Reserved as secondary function ; ~ALTERA_TCK~         ; Dual Purpose Pin ;
+; L4       ; DIFFIO_RX_L12n, DIFFOUT_L12n, TDI, Low_Speed       ; Reserved as secondary function ; ~ALTERA_TDI~         ; Dual Purpose Pin ;
+; M5       ; DIFFIO_RX_L12p, DIFFOUT_L12p, TDO, Low_Speed       ; Reserved as secondary function ; ~ALTERA_TDO~         ; Dual Purpose Pin ;
+; D10      ; DIFFIO_RX_T18p, DIFFOUT_T18p, DEV_OE, Low_Speed    ; Use as regular IO              ; i_status_register[5] ; Dual Purpose Pin ;
+; H10      ; CONFIG_SEL, Low_Speed                              ; Reserved as secondary function ; ~ALTERA_CONFIG_SEL~  ; Dual Purpose Pin ;
+; H9       ; nCONFIG, Low_Speed                                 ; Reserved as secondary function ; ~ALTERA_nCONFIG~     ; Dual Purpose Pin ;
+; G9       ; DIFFIO_RX_T24p, DIFFOUT_T24p, nSTATUS, Low_Speed   ; Reserved as secondary function ; ~ALTERA_nSTATUS~     ; Dual Purpose Pin ;
+; F8       ; DIFFIO_RX_T24n, DIFFOUT_T24n, CONF_DONE, Low_Speed ; Reserved as secondary function ; ~ALTERA_CONF_DONE~   ; Dual Purpose Pin ;
++----------+----------------------------------------------------+--------------------------------+----------------------+------------------+
 
 
 +------------------------------------------------------------+
@@ -377,15 +378,15 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 +----------+------------------+---------------+--------------+
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
-; 1A       ; 7 / 16 ( 44 % )  ; 2.5V          ; --           ;
-; 1B       ; 4 / 20 ( 20 % )  ; 2.5V          ; --           ;
-; 2        ; 2 / 24 ( 8 % )   ; 2.5V          ; --           ;
-; 3        ; 2 / 36 ( 6 % )   ; 2.5V          ; --           ;
+; 1A       ; 4 / 16 ( 25 % )  ; 2.5V          ; --           ;
+; 1B       ; 11 / 20 ( 55 % ) ; 2.5V          ; --           ;
+; 2        ; 1 / 24 ( 4 % )   ; 2.5V          ; --           ;
+; 3        ; 4 / 36 ( 11 % )  ; 2.5V          ; --           ;
 ; 4        ; 1 / 24 ( 4 % )   ; 2.5V          ; --           ;
-; 5        ; 0 / 28 ( 0 % )   ; 2.5V          ; --           ;
-; 6        ; 2 / 42 ( 5 % )   ; 2.5V          ; --           ;
-; 7        ; 2 / 24 ( 8 % )   ; 2.5V          ; --           ;
-; 8        ; 16 / 36 ( 44 % ) ; 2.5V          ; --           ;
+; 5        ; 1 / 28 ( 4 % )   ; 2.5V          ; --           ;
+; 6        ; 1 / 42 ( 2 % )   ; 2.5V          ; --           ;
+; 7        ; 3 / 24 ( 13 % )  ; 2.5V          ; --           ;
+; 8        ; 10 / 36 ( 28 % ) ; 2.5V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -395,11 +396,11 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; Location ; Pad Number ; I/O Bank ; Pin Name/Usage                                 ; Dir.   ; I/O Standard          ; Voltage ; I/O Type   ; User Assignment ; Bus Hold ; Weak Pull Up ;
 +----------+------------+----------+------------------------------------------------+--------+-----------------------+---------+------------+-----------------+----------+--------------+
 ; A1       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; A2       ; 233        ; 8        ; i_instruction[2]                               ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; A3       ; 235        ; 8        ; o_active_instruction[0]                        ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; A4       ; 227        ; 8        ; o_addressing_mode[2]                           ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; A5       ; 225        ; 8        ; o_active_instruction[5]                        ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; A6       ; 223        ; 8        ; o_register_select[1]                           ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; A2       ; 233        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; A3       ; 235        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; A4       ; 227        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; A5       ; 225        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; A6       ; 223        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A7       ; 209        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A8       ; 211        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A9       ; 213        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -408,7 +409,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; A12      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; A13      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; A14      ; 201        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; A15      ; 197        ; 7        ; i_status_register[5]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; A15      ; 197        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A16      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; A17      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; A18      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -425,12 +426,12 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; AA7      ; 82         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA8      ; 89         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA9      ; 93         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AA10     ; 94         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; AA10     ; 94         ; 3        ; o_active_instruction[2]                        ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AA11     ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; AA12     ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; AA13     ; 101        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; --       ; --           ;
 ; AA14     ; 105        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AA15     ; 109        ; 4        ; i_status_register[7]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; AA15     ; 109        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA16     ; 115        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AA17     ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; AA18     ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -441,9 +442,9 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; AB1      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; AB2      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; AB3      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; AB4      ; 79         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; AB4      ; 79         ; 3        ; i_status_register[6]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AB5      ; 83         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; AB6      ; 85         ; 3        ; i_status_register[4]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; AB6      ; 85         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB7      ; 87         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB8      ; 91         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB9      ; 95         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -461,12 +462,12 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; AB21     ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; AB22     ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B1       ; 247        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; B2       ; 245        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; B3       ; 236        ; 8        ; o_active_instruction[1]                        ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; B2       ; 245        ; 8        ; i_status_register[2]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; B3       ; 236        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B4       ; 238        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B5       ; 237        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; B7       ; 221        ; 8        ; o_addressing_mode[0]                           ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; B7       ; 221        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B8       ; 215        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B9       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B10      ; 212        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -482,13 +483,13 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; B20      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B21      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B22      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; C1       ; 21         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; --       ; --           ;
+; C1       ; 21         ; 1B       ; o_register_select[1]                           ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; C2       ; 251        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C3       ; 249        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C4       ; 239        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C5       ; 241        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C6       ; 229        ; 8        ; i_instruction[4]                               ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; C7       ; 219        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; C4       ; 239        ; 8        ; i_instruction[7]                               ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; C5       ; 241        ; 8        ; o_active_instruction[3]                        ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; C6       ; 229        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; C7       ; 219        ; 8        ; i_instruction[6]                               ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C8       ; 217        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C9       ; 214        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C10      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -498,22 +499,22 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; C14      ; 200        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C15      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; C16      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; C17      ; 195        ; 7        ; i_status_register[6]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; C17      ; 195        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C18      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; C19      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; C20      ; 185        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; C21      ; 175        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; C22      ; 171        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; D1       ; 23         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; D2       ; 19         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; D3       ; 17         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; D1       ; 23         ; 1B       ; i_instruction[4]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; D2       ; 19         ; 1B       ; o_register_select[0]                           ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; D3       ; 17         ; 1B       ; o_addressing_mode[2]                           ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; D4       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D5       ; 243        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; D6       ; 248        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; D7       ; 231        ; 8        ; o_addressing_mode[1]                           ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; D8       ; 224        ; 8        ; o_register_select[0]                           ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; D7       ; 231        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; --       ; --           ;
+; D8       ; 224        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; D9       ; 226        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; D10      ; 228        ; 8        ; o_active_instruction[3]                        ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; D10      ; 228        ; 8        ; i_status_register[5]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; D11      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D12      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D13      ; 207        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -528,20 +529,20 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; D22      ; 169        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; E1       ; 29         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; E2       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; E3       ; 3          ; 1A       ; i_instruction[6]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; E4       ; 1          ; 1A       ; i_instruction[3]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; E3       ; 3          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; E4       ; 1          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; E5       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E6       ; 250        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E7       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E8       ; 240        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; E9       ; 230        ; 8        ; i_instruction[0]                               ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; E9       ; 230        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E10      ; 218        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E11      ; 216        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; E12      ; 205        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; E12      ; 205        ; 7        ; i_status_register[7]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; E13      ; 206        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E14      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E15      ; 194        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; E16      ; 192        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; E16      ; 192        ; 7        ; i_status_register[4]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; E17      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E18      ; 191        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; E19      ; 180        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -550,9 +551,9 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; E22      ; 161        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; F1       ; 35         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; F2       ; 31         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; F3       ; 7          ; 1A       ; o_active_instruction[4]                        ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F4       ; 2          ; 1A       ; i_instruction[1]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F5       ; 0          ; 1A       ; i_instruction[5]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F3       ; 7          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; F4       ; 2          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; F5       ; 0          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; F6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; F7       ; 242        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; F8       ; 246        ; 8        ; ~ALTERA_CONF_DONE~ / RESERVED_INPUT            ; input  ; 2.5 V Schmitt Trigger ;         ; Column I/O ; N               ; no       ; Off          ;
@@ -616,17 +617,17 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; H22      ; 149        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J1       ; 34         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J2       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; J3       ; 15         ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; J3       ; 15         ; 1A       ; i_instruction[3]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; J4       ; 8          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J5       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; J6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; J7       ;            ;          ; VCCINT                                         ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
-; J8       ; 4          ; 1A       ; i_instruction[7]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J9       ; 6          ; 1A       ; o_active_instruction[2]                        ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J10      ; 220        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; J8       ; 4          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; J9       ; 6          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; J10      ; 220        ; 8        ; o_active_instruction[0]                        ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; J11      ; 210        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; J12      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; J13      ; 198        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; J13      ; 198        ; 7        ; i_status_register[0]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; J14      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; J15      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; J16      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -639,12 +640,12 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; K1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; K2       ; 25         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K3       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; K4       ; 13         ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; K5       ; 12         ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; K6       ; 14         ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; K4       ; 13         ; 1A       ; o_addressing_mode[1]                           ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; K5       ; 12         ; 1A       ; o_addressing_mode[0]                           ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; K6       ; 14         ; 1A       ; i_instruction[0]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; K7       ;            ; 1A       ; VCCIO1A                                        ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; K8       ; 16         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; K9       ; 18         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; K8       ; 16         ; 1B       ; i_instruction[2]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; K9       ; 18         ; 1B       ; i_instruction[1]                               ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; K10      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; K11      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; K12      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -656,7 +657,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; K18      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; K19      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; K20      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
-; K21      ; 154        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; K21      ; 154        ; 6        ; o_active_instruction[4]                        ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; K22      ; 152        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; L2       ; 27         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -666,7 +667,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; L6       ;            ; 1A       ; VCCIO1A                                        ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; L7       ;            ; 1B       ; VCCIO1B                                        ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; L8       ; 28         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; L9       ; 30         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; L9       ; 30         ; 1B       ; o_active_instruction[5]                        ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; L10      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; L11      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; L12      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -693,7 +694,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; M11      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; M12      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; M13      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
-; M14      ; 162        ; 6        ; i_status_register[3]                           ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M14      ; 162        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M15      ; 160        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M16      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; M17      ;            ; 6        ; VCCIO6                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
@@ -706,7 +707,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; N2       ; 43         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N3       ; 41         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N4       ; 36         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; N5       ; 38         ; 2        ; i_status_register[1]                           ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N5       ; 38         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N6       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N7       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N8       ; 52         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -716,7 +717,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; N12      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; N13      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; N14      ; 148        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; N15      ; 150        ; 6        ; i_status_register[2]                           ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N15      ; 150        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N16      ;            ; 5        ; VCCIO5                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N17      ;            ; 6        ; VCCIO6                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N18      ; 164        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -811,7 +812,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; U19      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; U20      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; U21      ; 132        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; U22      ; 134        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; U22      ; 134        ; 5        ; i_status_register[3]                           ; input  ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; V1       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; V2       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; V3       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -839,7 +840,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; W3       ; 70         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W4       ; 68         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W5       ; 60         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; W6       ; 62         ; 3        ; i_status_register[0]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; W6       ; 62         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W7       ; 72         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W8       ; 74         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W9       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -848,7 +849,7 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; W12      ; 97         ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W13      ; 99         ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W14      ; 98         ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; W15      ; 110        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; W15      ; 110        ; 4        ; i_instruction[5]                               ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; W16      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; W17      ; 116        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; W18      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -857,8 +858,8 @@ The pin-out file can be found in /media/sf_2324_Projet2A_NES/software/6502_decod
 ; W21      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; W22      ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; Y1       ; 65         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; Y2       ; 67         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; Y3       ; 73         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; Y2       ; 67         ; 3        ; o_active_instruction[1]                        ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; Y3       ; 73         ; 3        ; i_status_register[1]                           ; input  ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; Y4       ; 75         ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; Y5       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; Y6       ;            ;          ; NC                                             ;        ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -887,6 +888,9 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------+-------------------------------+
 ; Pin Name                ; Reason                        ;
 +-------------------------+-------------------------------+
+; i_instruction[5]        ; Incomplete set of assignments ;
+; i_instruction[6]        ; Incomplete set of assignments ;
+; i_instruction[7]        ; Incomplete set of assignments ;
 ; i_status_register[0]    ; Incomplete set of assignments ;
 ; i_status_register[1]    ; Incomplete set of assignments ;
 ; i_status_register[2]    ; Incomplete set of assignments ;
@@ -906,15 +910,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; o_addressing_mode[2]    ; Incomplete set of assignments ;
 ; o_register_select[0]    ; Incomplete set of assignments ;
 ; o_register_select[1]    ; Incomplete set of assignments ;
-; i_instruction[0]        ; Incomplete set of assignments ;
-; i_instruction[2]        ; Incomplete set of assignments ;
-; i_instruction[5]        ; Incomplete set of assignments ;
-; i_instruction[3]        ; Incomplete set of assignments ;
-; i_instruction[7]        ; Incomplete set of assignments ;
-; i_instruction[1]        ; Incomplete set of assignments ;
-; i_instruction[4]        ; Incomplete set of assignments ;
-; i_instruction[6]        ; Incomplete set of assignments ;
 ; i_clk                   ; Incomplete set of assignments ;
+; i_instruction[0]        ; Incomplete set of assignments ;
+; i_instruction[4]        ; Incomplete set of assignments ;
+; i_instruction[3]        ; Incomplete set of assignments ;
+; i_instruction[1]        ; Incomplete set of assignments ;
+; i_instruction[2]        ; Incomplete set of assignments ;
+; i_instruction[5]        ; Missing location assignment   ;
+; i_instruction[6]        ; Missing location assignment   ;
+; i_instruction[7]        ; Missing location assignment   ;
 ; i_status_register[0]    ; Missing location assignment   ;
 ; i_status_register[1]    ; Missing location assignment   ;
 ; i_status_register[2]    ; Missing location assignment   ;
@@ -934,15 +938,12 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; o_addressing_mode[2]    ; Missing location assignment   ;
 ; o_register_select[0]    ; Missing location assignment   ;
 ; o_register_select[1]    ; Missing location assignment   ;
-; i_instruction[0]        ; Missing location assignment   ;
-; i_instruction[2]        ; Missing location assignment   ;
-; i_instruction[5]        ; Missing location assignment   ;
-; i_instruction[3]        ; Missing location assignment   ;
-; i_instruction[7]        ; Missing location assignment   ;
-; i_instruction[1]        ; Missing location assignment   ;
-; i_instruction[4]        ; Missing location assignment   ;
-; i_instruction[6]        ; Missing location assignment   ;
 ; i_clk                   ; Missing location assignment   ;
+; i_instruction[0]        ; Missing location assignment   ;
+; i_instruction[4]        ; Missing location assignment   ;
+; i_instruction[3]        ; Missing location assignment   ;
+; i_instruction[1]        ; Missing location assignment   ;
+; i_instruction[2]        ; Missing location assignment   ;
 +-------------------------+-------------------------------+
 
 
@@ -951,7 +952,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+---------------------+-------------+--------------+
-; |predecode                 ; 46 (46)     ; 19 (19)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 28   ; 0            ; 27 (27)      ; 0 (0)             ; 19 (19)          ; 0          ; |predecode          ; predecode   ; work         ;
+; |predecode                 ; 14 (14)     ; 10 (10)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 28   ; 0            ; 4 (4)        ; 5 (5)             ; 5 (5)            ; 0          ; |predecode          ; predecode   ; work         ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -961,6 +962,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------+----------+---------------+---------------+-----------------------+-----+------+
 ; Name                    ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ; TCOE ;
 +-------------------------+----------+---------------+---------------+-----------------------+-----+------+
+; i_instruction[5]        ; Input    ; --            ; --            ; --                    ; --  ; --   ;
+; i_instruction[6]        ; Input    ; --            ; --            ; --                    ; --  ; --   ;
+; i_instruction[7]        ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; i_status_register[0]    ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; i_status_register[1]    ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; i_status_register[2]    ; Input    ; --            ; --            ; --                    ; --  ; --   ;
@@ -980,104 +984,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; o_addressing_mode[2]    ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; o_register_select[0]    ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; o_register_select[1]    ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; i_instruction[0]        ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; i_instruction[2]        ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
-; i_instruction[5]        ; Input    ; (6) 873 ps    ; --            ; --                    ; --  ; --   ;
-; i_instruction[3]        ; Input    ; (6) 873 ps    ; --            ; --                    ; --  ; --   ;
-; i_instruction[7]        ; Input    ; --            ; (6) 873 ps    ; --                    ; --  ; --   ;
-; i_instruction[1]        ; Input    ; --            ; (6) 873 ps    ; --                    ; --  ; --   ;
-; i_instruction[4]        ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; i_instruction[6]        ; Input    ; --            ; (6) 873 ps    ; --                    ; --  ; --   ;
 ; i_clk                   ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
+; i_instruction[0]        ; Input    ; --            ; (6) 873 ps    ; --                    ; --  ; --   ;
+; i_instruction[4]        ; Input    ; (6) 873 ps    ; --            ; --                    ; --  ; --   ;
+; i_instruction[3]        ; Input    ; (6) 873 ps    ; --            ; --                    ; --  ; --   ;
+; i_instruction[1]        ; Input    ; --            ; (6) 873 ps    ; --                    ; --  ; --   ;
+; i_instruction[2]        ; Input    ; (6) 873 ps    ; --            ; --                    ; --  ; --   ;
 +-------------------------+----------+---------------+---------------+-----------------------+-----+------+
 
 
-+----------------------------------------------------+
-; Pad To Core Delay Chain Fanout                     ;
-+----------------------+-------------------+---------+
-; Source Pin / Fanout  ; Pad To Core Index ; Setting ;
-+----------------------+-------------------+---------+
-; i_status_register[0] ;                   ;         ;
-; i_status_register[1] ;                   ;         ;
-; i_status_register[2] ;                   ;         ;
-; i_status_register[3] ;                   ;         ;
-; i_status_register[4] ;                   ;         ;
-; i_status_register[5] ;                   ;         ;
-; i_status_register[6] ;                   ;         ;
-; i_status_register[7] ;                   ;         ;
-; i_instruction[0]     ;                   ;         ;
-;      - Mux24~0       ; 0                 ; 6       ;
-;      - s_cc[0]       ; 0                 ; 6       ;
-; i_instruction[2]     ;                   ;         ;
-;      - s_bbb[0]      ; 1                 ; 6       ;
-;      - Mux24~0       ; 1                 ; 6       ;
-; i_instruction[5]     ;                   ;         ;
-;      - Mux28~1       ; 0                 ; 6       ;
-;      - s_aaa[0]      ; 0                 ; 6       ;
-;      - Mux27~1       ; 0                 ; 6       ;
-;      - Mux15~0       ; 0                 ; 6       ;
-;      - Mux26~1       ; 0                 ; 6       ;
-;      - Mux26~3       ; 0                 ; 6       ;
-;      - Mux25~0       ; 0                 ; 6       ;
-;      - Mux12~0       ; 0                 ; 6       ;
-;      - Mux23~2       ; 0                 ; 6       ;
-; i_instruction[3]     ;                   ;         ;
-;      - s_bbb[1]      ; 0                 ; 6       ;
-;      - Mux26~0       ; 0                 ; 6       ;
-;      - Mux28~1       ; 0                 ; 6       ;
-;      - Mux27~1       ; 0                 ; 6       ;
-;      - Mux27~2       ; 0                 ; 6       ;
-;      - Mux27~4       ; 0                 ; 6       ;
-;      - Mux26~4       ; 0                 ; 6       ;
-;      - Mux25~2       ; 0                 ; 6       ;
-;      - Mux24~1       ; 0                 ; 6       ;
-;      - Mux23~2       ; 0                 ; 6       ;
-;      - Mux23~3       ; 0                 ; 6       ;
-;      - Mux23~4       ; 0                 ; 6       ;
-; i_instruction[7]     ;                   ;         ;
-;      - Mux26~0       ; 1                 ; 6       ;
-;      - Mux28~0       ; 1                 ; 6       ;
-;      - s_aaa[2]      ; 1                 ; 6       ;
-;      - Mux27~1       ; 1                 ; 6       ;
-;      - Mux15~0       ; 1                 ; 6       ;
-;      - Mux26~4       ; 1                 ; 6       ;
-;      - Mux25~1       ; 1                 ; 6       ;
-;      - Mux24~1       ; 1                 ; 6       ;
-;      - Mux23~3       ; 1                 ; 6       ;
-; i_instruction[1]     ;                   ;         ;
-;      - s_cc[1]       ; 1                 ; 6       ;
-;      - Mux26~0       ; 1                 ; 6       ;
-;      - Mux28~0       ; 1                 ; 6       ;
-;      - Mux27~2       ; 1                 ; 6       ;
-;      - Mux27~4       ; 1                 ; 6       ;
-;      - Mux26~3       ; 1                 ; 6       ;
-;      - Mux26~4       ; 1                 ; 6       ;
-;      - Mux25~0       ; 1                 ; 6       ;
-;      - Mux25~1       ; 1                 ; 6       ;
-;      - Mux12~0       ; 1                 ; 6       ;
-;      - Mux23~4       ; 1                 ; 6       ;
-; i_instruction[4]     ;                   ;         ;
-;      - Mux26~0       ; 0                 ; 6       ;
-;      - Mux28~0       ; 0                 ; 6       ;
-;      - s_bbb[2]      ; 0                 ; 6       ;
-;      - Mux27~2       ; 0                 ; 6       ;
-;      - Mux15~0       ; 0                 ; 6       ;
-;      - Mux26~3       ; 0                 ; 6       ;
-;      - Mux25~1       ; 0                 ; 6       ;
-;      - Mux12~0       ; 0                 ; 6       ;
-;      - Mux23~3       ; 0                 ; 6       ;
-; i_instruction[6]     ;                   ;         ;
-;      - Mux28~0       ; 1                 ; 6       ;
-;      - s_aaa[1]      ; 1                 ; 6       ;
-;      - Mux27~1       ; 1                 ; 6       ;
-;      - Mux15~0       ; 1                 ; 6       ;
-;      - Mux26~1       ; 1                 ; 6       ;
-;      - Mux26~3       ; 1                 ; 6       ;
-;      - Mux25~0       ; 1                 ; 6       ;
-;      - Mux12~0       ; 1                 ; 6       ;
-;      - Mux23~2       ; 1                 ; 6       ;
-; i_clk                ;                   ;         ;
-+----------------------+-------------------+---------+
++------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                       ;
++------------------------+-------------------+---------+
+; Source Pin / Fanout    ; Pad To Core Index ; Setting ;
++------------------------+-------------------+---------+
+; i_instruction[5]       ;                   ;         ;
+; i_instruction[6]       ;                   ;         ;
+; i_instruction[7]       ;                   ;         ;
+; i_status_register[0]   ;                   ;         ;
+; i_status_register[1]   ;                   ;         ;
+; i_status_register[2]   ;                   ;         ;
+; i_status_register[3]   ;                   ;         ;
+; i_status_register[4]   ;                   ;         ;
+; i_status_register[5]   ;                   ;         ;
+; i_status_register[6]   ;                   ;         ;
+; i_status_register[7]   ;                   ;         ;
+; i_clk                  ;                   ;         ;
+; i_instruction[0]       ;                   ;         ;
+;      - s_cc[0]~feeder  ; 1                 ; 6       ;
+; i_instruction[4]       ;                   ;         ;
+;      - s_bbb[2]~feeder ; 0                 ; 6       ;
+; i_instruction[3]       ;                   ;         ;
+;      - s_bbb[1]~feeder ; 0                 ; 6       ;
+; i_instruction[1]       ;                   ;         ;
+;      - s_cc[1]~feeder  ; 1                 ; 6       ;
+; i_instruction[2]       ;                   ;         ;
+;      - s_bbb[0]~feeder ; 0                 ; 6       ;
++------------------------+-------------------+---------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
@@ -1085,7 +1028,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 ; Name  ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
-; i_clk ; PIN_M8   ; 19      ; Clock ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; i_clk ; PIN_M8   ; 10      ; Clock ; yes    ; Global Clock         ; GCLK3            ; --                        ;
 +-------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1094,7 +1037,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name  ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; i_clk ; PIN_M8   ; 19      ; 3                                    ; Global Clock         ; GCLK3            ; --                        ;
+; i_clk ; PIN_M8   ; 10      ; 0                                    ; Global Clock         ; GCLK3            ; --                        ;
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1103,54 +1046,54 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------+
 ; Routing Resource Type ; Usage                 ;
 +-----------------------+-----------------------+
-; Block interconnects   ; 75 / 27,275 ( < 1 % ) ;
+; Block interconnects   ; 17 / 27,275 ( < 1 % ) ;
 ; C16 interconnects     ; 0 / 1,240 ( 0 % )     ;
-; C4 interconnects      ; 30 / 20,832 ( < 1 % ) ;
-; Direct links          ; 21 / 27,275 ( < 1 % ) ;
+; C4 interconnects      ; 9 / 20,832 ( < 1 % )  ;
+; Direct links          ; 6 / 27,275 ( < 1 % )  ;
 ; Global clocks         ; 1 / 10 ( 10 % )       ;
-; Local interconnects   ; 25 / 8,064 ( < 1 % )  ;
-; R24 interconnects     ; 1 / 1,320 ( < 1 % )   ;
-; R4 interconnects      ; 31 / 28,560 ( < 1 % ) ;
+; Local interconnects   ; 8 / 8,064 ( < 1 % )   ;
+; R24 interconnects     ; 0 / 1,320 ( 0 % )     ;
+; R4 interconnects      ; 1 / 28,560 ( < 1 % )  ;
 +-----------------------+-----------------------+
 
 
-+---------------------------------------------------------------------------+
-; LAB Logic Elements                                                        ;
-+---------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 11.50) ; Number of LABs  (Total = 4) ;
-+---------------------------------------------+-----------------------------+
-; 1                                           ; 1                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 0                           ;
-; 5                                           ; 0                           ;
-; 6                                           ; 0                           ;
-; 7                                           ; 0                           ;
-; 8                                           ; 0                           ;
-; 9                                           ; 0                           ;
-; 10                                          ; 0                           ;
-; 11                                          ; 0                           ;
-; 12                                          ; 0                           ;
-; 13                                          ; 1                           ;
-; 14                                          ; 0                           ;
-; 15                                          ; 0                           ;
-; 16                                          ; 2                           ;
-+---------------------------------------------+-----------------------------+
++--------------------------------------------------------------------------+
+; LAB Logic Elements                                                       ;
++--------------------------------------------+-----------------------------+
+; Number of Logic Elements  (Average = 7.00) ; Number of LABs  (Total = 2) ;
++--------------------------------------------+-----------------------------+
+; 1                                          ; 1                           ;
+; 2                                          ; 0                           ;
+; 3                                          ; 0                           ;
+; 4                                          ; 0                           ;
+; 5                                          ; 0                           ;
+; 6                                          ; 0                           ;
+; 7                                          ; 0                           ;
+; 8                                          ; 0                           ;
+; 9                                          ; 0                           ;
+; 10                                         ; 0                           ;
+; 11                                         ; 0                           ;
+; 12                                         ; 0                           ;
+; 13                                         ; 1                           ;
+; 14                                         ; 0                           ;
+; 15                                         ; 0                           ;
+; 16                                         ; 0                           ;
++--------------------------------------------+-----------------------------+
 
 
 +------------------------------------------------------------------+
 ; LAB-wide Signals                                                 ;
 +------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 0.75) ; Number of LABs  (Total = 4) ;
+; LAB-wide Signals  (Average = 0.50) ; Number of LABs  (Total = 2) ;
 +------------------------------------+-----------------------------+
-; 1 Clock                            ; 3                           ;
+; 1 Clock                            ; 1                           ;
 +------------------------------------+-----------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                        ;
 +----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 16.25) ; Number of LABs  (Total = 4) ;
+; Number of Signals Sourced  (Average = 12.00) ; Number of LABs  (Total = 2) ;
 +----------------------------------------------+-----------------------------+
 ; 0                                            ; 0                           ;
 ; 1                                            ; 1                           ;
@@ -1170,65 +1113,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 15                                           ; 0                           ;
 ; 16                                           ; 0                           ;
 ; 17                                           ; 0                           ;
-; 18                                           ; 1                           ;
+; 18                                           ; 0                           ;
 ; 19                                           ; 0                           ;
-; 20                                           ; 1                           ;
+; 20                                           ; 0                           ;
 ; 21                                           ; 0                           ;
 ; 22                                           ; 0                           ;
-; 23                                           ; 0                           ;
-; 24                                           ; 0                           ;
-; 25                                           ; 0                           ;
-; 26                                           ; 1                           ;
+; 23                                           ; 1                           ;
 +----------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                       ;
 +-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 7.25) ; Number of LABs  (Total = 4) ;
+; Number of Signals Sourced Out  (Average = 3.00) ; Number of LABs  (Total = 2) ;
 +-------------------------------------------------+-----------------------------+
 ; 0                                               ; 0                           ;
 ; 1                                               ; 1                           ;
 ; 2                                               ; 0                           ;
 ; 3                                               ; 0                           ;
 ; 4                                               ; 0                           ;
-; 5                                               ; 0                           ;
-; 6                                               ; 0                           ;
-; 7                                               ; 1                           ;
-; 8                                               ; 1                           ;
-; 9                                               ; 0                           ;
-; 10                                              ; 0                           ;
-; 11                                              ; 0                           ;
-; 12                                              ; 0                           ;
-; 13                                              ; 1                           ;
+; 5                                               ; 1                           ;
 +-------------------------------------------------+-----------------------------+
 
 
-+----------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                        ;
-+----------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 10.25) ; Number of LABs  (Total = 4) ;
-+----------------------------------------------+-----------------------------+
-; 0                                            ; 0                           ;
-; 1                                            ; 0                           ;
-; 2                                            ; 0                           ;
-; 3                                            ; 0                           ;
-; 4                                            ; 0                           ;
-; 5                                            ; 0                           ;
-; 6                                            ; 0                           ;
-; 7                                            ; 0                           ;
-; 8                                            ; 0                           ;
-; 9                                            ; 0                           ;
-; 10                                           ; 1                           ;
-; 11                                           ; 0                           ;
-; 12                                           ; 0                           ;
-; 13                                           ; 1                           ;
-; 14                                           ; 0                           ;
-; 15                                           ; 0                           ;
-; 16                                           ; 0                           ;
-; 17                                           ; 0                           ;
-; 18                                           ; 1                           ;
-+----------------------------------------------+-----------------------------+
++---------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                       ;
++---------------------------------------------+-----------------------------+
+; Number of Distinct Inputs  (Average = 3.00) ; Number of LABs  (Total = 2) ;
++---------------------------------------------+-----------------------------+
+; 0                                           ; 0                           ;
+; 1                                           ; 0                           ;
+; 2                                           ; 0                           ;
+; 3                                           ; 0                           ;
+; 4                                           ; 0                           ;
+; 5                                           ; 0                           ;
+; 6                                           ; 1                           ;
++---------------------------------------------+-----------------------------+
 
 
 +------------------------------------------+
@@ -1292,6 +1212,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Total Unchecked         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0         ; 0         ; 0            ; 0            ;
 ; Total Inapplicable      ; 28           ; 28           ; 28           ; 28           ; 28           ; 0         ; 28           ; 28           ; 28           ; 28           ; 28           ; 28           ; 28           ; 17           ; 28           ; 28           ; 28           ; 11           ; 17           ; 28           ; 11           ; 28           ; 28           ; 17           ; 28           ; 0         ; 0         ; 0         ; 28           ; 28           ;
 ; Total Fail              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0         ; 0         ; 0            ; 0            ;
+; i_instruction[5]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; i_instruction[6]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; i_instruction[7]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; i_status_register[0]    ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; i_status_register[1]    ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; i_status_register[2]    ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
@@ -1311,15 +1234,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; o_addressing_mode[2]    ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; o_register_select[0]    ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; o_register_select[1]    ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; i_instruction[0]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; i_instruction[2]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; i_instruction[5]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; i_instruction[3]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; i_instruction[7]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; i_instruction[1]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; i_instruction[4]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
-; i_instruction[6]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 ; i_clk                   ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; i_instruction[0]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; i_instruction[4]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; i_instruction[3]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; i_instruction[1]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
+; i_instruction[2]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Pass      ; Inapplicable ; Inapplicable ;
 +-------------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+-----------+-----------+--------------+--------------+
 
 
@@ -1427,7 +1347,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.07 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.04 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1435,10 +1355,10 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Info (144001): Generated suppressed messages file /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/output_files/NESFPGA.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 626 megabytes
-    Info: Processing ended: Tue Dec 12 17:20:22 2023
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 623 megabytes
+    Info: Processing ended: Tue Dec 19 14:18:04 2023
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:07
 
 
 +----------------------------+

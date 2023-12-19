@@ -12,25 +12,25 @@
 # Modifying modelsim.ini
 # vcom -93 -work altera {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_syn_attributes.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:25 on Dec 12,2023
+# Start time: 14:18:50 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_syn_attributes.vhd 
 # -- Loading package STANDARD
 # -- Compiling package altera_syn_attributes
-# End time: 17:25:27 on Dec 12,2023, Elapsed time: 0:00:02
+# End time: 14:18:51 on Dec 19,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_standard_functions.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:27 on Dec 12,2023
+# Start time: 14:18:51 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_standard_functions.vhd 
 # -- Loading package STANDARD
 # -- Compiling package altera_standard_functions
 # -- Compiling package body altera_standard_functions
 # -- Loading package altera_standard_functions
-# End time: 17:25:28 on Dec 12,2023, Elapsed time: 0:00:01
+# End time: 14:18:52 on Dec 19,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/alt_dspbuilder_package.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:28 on Dec 12,2023
+# Start time: 14:18:52 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/alt_dspbuilder_package.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -39,11 +39,11 @@
 # -- Compiling package alt_dspbuilder_package
 # -- Compiling package body alt_dspbuilder_package
 # -- Loading package alt_dspbuilder_package
-# End time: 17:25:29 on Dec 12,2023, Elapsed time: 0:00:01
+# End time: 14:18:54 on Dec 19,2023, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_europa_support_lib.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:29 on Dec 12,2023
+# Start time: 14:18:54 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_europa_support_lib.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -54,11 +54,11 @@
 # -- Compiling package altera_europa_support_lib
 # -- Compiling package body altera_europa_support_lib
 # -- Loading package altera_europa_support_lib
-# End time: 17:25:30 on Dec 12,2023, Elapsed time: 0:00:01
+# End time: 14:18:55 on Dec 19,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_primitives_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:30 on Dec 12,2023
+# Start time: 14:18:55 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_primitives_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -68,11 +68,11 @@
 # -- Compiling package dffeas_pack
 # -- Loading package dffeas_pack
 # -- Compiling package altera_primitives_components
-# End time: 17:25:30 on Dec 12,2023, Elapsed time: 0:00:00
+# End time: 14:18:56 on Dec 19,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_primitives.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:31 on Dec 12,2023
+# Start time: 14:18:56 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_primitives.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -160,7 +160,7 @@
 # -- Compiling architecture BEHAVIOR of alt_bidir_diff
 # -- Compiling entity alt_bidir_buf
 # -- Compiling architecture BEHAVIOR of alt_bidir_buf
-# End time: 17:25:38 on Dec 12,2023, Elapsed time: 0:00:07
+# End time: 14:19:03 on Dec 19,2023, Elapsed time: 0:00:07
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/lpm
@@ -171,17 +171,17 @@
 # Modifying modelsim.ini
 # vcom -93 -work lpm {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/220pack.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:39 on Dec 12,2023
+# Start time: 14:19:03 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work lpm /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/220pack.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package LPM_COMPONENTS
-# End time: 17:25:40 on Dec 12,2023, Elapsed time: 0:00:01
+# End time: 14:19:05 on Dec 19,2023, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # vcom -93 -work lpm {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/220model.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:40 on Dec 12,2023
+# Start time: 14:19:05 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work lpm /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/220model.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -277,7 +277,7 @@
 # -- Compiling architecture LPM_SYN of LPM_OUTpad
 # -- Compiling entity LPM_BIpad
 # -- Compiling architecture LPM_SYN of LPM_BIpad
-# End time: 17:25:48 on Dec 12,2023, Elapsed time: 0:00:08
+# End time: 14:19:13 on Dec 19,2023, Elapsed time: 0:00:08
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/sgate
@@ -288,7 +288,7 @@
 # Modifying modelsim.ini
 # vcom -93 -work sgate {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/sgate_pack.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:48 on Dec 12,2023
+# Start time: 14:19:13 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work sgate /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/sgate_pack.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -296,11 +296,11 @@
 # -- Compiling package sgate_pack
 # -- Compiling package body sgate_pack
 # -- Loading package sgate_pack
-# End time: 17:25:49 on Dec 12,2023, Elapsed time: 0:00:01
+# End time: 14:19:14 on Dec 19,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work sgate {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/sgate.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:49 on Dec 12,2023
+# Start time: 14:19:15 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work sgate /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/sgate.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -350,7 +350,7 @@
 # -- Compiling architecture sim_arch of oper_bus_mux
 # -- Compiling entity oper_latch
 # -- Compiling architecture sim_arch of oper_latch
-# End time: 17:25:54 on Dec 12,2023, Elapsed time: 0:00:05
+# End time: 14:19:19 on Dec 19,2023, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/altera_mf
@@ -361,17 +361,17 @@
 # Modifying modelsim.ini
 # vcom -93 -work altera_mf {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_mf_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:54 on Dec 12,2023
+# Start time: 14:19:19 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera_mf /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_mf_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package altera_mf_components
-# End time: 17:25:57 on Dec 12,2023, Elapsed time: 0:00:03
+# End time: 14:19:23 on Dec 19,2023, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera_mf {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_mf.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:25:57 on Dec 12,2023
+# Start time: 14:19:23 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera_mf /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_mf.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -610,7 +610,7 @@
 # -- Compiling architecture sim_sld_virtual_jtag_basic of sld_virtual_jtag_basic
 # -- Compiling entity altsource_probe
 # -- Compiling architecture sim_altsource_probe of altsource_probe
-# End time: 17:26:18 on Dec 12,2023, Elapsed time: 0:00:21
+# End time: 14:19:46 on Dec 19,2023, Elapsed time: 0:00:23
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/altera_lnsim
@@ -621,21 +621,21 @@
 # Modifying modelsim.ini
 # vlog -sv -work altera_lnsim {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/mentor/altera_lnsim_for_vhdl.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:26:18 on Dec 12,2023
+# Start time: 14:19:46 on Dec 19,2023
 # vlog -reportprogress 300 -sv -work altera_lnsim /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/mentor/altera_lnsim_for_vhdl.sv 
 # 
 # Top level modules:
-# End time: 17:26:23 on Dec 12,2023, Elapsed time: 0:00:05
+# End time: 14:19:52 on Dec 19,2023, Elapsed time: 0:00:06
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera_lnsim {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_lnsim_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:26:23 on Dec 12,2023
+# Start time: 14:19:52 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work altera_lnsim /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/altera_lnsim_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package altera_lnsim_components
-# End time: 17:26:25 on Dec 12,2023, Elapsed time: 0:00:02
+# End time: 14:19:54 on Dec 19,2023, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/fiftyfivenm
@@ -646,15 +646,15 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work fiftyfivenm {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/mentor/fiftyfivenm_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:26:25 on Dec 12,2023
+# Start time: 14:19:54 on Dec 19,2023
 # vlog -reportprogress 300 -vlog01compat -work fiftyfivenm /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/mentor/fiftyfivenm_atoms_ncrypt.v 
 # 
 # Top level modules:
-# End time: 17:26:32 on Dec 12,2023, Elapsed time: 0:00:07
+# End time: 14:20:04 on Dec 19,2023, Elapsed time: 0:00:10
 # Errors: 0, Warnings: 0
 # vcom -93 -work fiftyfivenm {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/fiftyfivenm_atoms.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:26:33 on Dec 12,2023
+# Start time: 14:20:04 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work fiftyfivenm /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/fiftyfivenm_atoms.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -766,11 +766,11 @@
 # -- Compiling architecture behavior of fiftyfivenm_adcblock
 # -- Compiling entity fiftyfivenm_phase_detector
 # -- Compiling architecture behavior of fiftyfivenm_phase_detector
-# End time: 17:26:46 on Dec 12,2023, Elapsed time: 0:00:13
+# End time: 14:20:20 on Dec 19,2023, Elapsed time: 0:00:16
 # Errors: 0, Warnings: 1
 # vcom -93 -work fiftyfivenm {/home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/fiftyfivenm_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:26:46 on Dec 12,2023
+# Start time: 14:20:20 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work fiftyfivenm /home/nightfore/intelFPGA_lite/22.1std/quartus/eda/sim_lib/fiftyfivenm_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -779,7 +779,7 @@
 # -- Loading package VITAL_Primitives
 # -- Loading package fiftyfivenm_atom_pack
 # -- Compiling package fiftyfivenm_components
-# End time: 17:26:46 on Dec 12,2023, Elapsed time: 0:00:00
+# End time: 14:20:21 on Dec 19,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists rtl_work]} {
@@ -793,7 +793,7 @@
 # 
 # vcom -93 -work work {/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:26:47 on Dec 12,2023
+# Start time: 14:20:21 on Dec 19,2023
 # vcom -reportprogress 300 -93 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -801,14 +801,49 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity predecode
 # -- Compiling architecture Behavioral of predecode
-# ** Warning: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(194): (vcom-1014) Array type case expression must be of a locally static subtype.
-# End time: 17:26:47 on Dec 12,2023, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
+# ** Error (suppressible): /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(195): (vcom-1339) Case statement choices cover only 4 out of 81 cases.
+# ** Note: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(298): VHDL Compiler exiting
+# End time: 14:20:22 on Dec 19,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: /home/nightfore/intelFPGA/20.1/modelsim_ase/linuxaloem/vcom failed.
+# Error in macro ./NESFPGA_run_msim_rtl_vhdl.do line 47
+# /home/nightfore/intelFPGA/20.1/modelsim_ase/linuxaloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd}"
 # 
-# vcom -93 -work work {/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd}
+# stdin: <EOF>
+vcom -reportprogress 300 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:26:47 on Dec 12,2023
-# vcom -reportprogress 300 -93 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd 
+# Start time: 14:21:16 on Dec 19,2023
+# vcom -reportprogress 300 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity predecode
+# -- Compiling architecture Behavioral of predecode
+# ** Error (suppressible): /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(195): (vcom-1339) Case statement choices cover only 4 out of 81 cases.
+# ** Note: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(298): VHDL Compiler exiting
+# End time: 14:21:17 on Dec 19,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:21:18 on Dec 19,2023
+# vcom -reportprogress 300 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity predecode
+# -- Compiling architecture Behavioral of predecode
+# ** Error (suppressible): /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(195): (vcom-1339) Case statement choices cover only 4 out of 81 cases.
+# ** Note: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(298): VHDL Compiler exiting
+# End time: 14:21:19 on Dec 19,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:21:28 on Dec 19,2023
+# vcom -reportprogress 300 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -818,25 +853,66 @@
 # -- Compiling architecture Behavioral of tb_predecode
 # -- Loading package NUMERIC_STD
 # -- Loading entity predecode
-# End time: 17:26:48 on Dec 12,2023, Elapsed time: 0:00:01
+# End time: 14:21:28 on Dec 19,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  predecode_test
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" predecode_test 
-# Start time: 17:26:48 on Dec 12,2023
-# ** Error: (vsim-3170) Could not find 'predecode_test'.
-#         Searched libraries:
-#             /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/vhdl_libs/altera
-#             /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/vhdl_libs/lpm
-#             /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/vhdl_libs/sgate
-#             /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/vhdl_libs/altera_mf
-#             /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/vhdl_libs/altera_lnsim
-#             /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/vhdl_libs/fiftyfivenm
-#             /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/rtl_work
-#             /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/rtl_work
+vsim work.tb_predecode
+# vsim work.tb_predecode 
+# Start time: 14:21:35 on Dec 19,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_predecode(behavioral)
+# ** Error: (vsim-3173) Entity '/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/rtl_work.predecode' has no architecture.
+# Load interrupted
 # Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./NESFPGA_run_msim_rtl_vhdl.do PAUSED at line 51
-# End time: 17:31:37 on Dec 12,2023, Elapsed time: 0:04:49
+# End time: 14:21:36 on Dec 19,2023, Elapsed time: 0:00:01
 # Errors: 1, Warnings: 0
+vsim work.predecode
+# vsim work.predecode 
+# Start time: 14:21:38 on Dec 19,2023
+# Loading std.standard
+# ** Error: (vsim-3173) Entity '/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/rtl_work.predecode' has no architecture.
+# Error loading design
+# End time: 14:21:39 on Dec 19,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vsim work.predecode
+# vsim work.predecode 
+# Start time: 14:23:52 on Dec 19,2023
+# Loading std.standard
+# ** Error: (vsim-3173) Entity '/media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/modelsim/rtl_work.predecode' has no architecture.
+# Error loading design
+# End time: 14:23:53 on Dec 19,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vcom -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:23:56 on Dec 19,2023
+# vcom -reportprogress 300 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity predecode
+# -- Compiling architecture Behavioral of predecode
+# ** Error (suppressible): /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(195): (vcom-1339) Case statement choices cover only 4 out of 81 cases.
+# ** Note: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd(294): VHDL Compiler exiting
+# End time: 14:23:56 on Dec 19,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/nightfore/intelFPGA/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:24:00 on Dec 19,2023
+# vcom -reportprogress 300 -work work /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity tb_predecode
+# -- Compiling architecture Behavioral of tb_predecode
+# -- Loading package NUMERIC_STD
+# -- Loading entity predecode
+# End time: 14:24:01 on Dec 19,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

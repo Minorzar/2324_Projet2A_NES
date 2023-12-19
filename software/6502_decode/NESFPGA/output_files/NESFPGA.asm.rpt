@@ -1,5 +1,5 @@
 Assembler report for NESFPGA
-Tue Dec 12 17:20:26 2023
+Tue Dec 19 14:18:08 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Dec 12 17:20:26 2023 ;
+; Assembler Status      ; Successful - Tue Dec 19 14:18:08 2023 ;
 ; Revision Name         ; NESFPGA                               ;
 ; Top-level Entity Name ; predecode                             ;
 ; Family                ; MAX 10                                ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+----------------------+
 ; Option         ; Setting              ;
 +----------------+----------------------+
-; JTAG usercode  ; 0x00079B08           ;
-; Checksum       ; 0x00079B08           ;
+; JTAG usercode  ; 0x00073EAB           ;
+; Checksum       ; 0x00073EAB           ;
 +----------------+----------------------+
 
 
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Tue Dec 12 17:20:24 2023
+    Info: Processing started: Tue Dec 19 14:18:06 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off NESFPGA -c NESFPGA
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 362 megabytes
-    Info: Processing ended: Tue Dec 12 17:20:26 2023
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Tue Dec 19 14:18:09 2023
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:01
 
 
