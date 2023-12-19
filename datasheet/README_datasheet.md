@@ -21,6 +21,9 @@
 
 ## CPU: 6502 / 2A03
 
+### 6502 all 256 Opcodes
+- Web: [6502.txt](https://www.nesdev.org/6502.txt)
+
 ### 6502 Instructions Set
 - Web: [The 6502 Instruction Set Decoded.webarchive](https://llx.com/Neil/a2/opcodes.html)
 - Web: [6502 Addressing Modes.webarchive](https://wiki.cdot.senecacollege.ca/wiki/6502_Addressing_Modes)
