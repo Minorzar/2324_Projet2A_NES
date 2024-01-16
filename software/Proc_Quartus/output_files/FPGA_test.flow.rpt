@@ -1,5 +1,5 @@
 Flow report for FPGA_test
-Tue Oct 10 23:48:13 2023
+Tue Jan 16 14:23:49 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -41,16 +41,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Tue Oct 10 23:48:05 2023          ;
+; Flow Status                     ; Successful - Tue Jan 16 14:23:49 2024          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; FPGA_test                                      ;
-; Top-level Entity Name           ; displayer                                      ;
+; Top-level Entity Name           ; vga                                            ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 21 / 32,070 ( < 1 % )                          ;
-; Total registers                 ; 41                                             ;
-; Total pins                      ; 12 / 457 ( 3 % )                               ;
+; Logic utilization (in ALMs)     ; 39 / 32,070 ( < 1 % )                          ;
+; Total registers                 ; 53                                             ;
+; Total pins                      ; 32 / 457 ( 7 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                          ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                                 ;
@@ -68,32 +68,42 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/10/2023 23:46:40 ;
+; Start date & time ; 01/16/2024 14:22:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGA_test           ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                        ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 9447194249565.169697440018380          ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
-; MISC_FILE                           ; PLL.cmp                                ; --            ; --          ; --         ;
-; MISC_FILE                           ; PLL_sim/PLL.vho                        ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; displayer   ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; displayer   ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; displayer   ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
-; SPD_FILE                            ; PLL.spd                                ; --            ; --          ; --         ;
-; SYNTHESIS_ONLY_QIP                  ; On                                     ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY                    ; displayer                              ; FPGA_test     ; --          ; --         ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
++------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                             ;
++--------------------------------------+----------------------------------------+---------------+-------------+----------------+
+; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
++--------------------------------------+----------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID                ; 9447194249565.170541135602696          ; --            ; --          ; --             ;
+; EDA_DESIGN_INSTANCE_NAME             ; VGA_ctrl_tb.vhd                        ; --            ; --          ; VGA_test       ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; VGA_test                               ; --            ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                  ; ModelSim (VHDL)                        ; <None>        ; --          ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                  ; VGA_ctrl_tb.vhd                        ; --            ; --          ; VGA_test       ;
+; EDA_TEST_BENCH_MODULE_NAME           ; VGA_test                               ; --            ; --          ; VGA_test       ;
+; EDA_TEST_BENCH_NAME                  ; VGA_test                               ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 100 ns                                 ; --            ; --          ; VGA_test       ;
+; EDA_TIME_SCALE                       ; 10 us                                  ; --            ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --             ;
+; MISC_FILE                            ; pll25.cmp                              ; --            ; --          ; --             ;
+; MISC_FILE                            ; pll25_sim/pll25.vho                    ; --            ; --          ; --             ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; VGA         ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; VGA         ; Top            ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; VGA         ; Top            ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --             ;
+; SPD_FILE                             ; pll25.spd                              ; --            ; --          ; --             ;
+; SYNTHESIS_ONLY_QIP                   ; On                                     ; --            ; --          ; --             ;
+; TOP_LEVEL_ENTITY                     ; VGA                                    ; FPGA_test     ; --          ; --             ;
++--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -101,11 +111,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:24     ; 1.0                     ; 4882 MB             ; 00:00:16                           ;
-; Fitter               ; 00:00:44     ; 1.0                     ; 6531 MB             ; 00:01:00                           ;
-; Assembler            ; 00:00:09     ; 1.0                     ; 4885 MB             ; 00:00:06                           ;
-; Timing Analyzer      ; 00:00:07     ; 1.1                     ; 5162 MB             ; 00:00:03                           ;
-; Total                ; 00:01:24     ; --                      ; --                  ; 00:01:25                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4906 MB             ; 00:00:18                           ;
+; Fitter               ; 00:00:38     ; 1.0                     ; 6578 MB             ; 00:00:47                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4877 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.1                     ; 5168 MB             ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4848 MB             ; 00:00:01                           ;
+; Total                ; 00:01:05     ; --                      ; --                  ; 00:01:15                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -118,6 +129,7 @@ https://fpgasoftware.intel.com/eula.
 ; Fitter               ; Computer-of-Minorzar ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; Computer-of-Minorzar ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; Computer-of-Minorzar ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; Computer-of-Minorzar ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+----------------------+------------+------------+----------------+
 
 
@@ -128,6 +140,7 @@ quartus_map --read_settings_files=on --write_settings_files=off FPGA_test -c FPG
 quartus_fit --read_settings_files=off --write_settings_files=off FPGA_test -c FPGA_test
 quartus_asm --read_settings_files=off --write_settings_files=off FPGA_test -c FPGA_test
 quartus_sta FPGA_test -c FPGA_test
+quartus_eda --read_settings_files=off --write_settings_files=off FPGA_test -c FPGA_test
 
 
 
