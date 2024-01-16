@@ -1,0 +1,65 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity Predecode_Logic is
+  Port ( 
+    i_instruction : in STD_LOGIC_VECTOR(7 downto 0);    -- Input instruction
+    i_resg : in STD_LOGIC;                              -- Global reset signal
+    i_intg : in STD_LOGIC;                              -- Global interrupt signal
+    o_is_single_byte : out STD_LOGIC;                  -- Signal indicating if the instruction is single-byte
+    o_instruction_type : out STD_LOGIC_VECTOR(3 downto 0);  -- Instruction type
+    o_addressing_mode : out STD_LOGIC_VECTOR(3 downto 0);   -- Addressing mode
+    o_required_registers : out STD_LOGIC_VECTOR(7 downto 0);  -- Required registers
+    o_assert_interrupt_control : out STD_LOGIC            -- Interrupt control signal
+  );
+end Predecode_Logic;
+
+architecture Behavioral of Predecode_Logic is
+  signal instruction_type : STD_LOGIC_VECTOR(3 downto 0);
+  signal addressing_mode : STD_LOGIC_VECTOR(3 downto 0);
+  signal required_registers : STD_LOGIC_VECTOR(7 downto 0);
+begin
+  process(i_instruction, i_resg, i_intg)
+  begin
+    -- Analyzing the instruction to determine the instruction type
+    instruction_type <= i_instruction(7 downto 4);
+    
+    -- Determining if the instruction is single-byte
+    if i_instruction(7 downto 6) = "00" then
+      o_is_single_byte <= '1';
+    else
+      o_is_single_byte <= '0';
+    end if;
+
+    -- Example: Assigning the instruction type based on the opcode
+    case instruction_type is
+      when "0000" =>
+        o_instruction_type <= "0000"; -- Instruction type for a specific example
+      when others =>
+        o_instruction_type <= "1111"; -- Another instruction type for other cases
+    end case;
+
+    -- Example: Assigning the addressing mode based on the opcode
+    -- Note: You should replace this with appropriate logic for your architecture
+    case instruction_type is
+      when "0000" =>
+        addressing_mode <= "0000"; -- Addressing mode for a specific example
+      when others =>
+        addressing_mode <= "1111"; -- Another addressing mode for other cases
+    end case;
+
+    -- Example: Assigning the required registers based on the opcode
+    -- Note: You should replace this with appropriate logic for your architecture
+    required_registers <= "00000000"; -- Required registers for a specific example
+
+    -- Activating the interrupt when not(RESG v INTG)
+    -- Meaning: Interrupt Global (INTG) and Reset Signal Global (RESG)
+    o_assert_interrupt_control <= '1' when not (i_resg or i_intg) else '0';
+  end process;
+
+  -- Module outputs
+  o_instruction_type <= instruction_type;
+  o_addressing_mode <= addressing_mode;
+  o_required_registers <= required_registers;
+end Behavioral;
