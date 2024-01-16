@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <simPackage>
- <file path="PLL25_sim/PLL25.vho" type="VHDL" />
- <topLevel name="PLL25" />
+ <file path="pll25_sim/pll25.vho" type="VHDL" />
+ <topLevel name="pll25" />
  <deviceFamily name="cyclonev" />
 </simPackage>

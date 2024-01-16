@@ -8,115 +8,79 @@
 					"strict" : false
 				},
 				{
-					"name" : "o_HS",
+					"name" : "o_VGA_R[0]",
 					"strict" : false
 				},
 				{
-					"name" : "o_VS",
+					"name" : "o_VGA_R[1]",
 					"strict" : false
 				},
 				{
-					"name" : "o_R[0]",
+					"name" : "o_VGA_R[2]",
 					"strict" : false
 				},
 				{
-					"name" : "o_R[1]",
+					"name" : "o_VGA_R[3]",
 					"strict" : false
 				},
 				{
-					"name" : "o_R[2]",
+					"name" : "o_VGA_R[4]",
 					"strict" : false
 				},
 				{
-					"name" : "o_R[3]",
+					"name" : "o_VGA_R[5]",
 					"strict" : false
 				},
 				{
-					"name" : "o_R[4]",
+					"name" : "o_VGA_R[6]",
 					"strict" : false
 				},
 				{
-					"name" : "o_R[5]",
+					"name" : "o_VGA_R[7]",
 					"strict" : false
 				},
 				{
-					"name" : "o_R[6]",
+					"name" : "o_VGA_G[0]",
 					"strict" : false
 				},
 				{
-					"name" : "o_R[7]",
+					"name" : "o_VGA_G[1]",
 					"strict" : false
 				},
 				{
-					"name" : "o_G[0]",
+					"name" : "o_VGA_G[2]",
 					"strict" : false
 				},
 				{
-					"name" : "o_G[1]",
+					"name" : "o_VGA_G[3]",
 					"strict" : false
 				},
 				{
-					"name" : "o_G[2]",
+					"name" : "o_VGA_G[4]",
 					"strict" : false
 				},
 				{
-					"name" : "o_G[3]",
+					"name" : "o_VGA_G[5]",
 					"strict" : false
 				},
 				{
-					"name" : "o_G[4]",
+					"name" : "o_VGA_G[6]",
 					"strict" : false
 				},
 				{
-					"name" : "o_G[5]",
+					"name" : "o_VGA_G[7]",
 					"strict" : false
 				},
 				{
-					"name" : "o_G[6]",
+					"name" : "o_VGA_HS",
 					"strict" : false
 				},
 				{
-					"name" : "o_G[7]",
+					"name" : "o_VGA_VS",
 					"strict" : false
 				},
 				{
-					"name" : "o_B[0]",
-					"strict" : false
-				},
-				{
-					"name" : "o_B[1]",
-					"strict" : false
-				},
-				{
-					"name" : "o_B[2]",
-					"strict" : false
-				},
-				{
-					"name" : "o_B[3]",
-					"strict" : false
-				},
-				{
-					"name" : "o_B[4]",
-					"strict" : false
-				},
-				{
-					"name" : "o_B[5]",
-					"strict" : false
-				},
-				{
-					"name" : "o_B[6]",
-					"strict" : false
-				},
-				{
-					"name" : "o_B[7]",
-					"strict" : false
-				},
-				{
-					"name" : "o_BLANK_N",
-					"strict" : false
-				},
-				{
-					"name" : "i_reset",
+					"name" : "o_VGA_BLANK",
 					"strict" : false
 				}
 			]

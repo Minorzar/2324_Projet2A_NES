@@ -1,5 +1,5 @@
 Flow report for FPGA_test
-Tue Dec  5 17:22:17 2023
+Tue Jan 16 14:23:49 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Tue Dec  5 17:22:17 2023          ;
+; Flow Status                     ; Successful - Tue Jan 16 14:23:49 2024          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; FPGA_test                                      ;
-; Top-level Entity Name           ; VGA_final                                      ;
+; Top-level Entity Name           ; vga                                            ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 54 / 32,070 ( < 1 % )                          ;
-; Total registers                 ; 89                                             ;
+; Logic utilization (in ALMs)     ; 39 / 32,070 ( < 1 % )                          ;
+; Total registers                 ; 53                                             ;
 ; Total pins                      ; 32 / 457 ( 7 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                          ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/05/2023 17:21:24 ;
+; Start date & time ; 01/16/2024 14:22:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGA_test           ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 9447194249565.170179328407360          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 9447194249565.170541135602696          ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; VGA_ctrl_tb.vhd                        ; --            ; --          ; VGA_test       ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; VGA_test                               ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --            ; --          ; eda_simulation ;
@@ -92,17 +92,17 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_TIME_SCALE                       ; 10 us                                  ; --            ; --          ; eda_simulation ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --             ;
-; MISC_FILE                            ; PLL25.cmp                              ; --            ; --          ; --             ;
-; MISC_FILE                            ; PLL25_sim/PLL25.vho                    ; --            ; --          ; --             ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; VGA_final   ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; VGA_final   ; Top            ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; VGA_final   ; Top            ;
+; MISC_FILE                            ; pll25.cmp                              ; --            ; --          ; --             ;
+; MISC_FILE                            ; pll25_sim/pll25.vho                    ; --            ; --          ; --             ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; VGA         ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; VGA         ; Top            ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; VGA         ; Top            ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --             ;
-; SPD_FILE                             ; PLL25.spd                              ; --            ; --          ; --             ;
+; SPD_FILE                             ; pll25.spd                              ; --            ; --          ; --             ;
 ; SYNTHESIS_ONLY_QIP                   ; On                                     ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                     ; VGA_final                              ; FPGA_test     ; --          ; --             ;
+; TOP_LEVEL_ENTITY                     ; VGA                                    ; FPGA_test     ; --          ; --             ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
@@ -111,12 +111,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4890 MB             ; 00:00:12                           ;
-; Fitter               ; 00:00:29     ; 1.0                     ; 6573 MB             ; 00:00:47                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4878 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 5171 MB             ; 00:00:04                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4846 MB             ; 00:00:01                           ;
-; Total                ; 00:00:47     ; --                      ; --                  ; 00:01:09                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4906 MB             ; 00:00:18                           ;
+; Fitter               ; 00:00:38     ; 1.0                     ; 6578 MB             ; 00:00:47                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4877 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.1                     ; 5168 MB             ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4848 MB             ; 00:00:01                           ;
+; Total                ; 00:01:05     ; --                      ; --                  ; 00:01:15                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

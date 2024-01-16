@@ -1,5 +1,5 @@
 EDA Netlist Writer report for FPGA_test
-Tue Dec  5 17:22:17 2023
+Tue Jan 16 14:23:49 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -37,9 +37,9 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Tue Dec  5 17:22:17 2023 ;
+; EDA Netlist Writer Status ; Successful - Tue Jan 16 14:23:49 2024 ;
 ; Revision Name             ; FPGA_test                             ;
-; Top-level Entity Name     ; VGA_final                             ;
+; Top-level Entity Name     ; vga                                   ;
 ; Family                    ; Cyclone V                             ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -81,14 +81,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Tue Dec  5 17:22:16 2023
+    Info: Processing started: Tue Jan 16 14:23:48 2024
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off FPGA_test -c FPGA_test
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file FPGA_test.vho in folder "D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4846 megabytes
-    Info: Processing ended: Tue Dec  5 17:22:18 2023
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 4848 megabytes
+    Info: Processing ended: Tue Jan 16 14:23:49 2024
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

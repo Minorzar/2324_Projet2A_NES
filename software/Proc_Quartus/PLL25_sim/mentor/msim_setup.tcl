@@ -1,5 +1,5 @@
 
-# (C) 2001-2023 Altera Corporation. All rights reserved.
+# (C) 2001-2024 Altera Corporation. All rights reserved.
 # Your use of Altera Corporation's design tools, logic functions and 
 # other software and tools, and its AMPP partner logic functions, and 
 # any output files any of the foregoing (including device programming 
@@ -17,7 +17,7 @@
 # ----------------------------------------
 # This script provides commands to simulate the following IP detected in
 # your Quartus project:
-#     PLL25
+#     pll25
 # 
 # Altera recommends that you source this Quartus-generated IP simulation
 # script from your own customized top-level script, and avoid editing this
@@ -83,7 +83,7 @@
 # 
 # IP SIMULATION SCRIPT
 # ----------------------------------------
-# If PLL25 is one of several IP cores in your
+# If pll25 is one of several IP cores in your
 # Quartus project, you can generate a simulation script
 # suitable for inclusion in your top-level simulation
 # script by running the following command line:
@@ -94,7 +94,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Altera IP within the design.
 # ----------------------------------------
-# ACDS 22.1 917 win32 2023.11.28.14:10:52
+# ACDS 22.1 917 win32 2024.01.16.14:11:49
 
 # ----------------------------------------
 # Initialize variables
@@ -105,7 +105,7 @@ if ![info exists SYSTEM_INSTANCE_NAME] {
 }
 
 if ![info exists TOP_LEVEL_NAME] { 
-  set TOP_LEVEL_NAME "PLL25"
+  set TOP_LEVEL_NAME "pll25"
 }
 
 if ![info exists QSYS_SIMDIR] { 
@@ -200,7 +200,7 @@ alias dev_com {
 # Compile the design files in correct order
 alias com {
   echo "\[exec\] com"
-  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/PLL25.vho"
+  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/pll25.vho"
 }
 
 # ----------------------------------------

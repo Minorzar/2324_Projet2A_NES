@@ -31,7 +31,7 @@
  LIBRARY ieee;
  USE ieee.std_logic_1164.all;
 
- ENTITY  PLL25 IS 
+ ENTITY  pll25 IS 
 	 PORT 
 	 ( 
 		 locked	:	OUT  STD_LOGIC;
@@ -39,9 +39,9 @@
 		 refclk	:	IN  STD_LOGIC;
 		 rst	:	IN  STD_LOGIC
 	 ); 
- END PLL25;
+ END pll25;
 
- ARCHITECTURE RTL OF PLL25 IS
+ ARCHITECTURE RTL OF pll25 IS
 
 	 ATTRIBUTE synthesis_clearbox : natural;
 	 ATTRIBUTE synthesis_clearbox OF RTL : ARCHITECTURE IS 1;
@@ -302,6 +302,6 @@
 		rst => rst
 	  );
 
- END RTL; --PLL25
+ END RTL; --pll25
 --synopsys translate_on
 --VALID FILE

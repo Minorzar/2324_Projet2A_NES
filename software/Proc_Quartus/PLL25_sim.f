@@ -1,1 +1,1 @@
-PLL25_sim/PLL25.vho
+pll25_sim/pll25.vho
