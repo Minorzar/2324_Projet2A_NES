@@ -1,4 +1,0 @@
-this project is the base of how use the VHDL 
-
-the order of creation of files show the way to remake the exercise
-

@@ -1,4 +1,0 @@
-v 4
-file . "RAM_RW_2T.vhd" "8254e863fa5c1a4a60c472b7732bce388820959c" "20231107123236.319":
-  entity ram_rw_2t at 1( 0) + 0 on 25;
-  architecture ram_rw_2t_rtf of ram_rw_2t at 29( 592) + 0 on 26;
