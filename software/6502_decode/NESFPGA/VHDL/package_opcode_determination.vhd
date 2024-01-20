@@ -3,11 +3,11 @@
 -- This VHDL package provides functions to determine the opcode mnemonic (instruction name) for a 6502 microprocessor.
 --
 -- Package Contents:
---		- t_instruction: Subtype representing the instruction opcode as a STD_LOGIC_VECTOR(7 downto 0).
---		- f_determine_opcode: Function to determine the mnemonic for a given instruction opcode.
+--		- t_instruction: Subtype representing the instruction as a STD_LOGIC_VECTOR(7 downto 0).
+--		- f_determine_opcode: Function to determine the mnemonic for a given instruction.
 --
 -- Example Usage:
--- 	- Call the function f_determine_opcode with the instruction opcode to get the corresponding mnemonic.
+-- 	- Call the function f_determine_opcode with the instruction to get the corresponding mnemonic.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -23,13 +23,12 @@ package body package_opcode_determination is
 
 	function f_determine_opcode(i_instruction : t_instruction) return string is
 		variable l_result : string(1 to 8);
-		variable s_aaa, s_bbb : STD_LOGIC_VECTOR(2 downto 0);
+		variable s_aaa : STD_LOGIC_VECTOR(2 downto 0);
 		variable s_cc, s_xx : STD_LOGIC_VECTOR(1 downto 0);
 		variable s_y : STD_LOGIC;
 	begin
-		-- Extract bits aaa, bbb, cc from aaabbbcc
+		-- Extract bits aaa, cc from aaabbbcc
 		s_aaa := i_instruction(7 downto 5);
-		s_bbb := i_instruction(4 downto 2);
 		s_cc := i_instruction(1 downto 0);
 
 		-- Extract bits xx and y from xxy10000
@@ -38,7 +37,7 @@ package body package_opcode_determination is
 
 		-- Determine opcode for aaabbbcc instructions
 		case s_cc is
-			-- Instructions for cc = 01
+			-- Instructions with cc = 01
 			when "01" =>
 				case s_aaa is
 					when "000" =>
@@ -59,9 +58,9 @@ package body package_opcode_determination is
 						l_result := "SBC";    -- Subtract with Carry
 					when others =>
 						l_result := "UNKNOWN";
-				end case; -- End of case s_aaa for cc = 01 instructions
+				end case; -- End of case with cc = 01 instructions
 
-			-- Instructions for cc = 10
+			-- Instructions with cc = 10
 			when "10" =>
 				case s_aaa is
 					when "000" =>
@@ -82,9 +81,9 @@ package body package_opcode_determination is
 						l_result := "INC";    -- Increment Memory
 					when others =>
 						l_result := "UNKNOWN";
-				end case; -- End of case s_aaa for cc = 10 instructions
+				end case; -- End of case with cc = 10 instructions
 
-			-- Instructions for cc = 00
+			-- Instructions with cc = 00
 			when "00" =>
 				case s_aaa is
 					when "000" =>
@@ -103,12 +102,12 @@ package body package_opcode_determination is
 						l_result := "CPX";			-- Compare X Register
 					when others =>
 						l_result := "UNKNOWN";		-- Unknown Instruction
-				end case; -- End of case s_aaa for cc = 00 instructions
+				end case; -- End of case with cc = 00 instructions
 
-			-- Instructions for cc = 11
+			-- Instructions with cc = 11
 			when others =>
 				l_result := "UNKNOWN";				-- Unknown Instruction
-			end case; -- End of opcode for aaabbbcc instructions
+			end case; -- End of case with aaabbbcc instructions
 
 		-- Determine opcode for xxy10000 instructions
 		if (i_instruction(4 downto 0) = "10000") then
@@ -143,7 +142,7 @@ package body package_opcode_determination is
 				when others =>
 					l_result := "UNKNOWN";	-- Unknown Instruction
 			end case;
-		end if; -- End of opcode for xxy10000 instructions
+		end if; -- End of case with xxy10000 instructions
 
 		-- Determine opcode for other single-byte instructions
 		case i_instruction is
@@ -201,7 +200,7 @@ package body package_opcode_determination is
 				 l_result := "NOP";			-- No Operation
 			when others =>
 				 l_result := "UNKNOWN";		-- Unknown Instruction
-		end case; -- End of opcode for single-byte instructions
+		end case; -- End of case with other single-byte instructions
 
 		return l_result;
 	end function f_determine_opcode;
