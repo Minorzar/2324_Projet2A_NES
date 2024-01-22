@@ -71,7 +71,6 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name VHDL_FILE VHDL/package_opcode_determination.vhd
-set_global_assignment -name VHDL_FILE VHDL/package_branch_target.vhd
 set_global_assignment -name VHDL_FILE VHDL/package_flags_influence.vhd
 set_global_assignment -name VHDL_FILE VHDL/package_cycles_required.vhd
 set_global_assignment -name VHDL_FILE VHDL/predecode_logic.vhd

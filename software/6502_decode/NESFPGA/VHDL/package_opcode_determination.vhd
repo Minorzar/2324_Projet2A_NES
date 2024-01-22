@@ -1,4 +1,4 @@
--- package_opcode_determination.vhdl
+-- package_opcode_determination.vhd
 --
 -- This VHDL package provides functions to determine the opcode mnemonic (instruction name) for a 6502 microprocessor.
 --
@@ -41,21 +41,21 @@ package body package_opcode_determination is
 			when "01" =>
 				case s_aaa is
 					when "000" =>
-						l_result := "ORA";    -- Logical Inclusive OR
+						l_result := "ORA";	 -- Logical Inclusive OR
 					when "001" =>
-						l_result := "AND";    -- Logical AND
+						l_result := "AND";	 -- Logical AND
 					when "010" =>
-						l_result := "EOR";    -- Exclusive OR
+						l_result := "EOR";	 -- Exclusive OR
 					when "011" =>
-						l_result := "ADC";    -- Add with Carry
+						l_result := "ADC";	 -- Add with Carry
 					when "100" =>
-						l_result := "STA";    -- Store Accumulator
+						l_result := "STA";	 -- Store Accumulator
 					when "101" =>
-						l_result := "LDA";    -- Load Accumulator
+						l_result := "LDA";	 -- Load Accumulator
 					when "110" =>
-						l_result := "CMP";    -- Compare Accumulator
+						l_result := "CMP";	 -- Compare Accumulator
 					when "111" =>
-						l_result := "SBC";    -- Subtract with Carry
+						l_result := "SBC";	 -- Subtract with Carry
 					when others =>
 						l_result := "UNKNOWN";
 				end case; -- End of case with cc = 01 instructions
@@ -64,21 +64,21 @@ package body package_opcode_determination is
 			when "10" =>
 				case s_aaa is
 					when "000" =>
-						l_result := "ASL";    -- Arithmetic Shift Left
+						l_result := "ASL";	 -- Arithmetic Shift Left
 					when "001" =>
-						l_result := "ROL";    -- Rotate Left
+						l_result := "ROL";	 -- Rotate Left
 					when "010" =>
-						l_result := "LSR";    -- Logical Shift Right
+						l_result := "LSR";	 -- Logical Shift Right
 					when "011" =>
-						l_result := "ROR";    -- Rotate Right
+						l_result := "ROR";	 -- Rotate Right
 					when "100" =>
-						l_result := "STX";    -- Store X Register
+						l_result := "STX";	 -- Store X Register
 					when "101" =>
-						l_result := "LDX";    -- Load X Register
+						l_result := "LDX";	 -- Load X Register
 					when "110" =>
-						l_result := "DEC";    -- Decrement Memory
+						l_result := "DEC";	 -- Decrement Memory
 					when "111" =>
-						l_result := "INC";    -- Increment Memory
+						l_result := "INC";	 -- Increment Memory
 					when others =>
 						l_result := "UNKNOWN";
 				end case; -- End of case with cc = 10 instructions
@@ -86,9 +86,9 @@ package body package_opcode_determination is
 			-- Instructions with cc = 00
 			when "00" =>
 				case s_aaa is
-					when "000" =>
-						l_result := "BIT";			-- Bit Test
 					when "001" =>
+						l_result := "BIT";			-- Bit Test
+					when "010" =>
 						l_result := "JMP";			-- Jump
 					when "011" =>
 						l_result := "JMP (abs)";	-- Jump (absolute)
@@ -117,21 +117,21 @@ package body package_opcode_determination is
 				when "00" =>
 					-- Conditional branch on y bit
 					if s_y = '0' then
-						l_result := "BPL";   -- Branch on Positive
+						l_result := "BPL";	-- Branch on Positive
 					else
-						l_result := "BMI";   -- Branch on Minus
+						l_result := "BMI";	-- Branch on Minus
 					end if;
 				when "01" =>
 					if s_y = '0' then
-						l_result := "BVC";   -- Branch on Overflow Clear
+						l_result := "BVC";	-- Branch on Overflow Clear
 					else
-						l_result := "BVS";   -- Branch on Overflow Set
+						l_result := "BVS";	-- Branch on Overflow Set
 					end if;
 				when "10" =>
 					if s_y = '0' then
-						l_result := "BCC";   -- Branch on Carry Clear
+						l_result := "BCC";	-- Branch on Carry Clear
 					else
-						l_result := "BCS";   -- Branch on Carry Set
+						l_result := "BCS";	-- Branch on Carry Set
 					end if;
 				when "11" =>
 					if s_y = '0' then
@@ -146,60 +146,60 @@ package body package_opcode_determination is
 
 		-- Determine opcode for other single-byte instructions
 		case i_instruction is
-			when "00000000" =>
-				 l_result := "BRK";			-- Break
-			when "00100000" =>
-				 l_result := "JSR abs";		-- Jump to Subroutine (absolute)
-			when "01000000" =>
-				 l_result := "RTI";			-- Return from Interrupt
-			when "01100000" =>
-				 l_result := "RTS";			-- Return from Subroutine
-			when "00001000" =>
-				 l_result := "PHP";			-- Push Processor Status
-			when "00101000" =>
-				 l_result := "PLP";			-- Pull Processor Status
-			when "01001000" =>
-				 l_result := "PHA";			-- Push Accumulator
-			when "01101000" =>
-				 l_result := "PLA";			-- Pull Accumulator
-			when "10001000" =>
-				 l_result := "DEY";			-- Decrement Y Register
-			when "10101000" =>
-				 l_result := "TAY";			-- Transfer Accumulator to Y
-			when "11001000" =>
-				 l_result := "INY";			-- Increment Y Register
-			when "11101000" =>
-				 l_result := "INX";			-- Increment X Register
-			when "00011000" =>
-				 l_result := "CLC";			-- Clear Carry Flag
-			when "00111000" =>
-				 l_result := "SEC";			-- Set Carry Flag
-			when "01011000" =>
-				 l_result := "CLI";			-- Clear Interrupt Disable
-			when "01111000" =>
-				 l_result := "SEI";			-- Set Interrupt Disable
-			when "10011000" =>
-				 l_result := "TYA";			-- Transfer Y to Accumulator
-			when "10111000" =>
-				 l_result := "CLV";			-- Clear Overflow Flag
-			when "11011000" =>
-				 l_result := "CLD";			-- Clear Decimal Mode
-			when "11111000" =>
-				 l_result := "SED";			-- Set Decimal Mode
-			when "10001010" =>
-				 l_result := "TXA";			-- Transfer X to Accumulator
-			when "10011001" =>
-				 l_result := "TXS";			-- Transfer X to Stack Pointer
-			when "10101010" =>
-				 l_result := "TAX";			-- Transfer Accumulator to X
-			when "10111001" =>
-				 l_result := "TSX";			-- Transfer Stack Pointer to X
-			when "11001010" =>
-				 l_result := "DEX";			-- Decrement X Register
-			when "11101010" =>
-				 l_result := "NOP";			-- No Operation
+			when x"00" =>
+				l_result := "BRK";			-- Break
+			when x"20" =>
+				l_result := "JSR abs";	  -- Jump to Subroutine (absolute)
+			when x"40" =>
+				l_result := "RTI";			-- Return from Interrupt
+			when x"60" =>
+				l_result := "RTS";			-- Return from Subroutine
+			when x"08" =>
+				l_result := "PHP";			-- Push Processor Status
+			when x"28" =>
+				l_result := "PLP";			-- Pull Processor Status
+			when x"48" =>
+				l_result := "PHA";			-- Push Accumulator
+			when x"68" =>
+				l_result := "PLA";			-- Pull Accumulator
+			when x"88" =>
+				l_result := "DEY";			-- Decrement Y Register
+			when x"A8" =>
+				l_result := "TAY";			-- Transfer Accumulator to Y
+			when x"C8" =>
+				l_result := "INY";			-- Increment Y Register
+			when x"E8" =>
+				l_result := "INX";			-- Increment X Register
+			when x"18" =>
+				l_result := "CLC";			-- Clear Carry Flag
+			when x"38" =>
+				l_result := "SEC";			-- Set Carry Flag
+			when x"58" =>
+				l_result := "CLI";			-- Clear Interrupt Disable
+			when x"78" =>
+				l_result := "SEI";			-- Set Interrupt Disable
+			when x"98" =>
+				l_result := "TYA";			-- Transfer Y to Accumulator
+			when x"B8" =>
+				l_result := "CLV";			-- Clear Overflow Flag
+			when x"D8" =>
+				l_result := "CLD";			-- Clear Decimal Mode
+			when x"F8" =>
+				l_result := "SED";			-- Set Decimal Mode
+			when x"8A" =>
+				l_result := "TXA";			-- Transfer X to Accumulator
+			when x"9A" =>
+				l_result := "TXS";			-- Transfer X to Stack Pointer
+			when x"AA" =>
+				l_result := "TAX";			-- Transfer Accumulator to X
+			when x"BA" =>
+				l_result := "TSX";			-- Transfer Stack Pointer to X
+			when x"CA" =>
+				l_result := "DEX";			-- Decrement X Register
+			when x"EA" =>
+				l_result := "NOP";			-- No Operation
 			when others =>
-				 l_result := "UNKNOWN";		-- Unknown Instruction
+				l_result := "UNKNOWN";		-- Unknown Instruction
 		end case; -- End of case with other single-byte instructions
 
 		return l_result;

@@ -1,4 +1,4 @@
--- package_addressing_mode_determination.vhdl
+-- package_addressing_mode_determination.vhd
 --
 -- This VHDL package provides functions to determine the addressing mode for 6502 processor instructions.
 --
@@ -8,6 +8,10 @@
 --
 -- Example Usage:
 --		- Call the function f_determine_addressing_mode with the instruction to get the corresponding addressing mode.
+--
+-- Work in progress:
+--		- Implied
+--		- JSR
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -35,21 +39,21 @@ package body package_addressing_mode_determination is
 			when "01" =>
 				case s_bbb is
 					when "000" =>
-						return "(zp,X)";
+						return "(ZP,X)";
 					when "001" =>
-						return "zp";
+						return "ZP";
 					when "010" =>
-						return "#immediate";
+						return "IMM";
 					when "011" =>
-						return "absolute";
+						return "ABS";
 					when "100" =>
-						return "(zp),Y";
+						return "(ZP),Y";
 					when "101" =>
-						return "zp,X";
+						return "ZP,X";
 					when "110" =>
-						return "absolute,Y";
+						return "ABS,Y";
 					when "111" =>
-						return "absolute,X";
+						return "ABS,X";
 					when others =>
 						return "UNKNOWN";
 				end case; -- End of case with cc = 01 instructions
@@ -58,17 +62,17 @@ package body package_addressing_mode_determination is
 			when "10" =>
 				case s_bbb is
 					when "000" =>
-						return "#immediate";
+						return "IMM";
 					when "001" =>
-						return "zp";
+						return "ZP";
 					when "010" =>
-						return "accumulator";
+						return "ACC";
 					when "011" =>
-						return "absolute";
+						return "ABS";
 					when "101" =>
-						return "zero page,X";
+						return "ZP,X";
 					when "111" =>
-						return "absolute,X";
+						return "ABS,X";
 					when others =>
 						return "UNKNOWN";
 				end case; -- End of case with cc = 10 instructions
@@ -76,20 +80,16 @@ package body package_addressing_mode_determination is
 			-- Instructions with cc = 00
 			when "00" =>
 				case s_bbb is
+					when "000" =>
+						return "IMM";
 					when "001" =>
-						return "zp";
-					when "010" =>
-						return "absolute";
+						return "ZP";
 					when "011" =>
-						return "absolute";
-					when "100" =>
-						return "zp,X";
+						return "ABS";
 					when "101" =>
-						return "zp,X";
-					when "110" =>
-						return "absolute,X";
+						return "ZP,X";
 					when "111" =>
-						return "absolute,X";
+						return "ABS,X";
 					when others =>
 						return "UNKNOWN";
 				end case; -- End of case with cc = 00 instructions
