@@ -7,6 +7,7 @@ entity CPU is
 		i_clk: in STD_LOGIC;
 		i_irq: in STD_LOGIC;
 		i_ready: in STD_LOGIC;
+		i_test_ir5: in STD_LOGIC;
 		i_test_vector: in STD_LOGIC_VECTOR(60 downto 0);
 		o_address_bus: out unsigned (15 downto 0);
 		b_read_write: buffer STD_LOGIC;
@@ -22,8 +23,6 @@ architecture Behavioral of CPU is
 	signal alu_b_input: unsigned (7 downto 0);
 	signal phi1: STD_LOGIC;
 	signal phi2: STD_LOGIC;
-	signal ir5: STD_LOGIC:='0';
-	signal hc: STD_LOGIC;
 	signal acr: STD_LOGIC:='0';
 	signal avr: STD_LOGIC:='0';
 	signal pclc : STD_LOGIC;
@@ -105,13 +104,13 @@ begin
 	port map(i_clk => i_clk, i_phi1 => phi1, i_adlh_to_ablh => adl_to_abl, o_address_bus => o_address_bus(7 downto 0), i_adlh_bus => adl_bus);
 	
 	alu: entity work.CPU_ALU
-	port map(i_clk => i_clk, i_a_register => alu_a_input, i_b_register => alu_b_input, i_sum_select => sum_select, i_and_select => and_select, i_eor_select => eor_select, i_or_select => or_select, i_shift_right_select => shift_right_select, i_carry => i_to_addc, o_output => alu_result, o_half_carry => hc, o_carry => acr, o_overflow => avr);
+	port map(i_clk => i_clk, i_a_register => alu_a_input, i_b_register => alu_b_input, i_sum_select => sum_select, i_and_select => and_select, i_eor_select => eor_select, i_or_select => or_select, i_shift_right_select => shift_right_select, i_carry => i_to_addc, o_result => alu_result, o_carry => acr, o_overflow => avr);
 	
 	b_input_register: entity work.CPU_b_input_register
 	port map(i_clk => i_clk, i_adl_to_add => adl_to_add, i_db_to_add => db_to_add, i_db_bar_to_add => db_bar_to_add, i_d_bus => d_bus, i_adl_bus => adl_bus, o_output => alu_b_input);
 	
 	clock_generator: entity work.CPU_clock_generator
-	port map(i_clk => i_clk, b_phi1 => phi1, b_phi2 => phi2);
+	port map(i_clk => i_clk, b_phi1 => phi1, o_phi2 => phi2);
 	
 	data_output_register_buffer: entity work.CPU_data_output_register_buffer
 	port map(i_clk => i_clk, i_phi1 => phi1, i_phi2 => phi2, i_d_bus => d_bus, i_read_write => b_read_write, o_data_bus => io_data_bus);
@@ -120,7 +119,7 @@ begin
 	port map(i_clk => i_clk, i_phi2 => phi2, i_data_bus => io_data_bus, i_dl_to_db => dl_to_db, i_dl_to_adl => dl_to_adl, i_dl_to_adh => dl_to_adh, o_d_bus => d_bus, o_adl_bus => adl_bus, o_adh_bus => adh_bus);
 	
 	p_register: entity work.CPU_p_register
-	port map(i_clk => i_clk, i_ir5 => ir5, i_acr => acr, i_avr => avr, i_db0_to_c => db0_to_c, i_ir5_to_c => ir5_to_c, i_acr_to_c => acr_to_c, i_db1_to_z => db1_to_z, i_dbz_to_z => dbz_to_z, i_db2_to_i => db2_to_i, i_ir5_to_i => ir5_to_i, i_db3_to_d => db3_to_d, i_ir5_to_d => ir5_to_d, i_db6_to_v => db6_to_v, i_avr_to_v => avr_to_v, i_i_to_v => i_to_v, i_db7_to_n => db7_to_n, i_p_to_db => p_to_db, io_d_bus => d_bus);
+	port map(i_clk => i_clk, i_ir5 => i_test_ir5, i_acr => acr, i_avr => avr, i_db0_to_c => db0_to_c, i_ir5_to_c => ir5_to_c, i_acr_to_c => acr_to_c, i_db1_to_z => db1_to_z, i_dbz_to_z => dbz_to_z, i_db2_to_i => db2_to_i, i_ir5_to_i => ir5_to_i, i_db3_to_d => db3_to_d, i_ir5_to_d => ir5_to_d, i_db6_to_v => db6_to_v, i_avr_to_v => avr_to_v, i_i_to_v => i_to_v, i_db7_to_n => db7_to_n, i_p_to_db => p_to_db, io_d_bus => d_bus);
 	
 	program_counter_low: entity work.CPU_program_counter_low
 	port map(i_clk => i_clk, i_adl_to_pcl => adl_to_pcl, i_pcl_to_adl => pcl_to_adl, i_pcl_to_db => pcl_to_db, i_pcl_increment => i_to_pc, i_pcl_reload => pcl_to_pcl, o_carry => pclc, o_d_bus => d_bus, io_adl_bus => adl_bus);
