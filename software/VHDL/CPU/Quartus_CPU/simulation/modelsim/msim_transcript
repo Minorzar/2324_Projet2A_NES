@@ -5,6 +5,7 @@
 # }
 # 
 # vlib vhdl_libs/altera
+# ** Warning: (vlib-34) Library already exists at "vhdl_libs/altera".
 # vmap altera ./vhdl_libs/altera
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap altera ./vhdl_libs/altera 
@@ -12,25 +13,25 @@
 # Modifying modelsim.ini
 # vcom -93 -work altera {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_syn_attributes.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:27 on Jan 23,2024
+# Start time: 17:23:31 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_syn_attributes.vhd 
 # -- Loading package STANDARD
 # -- Compiling package altera_syn_attributes
-# End time: 16:47:27 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:31 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_standard_functions.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:27 on Jan 23,2024
+# Start time: 17:23:31 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_standard_functions.vhd 
 # -- Loading package STANDARD
 # -- Compiling package altera_standard_functions
 # -- Compiling package body altera_standard_functions
 # -- Loading package altera_standard_functions
-# End time: 16:47:27 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:31 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/alt_dspbuilder_package.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:27 on Jan 23,2024
+# Start time: 17:23:31 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/alt_dspbuilder_package.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -39,11 +40,11 @@
 # -- Compiling package alt_dspbuilder_package
 # -- Compiling package body alt_dspbuilder_package
 # -- Loading package alt_dspbuilder_package
-# End time: 16:47:27 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:32 on Jan 23,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_europa_support_lib.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:27 on Jan 23,2024
+# Start time: 17:23:32 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_europa_support_lib.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -54,11 +55,11 @@
 # -- Compiling package altera_europa_support_lib
 # -- Compiling package body altera_europa_support_lib
 # -- Loading package altera_europa_support_lib
-# End time: 16:47:27 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:32 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:27 on Jan 23,2024
+# Start time: 17:23:32 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -68,11 +69,11 @@
 # -- Compiling package dffeas_pack
 # -- Loading package dffeas_pack
 # -- Compiling package altera_primitives_components
-# End time: 16:47:27 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:32 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:27 on Jan 23,2024
+# Start time: 17:23:32 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -160,27 +161,28 @@
 # -- Compiling architecture BEHAVIOR of alt_bidir_diff
 # -- Compiling entity alt_bidir_buf
 # -- Compiling architecture BEHAVIOR of alt_bidir_buf
-# End time: 16:47:27 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:32 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/lpm
+# ** Warning: (vlib-34) Library already exists at "vhdl_libs/lpm".
 # vmap lpm ./vhdl_libs/lpm
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap lpm ./vhdl_libs/lpm 
 # Modifying modelsim.ini
 # vcom -93 -work lpm {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/220pack.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:28 on Jan 23,2024
+# Start time: 17:23:32 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work lpm d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/220pack.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package LPM_COMPONENTS
-# End time: 16:47:28 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:33 on Jan 23,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work lpm {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/220model.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:28 on Jan 23,2024
+# Start time: 17:23:33 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work lpm d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/220model.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -276,17 +278,18 @@
 # -- Compiling architecture LPM_SYN of LPM_OUTpad
 # -- Compiling entity LPM_BIpad
 # -- Compiling architecture LPM_SYN of LPM_BIpad
-# End time: 16:47:28 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:33 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/sgate
+# ** Warning: (vlib-34) Library already exists at "vhdl_libs/sgate".
 # vmap sgate ./vhdl_libs/sgate
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap sgate ./vhdl_libs/sgate 
 # Modifying modelsim.ini
 # vcom -93 -work sgate {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate_pack.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:28 on Jan 23,2024
+# Start time: 17:23:33 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work sgate d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate_pack.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -294,11 +297,11 @@
 # -- Compiling package sgate_pack
 # -- Compiling package body sgate_pack
 # -- Loading package sgate_pack
-# End time: 16:47:28 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:34 on Jan 23,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work sgate {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:28 on Jan 23,2024
+# Start time: 17:23:34 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work sgate d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -348,27 +351,28 @@
 # -- Compiling architecture sim_arch of oper_bus_mux
 # -- Compiling entity oper_latch
 # -- Compiling architecture sim_arch of oper_latch
-# End time: 16:47:28 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:34 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/altera_mf
+# ** Warning: (vlib-34) Library already exists at "vhdl_libs/altera_mf".
 # vmap altera_mf ./vhdl_libs/altera_mf
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap altera_mf ./vhdl_libs/altera_mf 
 # Modifying modelsim.ini
 # vcom -93 -work altera_mf {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_mf_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:29 on Jan 23,2024
+# Start time: 17:23:34 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera_mf d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_mf_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package altera_mf_components
-# End time: 16:47:29 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:34 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera_mf {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_mf.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:29 on Jan 23,2024
+# Start time: 17:23:34 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera_mf d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_mf.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -607,41 +611,43 @@
 # -- Compiling architecture sim_sld_virtual_jtag_basic of sld_virtual_jtag_basic
 # -- Compiling entity altsource_probe
 # -- Compiling architecture sim_altsource_probe of altsource_probe
-# End time: 16:47:30 on Jan 23,2024, Elapsed time: 0:00:01
+# End time: 17:23:36 on Jan 23,2024, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/altera_lnsim
+# ** Warning: (vlib-34) Library already exists at "vhdl_libs/altera_lnsim".
 # vmap altera_lnsim ./vhdl_libs/altera_lnsim
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap altera_lnsim ./vhdl_libs/altera_lnsim 
 # Modifying modelsim.ini
 # vlog -sv -work altera_lnsim {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/altera_lnsim_for_vhdl.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:30 on Jan 23,2024
+# Start time: 17:23:36 on Jan 23,2024
 # vlog -reportprogress 300 -sv -work altera_lnsim d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/altera_lnsim_for_vhdl.sv 
 # 
 # Top level modules:
-# End time: 16:47:31 on Jan 23,2024, Elapsed time: 0:00:01
+# End time: 17:23:38 on Jan 23,2024, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera_lnsim {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_lnsim_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:31 on Jan 23,2024
+# Start time: 17:23:38 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work altera_lnsim d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_lnsim_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package altera_lnsim_components
-# End time: 16:47:31 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:38 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/cyclonev
+# ** Warning: (vlib-34) Library already exists at "vhdl_libs/cyclonev".
 # vmap cyclonev ./vhdl_libs/cyclonev
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap cyclonev ./vhdl_libs/cyclonev 
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cyclonev {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:32 on Jan 23,2024
+# Start time: 17:23:38 on Jan 23,2024
 # vlog -reportprogress 300 -vlog01compat -work cyclonev d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_atoms_ncrypt.v 
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
@@ -655,11 +661,11 @@
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # 
 # Top level modules:
-# End time: 16:47:34 on Jan 23,2024, Elapsed time: 0:00:02
+# End time: 17:23:41 on Jan 23,2024, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 20
 # vcom -93 -work cyclonev {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_atoms.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:34 on Jan 23,2024
+# Start time: 17:23:41 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work cyclonev d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_atoms.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -799,11 +805,11 @@
 # -- Compiling architecture behavior of cyclonev_ir_fifo_userdes
 # -- Compiling entity cyclonev_oscillator
 # -- Compiling architecture behavior of cyclonev_oscillator
-# End time: 16:47:35 on Jan 23,2024, Elapsed time: 0:00:01
+# End time: 17:23:41 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # vcom -93 -work cyclonev {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:35 on Jan 23,2024
+# Start time: 17:23:42 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work cyclonev d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -812,17 +818,18 @@
 # -- Loading package VITAL_Primitives
 # -- Loading package cyclonev_atom_pack
 # -- Compiling package cyclonev_components
-# End time: 16:47:35 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:42 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/cyclonev_hssi
+# ** Warning: (vlib-34) Library already exists at "vhdl_libs/cyclonev_hssi".
 # vmap cyclonev_hssi ./vhdl_libs/cyclonev_hssi
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap cyclonev_hssi ./vhdl_libs/cyclonev_hssi 
 # Modifying modelsim.ini
 # vcom -93 -work cyclonev_hssi {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_hssi_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:35 on Jan 23,2024
+# Start time: 17:23:42 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work cyclonev_hssi d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_hssi_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -830,19 +837,19 @@
 # -- Compiling package CYCLONEV_HSSI_COMPONENTS
 # -- Compiling package body CYCLONEV_HSSI_COMPONENTS
 # -- Loading package CYCLONEV_HSSI_COMPONENTS
-# End time: 16:47:35 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:42 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work cyclonev_hssi {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hssi_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:35 on Jan 23,2024
+# Start time: 17:23:42 on Jan 23,2024
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_hssi d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hssi_atoms_ncrypt.v 
 # 
 # Top level modules:
-# End time: 16:47:37 on Jan 23,2024, Elapsed time: 0:00:02
+# End time: 17:23:44 on Jan 23,2024, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # vcom -93 -work cyclonev_hssi {d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_hssi_atoms.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:37 on Jan 23,2024
+# Start time: 17:23:44 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work cyclonev_hssi d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_hssi_atoms.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -896,7 +903,7 @@
 # -- Compiling architecture behavior of cyclonev_hssi_pma_hi_pmaif
 # -- Compiling entity cyclonev_hssi_pma_hi_xcvrif
 # -- Compiling architecture behavior of cyclonev_hssi_pma_hi_xcvrif
-# End time: 16:47:37 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists rtl_work]} {
@@ -910,7 +917,7 @@
 # 
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_xy_register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:37 on Jan 23,2024
+# Start time: 17:23:45 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_xy_register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -918,11 +925,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_xy_register
 # -- Compiling architecture Behavioral of CPU_xy_register
-# End time: 16:47:37 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_stack_pointer.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:37 on Jan 23,2024
+# Start time: 17:23:45 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_stack_pointer.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -930,11 +937,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_stack_pointer
 # -- Compiling architecture Behavioral of CPU_stack_pointer
-# End time: 16:47:37 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_random_control_logic_test.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:37 on Jan 23,2024
+# Start time: 17:23:45 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_random_control_logic_test.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -942,11 +949,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_random_control_logic_test
 # -- Compiling architecture Dataflow of CPU_random_control_logic_test
-# End time: 16:47:37 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_low.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:45 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_low.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -954,11 +961,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_program_counter_low
 # -- Compiling architecture Behavioral of CPU_program_counter_low
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_high.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:45 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_high.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -966,11 +973,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_program_counter_high
 # -- Compiling architecture Behavioral of CPU_program_counter_high
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_p_register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:45 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_p_register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -978,11 +985,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_p_register
 # -- Compiling architecture Behavioral of CPU_p_register
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_input_data_latch.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:45 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_input_data_latch.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -990,11 +997,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_input_data_latch
 # -- Compiling architecture Behavioral of CPU_input_data_latch
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:45 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1002,11 +1009,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_data_output_register_buffer
 # -- Compiling architecture Behavioral of CPU_data_output_register_buffer
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:45 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_clock_generator.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:46 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_clock_generator.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1014,11 +1021,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_clock_generator
 # -- Compiling architecture Behavioral of CPU_clock_generator
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_b_input_register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:46 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_b_input_register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1026,11 +1033,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_b_input_register
 # -- Compiling architecture Behavioral of CPU_b_input_register
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:46 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1038,11 +1045,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_ALU
 # -- Compiling architecture Behavioral of CPU_ALU
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:46 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1050,11 +1057,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_address_bus_register
 # -- Compiling architecture Behavioral of CPU_address_bus_register
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_adder_hold_register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:46 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_adder_hold_register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1062,11 +1069,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_adder_hold_register
 # -- Compiling architecture Behavioral of CPU_adder_hold_register
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ac_register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:46 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ac_register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1074,11 +1081,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_ac_register
 # -- Compiling architecture Behavioral of CPU_ac_register
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_a_input_register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:46 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_a_input_register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1086,11 +1093,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity CPU_a_input_register
 # -- Compiling architecture Behavioral of CPU_a_input_register
-# End time: 16:47:38 on Jan 23,2024, Elapsed time: 0:00:00
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:38 on Jan 23,2024
+# Start time: 17:23:46 on Jan 23,2024
 # vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -1114,54 +1121,88 @@
 # ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd(133): Cannot associate port "o_read_write" of mode OUT with port "b_read_write" of mode BUFFER.
 # -- Loading entity CPU_stack_pointer
 # -- Loading entity CPU_xy_register
-# End time: 16:47:39 on Jan 23,2024, Elapsed time: 0:00:01
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # 
-# vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_xy_register_tb.vhd}
+# vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:47:39 on Jan 23,2024
-# vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_xy_register_tb.vhd 
+# Start time: 17:23:46 on Jan 23,2024
+# vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity CPU_xy_register_tb
-# -- Compiling architecture testbench of CPU_xy_register_tb
-# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_xy_register_tb.vhd(20): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_xy_register_tb.vhd(52): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_xy_register_tb.vhd(54): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_xy_register_tb.vhd(57): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-# End time: 16:47:39 on Jan 23,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 4
-# 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs="+acc"  xy_testbench
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs=""+acc"" xy_testbench 
-# Start time: 16:47:39 on Jan 23,2024
-# ** Error: (vsim-3170) Could not find 'xy_testbench'.
-#         Searched libraries:
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/vhdl_libs/altera
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/vhdl_libs/lpm
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/vhdl_libs/sgate
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/vhdl_libs/altera_mf
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/vhdl_libs/altera_lnsim
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/vhdl_libs/cyclonev
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/vhdl_libs/cyclonev_hssi
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/rtl_work
-#             D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/rtl_work
+# -- Compiling entity CPU_clock_generator_tb
+# -- Compiling architecture testbench of CPU_clock_generator_tb
+# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd(19): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd(49): (vcom-1090) Possible infinite loop: Process contains no WAIT statement.
+# ** Error: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd(22): Signal 'Sb_phi1' must have only one source since it is connected to buffer port 'b_phi1'.
+#   Drivers:
+#     D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd(45):Process tb_process
+#        Driven at:
+#           D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd(47)
+#     D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd(32):Instantiation module
+# ** Error: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd(51): VHDL Compiler exiting
+# End time: 17:23:46 on Jan 23,2024, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 2
+# ** Error: D:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./CPU_run_msim_rtl_vhdl.do line 70
+# D:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd}"
+vsim work.cpu_clock_generator_tb
+# vsim work.cpu_clock_generator_tb 
+# Start time: 17:24:09 on Jan 23,2024
+# Loading std.standard
+# ** Error: (vsim-3173) Entity 'D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/simulation/modelsim/rtl_work.cpu_clock_generator_tb' has no architecture.
 # Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./CPU_run_msim_rtl_vhdl.do PAUSED at line 72
-vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs=\"+acc\" work.cpu_xy_register_tb
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs=""+acc"" work.cpu_xy_register_tb 
-# Start time: 16:47:39 on Jan 23,2024
+# End time: 17:24:09 on Jan 23,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:25:09 on Jan 23,2024
+# vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CPU_clock_generator_tb
+# -- Compiling architecture testbench of CPU_clock_generator_tb
+# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd(19): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd(48): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Error: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd(22): Signal 'Sb_phi1' must have only one source since it is connected to buffer port 'b_phi1'.
+#   Drivers:
+#     D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd(45):Process tb_process
+#        Driven at:
+#           D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd(47)
+#     D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd(32):Instantiation module
+# ** Error: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd(52): VHDL Compiler exiting
+# End time: 17:25:09 on Jan 23,2024, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 2
+# D:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/vcom failed.
+vcom -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:26:31 on Jan 23,2024
+# vcom -reportprogress 300 -93 -work work D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CPU_clock_generator_tb
+# -- Compiling architecture testbench of CPU_clock_generator_tb
+# ** Warning: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd(19): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 17:26:31 on Jan 23,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vsim work.cpu_clock_generator_tb
+# vsim work.cpu_clock_generator_tb 
+# Start time: 17:26:58 on Jan 23,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading work.cpu_xy_register_tb(testbench)
-# Loading work.cpu_xy_register(behavioral)
-add wave -position end sim:/cpu_xy_register_tb/*
+# Loading work.cpu_clock_generator_tb(testbench)
+# Loading work.cpu_clock_generator(behavioral)
+add wave -position end sim:/cpu_clock_generator_tb/*
 run -all
-# End time: 16:49:22 on Jan 23,2024, Elapsed time: 0:01:43
-# Errors: 1, Warnings: 0
+# End time: 17:28:50 on Jan 23,2024, Elapsed time: 0:01:52
+# Errors: 0, Warnings: 0

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Tue Jan 23 16:45:36 2024
+Tue Jan 23 17:18:59 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -50,7 +50,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Jan 23 16:45:36 2024          ;
+; Analysis & Synthesis Status     ; Successful - Tue Jan 23 17:18:59 2024          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; CPU                                            ;
 ; Top-level Entity Name           ; CPU                                            ;
@@ -165,12 +165,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.2%      ;
 +----------------------------+-------------+
 
 
@@ -245,53 +245,52 @@ https://fpgasoftware.intel.com/eula.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                  ;
-+--------------------------------------------+--------------------------------------------------------+
-; Register name                              ; Reason for Removal                                     ;
-+--------------------------------------------+--------------------------------------------------------+
-; s_bus[0..7]                                ; Stuck at VCC due to stuck port data_in                 ;
-; CPU_clock_generator:clock_generator|b_phi1 ; Merged with CPU_clock_generator:clock_generator|b_phi2 ;
-; CPU_clock_generator:clock_generator|b_phi2 ; Merged with adl_bus[7]                                 ;
-; s_bus[0]~en                                ; Merged with adl_bus[7]                                 ;
-; s_bus[1]~en                                ; Merged with adl_bus[7]                                 ;
-; s_bus[2]~en                                ; Merged with adl_bus[7]                                 ;
-; s_bus[3]~en                                ; Merged with adl_bus[7]                                 ;
-; s_bus[4]~en                                ; Merged with adl_bus[7]                                 ;
-; s_bus[5]~en                                ; Merged with adl_bus[7]                                 ;
-; s_bus[6]~en                                ; Merged with adl_bus[7]                                 ;
-; s_bus[7]~en                                ; Merged with adl_bus[7]                                 ;
-; adl_bus[0..6]                              ; Merged with adl_bus[7]                                 ;
-; d_bus[7]                                   ; Stuck at VCC due to stuck port data_in                 ;
-; adh_bus[7]                                 ; Stuck at VCC due to stuck port data_in                 ;
-; adl_bus[4]~en                              ; Merged with adl_bus[3]~en                              ;
-; adl_bus[5]~en                              ; Merged with adl_bus[3]~en                              ;
-; adl_bus[6]~en                              ; Merged with adl_bus[3]~en                              ;
-; adl_bus[7]~en                              ; Merged with adl_bus[3]~en                              ;
-; adh_bus[2]~en                              ; Merged with adh_bus[1]~en                              ;
-; adh_bus[3]~en                              ; Merged with adh_bus[1]~en                              ;
-; adh_bus[4]~en                              ; Merged with adh_bus[1]~en                              ;
-; adh_bus[5]~en                              ; Merged with adh_bus[1]~en                              ;
-; adh_bus[6]~en                              ; Merged with adh_bus[1]~en                              ;
-; adh_bus[7]~en                              ; Merged with adh_bus[1]~en                              ;
-; adh_bus[2..6]                              ; Merged with adh_bus[1]                                 ;
-; CPU_ac_register:ac_register|reg_ac[1..6]   ; Merged with CPU_ac_register:ac_register|reg_ac[0]      ;
-; CPU_xy_register:y_register|reg_xy[1..6]    ; Merged with CPU_xy_register:y_register|reg_xy[0]       ;
-; CPU_xy_register:x_register|reg_xy[1..6]    ; Merged with CPU_xy_register:x_register|reg_xy[0]       ;
-; d_bus[1]~en                                ; Merged with d_bus[0]~en                                ;
-; d_bus[2]~en                                ; Merged with d_bus[0]~en                                ;
-; d_bus[3]~en                                ; Merged with d_bus[0]~en                                ;
-; d_bus[4]~en                                ; Merged with d_bus[0]~en                                ;
-; d_bus[5]~en                                ; Merged with d_bus[0]~en                                ;
-; d_bus[6]~en                                ; Merged with d_bus[0]~en                                ;
-; d_bus[7]~en                                ; Merged with d_bus[0]~en                                ;
-; d_bus[1..6]                                ; Merged with d_bus[0]                                   ;
-; adh_bus[1]~en                              ; Lost fanout                                            ;
-; adh_bus[0]~en                              ; Lost fanout                                            ;
-; d_bus[0]                                   ; Stuck at VCC due to stuck port data_in                 ;
-; adh_bus[1]                                 ; Stuck at VCC due to stuck port data_in                 ;
-; Total Number of Removed Registers = 77     ;                                                        ;
-+--------------------------------------------+--------------------------------------------------------+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++--------------------------------------------+---------------------------------------------------+
+; Register name                              ; Reason for Removal                                ;
++--------------------------------------------+---------------------------------------------------+
+; s_bus[0..7]                                ; Stuck at VCC due to stuck port data_in            ;
+; CPU_clock_generator:clock_generator|b_phi1 ; Merged with adl_bus[7]                            ;
+; s_bus[0]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[1]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[2]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[3]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[4]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[5]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[6]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[7]~en                                ; Merged with adl_bus[7]                            ;
+; adl_bus[0..6]                              ; Merged with adl_bus[7]                            ;
+; d_bus[7]                                   ; Stuck at VCC due to stuck port data_in            ;
+; adh_bus[7]                                 ; Stuck at VCC due to stuck port data_in            ;
+; adl_bus[4]~en                              ; Merged with adl_bus[3]~en                         ;
+; adl_bus[5]~en                              ; Merged with adl_bus[3]~en                         ;
+; adl_bus[6]~en                              ; Merged with adl_bus[3]~en                         ;
+; adl_bus[7]~en                              ; Merged with adl_bus[3]~en                         ;
+; adh_bus[2]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[3]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[4]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[5]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[6]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[7]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[2..6]                              ; Merged with adh_bus[1]                            ;
+; CPU_ac_register:ac_register|reg_ac[1..6]   ; Merged with CPU_ac_register:ac_register|reg_ac[0] ;
+; CPU_xy_register:y_register|reg_xy[1..6]    ; Merged with CPU_xy_register:y_register|reg_xy[0]  ;
+; CPU_xy_register:x_register|reg_xy[1..6]    ; Merged with CPU_xy_register:x_register|reg_xy[0]  ;
+; d_bus[1]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[2]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[3]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[4]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[5]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[6]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[7]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[1..6]                                ; Merged with d_bus[0]                              ;
+; adh_bus[1]~en                              ; Lost fanout                                       ;
+; adh_bus[0]~en                              ; Lost fanout                                       ;
+; d_bus[0]                                   ; Stuck at VCC due to stuck port data_in            ;
+; adh_bus[1]                                 ; Stuck at VCC due to stuck port data_in            ;
+; Total Number of Removed Registers = 76     ;                                                   ;
++--------------------------------------------+---------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------+
@@ -413,7 +412,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -423,7 +422,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Tue Jan 23 16:45:27 2024
+    Info: Processing started: Tue Jan 23 17:18:45 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -481,6 +480,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file /git/pr
 Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu.vhd
     Info (12022): Found design unit 1: CPU-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 15
     Info (12023): Found entity 1: CPU File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/testbench/cpu_clock_generator_tb.vhd
+    Info (12022): Found design unit 1: CPU_clock_generator_tb-testbench File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd Line: 8
+    Info (12023): Found entity 1: CPU_clock_generator_tb File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd Line: 5
 Info (12127): Elaborating entity "CPU" for the top level hierarchy
 Warning (10540): VHDL Signal Declaration warning at CPU.vhd(25): used explicit default value for signal "ir5" because signal was never assigned a value File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 25
 Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(26): object "hc" assigned a value but never read File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 26
@@ -569,9 +571,9 @@ Info (21057): Implemented 229 device resources after synthesis - the final resou
     Info (21060): Implemented 8 bidirectional pins
     Info (21061): Implemented 140 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 63 warnings
-    Info: Peak virtual memory: 4879 megabytes
-    Info: Processing ended: Tue Jan 23 16:45:36 2024
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Peak virtual memory: 4876 megabytes
+    Info: Processing ended: Tue Jan 23 17:18:59 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:11
 
 

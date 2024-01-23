@@ -67,9 +67,9 @@ vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ac_re
 vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_a_input_register.vhd}
 vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd}
 
-vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_xy_register_tb.vhd}
+vcom -93 -work work {D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/Quartus_CPU/../testbench/CPU_clock_generator_tb.vhd}
 
-vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs="+acc"  xy_testbench
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L cyclonev_hssi -L rtl_work -L work -voptargs="+acc"  clock_tb
 
 add wave *
 view structure

@@ -1,5 +1,5 @@
 Flow report for CPU
-Tue Jan 23 16:46:30 2024
+Tue Jan 23 17:20:12 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -41,14 +41,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Tue Jan 23 16:46:30 2024          ;
+; Flow Status                     ; Successful - Tue Jan 23 17:20:12 2024          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; CPU                                            ;
 ; Top-level Entity Name           ; CPU                                            ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 64 / 32,070 ( < 1 % )                          ;
+; Logic utilization (in ALMs)     ; 63 / 32,070 ( < 1 % )                          ;
 ; Total registers                 ; 87                                             ;
 ; Total pins                      ; 89 / 457 ( 19 % )                              ;
 ; Total virtual pins              ; 0                                              ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/23/2024 16:45:27 ;
+; Start date & time ; 01/23/2024 17:18:45 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CPU                 ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 9447194249565.170602472711188          ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 9447194249565.170602672508176          ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; xy_testbench                      ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
@@ -89,7 +89,7 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --            ; --          ; eda_simulation                    ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim (VHDL)                        ; <None>        ; --          ; --                                ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation                    ;
-; EDA_TEST_BENCH_FILE                  ; CPU_xy_register_tb.vhd                 ; --            ; --          ; xy_testbench                      ;
+; EDA_TEST_BENCH_FILE                  ; ../testbench/CPU_xy_register_tb.vhd    ; --            ; --          ; xy_testbench                      ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; xy_testbench                           ; --            ; --          ; xy_testbench                      ;
 ; EDA_TEST_BENCH_NAME                  ; xy_testbench                           ; --            ; --          ; eda_simulation                    ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
@@ -109,12 +109,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4879 MB             ; 00:00:14                           ;
-; Fitter               ; 00:00:37     ; 1.0                     ; 6546 MB             ; 00:00:52                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4887 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 5170 MB             ; 00:00:04                           ;
+; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 4876 MB             ; 00:00:11                           ;
+; Fitter               ; 00:00:46     ; 1.0                     ; 6542 MB             ; 00:00:54                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4890 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:07     ; 1.1                     ; 5153 MB             ; 00:00:05                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4733 MB             ; 00:00:01                           ;
-; Total                ; 00:00:58     ; --                      ; --                  ; 00:01:16                           ;
+; Total                ; 00:01:13     ; --                      ; --                  ; 00:01:16                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

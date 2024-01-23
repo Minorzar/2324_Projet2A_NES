@@ -111,7 +111,7 @@ begin
 	port map(i_clk => i_clk, i_adl_to_add => adl_to_add, i_db_to_add => db_to_add, i_db_bar_to_add => db_bar_to_add, i_d_bus => d_bus, i_adl_bus => adl_bus, o_output => alu_b_input);
 	
 	clock_generator: entity work.CPU_clock_generator
-	port map(i_clk => i_clk, b_phi1 => phi1, b_phi2 => phi2);
+	port map(i_clk => i_clk, b_phi1 => phi1, o_phi2 => phi2);
 	
 	data_output_register_buffer: entity work.CPU_data_output_register_buffer
 	port map(i_clk => i_clk, i_phi1 => phi1, i_phi2 => phi2, i_d_bus => d_bus, i_read_write => b_read_write, o_data_bus => io_data_bus);
