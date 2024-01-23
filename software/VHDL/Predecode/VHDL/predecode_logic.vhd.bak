@@ -1,0 +1,59 @@
+-- File Name: predecode_logic.vhdl
+
+-- Module Summary:
+-- This VHDL module represents the predecode logic block in the processor.
+-- It determines control signals based on the input opcode from predecode_register
+-- and passes the opcode to the instruction register. The control signals indicate
+-- characteristics of the instruction, such as the number of cycles.
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity predecode_logic is
+    Port (
+        i_opcode : in STD_LOGIC_VECTOR(7 downto 0);  -- Input opcode from predecode_register
+        i_clear_ir : in STD_LOGIC;                    -- Input signal to clear instruction register
+        o_implied : out STD_LOGIC;                   -- Output signal indicating one cycle
+        o_tz_pre_n : out STD_LOGIC;                  -- Output signal indicating two cycles
+        o_opcode_to_ir : out STD_LOGIC_VECTOR(7 downto 0)  -- Output opcode to instruction register
+    );
+end predecode_logic;
+
+architecture Behavioral of predecode_logic is
+    signal s_implied : STD_LOGIC;
+    signal s_tz_pre_n : STD_LOGIC;
+    signal s_opcode_to_ir : STD_LOGIC_VECTOR(7 downto 0);
+begin
+    -- Main process
+    process(i_opcode, i_clear_ir)
+    begin
+        -- Default values
+        s_implied <= '0';
+        s_tz_pre_n <= '0';
+        s_opcode_to_ir <= (others => '0');
+
+        -- Determine control signals based on opcode
+        case i_opcode is
+            when "00000000" =>  -- Example: Check for a specific opcode
+                s_implied <= '1';
+                s_tz_pre_n <= '0';
+            when others =>
+                s_implied <= '0';
+                s_tz_pre_n <= '1';
+        end case;
+
+        -- Pass the opcode to the instruction register unless clear_ir is active
+        if i_clear_ir = '1' then
+            s_opcode_to_ir <= (others => '0');
+        else
+            s_opcode_to_ir <= i_opcode;
+        end if;
+    end process;
+
+    -- Output signals
+    o_implied <= s_implied;
+    o_tz_pre_n <= s_tz_pre_n;
+    o_opcode_to_ir <= s_opcode_to_ir;
+
+end Behavioral;

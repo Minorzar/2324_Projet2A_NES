@@ -1,0 +1,32 @@
+process(i_clk)
+	begin
+		if (rising_edge(i_clk)) then
+			if phi2 = '1' then
+				d_bus <= (others => '1');
+				s_bus <= (others => '1');
+				adl_bus <= (others => '1');
+				adh_bus <= (others => '1');
+			end if;
+			if O_to_adl0 = '1' then
+				adl_bus(0) <= '0';
+			end if;
+			if O_to_adl1 = '1' then
+				adl_bus(1) <= '0';
+			end if;
+			if O_to_adl2 = '1' then
+				adl_bus(2) <= '0';
+			end if;
+			if O_to_adh0 = '1' then
+				adh_bus(0) <= '0';
+			end if;
+			if O_to_adh_1_7 = '1' then
+				adl_bus(7 downto 1) <= (others => '0');
+			end if;
+			if sb_to_db = '1' then
+				d_bus <= s_bus;
+			end if;
+			if sb_to_adh = '1' then
+				adh_bus <= s_bus;
+			end if;
+		end if;
+	end process;
