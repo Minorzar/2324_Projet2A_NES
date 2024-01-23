@@ -21,7 +21,7 @@ entity PPU is
     D : inout unsigned(7 downto 0); -- data exchange with CPU
     AD : inout unsigned(7 downto 0); -- data or information inout with PPU's BUS
     
-    EXT : in unsigned(3 downto 0);
+    EXT : in unsigned(3 downto 0); 
     A_CPU : in unsigned(2 downto 0); -- address exchange with CPU 
     A_PPU : out unsigned(5 downto 0);
 
@@ -40,7 +40,14 @@ entity PPU is
 
     -- https://www.nesdev.org/wiki/PPU_pinout for every check up
     );
+    end PPU;
 
+    
+
+    architecture PPU_rft of PPU is 
+
+
+    end PPU_rft;
 
 
 
