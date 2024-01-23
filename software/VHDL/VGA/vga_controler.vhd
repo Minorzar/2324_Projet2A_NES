@@ -18,18 +18,18 @@ entity VGA_controler is
     );
 end entity VGA_controler;
 
-architecture rtl of VGA_controler is
-    constant H_FRONT : integer := 16;   -- 16
-    constant H_SYNC : integer := 96;    -- 96
-    constant H_BACK : integer := 48;    -- 48
-    constant H_ACT : integer := 640;    -- 640
+architecture behavioral of VGA_controler is
+    constant H_FRONT : integer := 16;
+    constant H_SYNC : integer := 96;
+    constant H_BACK : integer := 48;
+    constant H_ACT : integer := 640;
     constant H_BLANK : integer := H_FRONT + H_SYNC + H_BACK;
     constant H_TOTAL : integer := H_BLANK + H_ACT;
 
-    constant V_FRONT : integer := 11;   -- 11
-    constant V_SYNC : integer := 2;     -- 2
-    constant V_BACK : integer := 31;    -- 31
-    constant V_ACT : integer := 480;    -- 480
+    constant V_FRONT : integer := 11;
+    constant V_SYNC : integer := 2;
+    constant V_BACK : integer := 31;
+    constant V_ACT : integer := 480;
     constant V_BLANK : integer := V_FRONT + V_SYNC + V_BACK;
     constant V_TOTAL : integer := V_BLANK + V_ACT;
 
@@ -40,7 +40,7 @@ architecture rtl of VGA_controler is
 
     signal r_VGA_HS : std_logic := '0';
 begin
-    o_VGA_SYNC <= '1';  -- This pin is unused
+    o_VGA_SYNC <= '1';
     o_VGA_CLOCK <= not (i_clk);
 
     o_VGA_BLANK <= '0' when (r_h_count < H_BLANK) or (r_v_count < V_BLANK) else '1';
@@ -62,7 +62,6 @@ begin
                 r_h_count <= 0;
             end if;
 
-            -- In the .v example it's in the always@posedge so it's a reg I guess???
             if (r_h_count = H_FRONT - 1) then
                 o_VGA_HS <= '0';
                 r_VGA_HS <= '0';
@@ -99,4 +98,4 @@ begin
         end if;
     end process p_v_counter;
 
-end architecture rtl;
+end architecture behavioral;
