@@ -8,7 +8,7 @@ entity CPU_stack_pointer is
 		i_sb_to_s: in STD_LOGIC;
 		i_s_to_sb: in STD_LOGIC;
 		i_s_to_adl: in STD_LOGIC;
-      i_s_hold: in STD_LOGIC;
+        i_s_hold: in STD_LOGIC;
 		o_adl_bus: out unsigned (7 downto 0);
 		io_s_bus: inout unsigned (7 downto 0));
 end CPU_stack_pointer;

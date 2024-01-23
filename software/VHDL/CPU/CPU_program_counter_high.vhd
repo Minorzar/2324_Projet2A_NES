@@ -24,19 +24,17 @@ begin
 				if i_adh_to_pch = '1' then
 					reg_pch_select <= io_adh_bus;
 				end if;
-                
-                if i_pcl_carry = '1' then
+            if i_pcl_carry = '1' then
                     reg_pch <= reg_pch_select + 1;
-                    end if;
-                else reg_pch <= reg_pch_select;
-                end if;
-
-                if i_pch_reload = '1' then
-                    reg_pch_select <= reg_pch;
+            else reg_pch <= reg_pch_select;
+            end if;
+            if i_pch_reload = '1' then
+               reg_pch_select <= reg_pch;
+				end if;
 			end if;
 		end process;
 
-    io_adh_bus <= reg_pch when i_pch_to_adh = '1' else
+   io_adh_bus <= reg_pch when i_pch_to_adh = '1' else
 		(others => 'Z');
 
 	o_d_bus <= reg_pch when i_pch_to_db = '1' else

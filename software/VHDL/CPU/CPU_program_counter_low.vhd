@@ -8,9 +8,9 @@ entity CPU_program_counter_low is
 		i_adl_to_pcl: in STD_LOGIC;
 		i_pcl_to_adl: in STD_LOGIC;
 		i_pcl_to_db: in STD_LOGIC;
-        i_pcl_increment: in STD_LOGIC;
-        i_pcl_reload: in STD_LOGIC;
-        o_carry: out STD_LOGIC;
+      i_pcl_increment: in STD_LOGIC;
+      i_pcl_reload: in STD_LOGIC;
+      o_carry: out STD_LOGIC;
 		o_d_bus: out unsigned (7 downto 0);
 		io_adl_bus: inout unsigned (7 downto 0));
 end CPU_program_counter_low;
