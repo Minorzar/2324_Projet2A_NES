@@ -1,12 +1,12 @@
 The PPU readme is only present in purpose to compilate all knowledge about the PPU memory mapping and application 
 
-the PPU is cut in eight or 4 parts (eight in memory and four in application)
+the PPU can be cut 4 large parts 
 
 
 
-MEMORY
+PART in PPU 
 
-    the first part of the memory is the PATTER TABLE 
+    the first part of PPU is the PATTER TABLE 
 
         this containt 2 sqare table of 16 tiles, every tiles is a square of 8 pixel
         each TABLE containt 64KB of memory
@@ -51,5 +51,111 @@ MEMORY
         6  accivate if the sprite is slip vderticaly
 
 
+
+About Memory
+    Basicly the PPU is link with 32 Kbits of memory, in fact it's more complexe 
+
+    In a Hardware POV the PPU have only few which come from the PPU.
+        the 0x0000-0x1FFF are the CHR-RAM/CHR-ROM (depending of the cardbridge)
+        the 0x2000-0x2FFF are the VRAM link to the PPU 
+        the 0x3000-0x3EFF Copy of the VRAM data presented as negligible by Nesdev 
+        the 0x3F00-3FFF not configurable, always mapped to the internal palete controle 
+
+        But another Register existe, in the PPU eight register and a memory of 256 word of 8 bits are present
+        this Memory is dedicate to the OAM (the moving sprite)
+        the eight register add a way for the CPU to interact with the PPU 
+
+
+
+
+REGISTER 
+
+    General Address: 
+            0x2000 PPUCTRL 
+            0x2001 PPUMASK
+            0x2002 PPUSTATUE
+            0x2003 OAMADDR 
+            0x2004 OAMDATA
+            0x2005 PPUSCROLL
+            0x2006 PPUADDR 
+            0x2007 PPUDATA
+            0x4014 OAMDMA
+
+   after that :0 is the MSB
+
+            FOR PPUCTRL (0x2000)
+
+                0 : enable the NMI      0=OFF 1=ON               --Stop here 
+
+
+
+                1 : PPU master/slave    0=Slave 1=Master
+
+
+                2 : sprite hight 
+
+                3 : background tile select
+
+                4 : sprite tile select 
+
+                5 : increment mode
+
+                6-7 : nametable select 
+
+
+
+            FOR PPUMASK (0x2001)  
+
+                0-2 : color emphasis      0=OFF 1=ON 
+
+                3 : sprite hight 
+
+                4 : background enable
+
+                5 : sprite left column enable 
+
+                6 : background left column enable
+
+                7 : greyscale
+
+
+
+            FOR PPUSTATUE (0x2002)  
+
+                0 : vblank      0=OFF 1=ON 
+
+                1 : sprite 0 hit
+
+                2 : sprite overflow
+
+
+
+            FOR OAMADDR (0x2003)  
+
+                0-7 : OAM read write Address
+
+
+
+            FOR OAMDATA (0x2004)  
+
+                0-7 : OAM read write data
+
+
+
+            FOR PPUSCROLL (0x2005)  
+
+                0-7 : fine scroll position 
+
+
+
+            FOR PPUSCROLL (0x2006)  
+
+                0-7 : OAM read write data
+
+
+
+            FOR PPUSCROLL (0x2007)  
+
+                0-7 : OAM read write data
 
 the application

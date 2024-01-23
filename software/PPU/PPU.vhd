@@ -22,7 +22,7 @@ entity PPU is
     AD : inout unsigned(7 downto 0); -- data or information inout with PPU's BUS
     -- / link to the CHR data BUS
     
-    EXT : in unsigned(3 downto 0); 
+    EXT : inout unsigned(3 downto 0); 
     i_A_CPU : in unsigned(2 downto 0); -- address exchange with CPU 
     A_PPU : out unsigned(5 downto 0);-- / link to the CHR Add BUS
 
