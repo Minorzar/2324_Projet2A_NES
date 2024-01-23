@@ -1,0 +1,55 @@
+The PPU readme is only present in purpose to compilate all knowledge about the PPU memory mapping and application 
+
+the PPU is cut in eight or 4 parts (eight in memory and four in application)
+
+
+
+MEMORY
+
+    the first part of the memory is the PATTER TABLE 
+
+        this containt 2 sqare table of 16 tiles, every tiles is a square of 8 pixel
+        each TABLE containt 64KB of memory
+
+
+     The Second is Nametables 
+
+        containt the layout background 
+        The image is 32x30 tiles, every tiles is a 8px x 8px 
+        layed the data of each tiles form the cartridge, it's very long and many game make some tric knowledge
+        after 
+        1 Byte (OCTE!!!) by TILES 
+        end have an Attribute table, an serie of byte with the association of the palette for 4 tiles 
+
+    The Third The Palette 
+
+        the PPU can distinct 64 colors (every colors is code on 1 BYTE)
+        but can only stock 4 color for the Background and 4 color for the Foreground
+        however the color, the first color is transparent
+        it's use to make the transparent thing on a spirt
+        In memory the color is write on 2 bits -> every tiles requert 128 bits for code all the color 
+
+        This fourth color are link with a number between 0 and 3, so this number can be code on 2 bits 
+        For stock the color of the tiles, for each line, the low and hight bits are separat and the both are stock on an Byte
+        (easy use by PPU)
+
+
+    Fourth Object Attribute Memory (OAM !!!)
+
+        Controle the background and the sprite of the game 
+        For the color, it's use the same principe as the palette utilisation 
+        for every sprite: the first byte give the hight of the sprite 
+        the seconde byte give the pablette where the sprite are stocked 
+        the third give the attribute of the sprite  *
+        the fourth give the x position
+        
+        * For this byte, form the low bit :
+        0 and 1 select the palette (group of 4 color)
+        2,3,4 are not use 
+        5 controle the fact to be above or below the background (0 fround, 1 back)
+        6  accivate if the sprite is slip horizontaly
+        6  accivate if the sprite is slip vderticaly
+
+
+
+the application
