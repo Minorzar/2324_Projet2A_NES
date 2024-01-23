@@ -12,7 +12,7 @@ entity RAM_6116 is
 
     -- enable 
     WE_n: in std_logic;
-    -- desable output
+    -- disable output
     OE_n: in std_logic;
      
     -- all pin to select a row (pin coding an adress)
@@ -27,6 +27,7 @@ end RAM_6116;
 
 architecture RAM_6116_rft of RAM_6116 is 
     subtype word_8 is unsigned(7 downto 0);
+
     type MEMORY is array(0 to (2**11)-1) of word_8;
     signal RAM: MEMORY;
 
@@ -57,6 +58,5 @@ signal s_out_port : unsigned(7 downto 0);
    -- pour faire en sorte que la sortie devienne l'entré
 
    io_data <= s_out_port when (OE_n = '0') else "ZZZZZZZZ";
-   --pour faire en sorte que ce qui sort devient ce qui est bien présen
-
+   --pour faire en sorte que ce qui sort devient ce qui est bien présent
 end RAM_6116_rft; 

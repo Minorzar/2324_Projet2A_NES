@@ -9,7 +9,6 @@ architecture R_6116 of RAM_6116tb is
     signal CS: std_logic;
     signal WE: std_logic;
     signal OE: std_logic;
-    signal clk: std_logic;
     signal iAdress: unsigned(10 downto 0);
     signal iodata: unsigned(7 downto 0);
 
@@ -63,6 +62,7 @@ begin
             wait for 3* CLK_PERIOD;
                 finished <= true;
             wait;
+
     end process benche;
 
     p_clk: process
