@@ -1,5 +1,5 @@
 Analysis & Synthesis report for NESFPGA
-Tue Dec 19 14:25:48 2023
+Tue Jan 23 14:42:05 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -36,10 +36,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue Dec 19 14:25:48 2023              ;
+; Analysis & Synthesis Status        ; Failed - Tue Jan 23 14:42:05 2024              ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; NESFPGA                                        ;
-; Top-level Entity Name              ; top_entity                                     ;
+; Top-level Entity Name              ; predecode_register                             ;
 ; Family                             ; MAX 10                                         ;
 ; Total logic elements               ; N/A until Partition Merge                      ;
 ;     Total combinational functions  ; N/A until Partition Merge                      ;
@@ -61,7 +61,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M08DAF484C8G     ;                    ;
-; Top-level entity name                                            ; top_entity         ; NESFPGA            ;
+; Top-level entity name                                            ; predecode_register ; NESFPGA            ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Maximum processors allowed for parallel compilation              ; 1                  ;                    ;
 ; Use smart compilation                                            ; Off                ; Off                ;
@@ -148,22 +148,37 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Tue Dec 19 14:25:21 2023
+    Info: Processing started: Tue Jan 23 14:41:35 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NESFPGA -c NESFPGA
-Info (12021): Found 2 design units, including 1 entities, in source file VHDL/Decode/predecode.vhd
-    Info (12022): Found design unit 1: predecode-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 16
-    Info (12023): Found entity 1: predecode File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/Decode/predecode.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file simulation/tb_predecode.vhd
-    Info (12022): Found design unit 1: tb_predecode-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd Line: 11
-    Info (12023): Found entity 1: tb_predecode File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/simulation/tb_predecode.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file VHDL/top_entity.vhd
-    Info (12022): Found design unit 1: top_entity-Behavioral File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/top_entity.vhd Line: 14
-    Info (12023): Found entity 1: top_entity File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/top_entity.vhd Line: 6
-Error (10481): VHDL Use Clause error at top_entity.vhd(16): design library "work" does not contain primary unit "flip_flop_d". Verify that the primary unit exists in the library and has been successfully compiled. File: /media/sf_2324_Projet2A_NES/software/6502_decode/NESFPGA/VHDL/top_entity.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file VHDL/predecode_register.vhd
+    Info (12022): Found design unit 1: predecode_register-Behavioral File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/predecode_register.vhd Line: 28
+    Info (12023): Found entity 1: predecode_register File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/predecode_register.vhd Line: 20
+Info (12021): Found 2 design units, including 0 entities, in source file VHDL/package_opcode_determination.vhd
+    Info (12022): Found design unit 1: package_opcode_determination File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/package_opcode_determination.vhd Line: 15
+    Info (12022): Found design unit 2: package_opcode_determination-body File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/package_opcode_determination.vhd Line: 22
+Info (12021): Found 2 design units, including 0 entities, in source file VHDL/package_flags_influence.vhd
+    Info (12022): Found design unit 1: package_flags_influence File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/package_flags_influence.vhd Line: 5
+    Info (12022): Found design unit 2: package_flags_influence-body File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/package_flags_influence.vhd Line: 9
+Info (12021): Found 2 design units, including 0 entities, in source file VHDL/package_cycles_required.vhd
+    Info (12022): Found design unit 1: package_cycles_required File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/package_cycles_required.vhd Line: 19
+    Info (12022): Found design unit 2: package_cycles_required-body File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/package_cycles_required.vhd Line: 28
+Info (12021): Found 2 design units, including 1 entities, in source file VHDL/predecode_logic.vhd
+    Info (12022): Found design unit 1: predecode_logic-Behavioral File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/predecode_logic.vhd Line: 17
+    Info (12023): Found entity 1: predecode_logic File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/predecode_logic.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file VHDL/instruction_register.vhd
+    Info (12022): Found design unit 1: instruction_register-Behavioral File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/instruction_register.vhd Line: 16
+    Info (12023): Found entity 1: instruction_register File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/instruction_register.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file VHDL/timing_generation_logic.vhd
+    Info (12022): Found design unit 1: timing_generation_logic-Behavioral File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/timing_generation_logic.vhd Line: 13
+    Info (12023): Found entity 1: timing_generation_logic File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/timing_generation_logic.vhd Line: 5
+Info (12021): Found 2 design units, including 0 entities, in source file VHDL/package_addressing_mode_determination.vhd
+    Info (12022): Found design unit 1: package_addressing_mode_determination File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/package_addressing_mode_determination.vhd Line: 15
+    Info (12022): Found design unit 2: package_addressing_mode_determination-body File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/package_addressing_mode_determination.vhd Line: 22
+Error (10482): VHDL error at predecode_logic.vhd(24): object "package_addressing_mode_determination" is used but not declared File: /media/sf_2324_Projet2A_NES/software/VHDL/Predecode/VHDL/predecode_logic.vhd Line: 24
 Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 0 warnings
     Error: Peak virtual memory: 413 megabytes
-    Error: Processing ended: Tue Dec 19 14:25:48 2023
-    Error: Elapsed time: 00:00:27
-    Error: Total CPU time (on all processors): 00:00:20
+    Error: Processing ended: Tue Jan 23 14:42:05 2024
+    Error: Elapsed time: 00:00:30
+    Error: Total CPU time (on all processors): 00:00:21
 
 

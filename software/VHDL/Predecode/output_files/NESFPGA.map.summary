@@ -1,7 +1,7 @@
-Analysis & Synthesis Status : Failed - Tue Dec 19 14:25:48 2023
+Analysis & Synthesis Status : Failed - Tue Jan 23 14:42:05 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : NESFPGA
-Top-level Entity Name : top_entity
+Top-level Entity Name : predecode_register
 Family : MAX 10
 Total logic elements : N/A until Partition Merge
     Total combinational functions : N/A until Partition Merge

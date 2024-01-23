@@ -1,36 +1,48 @@
+-- instruction_register.vhd
+--
+-- This VHDL module implements an instruction register.
+--
+-- Entity:
+--   instruction_register
+--
+-- Ports:
+--   - i_clk: Input clock signal
+--   - i_reset: Input reset signal
+--   - i_instruction: Input predecoded instruction (8 bits)
+--   - o_instruction: Output instruction (8 bits)
+--
+-- Description:
+--   The instruction register captures the input predecoded instruction on the rising edge of the clock signal.
+--   The captured instruction is stored and provided as the output on subsequent clock edges.
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity instruction_register is
-	Port (
-		i_clk : in STD_LOGIC;								  				-- Clock signal
-		i_opcode : in STD_LOGIC_VECTOR(7 downto 0);					-- Input opcode
-		i_adressing_mode : in STD_LOGIC_VECTOR(2 downto 0);		-- Input addressing mode
-		i_register_select : in STD_LOGIC_VECTOR(2 downto 0);  	-- Input register select
-		o_opcode : out STD_LOGIC_VECTOR(7 downto 0);		  			-- Output opcode
-		o_adressing_mode : out STD_LOGIC_VECTOR(2 downto 0);  	-- Output addressing mode
-		o_register_select : out STD_LOGIC_VECTOR(2 downto 0)  	-- Output register select
-	);
+    Port (
+        i_clk : in STD_LOGIC;                             -- Clock signal
+        i_reset : in STD_LOGIC;                           -- Reset signal
+        i_instruction : in STD_LOGIC_VECTOR(7 downto 0);  -- Input predecoded instruction
+        o_instruction : out STD_LOGIC_VECTOR(7 downto 0)  -- Output instruction
+    );
 end instruction_register;
 
 architecture Behavioral of instruction_register is
-	signal s_opcode : STD_LOGIC_VECTOR(7 downto 0);
-	signal s_adressing_mode : STD_LOGIC_VECTOR(2 downto 0);
-	signal s_register_select : STD_LOGIC_VECTOR(2 downto 0);
+    signal s_stored_instruction : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
 begin
-	-- Process to update internal signals on rising edge of clock
-	process(i_clk)
-	begin
-		if rising_edge(i_clk) then
-			s_opcode <= i_opcode;
-			s_adressing_mode <= i_adressing_mode;
-			s_register_select <= i_register_select;
-		end if;
-	end process;
+    -- Main process
+    process(i_clk, i_reset)
+    begin
+        if i_reset = '1' then
+            -- Reset the stored instruction to all zeros
+            s_stored_instruction <= (others => '0');
+        elsif rising_edge(i_clk) then
+            -- Capture the input predecoded instruction
+            s_stored_instruction <= i_instruction;
+        end if;
+    end process;
 
-	-- Output signals
-	o_opcode <= s_opcode;
-	o_adressing_mode <= s_adressing_mode;
-	o_register_select <= s_register_select;
+    -- Output the stored instruction
+    o_instruction <= s_stored_instruction;
 
 end Behavioral;

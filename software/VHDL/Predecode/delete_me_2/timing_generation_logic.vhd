@@ -16,12 +16,15 @@ begin
 	process(i_clk)
 	begin
 		if rising_edge(i_clk) then
+			-- Decrement cycle count until it reaches 0
 			if s_cycle_count /= "0000" then
-				s_cycle_count <= s_cycle_count - 1;  -- Decrement cycle count until it reaches 0
+				s_cycle_count <= s_cycle_count - 1;
 			end if;
 
 			-- Output instruction complete signal when the cycle count reaches 0
-			o_instruction_complete <= '1' when s_cycle_count = "0000" else '0';
+			if s_cycle_count = "0000" then
+				o_instruction_complete <= '1';
+			end if;
 		end if;
 	end process;
 end Behavioral;

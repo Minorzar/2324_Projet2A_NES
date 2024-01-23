@@ -18,8 +18,8 @@ use work.package_addressing_mode_determination.ALL;
 
 package package_cycles_required is
 	subtype t_instruction is STD_LOGIC_VECTOR(7 downto 0);
-	type t_opcode_mnemonic is string(1 to 8);
-	type t_addressing_mode is string(1 to 15);
+	type t_opcode_mnemonic is array(1 to 8) of character;
+	type t_addressing_mode is array(1 to 15) of character;
 
 	function f_determine_cycles_required(i_instruction : t_instruction; i_mnemonic : t_opcode_mnemonic; i_mode : t_addressing_mode) return natural;
 
@@ -29,7 +29,7 @@ package body package_cycles_required is
 
 	function f_determine_cycles_required(i_instruction : t_instruction; i_mnemonic : t_opcode_mnemonic; i_mode : t_addressing_mode) return natural is
 		variable s_cycles : natural := 2;
-
+	begin
 		-- Determine cycles required based on mnemonic and addressing mode
 		case i_mnemonic is
 			-- Implied
