@@ -35,15 +35,15 @@ package body package_addressing_mode_determination is
 			-- Instructions with cc = 01
 			when "01" =>
 				case s_bbb is
-					when "000" => l_result := "(ZP,X)";
+					when "000" => l_result := "IND,X";		-- (ZP,X)
 					when "001" => l_result := "ZP";
 					when "010" => l_result := "IMM";
 					when "011" => l_result := "ABS";
-					when "100" => l_result := "(ZP),Y";
+					when "100" => l_result := "IND,Y";		-- (ZP),Y
 					when "101" => l_result := "ZP,X";
 					when "110" => l_result := "ABS,Y";
 					when "111" => l_result := "ABS,X";
-					when others => null;
+					-- when others => null;
 				end case; -- End of case with cc = 01 instructions
 
 			-- Instructions with cc = 10
@@ -55,7 +55,7 @@ package body package_addressing_mode_determination is
 					when "011" => l_result := "ABS";
 					when "101" => l_result := "ZP,X";
 					when "111" => l_result := "ABS,X";
-					when others => null;
+					-- when others => null;
 				end case; -- End of case with cc = 10 instructions
 
 			-- Instructions with cc = 00
@@ -66,11 +66,11 @@ package body package_addressing_mode_determination is
 					when "011" => l_result := "ABS";
 					when "101" => l_result := "ZP,X";
 					when "111" => l_result := "ABS,X";
-					when others => null;
+					-- when others => null;
 				end case; -- End of case with cc = 00 instructions
 
 			-- Instructions with cc = 11
-			when others => null;
+			-- when others => null;
 		end case; -- End of case with aaabbbcc instructions
 
 		-- Determine addressing mode for xxy10000 instructions
@@ -106,7 +106,7 @@ package body package_addressing_mode_determination is
 			when x"BA" => l_result := "IMP";		-- Transfer Stack Pointer to X
 			when x"CA" => l_result := "IMP";		-- Decrement X Register
 			when x"EA" => l_result := "IMP";		-- No Operation
-			when others => null;
+			-- when others => null;
 		end case; -- End of case with other single-byte instructions
 
 		return l_result;

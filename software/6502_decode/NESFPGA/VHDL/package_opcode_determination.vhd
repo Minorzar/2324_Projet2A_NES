@@ -49,7 +49,7 @@ package body package_opcode_determination is
 					when "101" => l_result := "LDA";		-- Load Accumulator
 					when "110" => l_result := "CMP";		-- Compare Accumulator
 					when "111" => l_result := "SBC";		-- Subtract with Carry
-					when others => null;
+					-- when others => null;
 				end case; -- End of case with cc = 01 instructions
 
 			-- Instructions with cc = 10
@@ -63,7 +63,7 @@ package body package_opcode_determination is
 					when "101" => l_result := "LDX";			-- Load X Register
 					when "110" => l_result := "DEC";			-- Decrement Memory
 					when "111" => l_result := "INC";			-- Increment Memory
-					when others => null;
+					-- when others => null;
 				end case; -- End of case with cc = 10 instructions
 
 			-- Instructions with cc = 00
@@ -76,11 +76,11 @@ package body package_opcode_determination is
 					when "101" => l_result := "LDY";			-- Load Y Register
 					when "110" => l_result := "CPY";			-- Compare Y Register
 					when "111" => l_result := "CPX";			-- Compare X Register
-					when others => null;
+					-- when others => null;
 				end case; -- End of case with cc = 00 instructions
 
 			-- Instructions with cc = 11
-			when others => null;
+			-- when others => null;
 		end case; -- End of case with aaabbbcc instructions
 
 		-- Determine opcode for xxy10000 instructions
@@ -111,14 +111,14 @@ package body package_opcode_determination is
 					else
 						l_result := "BEQ";			-- Branch on Equal
 					end if;
-				when others => null;
+				-- when others => null;
 			end case;
 		end if; -- End of case with xxy10000 instructions
 
 		-- Determine opcode for other single-byte instructions
 		case i_instruction is
 			when x"00" => l_result := "BRK";			-- Break
-			when x"20" => l_result := "JSR abs";	-- Jump to Subroutine (absolute)
+			when x"20" => l_result := "JSR";			-- Jump to Subroutine (absolute)
 			when x"40" => l_result := "RTI";			-- Return from Interrupt
 			when x"60" => l_result := "RTS";			-- Return from Subroutine
 			when x"08" => l_result := "PHP";			-- Push Processor Status
@@ -143,7 +143,7 @@ package body package_opcode_determination is
 			when x"BA" => l_result := "TSX";			-- Transfer Stack Pointer to X
 			when x"CA" => l_result := "DEX";			-- Decrement X Register
 			when x"EA" => l_result := "NOP";			-- No Operation
-			when others => null;
+			-- when others => null;
 		end case; -- End of case with other single-byte instructions
 
 		return l_result;
