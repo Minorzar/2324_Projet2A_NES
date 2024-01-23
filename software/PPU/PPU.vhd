@@ -18,12 +18,13 @@ use ieee.numeric_std.all;
 entity PPU is 
 
     port(
-    D : inout unsigned(7 downto 0); -- data exchange with CPU
+    D : inout unsigned(7 downto 0); -- data exchange with CPU /
     AD : inout unsigned(7 downto 0); -- data or information inout with PPU's BUS
+    -- / link to the CHR data BUS
     
     EXT : in unsigned(3 downto 0); 
     A_CPU : in unsigned(2 downto 0); -- address exchange with CPU 
-    A_PPU : out unsigned(5 downto 0);
+    A_PPU : out unsigned(5 downto 0);-- / link to the CHR Add BUS
 
 
     --signal eliver by CPU
@@ -42,7 +43,7 @@ entity PPU is
     );
     end PPU;
 
-    
+
 
     architecture PPU_rft of PPU is 
 
