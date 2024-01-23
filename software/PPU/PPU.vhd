@@ -23,7 +23,7 @@ entity PPU is
     -- / link to the CHR data BUS
     
     EXT : in unsigned(3 downto 0); 
-    A_CPU : in unsigned(2 downto 0); -- address exchange with CPU 
+    i_A_CPU : in unsigned(2 downto 0); -- address exchange with CPU 
     A_PPU : out unsigned(5 downto 0);-- / link to the CHR Add BUS
 
 
@@ -46,7 +46,26 @@ entity PPU is
 
 
     architecture PPU_rft of PPU is 
+        subtype word_8 is unsigned(7 downto 0);
 
+        type REG_PPU is array(0 to 7) of word_8;
+        signal REG: REG_PPU; 
+
+        type OAM_PPU is array(0 to 64*4) of word_8;
+        signal OAM: OAM_PPU;
+
+        --Set up to use the inout of  AD and D 
+        signal s_in_D : unsigned(7 downto 0);
+        signal s_out_D : unsigned(7 downto 0);
+
+        signal s_in_AD : unsigned(7 downto 0);
+        signal s_out_AD : unsigned (7 downto 0);
+
+
+    begin 
+        process(clk)
+        begin 
+        end process;
 
     end PPU_rft;
 
