@@ -3,13 +3,13 @@
 -- This VHDL package provides functions to determine the number of cycles required for 6502 processor instructions.
 --
 -- Package Contents:
---	 - t_instruction: Subtype representing the instruction as a STD_LOGIC_VECTOR(7 downto 0).
---	 - t_opcode_mnemonic: Type representing the mnemonic of the opcode.
---	 - t_addressing_mode: Type representing the addressing mode as a string.
---	 - f_determine_cycles_required: Function to determine the number of cycles required for a given instruction.
+--		- t_instruction: Subtype representing the instruction as a STD_LOGIC_VECTOR(7 downto 0).
+--		- t_opcode_mnemonic: Type representing the mnemonic of the opcode.
+--		- t_addressing_mode: Type representing the addressing mode as a string.
+--		- f_determine_cycles_required: Function to determine the number of cycles required for a given instruction.
 --
 -- Example Usage:
---	 - Call the function f_determine_cycles_required with the instruction, opcode mnemonic, and addressing mode.
+--		- Call the function f_determine_cycles_required with the instruction, opcode mnemonic, and addressing mode.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -44,6 +44,7 @@ package body package_cycles_required is
 			-- Read-Modify-Write
 			when "ASL" | "DEC" | "INC" | "LSR" | "ROL" | "ROR" => s_cycles := s_cycles + 2;
 			
+			-- Specific addressing modes
 			when others =>
 				case i_mode is
 					when "IMP"		=> null;
