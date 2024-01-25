@@ -21,9 +21,9 @@ VnBgM7DhIziA[DQhID<D<93
 !s100 MEZXb?NKA_Yi6aNN[@b7D3
 Z6 OV;C;10.5b;63
 31
-Z7 !s110 1706027014
+Z7 !s110 1706215625
 !i10b 1
-Z8 !s108 1706027014.000000
+Z8 !s108 1706215625.000000
 Z9 !s90 -reportprogress|300|-93|-work|sgate|d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate.vhd|
 Z10 !s107 d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate.vhd|
 !i113 1
@@ -807,9 +807,9 @@ R6
 b1
 R7
 !i10b 1
-Z89 !s108 1706027013.000000
-Z90 !s90 -reportprogress|300|-93|-work|sgate|d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate_pack.vhd|
-Z91 !s107 d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate_pack.vhd|
+R8
+Z89 !s90 -reportprogress|300|-93|-work|sgate|d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate_pack.vhd|
+Z90 !s107 d:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate_pack.vhd|
 !i113 1
 R11
 R12
@@ -825,9 +825,9 @@ R6
 31
 R7
 !i10b 1
+R8
 R89
 R90
-R91
 !i113 1
 R11
 R12
@@ -855,11 +855,11 @@ R12
 Asim_arch
 R2
 R3
-Z92 DEx4 work 7 tri_bus 0 22 o`>fWO:L2?nlM4YzkiGjQ2
+Z91 DEx4 work 7 tri_bus 0 22 o`>fWO:L2?nlM4YzkiGjQ2
 l307
 L305
-Z93 V:Q`4D2YGiC[XKmQYkB7ej1
-Z94 !s100 zMPT_@RUdVZQ_nCRaC^cD1
+Z92 V:Q`4D2YGiC[XKmQYkB7ej1
+Z93 !s100 zMPT_@RUdVZQ_nCRaC^cD1
 R6
 31
 R7

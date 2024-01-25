@@ -18,6 +18,7 @@ source_file = 1, D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ac_regist
 source_file = 1, D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_a_input_register.vhd
 source_file = 1, D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd
 source_file = 1, D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd
+source_file = 1, D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_address_bus_register_tb.vhd
 source_file = 1, d:/intelfpga_lite/22.1std/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, d:/intelfpga_lite/22.1std/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
 source_file = 1, d:/intelfpga_lite/22.1std/quartus/libraries/vhdl/ieee/timing_b.vhd

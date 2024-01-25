@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition"
 
--- DATE "01/23/2024 17:20:12"
+-- DATE "01/25/2024 21:34:16"
 
 -- 
 -- Device: Altera 5CSEMA5F31C6 Package FBGA896
@@ -34,7 +34,6 @@ LIBRARY IEEE;
 USE ALTERA.ALTERA_PRIMITIVES_COMPONENTS.ALL;
 USE ALTERA_LNSIM.ALTERA_LNSIM_COMPONENTS.ALL;
 USE CYCLONEV.CYCLONEV_COMPONENTS.ALL;
-USE IEEE.NUMERIC_STD.ALL;
 USE IEEE.STD_LOGIC_1164.ALL;
 
 ENTITY 	CPU IS
@@ -43,9 +42,9 @@ ENTITY 	CPU IS
 	i_irq : IN std_logic;
 	i_ready : IN std_logic;
 	i_test_vector : IN std_logic_vector(60 DOWNTO 0);
-	o_address_bus : OUT IEEE.NUMERIC_STD.unsigned(15 DOWNTO 0);
+	o_address_bus : BUFFER std_logic_vector(15 DOWNTO 0);
 	b_read_write : BUFFER std_logic;
-	io_data_bus : INOUT std_logic_vector(7 DOWNTO 0)
+	io_data_bus : BUFFER std_logic_vector(7 DOWNTO 0)
 	);
 END CPU;
 
@@ -157,6 +156,7 @@ SIGNAL ww_i_ready : std_logic;
 SIGNAL ww_i_test_vector : std_logic_vector(60 DOWNTO 0);
 SIGNAL ww_o_address_bus : std_logic_vector(15 DOWNTO 0);
 SIGNAL ww_b_read_write : std_logic;
+SIGNAL ww_io_data_bus : std_logic_vector(7 DOWNTO 0);
 SIGNAL \i_irq~input_o\ : std_logic;
 SIGNAL \i_ready~input_o\ : std_logic;
 SIGNAL \i_test_vector[21]~input_o\ : std_logic;
@@ -476,8 +476,9 @@ ww_i_clk <= i_clk;
 ww_i_irq <= i_irq;
 ww_i_ready <= i_ready;
 ww_i_test_vector <= i_test_vector;
-o_address_bus <= IEEE.NUMERIC_STD.UNSIGNED(ww_o_address_bus);
+o_address_bus <= ww_o_address_bus;
 b_read_write <= ww_b_read_write;
+io_data_bus <= ww_io_data_bus;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
@@ -851,7 +852,7 @@ PORT MAP (
 	i => \data_output_register_buffer|reg_data_out\(0),
 	oe => \data_output_register_buffer|o_data_bus~0_combout\,
 	devoe => ww_devoe,
-	o => io_data_bus(0));
+	o => ww_io_data_bus(0));
 
 -- Location: IOOBUF_X16_Y0_N19
 \io_data_bus[1]~output\ : cyclonev_io_obuf
@@ -865,7 +866,7 @@ PORT MAP (
 	i => \data_output_register_buffer|reg_data_out\(1),
 	oe => \data_output_register_buffer|o_data_bus~0_combout\,
 	devoe => ww_devoe,
-	o => io_data_bus(1));
+	o => ww_io_data_bus(1));
 
 -- Location: IOOBUF_X12_Y0_N36
 \io_data_bus[2]~output\ : cyclonev_io_obuf
@@ -879,7 +880,7 @@ PORT MAP (
 	i => \data_output_register_buffer|reg_data_out\(2),
 	oe => \data_output_register_buffer|o_data_bus~0_combout\,
 	devoe => ww_devoe,
-	o => io_data_bus(2));
+	o => ww_io_data_bus(2));
 
 -- Location: IOOBUF_X14_Y0_N19
 \io_data_bus[3]~output\ : cyclonev_io_obuf
@@ -893,7 +894,7 @@ PORT MAP (
 	i => \data_output_register_buffer|reg_data_out\(3),
 	oe => \data_output_register_buffer|o_data_bus~0_combout\,
 	devoe => ww_devoe,
-	o => io_data_bus(3));
+	o => ww_io_data_bus(3));
 
 -- Location: IOOBUF_X18_Y0_N93
 \io_data_bus[4]~output\ : cyclonev_io_obuf
@@ -907,7 +908,7 @@ PORT MAP (
 	i => \data_output_register_buffer|reg_data_out\(4),
 	oe => \data_output_register_buffer|o_data_bus~0_combout\,
 	devoe => ww_devoe,
-	o => io_data_bus(4));
+	o => ww_io_data_bus(4));
 
 -- Location: IOOBUF_X18_Y0_N59
 \io_data_bus[5]~output\ : cyclonev_io_obuf
@@ -921,7 +922,7 @@ PORT MAP (
 	i => \data_output_register_buffer|reg_data_out\(5),
 	oe => \data_output_register_buffer|o_data_bus~0_combout\,
 	devoe => ww_devoe,
-	o => io_data_bus(5));
+	o => ww_io_data_bus(5));
 
 -- Location: IOOBUF_X18_Y0_N42
 \io_data_bus[6]~output\ : cyclonev_io_obuf
@@ -935,7 +936,7 @@ PORT MAP (
 	i => \data_output_register_buffer|reg_data_out\(6),
 	oe => \data_output_register_buffer|o_data_bus~0_combout\,
 	devoe => ww_devoe,
-	o => io_data_bus(6));
+	o => ww_io_data_bus(6));
 
 -- Location: IOOBUF_X14_Y0_N53
 \io_data_bus[7]~output\ : cyclonev_io_obuf
@@ -949,7 +950,7 @@ PORT MAP (
 	i => \data_output_register_buffer|reg_data_out\(7),
 	oe => \data_output_register_buffer|o_data_bus~0_combout\,
 	devoe => ww_devoe,
-	o => io_data_bus(7));
+	o => ww_io_data_bus(7));
 
 -- Location: IOIBUF_X89_Y25_N21
 \i_clk~input\ : cyclonev_io_ibuf
@@ -1032,7 +1033,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => io_data_bus(0),
+	i => ww_io_data_bus(0),
 	o => \io_data_bus[0]~input_o\);
 
 -- Location: LABCELL_X17_Y1_N54
@@ -1699,7 +1700,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => io_data_bus(1),
+	i => ww_io_data_bus(1),
 	o => \io_data_bus[1]~input_o\);
 
 -- Location: FF_X16_Y2_N35
@@ -1855,7 +1856,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => io_data_bus(2),
+	i => ww_io_data_bus(2),
 	o => \io_data_bus[2]~input_o\);
 
 -- Location: FF_X15_Y2_N29
@@ -2053,7 +2054,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => io_data_bus(3),
+	i => ww_io_data_bus(3),
 	o => \io_data_bus[3]~input_o\);
 
 -- Location: FF_X15_Y2_N14
@@ -2168,7 +2169,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => io_data_bus(4),
+	i => ww_io_data_bus(4),
 	o => \io_data_bus[4]~input_o\);
 
 -- Location: FF_X16_Y2_N29
@@ -2283,7 +2284,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => io_data_bus(5),
+	i => ww_io_data_bus(5),
 	o => \io_data_bus[5]~input_o\);
 
 -- Location: FF_X16_Y2_N53
@@ -2398,7 +2399,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => io_data_bus(6),
+	i => ww_io_data_bus(6),
 	o => \io_data_bus[6]~input_o\);
 
 -- Location: FF_X17_Y2_N32
@@ -2512,7 +2513,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => io_data_bus(7),
+	i => ww_io_data_bus(7),
 	o => \io_data_bus[7]~input_o\);
 
 -- Location: FF_X16_Y2_N32
