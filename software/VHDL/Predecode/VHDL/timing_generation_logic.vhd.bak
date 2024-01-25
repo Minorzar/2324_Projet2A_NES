@@ -1,0 +1,24 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity timing_generation_logic is
+  Port (
+    i_cycle_counter : in STD_LOGIC_VECTOR(3 downto 0);  -- Input cycle counter
+    o_next_cycle : out STD_LOGIC                         -- Output signal for the next cycle
+  );
+end timing_generation_logic;
+
+architecture Behavioral of timing_generation_logic is
+begin
+  -- Output the next cycle signal (o_next_cycle) based on the input cycle counter
+  process(i_cycle_counter)
+  begin
+    -- Define the conditions for the next cycle
+    if i_cycle_counter = "0000" then
+      o_next_cycle <= '1';  -- Next cycle is active on the first cycle
+    else
+      o_next_cycle <= '0';  -- Next cycle is inactive for subsequent cycles
+    end if;
+  end process;
+
+end Behavioral;

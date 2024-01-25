@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "74ALCC164245DGG")(type "KiCad")(uri "${KIPRJMOD}/74ALVC164245DGG/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "OPENTENDO")(type "KiCad")(uri "${KIPRJMOD}/NESRE.pretty")(options "")(descr ""))
+)
