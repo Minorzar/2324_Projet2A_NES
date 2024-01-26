@@ -87,10 +87,24 @@ REGISTER
 
                 0 : enable the NMI      0=OFF 1=ON               --Stop here 
 
+                        Also know as NMI_output 
+
+                        NMI : non-maskable interupt , an interuption who have always priority on other, It's come form the PPU 
+                        to the CPU and it's use to detect vertical blanking, 
+
+                        IN WORKS : 
+
+                        1- Start of vertical blanking (PPUSTATUE.0=1)
+                        2- End of the vertical blanking (some time before having scan the line) (PPUSTATUE.0=0)
+                        3- Read PPUSTATUE
+                        4- Set this Bit to 1 
+
+                        error if this bits and PPUSTATUE.0 = 1 
 
 
                 1 : PPU master/slave    0=Slave 1=Master
 
+                        Chose who 
 
                 2 : sprite hight 
 
@@ -108,9 +122,22 @@ REGISTER
 
                 0-2 : color emphasis      0=OFF 1=ON 
 
-                3 : sprite hight 
+                        to 0-2, every bits represente a Color and: 
 
-                4 : background enable
+                            0-Blue 
+                            1-Green 
+                            2-Red
+
+                        and as write over, 1 is for set up the emphasis and the 0 is for stop it
+
+
+                3 : sprite enable 
+
+                        sprite enable = 1 , unenable = 0
+
+                4 : background enable 
+
+                        background enable = 1 , unenable = 0
 
                 5 : sprite left column enable 
 
@@ -123,7 +150,7 @@ REGISTER
             FOR PPUSTATUE (0x2002)  
 
                 0 : vblank      0=OFF 1=ON 
-
+                    Also named NMI_occured
                 1 : sprite 0 hit
 
                 2 : sprite overflow
@@ -141,21 +168,25 @@ REGISTER
                 0-7 : OAM read write data
 
 
-
             FOR PPUSCROLL (0x2005)  
 
-                0-7 : fine scroll position 
+                0-7 : fine scroll position (two writes X pos Y pos)
+
+
+            FOR PPUADDR (0x2006)  
+
+                0-7 : PPU read/write Address
 
 
 
-            FOR PPUSCROLL (0x2006)  
+            FOR PPUDATA (0x2007)  
 
-                0-7 : OAM read write data
+                0-7 : PPU data read/write 
 
 
 
-            FOR PPUSCROLL (0x2007)  
+            FOR OAMDMA (0x4014)  
 
-                0-7 : OAM read write data
+                0-7 : OAM DMA hight Address
 
 the application
