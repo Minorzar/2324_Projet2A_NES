@@ -29,7 +29,7 @@ begin
 			s_stored_instruction <= (others => '0');
 		elsif rising_edge(i_clk) then
 			-- Capture the input predecoded instruction
-			s_stored_instruction <= i_instruction;
+			s_stored_instruction <= i_pl_instruction;
 		end if;
 	end process;
 
