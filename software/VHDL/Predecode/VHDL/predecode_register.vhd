@@ -20,6 +20,7 @@ end predecode_register;
 
 architecture Behavioral of predecode_register is
 	signal s_captured_instruction : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+
 begin
 	-- Main process
 	process(i_clk, i_reset)
@@ -29,11 +30,11 @@ begin
 			s_captured_instruction <= (others => '0');
 		elsif rising_edge(i_clk) then
 			-- Capture the input instruction from the data bus
-			s_captured_instruction <= i_databus;
+			s_captured_instruction <= i_db_instruction;
 		end if;
 	end process;
 
 	-- Output the captured instruction
-	o_pl_instruction <= s_captured_instruction;
+	o_pr_instruction <= s_captured_instruction;
 
 end Behavioral;

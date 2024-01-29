@@ -34,6 +34,6 @@ begin
 	end process;
 
 	-- Output the stored instruction
-	o_pl_instruction <= s_stored_instruction;
+	o_ir_instruction <= s_stored_instruction;
 
 end Behavioral;
