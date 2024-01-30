@@ -3,8 +3,8 @@
 -- This VHDL module implements a predecode register.
 --
 -- Description:
--- The predecode register captures the input data on the rising edge of the clock signal
--- and provides the captured instruction as output on subsequent clock edges.
+-- The predecode register latches the input instruction from the data bus on the rising edge of the clock signal
+-- and provides the latched instruction as output on subsequent clock edges.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

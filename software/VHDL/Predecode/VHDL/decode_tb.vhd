@@ -108,7 +108,7 @@ begin
 	uut_instruction_register: instruction_register
 	port map (
 		i_clk => t_clk_1,	-- Use the same clock as predecode_register
-		i_reset => '0',	 -- No reset in this testbench
+		i_reset => '0',	-- No reset in this testbench
 		i_pl_instruction => t_pl_instruction,
 		o_ir_instruction => open	-- Connect output to a signal or observe it in simulation
 	);
@@ -117,8 +117,8 @@ begin
 	uut_decode_rom: decode_rom
 	port map (
 		ir => t_pl_instruction,	-- Connect to the output of predecode_logic module
-		t_n => t_timing_n,	 -- Connect to the output of timing_generator module
-		pla => t_pla_output	 -- Connect to a signal to observe the output or connect it to other modules as needed
+		t_n => t_timing_n,	-- Connect to the output of timing_generator module
+		pla => t_pla_output	-- Connect to a signal to observe the output or connect it to other modules as needed
 	);
 
 	-- Instantiate timing_generator module
