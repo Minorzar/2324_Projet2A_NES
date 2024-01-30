@@ -30,20 +30,20 @@ architecture Behavioral of predecode_logic is
 	signal s_mask_1xx000x0: STD_LOGIC;							-- Mask to identify instructions with the pattern 1xx000x0
 	signal s_mask_0xx01000: STD_LOGIC;							-- Mask to identify instructions with the pattern 0xx01000
 	signal s_implied: STD_LOGIC;								-- Signal indicating instructions with implied addressing mode
-	signal s_two_cycle_opcode: STD_LOGIC; 						-- Signal indicating two-cycle opcodes
+	signal s_two_cycle_opcode: STD_LOGIC;						-- Signal indicating two-cycle opcodes
 begin
-	 -- Clear the instruction if either aic_n or clear is active; otherwise pass the predecode register data
-	 s_ir_clear <= not (i_assert_interrupt_control and i_fetch);
-	 
-	 -- Conditional assignment of predecoded instruction
-	 process(i_pr_instruction, s_ir_clear)
-	 begin
-		  if s_ir_clear = '1' then
-				o_pl_instruction <= (others => '0');
-		  else
-				o_pl_instruction <= i_pr_instruction;
-		  end if;
-	 end process;
+	-- Clear the instruction if either aic_n or clear is active; otherwise pass the predecode register data
+	s_ir_clear <= not (i_assert_interrupt_control and i_fetch);
+	
+	-- Conditional assignment of predecoded instruction
+	process(i_pr_instruction, s_ir_clear)
+	begin
+		if s_ir_clear = '1' then
+			o_pl_instruction <= (others => '0');
+		else
+			o_pl_instruction <= i_pr_instruction;
+		end if;
+	end process;
 
 	-- Masks generation for different instruction patterns
 	
@@ -145,13 +145,13 @@ begin
 	-- Implied instructions have no operands and last for two cycles.
 	s_implied <= s_mask_xxxx10x0 and not s_mask_0xx01000;
 
-	 -- is_two_cycle_opcode is active for two-cycle opcodes
-	 process(i_clk)
-	 begin
-		  if rising_edge(i_clk) then
-				s_two_cycle_opcode <= (s_mask_xxx010x1 or s_mask_1xx000x0 or s_implied);
-		  end if;
-	 end process;
+	-- is_two_cycle_opcode is active for two-cycle opcodes
+	process(i_clk)
+	begin
+		if rising_edge(i_clk) then
+			s_two_cycle_opcode <= (s_mask_xxx010x1 or s_mask_1xx000x0 or s_implied);
+		end if;
+	end process;
 
 	-- Output signals
 	o_implied <= s_implied;

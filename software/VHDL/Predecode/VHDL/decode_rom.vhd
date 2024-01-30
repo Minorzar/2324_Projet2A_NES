@@ -76,7 +76,7 @@ begin
 		pla(45) <= not (t_n(1) or not ir(7) or ir(5) or not ir(3) or not ir(2) or not ir(1));
 		pla(46) <= not (t_n(1) or not ir(7) or not ir(6) or ir(5) or ir(4) or ir(3) or ir(2) or ir10);
 		pla(47) <= not (ir(7) or not ir(6) or ir(4) or ir(3) or ir(2) or ir10);
-		pla(48) <= not (t_n(2) or ir(7) or ir(6) or not ir(5) or ir(4) or ir(3) or ir(2) or  ir10);
+		pla(48) <= not (t_n(2) or ir(7) or ir(6) or not ir(5) or ir(4) or ir(3) or ir(2) or ir10);
 		pla(49) <= not (t_n(0) or not ir(7) or not ir(6) or ir(4) or ir10);
 		pla(50) <= not (t_n(0) or not ir(7) or not ir(6) or ir(5) or not ir(0));
 		pla(51) <= not (t_n(0) or not ir(7) or not ir(6) or not ir(5) or not ir(0));
@@ -98,7 +98,7 @@ begin
 		pla(67) <= not (t_n(0) or ir(7) or ir(4) or not ir(3) or ir(2) or not ir(1));
 		pla(68) <= not (t_n(0) or not ir(7) or ir(6) or not ir(5) or ir(4) or not ir(3) or ir(2) or not ir(1));
 		pla(69) <= not (t_n(0) or ir(7) or ir(6) or not ir(5) or ir(4) or not ir(2) or ir10);
-		pla(70) <= not (t_n(0) or ir(7) or ir(6) or not ir(5) or not ir(0)); 
+		pla(70) <= not (t_n(0) or ir(7) or ir(6) or not ir(5) or not ir(0));	
 		pla(71) <= not (t_n(4) or not ir(4) or not ir(3));
 		pla(72) <= not (t_n(5) or not ir(4) or ir(3) or ir(2) or not ir(0));
 		pla(73) <= not (t_n(0) or not ir(4) or ir(3) or ir(2) or ir10);
@@ -108,7 +108,7 @@ begin
 		pla(77) <= not (t_n(2) or ir(7) or ir(6) or ir(5) or ir(4) or ir(3) or ir(2) or ir10);
 		pla(78) <= not (t_n(3) or ir(7) or ir(6) or not ir(5) or ir(4) or ir(3) or ir(2) or ir10);
 		pla(79) <= not (~ir(7) or ir(6) or ir(5) or not ir(0));
-		pla(80) <= not (t_n(2) or not ir(4) or ir(3) or ir(2) or ir10); 
+		pla(80) <= not (t_n(2) or not ir(4) or ir(3) or ir(2) or ir10);	
 		pla(81) <= not (t_n(2) or ir(3) or not ir(2));
 		pla(82) <= not (t_n(2) or ir(3) or ir(2) or not ir(0));
 		pla(83) <= not (pla(129) or t_n(2) or not ir(3));
@@ -155,7 +155,7 @@ begin
 		pla(124) <= not (t_n(5) or ir(3) or ir(2) or not ir(0));
 		pla(125) <= not (t_n(4) or not ir(4) or not ir(3));
 		pla(126) <= not (ir(7));
-		pla(127) <= not (~ir(7) or ir(6) or not ir(5) or not ir(4) or not ir(3) or ir(2) or ir10);
+		pla(127) <= not (not ir(7) or ir(6) or not ir(5) or not ir(4) or not ir(3) or ir(2) or ir10);
 		pla(128) <= not (pla(129) or not ir(3) or ir(2) or ir(0));
 		pla(129) <= not (ir(7) or ir(4) or not ir(3) or ir(2) or ir10);
 	end process;
