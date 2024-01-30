@@ -5,7 +5,7 @@
 -- Description:
 --	The predecode logic block has three main functions:
 --	1) Indicate if an opcode is one cycle via the implied output
---	2) Indicate if an opcode is two cycles via the o_is_two_cycle_opcode output
+--	2) Indicate if an opcode is two cycles via the o_pl_tzpre output
 --	3) Pass the opcode to the instruction register or pass all zeros if clear_ir is high.
 
 library IEEE;
@@ -13,13 +13,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity predecode_logic is
 	Port (
-		i_clk_1						: in std_logic;						-- Input clock signal
-		i_assert_interrupt_control	: in std_logic;						-- Input assert interrupt control signal
-		i_fetch						: in std_logic;						-- Input fetch instruction signal
-		i_pr_instruction			: in std_logic_vector(7 downto 0);	-- Input instruction from predecode_register
-		o_pl_instruction			: out std_logic_vector(7 downto 0);	-- Output predecoded instruction to instruction_register
-		o_implied					: out std_logic						-- Output signal indicating an opcode with implied addressing mode
-		o_is_two_cycle_opcode		: out std_logic;					-- Output signal indicating a two-cycle opcode
+		i_clk_1						: in std_logic;							-- Input clock signal
+		i_assert_interrupt_control	: in std_logic;							-- Input assert interrupt control signal
+		i_tgl_fetch					: in std_logic;							-- Input fetch signal from timing_generator_logic
+		i_pr_instruction			: in std_logic_vector(7 downto 0);		-- Input instruction from predecode_register
+		o_pl_instruction			: out std_logic_vector(7 downto 0);		-- Output predecoded instruction to instruction_register
+		o_pl_implied				: out std_logic							-- Output signal indicating an opcode with implied addressing mode
+		o_pl_tzpre					: out std_logic;						-- Output signal indicating a two-cycle opcode
 	);
 end predecode_logic;
 
@@ -38,7 +38,7 @@ begin
 	-- Clear the instruction if either aic_n or clear is active;
 	-- otherwise, pass the predecode register data.
 	-------------------------------------------
-	s_ir_clear <= not (i_assert_interrupt_control and i_fetch);
+	s_ir_clear <= not (i_assert_interrupt_control and i_tgl_fetch);
 	process(i_pr_instruction, s_ir_clear)
 	begin
 		if s_ir_clear = '1' then
@@ -120,7 +120,7 @@ begin
 	-- s_mask_xxx010x1 <= not i_pr_instruction(4) and i_pr_instruction(3) and not i_pr_instruction(2) and i_pr_instruction(0);
 	-- s_mask_1xx000x0 <= i_pr_instruction(7) and not i_pr_instruction(4) and not i_pr_instruction(3) and not i_pr_instruction(2) and not i_pr_instruction(0);
 	-- s_mask_0xx01000 <= not ir(7) and not ir(4) and ir(3) and not ir(2) and not ir(1) and not ir(0);
-	-- o_is_two_cycle_opcode <= (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
+	-- o_pl_tzpre <= (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
 	---------------------------------------------
 	s_mask_xxx010x1 <= (
 		-- cc = 01 instructions
@@ -172,10 +172,10 @@ begin
 		i_pr_instruction = x"68";		-- 01101000 (PLA)
 	)
 
-	process(i_clk_1, o_is_two_cycle_opcode)
+	process(i_clk_1, o_pl_tzpre)
 	begin
 		if rising_edge(i_clk_1) then
-			o_is_two_cycle_opcode <= (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
+			o_pl_tzpre <= (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
 		end if;
 	end process;
 

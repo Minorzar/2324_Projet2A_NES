@@ -12,7 +12,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity instruction_register is
 	port (
 		i_clk_1				: in std_logic;						-- Input clock signal
-		i_fetch				: in std_logic;						-- Input fetch signal
+		i_tgl_fetch			: in std_logic;						-- Input fetch signal from timing_generator_logic
 		i_pl_instruction	: in std_logic_vector(7 downto 0);	-- Input instruction from predecode_logic
 		o_ir_instruction	: out std_logic_vector(7 downto 0)	-- Output instruction to decode_rom
 	);
@@ -21,10 +21,10 @@ end entity instruction_register;
 architecture Behavioral of instruction_register is
 	signal s_load_ir : std_logic := '0';
 begin
-    process (i_clk_1, i_fetch, i_pl_instruction)
+    process (i_clk_1, i_tgl_fetch, i_pl_instruction)
     begin
 		-- Update the load signal based on clock and fetch signals
-        s_load_ir <= i_clk_1 and i_fetch;
+        s_load_ir <= i_clk_1 and i_tgl_fetch;
 		if rising_edge(s_load_ir) then
 			-- Load the instruction from the predecoded logic
 			o_ir_instruction <= i_pl_instruction;
