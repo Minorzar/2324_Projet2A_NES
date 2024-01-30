@@ -1,1 +1,6 @@
 **/.DS_Store
+**/incremental_db/
+**/output_files/
+**/simulation/
+**/db/
+!**/.git/objects/db/
