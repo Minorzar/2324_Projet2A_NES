@@ -152,6 +152,120 @@ begin
 	-- Stimulus process
 	stimulus_process: process
 	begin
+		-- Test ASL A instruction (Opcode: x"0A")
+		t_pr_instruction <= x"0A";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '1' report "Implied flag not set for ASL A instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for ASL A instruction" severity error;
+
+		-- Test PHP instruction (Opcode: x"08")
+		t_pr_instruction <= x"08";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '1' report "Implied flag not set for PHP instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for PHP instruction" severity error;
+
+		-- Test CLC instruction (Opcode: x"18")
+		t_pr_instruction <= x"18";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '1' report "Implied flag not set for CLC instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for CLC instruction" severity error;
+
+		-- Test TXA instruction (Opcode: x"8A")
+		t_pr_instruction <= x"8A";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '1' report "Implied flag not set for TXA instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for TXA instruction" severity error;
+	
+		-- Test ORA # instruction (Opcode: x"09")
+		t_pr_instruction <= x"09";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for ORA # instruction" severity error;
+		assert t_is_two_cycle_opcode = '1' report "Two-cycle flag not set for ORA # instruction" severity error;
+
+		-- Test LDX # instruction (Opcode: x"A2")
+		t_pr_instruction <= x"A2";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for LDX # instruction" severity error;
+		assert t_is_two_cycle_opcode = '1' report "Two-cycle flag not set for LDX # instruction" severity error;
+
+		-- Test LDY # instruction (Opcode: x"A0")
+		t_pr_instruction <= x"A0";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for LDY # instruction" severity error;
+		assert t_is_two_cycle_opcode = '1' report "Two-cycle flag not set for LDY # instruction" severity error;
+
+		-- Test PHP instruction (Opcode: x"08")
+		t_pr_instruction <= x"08";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for PHP instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for PHP instruction" severity error;
+
+		-- Test ORA, Ind,X instruction (Opcode: x"01")
+		t_pr_instruction <= x"01";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for ORA, Ind,X instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for ORA, Ind,X instruction" severity error;
+
+		-- Test AND, Ind,X instruction (Opcode: x"21")
+		t_pr_instruction <= x"21";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for AND, Ind,X instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for AND, Ind,X instruction" severity error;
+
+		-- Test EOR, Ind,X instruction (Opcode: x"41")
+		t_pr_instruction <= x"41";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for EOR, Ind,X instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for EOR, Ind,X instruction" severity error;
+
+		-- Test ADC, Ind,X instruction (Opcode: x"61")
+		t_pr_instruction <= x"61";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for ADC, Ind,X instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for ADC, Ind,X instruction" severity error;
+
+		-- Test STA, Ind,X instruction (Opcode: x"81")
+		t_pr_instruction <= x"81";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for STA, Ind,X instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for STA, Ind,X instruction" severity error;
+
+		-- Test LDA, Ind,X instruction (Opcode: x"A1")
+		t_pr_instruction <= x"A1";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for LDA, Ind,X instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for LDA, Ind,X instruction" severity error;
+
+		-- Test CMP, Ind,X instruction (Opcode: x"C1")
+		t_pr_instruction <= x"C1";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for CMP, Ind,X instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for CMP, Ind,X instruction" severity error;
+
+		-- Test SBC, Ind,X instruction (Opcode: x"E1")
+		t_pr_instruction <= x"E1";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for SBC, Ind,X instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for SBC, Ind,X instruction" severity error;
+
+		-- Test INC A instruction (Opcode: x"1A")
+		t_pr_instruction <= x"1A";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for INC A instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for INC A instruction" severity error;
+
+		-- Test BIT instruction (Opcode: x"89")
+		t_pr_instruction <= x"89";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for BIT instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for BIT instruction" severity error;
+
+		-- Test BRA instruction (Opcode: x"80")
+		t_pr_instruction <= x"80";
+		wait for 2 * CLK_PERIOD;
+		assert t_implied = '0' report "Implied flag set for BRA instruction" severity error;
+		assert t_is_two_cycle_opcode = '0' report "Two-cycle flag set for BRA instruction" severity error;
+	
 		wait;
 
 	end process stimulus_process;
