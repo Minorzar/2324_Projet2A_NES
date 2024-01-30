@@ -21,10 +21,8 @@ begin
 	process(i_clk)
 	begin
 		if (rising_edge(i_clk)) then
-			if i_phi2 = '1' then
+			if i_phi2 = '1' then 
 				reg_dl <= i_data_bus;
-			else
-				reg_dl <= reg_dl;
 			end if;
 		end if;
 	end process;
