@@ -47,8 +47,12 @@ CLK is obviously the clock:  21.47727 MHz (NTSC) or 26.6017 MHz (PAL)
 
 /INT or /VBL (INT for interupt and VBL for VBlank) is , can be also open collecteur
 
+VEE/VOUT/VCC are the composent voltage, don't care here
+
+ALE (Address Latch Enable) goes high at the beginning of a PPU VRAM access and it use to latch the lower 8 bits of the PPU address bus. After the end it still high during one cycle. 
 
 
+/SYNC or /RST 
 
 PART in PPU 
 
