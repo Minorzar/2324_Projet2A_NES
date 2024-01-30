@@ -7,19 +7,19 @@
 --	The PLA outputs are determined based on specific logic expressions derived from the input values.
 
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity decode_rom is
 	Port (
-		ir : in STD_LOGIC_VECTOR(7 downto 0);		-- Input instruction register
-		t_n : in STD_LOGIC_VECTOR(5 downto 0);		-- Input T-n value
-		pla : out STD_LOGIC_VECTOR(129 downto 0)	-- Output PLA
+		ir : in std_logic_vector(7 downto 0);		-- Input instruction register
+		t_n : in std_logic_vector(5 downto 0);		-- Input T-n value
+		pla : out std_logic_vector(129 downto 0)	-- Output PLA
 	);
 end decode_rom;
 
 architecture Behavioral of decode_rom is
-	signal ir10 : STD_LOGIC;						-- Signal to store concatenation of ir(1) and ir(0)
+	signal ir10 : std_logic;						-- Signal to store concatenation of ir(1) and ir(0)
 begin
 	-- Main process
 	process(ir, t_n)

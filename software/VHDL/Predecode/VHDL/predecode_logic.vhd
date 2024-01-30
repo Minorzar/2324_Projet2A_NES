@@ -9,28 +9,28 @@
 --	3) Pass the opcode to the instruction register or pass all zeros if clear_ir is high.
 
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_1164.ALL;
 
 entity predecode_logic is
 	Port (
-		i_clk : in STD_LOGIC;									-- Clock signal for latch signals
-		i_assert_interrupt_control : in STD_LOGIC;				-- Assert interrupt control signal
-		i_fetch : in STD_LOGIC;									-- Fetch instruction signal
-		i_pr_instruction : in STD_LOGIC_VECTOR(7 downto 0);		-- Input instruction from predecode_register
-		o_pl_instruction : out STD_LOGIC_VECTOR(7 downto 0);	-- Output predecoded instruction to instruction_register
-		o_implied : out STD_LOGIC								-- Output signal indicating an opcode with implied addressing
-		o_is_two_cycle_opcode : out STD_LOGIC;					-- Output signal indicating a two-cycle opcode (active low)
+		i_clk : in std_logic;									-- Clock signal for latch signals
+		i_assert_interrupt_control : in std_logic;				-- Assert interrupt control signal
+		i_fetch : in std_logic;									-- Fetch instruction signal
+		i_pr_instruction : in std_logic_vector(7 downto 0);		-- Input instruction from predecode_register
+		o_pl_instruction : out std_logic_vector(7 downto 0);	-- Output predecoded instruction to instruction_register
+		o_implied : out std_logic								-- Output signal indicating an opcode with implied addressing
+		o_is_two_cycle_opcode : out std_logic;					-- Output signal indicating a two-cycle opcode (active low)
 	);
 end predecode_logic;
 
 architecture Behavioral of predecode_logic is
-	signal s_ir_clear: STD_LOGIC;								-- Signal to control clearing of the instruction register
-	signal s_mask_xxxx10x0: STD_LOGIC;							-- Mask to identify instructions with the pattern xxxx10x0
-	signal s_mask_xxx010x1: STD_LOGIC;							-- Mask to identify instructions with the pattern xxx010x1
-	signal s_mask_1xx000x0: STD_LOGIC;							-- Mask to identify instructions with the pattern 1xx000x0
-	signal s_mask_0xx01000: STD_LOGIC;							-- Mask to identify instructions with the pattern 0xx01000
-	signal s_implied: STD_LOGIC;								-- Signal indicating instructions with implied addressing mode
-	signal s_two_cycle_opcode: STD_LOGIC;						-- Signal indicating two-cycle opcodes
+	signal s_ir_clear: std_logic;								-- Signal to control clearing of the instruction register
+	signal s_mask_xxxx10x0: std_logic;							-- Mask to identify instructions with the pattern xxxx10x0
+	signal s_mask_xxx010x1: std_logic;							-- Mask to identify instructions with the pattern xxx010x1
+	signal s_mask_1xx000x0: std_logic;							-- Mask to identify instructions with the pattern 1xx000x0
+	signal s_mask_0xx01000: std_logic;							-- Mask to identify instructions with the pattern 0xx01000
+	signal s_implied: std_logic;								-- Signal indicating instructions with implied addressing mode
+	signal s_two_cycle_opcode: std_logic;						-- Signal indicating two-cycle opcodes
 begin
 	-- Clear the instruction if either aic_n or clear is active; otherwise pass the predecode register data
 	s_ir_clear <= not (i_assert_interrupt_control and i_fetch);
@@ -119,7 +119,7 @@ begin
 	s_mask_1xx000x0 <= (
 		-- cc = 10 instructions
 		i_pr_instruction = x"A2" or		-- 10100010 (LDX, #)
-		
+
 		-- cc = 00 instructions
 		i_pr_instruction = x"A0" or		-- 10100000 (LDY, #)
 		i_pr_instruction = x"C0" or		-- 11000000 (CPY, #)
@@ -127,7 +127,7 @@ begin
 
 		-- Additional 65C02 Instructions
 		-- i_pr_instruction = x"80" or	-- 10000000 (BRA)
-		
+
 		-- Additional 65C816 Instructions
 		-- i_pr_instruction = x"82" or	-- 10000010 (BRL rl)
 		-- i_pr_instruction = x"C2" or	-- 11000010 (REP #)

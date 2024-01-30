@@ -7,19 +7,19 @@
 --	The captured instruction is stored and provided as the output on subsequent clock edges.
 
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_1164.ALL;
 
 entity instruction_register is
 	Port (
-		i_clk : in STD_LOGIC;									-- Input clock signal
-		i_reset : in STD_LOGIC;									-- Input reset signal
-		i_pl_instruction : in STD_LOGIC_VECTOR(7 downto 0);		-- Input instruction from predecode_logic
-		o_ir_instruction : out STD_LOGIC_VECTOR(7 downto 0)		-- Output instruction to decode_rom and timing_generation_logic
+		i_clk : in std_logic;									-- Input clock signal
+		i_reset : in std_logic;									-- Input reset signal
+		i_pl_instruction : in std_logic_vector(7 downto 0);		-- Input instruction from predecode_logic
+		o_ir_instruction : out std_logic_vector(7 downto 0)		-- Output instruction to decode_rom and timing_generation_logic
 	);
 end instruction_register;
 
 architecture Behavioral of instruction_register is
-	signal s_stored_instruction : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+	signal s_stored_instruction : std_logic_vector(7 downto 0) := (others => '0');
 begin
 	-- Main process
 	process(i_clk, i_reset)
