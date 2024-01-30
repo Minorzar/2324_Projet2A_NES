@@ -1,6 +1,52 @@
-The PPU readme is only present in purpose to compilate all knowledge about the PPU memory mapping and application 
+@ NES's PPU as know as 2C02
+
+The PPU (2C02) readme is only present in purpose to compilate all knowledge about the PPU memory mapping and application 
 
 the PPU can be cut 4 large parts 
+
+
+IN/OUT/BOTH
+
+    As the 2C02 is presented in Nesdev blog : 
+                
+            +-------------------------------------------+
+            |2C02 pin nomenclature & signal descriptions|
+            +-------------------------------------------+
+                    ___  ___
+                    |*  \/   |
+            R/W  >01]        [40<  VCC
+            D0  [02]        [39>  ALE
+            D1  [03]        [38]  AD0
+            D2  [04]        [37]  AD1
+            D3  [05]        [36]  AD2
+            D4  [06]        [35]  AD3
+            D5  [07]        [34]  AD4
+            D6  [08]        [33]  AD5
+            D7  [09]        [32]  AD6
+            A2  >10]  2C02  [31]  AD7
+            A1  >11]        [30>  A8
+            A0  >12]        [29>  A9
+           /CS  >13]        [28>  A10
+          EXT0  [14]        [27>  A11
+           EXT1  [15]        [26>  A12
+           EXT2  [16]        [25>  A13
+            EXT3  [17]        [24>  /R
+            CLK  >18]        [23>  /W
+            /VBL  <19]        [22<  /SYNC
+            VEE  >20]        [21>  VOUT
+                    |________|
+
+
+We will explain (in the main line) the purpose of every enter
+
+the R/W /CS D[0-7] and A[0-2] are the PPU's controle signal (controle by the CPU), D[0-7] give the date, A[0-2] give which register is select but can only do this if /CS=0. The R/W give the direction between PPU and CPU data (D[0-7]). the only shady information is about the /CS, this one is generat by the address decoder 74139 and he is also know as /DBE, if this one is equal to 1 case D[0-7] float. 
+
+The EXTx can be input or an output. As imput, the EXTx could set up de "slave" mode in register PPUCTRL causing the output of the palette indice to the EXTx pin juste before clear it . But in another hand, some datasheet say that bit are on the ground, please tcheck the following datasheet if you want more information (tchek :https://www.nesdev.org/2C02%20technical%20reference.TXT and https://www.nesdev.org/wiki/PPU_pinout). 
+
+CLK is obviously the clock:  21.47727 MHz (NTSC) or 26.6017 MHz (PAL) 
+
+/INT or /VBL (INT for interupt and VBL for VBlank) is , can be also open collecteur
+
 
 
 
@@ -57,7 +103,7 @@ About Memory
 
     In a Hardware POV the PPU have only few which come from the PPU.
         the 0x0000-0x1FFF are the CHR-RAM/CHR-ROM (depending of the cardbridge)
-        the 0x2000-0x2FFF are the VRAM link to the PPU 
+        the 0x2000-0x2FFF are the VRAM link to the PPU     //2Kb ?
         the 0x3000-0x3EFF Copy of the VRAM data presented as negligible by Nesdev 
         the 0x3F00-3FFF not configurable, always mapped to the internal palete controle 
 
@@ -188,5 +234,3 @@ REGISTER
             FOR OAMDMA (0x4014)  
 
                 0-7 : OAM DMA hight Address
-
-the application
