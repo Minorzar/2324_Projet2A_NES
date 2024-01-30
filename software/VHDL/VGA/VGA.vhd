@@ -8,8 +8,6 @@ entity vga is
 	port (
 		i_clk_50 : in std_logic;
 		i_rst_n : in std_logic;
-				  
-		o_led : out std_logic;
 
 		o_VGA_R : out std_logic_vector(7 downto 0);
 		o_VGA_G : out std_logic_vector(7 downto 0);
@@ -22,11 +20,11 @@ entity vga is
 	);
 end entity vga;
 
-architecture rtl of vga is
+architecture behavioral of vga is
 	signal s_clk_25 : std_logic;
 	signal s_rst : std_logic;
 begin
-	pll_0 : entity pll25.pll25
+	pll : entity pll25.pll25
 		port map (
 			refclk => i_clk_50,
 			rst => not(i_rst_n),
@@ -39,22 +37,16 @@ begin
 	begin
 		if (s_rst = '0') then
 			counter := 0;
-			o_led <= '0';
 		elsif (rising_edge(s_clk_25)) then
 			if (counter < 25000000) then
 				counter := counter + 1;
 			else
 				counter := 0;
 			end if;
-			if (counter < 12500000) then
-				o_led <= '1';
-			else
-				o_led <= '0';
-			end if;
 		end if;
 	end process;
 
-    VGA_controler_0 : entity work.VGA_controler
+    VGA_controler : entity work.VGA_controler
         port map (
             i_clk => s_clk_25,
             i_rst_n  => s_rst,
@@ -68,4 +60,4 @@ begin
             o_VGA_BLANK  => o_VGA_BLANK,
             o_VGA_CLOCK  => o_VGA_CLOCK
         );
-end architecture rtl;
+end architecture behavioral;

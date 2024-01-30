@@ -1,53 +1,52 @@
 |VGA
-i_clk_50 => pll25:pll_0.refclk
-i_rst_n => pll25:pll_0.rst
-o_led << o_led~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_VGA_R[0] << vga_controler:VGA_controler_0.o_VGA_R[0]
-o_VGA_R[1] << vga_controler:VGA_controler_0.o_VGA_R[1]
-o_VGA_R[2] << vga_controler:VGA_controler_0.o_VGA_R[2]
-o_VGA_R[3] << vga_controler:VGA_controler_0.o_VGA_R[3]
-o_VGA_R[4] << vga_controler:VGA_controler_0.o_VGA_R[4]
-o_VGA_R[5] << vga_controler:VGA_controler_0.o_VGA_R[5]
-o_VGA_R[6] << vga_controler:VGA_controler_0.o_VGA_R[6]
-o_VGA_R[7] << vga_controler:VGA_controler_0.o_VGA_R[7]
-o_VGA_G[0] << vga_controler:VGA_controler_0.o_VGA_G[0]
-o_VGA_G[1] << vga_controler:VGA_controler_0.o_VGA_G[1]
-o_VGA_G[2] << vga_controler:VGA_controler_0.o_VGA_G[2]
-o_VGA_G[3] << vga_controler:VGA_controler_0.o_VGA_G[3]
-o_VGA_G[4] << vga_controler:VGA_controler_0.o_VGA_G[4]
-o_VGA_G[5] << vga_controler:VGA_controler_0.o_VGA_G[5]
-o_VGA_G[6] << vga_controler:VGA_controler_0.o_VGA_G[6]
-o_VGA_G[7] << vga_controler:VGA_controler_0.o_VGA_G[7]
-o_VGA_B[0] << vga_controler:VGA_controler_0.o_VGA_B[0]
-o_VGA_B[1] << vga_controler:VGA_controler_0.o_VGA_B[1]
-o_VGA_B[2] << vga_controler:VGA_controler_0.o_VGA_B[2]
-o_VGA_B[3] << vga_controler:VGA_controler_0.o_VGA_B[3]
-o_VGA_B[4] << vga_controler:VGA_controler_0.o_VGA_B[4]
-o_VGA_B[5] << vga_controler:VGA_controler_0.o_VGA_B[5]
-o_VGA_B[6] << vga_controler:VGA_controler_0.o_VGA_B[6]
-o_VGA_B[7] << vga_controler:VGA_controler_0.o_VGA_B[7]
-o_VGA_HS << vga_controler:VGA_controler_0.o_VGA_HS
-o_VGA_VS << vga_controler:VGA_controler_0.o_VGA_VS
-o_VGA_SYNC << vga_controler:VGA_controler_0.o_VGA_SYNC
-o_VGA_BLANK << vga_controler:VGA_controler_0.o_VGA_BLANK
-o_VGA_CLOCK << vga_controler:VGA_controler_0.o_VGA_CLOCK
+i_clk_50 => pll25:pll.refclk
+i_rst_n => pll25:pll.rst
+o_VGA_R[0] <= vga_controler:VGA_controler.o_VGA_R[0]
+o_VGA_R[1] <= vga_controler:VGA_controler.o_VGA_R[1]
+o_VGA_R[2] <= vga_controler:VGA_controler.o_VGA_R[2]
+o_VGA_R[3] <= vga_controler:VGA_controler.o_VGA_R[3]
+o_VGA_R[4] <= vga_controler:VGA_controler.o_VGA_R[4]
+o_VGA_R[5] <= vga_controler:VGA_controler.o_VGA_R[5]
+o_VGA_R[6] <= vga_controler:VGA_controler.o_VGA_R[6]
+o_VGA_R[7] <= vga_controler:VGA_controler.o_VGA_R[7]
+o_VGA_G[0] <= vga_controler:VGA_controler.o_VGA_G[0]
+o_VGA_G[1] <= vga_controler:VGA_controler.o_VGA_G[1]
+o_VGA_G[2] <= vga_controler:VGA_controler.o_VGA_G[2]
+o_VGA_G[3] <= vga_controler:VGA_controler.o_VGA_G[3]
+o_VGA_G[4] <= vga_controler:VGA_controler.o_VGA_G[4]
+o_VGA_G[5] <= vga_controler:VGA_controler.o_VGA_G[5]
+o_VGA_G[6] <= vga_controler:VGA_controler.o_VGA_G[6]
+o_VGA_G[7] <= vga_controler:VGA_controler.o_VGA_G[7]
+o_VGA_B[0] <= vga_controler:VGA_controler.o_VGA_B[0]
+o_VGA_B[1] <= vga_controler:VGA_controler.o_VGA_B[1]
+o_VGA_B[2] <= vga_controler:VGA_controler.o_VGA_B[2]
+o_VGA_B[3] <= vga_controler:VGA_controler.o_VGA_B[3]
+o_VGA_B[4] <= vga_controler:VGA_controler.o_VGA_B[4]
+o_VGA_B[5] <= vga_controler:VGA_controler.o_VGA_B[5]
+o_VGA_B[6] <= vga_controler:VGA_controler.o_VGA_B[6]
+o_VGA_B[7] <= vga_controler:VGA_controler.o_VGA_B[7]
+o_VGA_HS <= vga_controler:VGA_controler.o_VGA_HS
+o_VGA_VS <= vga_controler:VGA_controler.o_VGA_VS
+o_VGA_SYNC <= vga_controler:VGA_controler.o_VGA_SYNC
+o_VGA_BLANK <= vga_controler:VGA_controler.o_VGA_BLANK
+o_VGA_CLOCK <= vga_controler:VGA_controler.o_VGA_CLOCK
 
 
-|VGA|pll25:pll_0
+|VGA|pll25:pll
 refclk => pll25_0002:pll25_inst.refclk
 rst => pll25_0002:pll25_inst.rst
 outclk_0 <= pll25_0002:pll25_inst.outclk_0
 locked <= pll25_0002:pll25_inst.locked
 
 
-|VGA|pll25:pll_0|pll25_0002:pll25_inst
+|VGA|pll25:pll|pll25_0002:pll25_inst
 refclk => refclk.IN1
 rst => rst.IN1
 outclk_0 <= altera_pll:altera_pll_i.outclk
 locked <= altera_pll:altera_pll_i.locked
 
 
-|VGA|pll25:pll_0|pll25_0002:pll25_inst|altera_pll:altera_pll_i
+|VGA|pll25:pll|pll25_0002:pll25_inst|altera_pll:altera_pll_i
 refclk => general[0].gpll.I_REFCLK
 refclk1 => ~NO_FANOUT~
 fbclk => ~NO_FANOUT~
@@ -219,7 +218,7 @@ cascade_out[0] <= <GND>
 zdbfbclk <> <GND>
 
 
-|VGA|VGA_controler:VGA_controler_0
+|VGA|VGA_controler:VGA_controler
 i_clk => o_VGA_VS~reg0.CLK
 i_clk => r_v_count[0].CLK
 i_clk => r_v_count[1].CLK

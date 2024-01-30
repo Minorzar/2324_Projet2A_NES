@@ -2,15 +2,15 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 35.420
+Type  : Slow 1100mV 85C Model Setup 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 35.983
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Hold 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.383
+Type  : Slow 1100mV 85C Model Hold 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.382
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'pll|pll25_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
 Slack : 1.666
 TNS   : 0.000
 
@@ -18,19 +18,19 @@ Type  : Slow 1100mV 85C Model Minimum Pulse Width 'i_clk_50'
 Slack : 9.900
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 19.290
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.285
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Setup 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 35.423
+Type  : Slow 1100mV 0C Model Setup 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 35.993
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Hold 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.383
+Type  : Slow 1100mV 0C Model Hold 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.394
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'pll|pll25_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
 Slack : 1.666
 TNS   : 0.000
 
@@ -38,19 +38,19 @@ Type  : Slow 1100mV 0C Model Minimum Pulse Width 'i_clk_50'
 Slack : 9.926
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 19.244
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.235
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Setup 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 37.406
+Type  : Fast 1100mV 85C Model Setup 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 37.706
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Hold 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.183
+Type  : Fast 1100mV 85C Model Hold 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.182
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'pll|pll25_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
 Slack : 1.666
 TNS   : 0.000
 
@@ -58,19 +58,19 @@ Type  : Fast 1100mV 85C Model Minimum Pulse Width 'i_clk_50'
 Slack : 9.643
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 19.545
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.543
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Setup 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 37.620
+Type  : Fast 1100mV 0C Model Setup 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 37.882
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Hold 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.175
+Type  : Fast 1100mV 0C Model Hold 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.173
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'pll|pll25_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
 Slack : 1.666
 TNS   : 0.000
 
@@ -78,8 +78,8 @@ Type  : Fast 1100mV 0C Model Minimum Pulse Width 'i_clk_50'
 Slack : 9.632
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'pll_0|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
-Slack : 19.539
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'pll|pll25_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.535
 TNS   : 0.000
 
 ------------------------------------------------------------

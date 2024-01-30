@@ -1,0 +1,16 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.all;
+
+entity CPU_xy_register_tb is
+end CPU_xy_register_tb ;
+
+architecture testbench of CPU_xy_register_tb is
+
+	component CPU_xy_register
+		port(
+			i_clk: in STD_LOGIC;
+			i_sb_to_xy: in STD_LOGIC;
+			i_xy_to_sb: in STD_LOGIC;
+			io_s_bus: inout unsigned (7 downto 0)
+		);

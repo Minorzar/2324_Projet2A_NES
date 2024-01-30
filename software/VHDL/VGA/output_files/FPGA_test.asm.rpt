@@ -1,5 +1,5 @@
 Assembler report for FPGA_test
-Tue Jan 16 14:23:38 2024
+Tue Jan 23 13:50:54 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/output_files/FPGA_test.sof
+  5. Assembler Device Options: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/VGA/output_files/FPGA_test.sof
   6. Assembler Messages
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Jan 16 14:23:38 2024 ;
+; Assembler Status      ; Successful - Tue Jan 23 13:50:54 2024 ;
 ; Revision Name         ; FPGA_test                             ;
 ; Top-level Entity Name ; vga                                   ;
 ; Family                ; Cyclone V                             ;
@@ -53,23 +53,23 @@ https://fpgasoftware.intel.com/eula.
 +--------+---------+---------------+
 
 
-+----------------------------------------------------------------------------------+
-; Assembler Generated Files                                                        ;
-+----------------------------------------------------------------------------------+
-; File Name                                                                        ;
-+----------------------------------------------------------------------------------+
-; D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/output_files/FPGA_test.sof ;
-+----------------------------------------------------------------------------------+
++------------------------------------------------------------------------------+
+; Assembler Generated Files                                                    ;
++------------------------------------------------------------------------------+
+; File Name                                                                    ;
++------------------------------------------------------------------------------+
+; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/VGA/output_files/FPGA_test.sof ;
++------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: D:/Git/Projet/2324_Projet2A_NES/software/Proc_Quartus/output_files/FPGA_test.sof ;
-+----------------+-------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                   ;
-+----------------+-------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00B05B35                                                                                ;
-; Checksum       ; 0x00B05B35                                                                                ;
-+----------------+-------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/VGA/output_files/FPGA_test.sof ;
++----------------+---------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                               ;
++----------------+---------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00AFF880                                                                            ;
+; Checksum       ; 0x00AFF880                                                                            ;
++----------------+---------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Tue Jan 16 14:23:31 2024
+    Info: Processing started: Tue Jan 23 13:50:49 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off FPGA_test -c FPGA_test
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4878 megabytes
-    Info: Processing ended: Tue Jan 16 14:23:38 2024
-    Info: Elapsed time: 00:00:07
+    Info: Peak virtual memory: 4890 megabytes
+    Info: Processing ended: Tue Jan 23 13:50:54 2024
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:05
 
 

@@ -1,0 +1,18 @@
+library ieee ;
+use ieee.std_logic_1164.all ;
+use ieee.numeric_std.all ;
+
+entity CPU_address_bus_register_tb is
+end CPU_address_bus_register_tb ;
+
+architecture testbench of CPU_address_bus_register_tb is
+
+	component CPU_address_bus_register
+		port(
+			i_clk: in STD_LOGIC;
+			i_phi1: in STD_LOGIC;
+			i_adlh_to_ablh: in STD_LOGIC;
+			o_address_bus: out unsigned (7 downto 0);
+			i_adlh_bus: in unsigned (7 downto 0)
+		);
+	end CPU_address_bus_register;

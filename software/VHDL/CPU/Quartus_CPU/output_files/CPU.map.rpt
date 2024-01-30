@@ -1,0 +1,582 @@
+Analysis & Synthesis report for CPU
+Thu Jan 25 21:33:12 2024
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "CPU_stack_pointer:stack_pointer"
+ 14. Port Connectivity Checks: "CPU_p_register:p_register"
+ 15. Port Connectivity Checks: "CPU_ALU:alu"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Jan 25 21:33:12 2024          ;
+; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                   ; CPU                                            ;
+; Top-level Entity Name           ; CPU                                            ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 84                                             ;
+; Total pins                      ; 89                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; CPU                ; CPU                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path       ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
++----------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; ../CPU_xy_register.vhd                 ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_xy_register.vhd                 ;         ;
+; ../CPU_stack_pointer.vhd               ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_stack_pointer.vhd               ;         ;
+; ../CPU_random_control_logic_test.vhd   ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_random_control_logic_test.vhd   ;         ;
+; ../CPU_program_counter_low.vhd         ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_low.vhd         ;         ;
+; ../CPU_program_counter_high.vhd        ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_high.vhd        ;         ;
+; ../CPU_p_register.vhd                  ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_p_register.vhd                  ;         ;
+; ../CPU_input_data_latch.vhd            ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_input_data_latch.vhd            ;         ;
+; ../CPU_data_output_register_buffer.vhd ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd ;         ;
+; ../CPU_clock_generator.vhd             ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_clock_generator.vhd             ;         ;
+; ../CPU_b_input_register.vhd            ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_b_input_register.vhd            ;         ;
+; ../CPU_ALU.vhd                         ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd                         ;         ;
+; ../CPU_address_bus_register.vhd        ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd        ;         ;
+; ../CPU_adder_hold_register.vhd         ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_adder_hold_register.vhd         ;         ;
+; ../CPU_ac_register.vhd                 ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ac_register.vhd                 ;         ;
+; ../CPU_a_input_register.vhd            ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_a_input_register.vhd            ;         ;
+; ../CPU.vhd                             ; yes             ; User VHDL File  ; D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd                             ;         ;
++----------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 67          ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 91          ;
+;     -- 7 input functions                    ; 3           ;
+;     -- 6 input functions                    ; 21          ;
+;     -- 5 input functions                    ; 10          ;
+;     -- 4 input functions                    ; 20          ;
+;     -- <=3 input functions                  ; 37          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 84          ;
+;                                             ;             ;
+; I/O pins                                    ; 89          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; i_clk~input ;
+; Maximum fan-out                             ; 84          ;
+; Total fan-out                               ; 750         ;
+; Average fan-out                             ; 2.08        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                           ;
++------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+---------------------------------+--------------+
+; Compilation Hierarchy Node                                       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                              ; Entity Name                     ; Library Name ;
++------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+---------------------------------+--------------+
+; |CPU                                                             ; 91 (54)             ; 84 (7)                    ; 0                 ; 0          ; 89   ; 0            ; |CPU                                                             ; CPU                             ; work         ;
+;    |CPU_ac_register:ac_register|                                 ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_ac_register:ac_register                                 ; CPU_ac_register                 ; work         ;
+;    |CPU_address_bus_register:address_bus_high_register|          ; 1 (1)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_address_bus_register:address_bus_high_register          ; CPU_address_bus_register        ; work         ;
+;    |CPU_address_bus_register:address_bus_low_register|           ; 1 (1)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_address_bus_register:address_bus_low_register           ; CPU_address_bus_register        ; work         ;
+;    |CPU_data_output_register_buffer:data_output_register_buffer| ; 1 (1)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_data_output_register_buffer:data_output_register_buffer ; CPU_data_output_register_buffer ; work         ;
+;    |CPU_input_data_latch:input_data_latch|                       ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_input_data_latch:input_data_latch                       ; CPU_input_data_latch            ; work         ;
+;    |CPU_p_register:p_register|                                   ; 14 (14)             ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_p_register:p_register                                   ; CPU_p_register                  ; work         ;
+;    |CPU_program_counter_high:program_counter_high|               ; 9 (9)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_program_counter_high:program_counter_high               ; CPU_program_counter_high        ; work         ;
+;    |CPU_program_counter_low:program_counter_low|                 ; 11 (11)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_program_counter_low:program_counter_low                 ; CPU_program_counter_low         ; work         ;
+;    |CPU_xy_register:x_register|                                  ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_xy_register:x_register                                  ; CPU_xy_register                 ; work         ;
+;    |CPU_xy_register:y_register|                                  ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|CPU_xy_register:y_register                                  ; CPU_xy_register                 ; work         ;
++------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+---------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++--------------------------------------------+---------------------------------------------------+
+; Register name                              ; Reason for Removal                                ;
++--------------------------------------------+---------------------------------------------------+
+; s_bus[0..7]                                ; Stuck at VCC due to stuck port data_in            ;
+; CPU_clock_generator:clock_generator|b_phi1 ; Merged with adl_bus[7]                            ;
+; s_bus[0]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[1]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[2]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[3]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[4]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[5]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[6]~en                                ; Merged with adl_bus[7]                            ;
+; s_bus[7]~en                                ; Merged with adl_bus[7]                            ;
+; adl_bus[0..6]                              ; Merged with adl_bus[7]                            ;
+; d_bus[7]                                   ; Stuck at VCC due to stuck port data_in            ;
+; adh_bus[7]                                 ; Stuck at VCC due to stuck port data_in            ;
+; adl_bus[4]~en                              ; Merged with adl_bus[3]~en                         ;
+; adl_bus[5]~en                              ; Merged with adl_bus[3]~en                         ;
+; adl_bus[6]~en                              ; Merged with adl_bus[3]~en                         ;
+; adl_bus[7]~en                              ; Merged with adl_bus[3]~en                         ;
+; adh_bus[2]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[3]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[4]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[5]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[6]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[7]~en                              ; Merged with adh_bus[1]~en                         ;
+; adh_bus[2..6]                              ; Merged with adh_bus[1]                            ;
+; CPU_ac_register:ac_register|reg_ac[1..6]   ; Merged with CPU_ac_register:ac_register|reg_ac[0] ;
+; CPU_xy_register:y_register|reg_xy[1..6]    ; Merged with CPU_xy_register:y_register|reg_xy[0]  ;
+; CPU_xy_register:x_register|reg_xy[1..6]    ; Merged with CPU_xy_register:x_register|reg_xy[0]  ;
+; d_bus[1]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[2]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[3]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[4]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[5]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[6]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[7]~en                                ; Merged with d_bus[0]~en                           ;
+; d_bus[1..6]                                ; Merged with d_bus[0]                              ;
+; adh_bus[1]~en                              ; Lost fanout                                       ;
+; adh_bus[0]~en                              ; Lost fanout                                       ;
+; d_bus[0]                                   ; Stuck at VCC due to stuck port data_in            ;
+; adh_bus[1]                                 ; Stuck at VCC due to stuck port data_in            ;
+; Total Number of Removed Registers = 76     ;                                                   ;
++--------------------------------------------+---------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                        ;
++---------------+---------------------------+----------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register ;
++---------------+---------------------------+----------------------------------------+
+; s_bus[7]      ; Stuck at VCC              ; d_bus[7], adh_bus[7]                   ;
+;               ; due to stuck port data_in ;                                        ;
+; s_bus[0]      ; Stuck at VCC              ; d_bus[0]                               ;
+;               ; due to stuck port data_in ;                                        ;
+; s_bus[1]      ; Stuck at VCC              ; adh_bus[1]                             ;
+;               ; due to stuck port data_in ;                                        ;
++---------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 84    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 25    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 54    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; CPU_p_register:p_register|reg_p[0]     ; 2       ;
+; CPU_p_register:p_register|reg_p[1]     ; 3       ;
+; CPU_p_register:p_register|reg_p[2]     ; 3       ;
+; CPU_p_register:p_register|reg_p[3]     ; 2       ;
+; CPU_p_register:p_register|reg_p[6]     ; 2       ;
+; CPU_p_register:p_register|reg_p[7]     ; 2       ;
+; Total number of inverted registers = 6 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |CPU|CPU_program_counter_low:program_counter_low|reg_pcl_select[5]   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |CPU|CPU_program_counter_high:program_counter_high|reg_pch_select[7] ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |CPU|s_bus[0]                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU_stack_pointer:stack_pointer"                                                         ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; o_adl_bus ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_s_bus  ; Bidir  ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "CPU_p_register:p_register" ;
++-------+-------+----------+----------------------------+
+; Port  ; Type  ; Severity ; Details                    ;
++-------+-------+----------+----------------------------+
+; i_ir5 ; Input ; Info     ; Stuck at GND               ;
++-------+-------+----------+----------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU_ALU:alu"                                                                                ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; o_half_carry ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 84                          ;
+;     ENA               ; 38                          ;
+;     ENA SLD           ; 16                          ;
+;     SLD               ; 9                           ;
+;     plain             ; 21                          ;
+; arriav_io_obuf        ; 8                           ;
+; arriav_lcell_comb     ; 91                          ;
+;     arith             ; 16                          ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 1                           ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 72                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 20                          ;
+;         5 data inputs ; 10                          ;
+;         6 data inputs ; 21                          ;
+; boundary_port         ; 89                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.61                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+    Info: Processing started: Thu Jan 25 21:32:59 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/testbench/cpu_xy_register_tb.vhd
+    Info (12022): Found design unit 1: CPU_xy_register_tb-testbench File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_xy_register_tb.vhd Line: 8
+    Info (12023): Found entity 1: CPU_xy_register_tb File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_xy_register_tb.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/testbench/cpu_ac_register_tb.vhd
+    Info (12022): Found design unit 1: CPUACRegister_tb-testbench File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_ac_register_tb.vhd Line: 8
+    Info (12023): Found entity 1: CPUACRegister_tb File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_ac_register_tb.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_xy_register.vhd
+    Info (12022): Found design unit 1: CPU_xy_register-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_xy_register.vhd Line: 13
+    Info (12023): Found entity 1: CPU_xy_register File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_xy_register.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_stack_pointer.vhd
+    Info (12022): Found design unit 1: CPU_stack_pointer-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_stack_pointer.vhd Line: 16
+    Info (12023): Found entity 1: CPU_stack_pointer File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_stack_pointer.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_random_control_logic_test.vhd
+    Info (12022): Found design unit 1: CPU_random_control_logic_test-Dataflow File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_random_control_logic_test.vhd Line: 72
+    Info (12023): Found entity 1: CPU_random_control_logic_test File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_random_control_logic_test.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_program_counter_low.vhd
+    Info (12022): Found design unit 1: CPU_program_counter_low-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_low.vhd Line: 18
+    Info (12023): Found entity 1: CPU_program_counter_low File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_low.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_program_counter_high.vhd
+    Info (12022): Found design unit 1: CPU_program_counter_high-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_high.vhd Line: 17
+    Info (12023): Found entity 1: CPU_program_counter_high File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_program_counter_high.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_p_register.vhd
+    Info (12022): Found design unit 1: CPU_p_register-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_p_register.vhd Line: 28
+    Info (12023): Found entity 1: CPU_p_register File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_p_register.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_input_data_latch.vhd
+    Info (12022): Found design unit 1: CPU_input_data_latch-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_input_data_latch.vhd Line: 18
+    Info (12023): Found entity 1: CPU_input_data_latch File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_input_data_latch.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_data_output_register_buffer.vhd
+    Info (12022): Found design unit 1: CPU_data_output_register_buffer-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 15
+    Info (12023): Found entity 1: CPU_data_output_register_buffer File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_clock_generator.vhd
+    Info (12022): Found design unit 1: CPU_clock_generator-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_clock_generator.vhd Line: 12
+    Info (12023): Found entity 1: CPU_clock_generator File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_clock_generator.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_b_input_register.vhd
+    Info (12022): Found design unit 1: CPU_b_input_register-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_b_input_register.vhd Line: 16
+    Info (12023): Found entity 1: CPU_b_input_register File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_b_input_register.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_alu.vhd
+    Info (12022): Found design unit 1: CPU_ALU-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd Line: 23
+    Info (12023): Found entity 1: CPU_ALU File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_address_bus_register.vhd
+    Info (12022): Found design unit 1: CPU_address_bus_register-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 14
+    Info (12023): Found entity 1: CPU_address_bus_register File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_adder_hold_register.vhd
+    Info (12022): Found design unit 1: CPU_adder_hold_register-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_adder_hold_register.vhd Line: 16
+    Info (12023): Found entity 1: CPU_adder_hold_register File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_adder_hold_register.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_ac_register.vhd
+    Info (12022): Found design unit 1: CPU_ac_register-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ac_register.vhd Line: 15
+    Info (12023): Found entity 1: CPU_ac_register File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ac_register.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu_a_input_register.vhd
+    Info (12022): Found design unit 1: CPU_a_input_register-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_a_input_register.vhd Line: 14
+    Info (12023): Found entity 1: CPU_a_input_register File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_a_input_register.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/cpu.vhd
+    Info (12022): Found design unit 1: CPU-Behavioral File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 15
+    Info (12023): Found entity 1: CPU File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/testbench/cpu_clock_generator_tb.vhd
+    Info (12022): Found design unit 1: CPU_clock_generator_tb-testbench File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd Line: 8
+    Info (12023): Found entity 1: CPU_clock_generator_tb File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_clock_generator_tb.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /git/projet/2324_projet2a_nes/software/vhdl/cpu/testbench/cpu_address_bus_register_tb.vhd
+    Info (12022): Found design unit 1: CPU_address_bus_register_tb-testbench File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_address_bus_register_tb.vhd Line: 8
+    Info (12023): Found entity 1: CPU_address_bus_register_tb File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/testbench/CPU_address_bus_register_tb.vhd Line: 5
+Info (12127): Elaborating entity "CPU" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at CPU.vhd(25): used explicit default value for signal "ir5" because signal was never assigned a value File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 25
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(26): object "hc" assigned a value but never read File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 26
+Info (12128): Elaborating entity "CPU_a_input_register" for hierarchy "CPU_a_input_register:a_input_register" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 92
+Info (12128): Elaborating entity "CPU_ac_register" for hierarchy "CPU_ac_register:ac_register" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 95
+Info (12128): Elaborating entity "CPU_adder_hold_register" for hierarchy "CPU_adder_hold_register:adder_hold_register" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 98
+Info (12128): Elaborating entity "CPU_address_bus_register" for hierarchy "CPU_address_bus_register:address_bus_high_register" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 101
+Info (12128): Elaborating entity "CPU_ALU" for hierarchy "CPU_ALU:alu" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 107
+Warning (10541): VHDL Signal Declaration warning at CPU_ALU.vhd(16): used implicit default value for signal "o_output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd Line: 16
+Warning (10541): VHDL Signal Declaration warning at CPU_ALU.vhd(17): used implicit default value for signal "o_half_carry" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd Line: 17
+Warning (10541): VHDL Signal Declaration warning at CPU_ALU.vhd(18): used implicit default value for signal "o_carry" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd Line: 18
+Warning (10541): VHDL Signal Declaration warning at CPU_ALU.vhd(19): used implicit default value for signal "o_overflow" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_ALU.vhd Line: 19
+Info (12128): Elaborating entity "CPU_b_input_register" for hierarchy "CPU_b_input_register:b_input_register" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 110
+Info (12128): Elaborating entity "CPU_clock_generator" for hierarchy "CPU_clock_generator:clock_generator" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 113
+Info (12128): Elaborating entity "CPU_data_output_register_buffer" for hierarchy "CPU_data_output_register_buffer:data_output_register_buffer" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 116
+Info (12128): Elaborating entity "CPU_input_data_latch" for hierarchy "CPU_input_data_latch:input_data_latch" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 119
+Info (12128): Elaborating entity "CPU_p_register" for hierarchy "CPU_p_register:p_register" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 122
+Info (12128): Elaborating entity "CPU_program_counter_low" for hierarchy "CPU_program_counter_low:program_counter_low" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 125
+Info (12128): Elaborating entity "CPU_program_counter_high" for hierarchy "CPU_program_counter_high:program_counter_high" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 128
+Info (12128): Elaborating entity "CPU_random_control_logic_test" for hierarchy "CPU_random_control_logic_test:random_control_logic" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 131
+Info (12128): Elaborating entity "CPU_stack_pointer" for hierarchy "CPU_stack_pointer:stack_pointer" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 135
+Info (12128): Elaborating entity "CPU_xy_register" for hierarchy "CPU_xy_register:x_register" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 138
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13048): Converted tri-state node feeding "adh_bus[7]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 146
+    Warning (13048): Converted tri-state node feeding "adh_bus[6]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 146
+    Warning (13048): Converted tri-state node feeding "adh_bus[5]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 146
+    Warning (13048): Converted tri-state node feeding "adh_bus[4]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 146
+    Warning (13048): Converted tri-state node feeding "adh_bus[3]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 146
+    Warning (13048): Converted tri-state node feeding "adh_bus[2]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 146
+    Warning (13048): Converted tri-state node feeding "adh_bus[1]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 146
+    Warning (13048): Converted tri-state node feeding "adh_bus[0]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 146
+    Warning (13048): Converted tri-state node feeding "CPU_data_output_register_buffer:data_output_register_buffer|reg_data_out[7]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 20
+    Warning (13048): Converted tri-state node feeding "CPU_data_output_register_buffer:data_output_register_buffer|reg_data_out[6]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 20
+    Warning (13048): Converted tri-state node feeding "CPU_data_output_register_buffer:data_output_register_buffer|reg_data_out[5]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 20
+    Warning (13048): Converted tri-state node feeding "CPU_data_output_register_buffer:data_output_register_buffer|reg_data_out[4]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 20
+    Warning (13048): Converted tri-state node feeding "CPU_data_output_register_buffer:data_output_register_buffer|reg_data_out[3]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 20
+    Warning (13048): Converted tri-state node feeding "CPU_data_output_register_buffer:data_output_register_buffer|reg_data_out[2]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 20
+    Warning (13048): Converted tri-state node feeding "CPU_data_output_register_buffer:data_output_register_buffer|reg_data_out[1]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 20
+    Warning (13048): Converted tri-state node feeding "CPU_data_output_register_buffer:data_output_register_buffer|reg_data_out[0]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_data_output_register_buffer.vhd Line: 20
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_low_register|reg_ablh[7]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_low_register|reg_ablh[6]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_low_register|reg_ablh[5]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_low_register|reg_ablh[4]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_low_register|reg_ablh[3]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_low_register|reg_ablh[2]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_low_register|reg_ablh[1]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_low_register|reg_ablh[0]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_high_register|reg_ablh[7]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_high_register|reg_ablh[6]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_high_register|reg_ablh[5]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_high_register|reg_ablh[4]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_high_register|reg_ablh[3]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_high_register|reg_ablh[2]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_high_register|reg_ablh[1]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "CPU_address_bus_register:address_bus_high_register|reg_ablh[0]" into a selector File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU_address_bus_register.vhd Line: 19
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 21 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "i_irq" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 8
+    Warning (15610): No output dependent on input pin "i_ready" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 9
+    Warning (15610): No output dependent on input pin "i_test_vector[21]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[22]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[23]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[24]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[25]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[26]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[27]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[28]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[29]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[30]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[31]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[32]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[33]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[37]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[38]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[35]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[34]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[3]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+    Warning (15610): No output dependent on input pin "i_test_vector[36]" File: D:/Git/Projet/2324_Projet2A_NES/software/VHDL/CPU/CPU.vhd Line: 10
+Info (21057): Implemented 229 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 64 input pins
+    Info (21059): Implemented 17 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 140 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 63 warnings
+    Info: Peak virtual memory: 4876 megabytes
+    Info: Processing ended: Thu Jan 25 21:33:12 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:15
+
+
