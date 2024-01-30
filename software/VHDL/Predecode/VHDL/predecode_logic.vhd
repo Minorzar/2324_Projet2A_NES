@@ -13,47 +13,58 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity predecode_logic is
 	Port (
-		i_clk : in std_logic;									-- Clock signal for latch signals
-		i_assert_interrupt_control : in std_logic;				-- Assert interrupt control signal
-		i_fetch : in std_logic;									-- Fetch instruction signal
-		i_pr_instruction : in std_logic_vector(7 downto 0);		-- Input instruction from predecode_register
-		o_pl_instruction : out std_logic_vector(7 downto 0);	-- Output predecoded instruction to instruction_register
-		o_implied : out std_logic								-- Output signal indicating an opcode with implied addressing
-		o_is_two_cycle_opcode : out std_logic;					-- Output signal indicating a two-cycle opcode (active low)
+		i_clk_1						: in std_logic;						-- Input clock signal
+		i_assert_interrupt_control	: in std_logic;						-- Input assert interrupt control signal
+		i_fetch						: in std_logic;						-- Input fetch instruction signal
+		i_pr_instruction			: in std_logic_vector(7 downto 0);	-- Input instruction from predecode_register
+		o_pl_instruction			: out std_logic_vector(7 downto 0);	-- Output predecoded instruction to instruction_register
+		o_implied					: out std_logic						-- Output signal indicating an opcode with implied addressing mode
+		o_is_two_cycle_opcode		: out std_logic;					-- Output signal indicating a two-cycle opcode
 	);
 end predecode_logic;
 
 architecture Behavioral of predecode_logic is
-	signal s_ir_clear: std_logic;								-- Signal to control clearing of the instruction register
-	signal s_mask_xxxx10x0: std_logic;							-- Mask to identify instructions with the pattern xxxx10x0
-	signal s_mask_xxx010x1: std_logic;							-- Mask to identify instructions with the pattern xxx010x1
-	signal s_mask_1xx000x0: std_logic;							-- Mask to identify instructions with the pattern 1xx000x0
-	signal s_mask_0xx01000: std_logic;							-- Mask to identify instructions with the pattern 0xx01000
-	signal s_implied: std_logic;								-- Signal indicating instructions with implied addressing mode
-	signal s_two_cycle_opcode: std_logic;						-- Signal indicating two-cycle opcodes
+	signal s_ir_clear			: std_logic;	-- Signal to control clearing of the instruction register
+	signal s_mask_xxxx10x0		: std_logic;	-- Mask to identify instructions with the pattern xxxx10x0
+	signal s_mask_xxx010x1		: std_logic;	-- Mask to identify instructions with the pattern xxx010x1
+	signal s_mask_1xx000x0		: std_logic;	-- Mask to identify instructions with the pattern 1xx000x0
+	signal s_mask_0xx01000		: std_logic;	-- Mask to identify instructions with the pattern 0xx01000
+	signal s_implied			: std_logic;	-- Signal indicating instructions with implied addressing mode
+	signal s_two_cycle_opcode	: std_logic;	-- Signal indicating two-cycle opcodes
 begin
-	-- Clear the instruction if either aic_n or clear is active; otherwise pass the predecode register data
+	-------------------------------------------
+	-- Clear Instruction Based on Conditions --
+	-------------------------------------------
+	-- Clear the instruction if either aic_n or clear is active;
+	-- otherwise, pass the predecode register data.
+	-------------------------------------------
 	s_ir_clear <= not (i_assert_interrupt_control and i_fetch);
-	
-	-- Conditional assignment of predecoded instruction
 	process(i_pr_instruction, s_ir_clear)
 	begin
 		if s_ir_clear = '1' then
+			-- Clear instruction by assigning all zeros
 			o_pl_instruction <= (others => '0');
 		else
+			-- Pass through the predecoded instruction
 			o_pl_instruction <= i_pr_instruction;
 		end if;
 	end process;
 
-	-- Masks generation for different instruction patterns
-	
+	--------------------------------------
+	-- Implied Instruction --
+	--------------------------------------
+	-- implied is active for implied instructions which are equal to the mask xxxxx10x0.
+	-- Implied instructions have no operands and lasts for two cycles.
+	-------------------------------------------
 	-- s_mask_xxxx10x0 <= i_pr_instruction(3) and not i_pr_instruction(2) and not i_pr_instruction(0);
+	-- o_implied <= s_mask_xxxx10x0
+	--------------------------------------
 	s_mask_xxxx10x0 <= (
 		-- cc = 10 instructions
-		i_pr_instruction = x"0A" or		-- 00001010 (ASL, A)
-		i_pr_instruction = x"2A" or		-- 00101010 (ROL, A)
-		i_pr_instruction = x"4A" or		-- 01001010 (LSR, A)
-		i_pr_instruction = x"6A" or		-- 01101010 (ROR, A)
+		i_pr_instruction = x"0A" or		-- 00001010 (ASL, acc)
+		i_pr_instruction = x"2A" or		-- 00101010 (ROL, acc)
+		i_pr_instruction = x"4A" or		-- 01001010 (LSR, acc)
+		i_pr_instruction = x"6A" or		-- 01101010 (ROR, acc)
 
 		-- Single-byte instructions
 		i_pr_instruction = x"08" or		-- 00001000 (PHP)
@@ -90,7 +101,27 @@ begin
 		-- i_pr_instruction = x"FA";	-- 11111010 (PLX)
 	)
 
+	process(i_clk_1, o_implied)
+	begin
+		if rising_edge(i_clk_1) then
+			o_implied <= s_mask_xxxx10x0;
+		end if;
+	end process;
+
+	---------------------------------------------
+	-- Two-Cycle Opcode Identification --
+	---------------------------------------------
+	-- Two-cycle opcodes are identified based on specific bit patterns:
+	-- - s_mask_xxx010x1 for xxx010x1 instructions
+	-- - s_mask_1xx000x0 for 1xx000x0 instructions
+	-- - s_mask_xxxx10x0 for xxxx10x0 (implied) instructions, excluding 0xx01000
+	-- These opcodes typically last for two cycles.
+	---------------------------------------------
 	-- s_mask_xxx010x1 <= not i_pr_instruction(4) and i_pr_instruction(3) and not i_pr_instruction(2) and i_pr_instruction(0);
+	-- s_mask_1xx000x0 <= i_pr_instruction(7) and not i_pr_instruction(4) and not i_pr_instruction(3) and not i_pr_instruction(2) and not i_pr_instruction(0);
+	-- s_mask_0xx01000 <= not ir(7) and not ir(4) and ir(3) and not ir(2) and not ir(1) and not ir(0);
+	-- o_is_two_cycle_opcode <= (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
+	---------------------------------------------
 	s_mask_xxx010x1 <= (
 		-- cc = 01 instructions
 		i_pr_instruction = x"09" or		-- 00001001 (ORA, #)
@@ -115,7 +146,6 @@ begin
 		-- i_pr_instruction = x"EB";	-- 11101011 (XBA)
 	)
 
-	-- s_mask_1xx000x0 <= i_pr_instruction(7) and not i_pr_instruction(4) and not i_pr_instruction(3) and not i_pr_instruction(2) and not i_pr_instruction(0);
 	s_mask_1xx000x0 <= (
 		-- cc = 10 instructions
 		i_pr_instruction = x"A2" or		-- 10100010 (LDX, #)
@@ -134,27 +164,19 @@ begin
 		-- i_pr_instruction = x"E2";	-- 11100010 (SEP #)
 	)
 
-	-- s_mask_0xx01000 <= not ir(7) and not ir(4) and ir(3) and not ir(2) and not ir(1) and not ir(0);
 	s_mask_0xx01000 <= (
+		-- Single-byte instructions
 		i_pr_instruction = x"08" or		-- 00001000 (PHP)
 		i_pr_instruction = x"28" or		-- 00101000 (PLP)
 		i_pr_instruction = x"48" or		-- 01001000 (PHA)
 		i_pr_instruction = x"68";		-- 01101000 (PLA)
 	)
 
-	-- Implied instructions have no operands and last for two cycles.
-	s_implied <= s_mask_xxxx10x0 and not s_mask_0xx01000;
-
-	-- is_two_cycle_opcode is active for two-cycle opcodes
-	process(i_clk)
+	process(i_clk_1, o_is_two_cycle_opcode)
 	begin
-		if rising_edge(i_clk) then
-			s_two_cycle_opcode <= (s_mask_xxx010x1 or s_mask_1xx000x0 or s_implied);
+		if rising_edge(i_clk_1) then
+			o_is_two_cycle_opcode <= (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
 		end if;
 	end process;
-
-	-- Output signals
-	o_implied <= s_implied;
-	o_is_two_cycle_opcode <= s_two_cycle_opcode;
 
 end Behavioral;
