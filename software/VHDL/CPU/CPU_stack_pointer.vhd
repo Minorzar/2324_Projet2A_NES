@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.all;
+use IEEE.NUMERIC_STD.ALL;
 
 entity CPU_stack_pointer is
 	Port(
@@ -17,13 +17,15 @@ architecture Behavioral of CPU_stack_pointer is
 	signal reg_s: unsigned (7 downto 0);
 begin
 	process(i_clk)
-		begin
-			if (rising_edge(i_clk)) then
-				if i_sb_to_s = '1' and i_s_hold = '0' then
-					reg_s <= io_s_bus;
-				end if;
+	begin
+		if (rising_edge(i_clk)) then
+			if i_sb_to_s = '1' and i_s_hold = '0' then
+				reg_s <= io_s_bus;
+			else
+				reg_s <= reg_s;
 			end if;
-		end process;
+		end if;
+	end process;
 
 	io_s_bus <= reg_s when i_s_to_sb = '1' else
 		(others => 'Z');

@@ -6,6 +6,7 @@ entity CPU_random_control_logic_test is
 	Port(
 		i_clk: in STD_LOGIC;
 		i_test_vector: in STD_LOGIC_VECTOR(60 downto 0);
+		i_rdy: in STD_LOGIC;
 		o_dl_to_db: out STD_LOGIC;
 		o_dl_to_adl: out STD_LOGIC;
 		o_dl_to_adh: out STD_LOGIC;

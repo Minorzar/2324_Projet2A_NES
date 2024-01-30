@@ -1,4 +1,0 @@
-family_language_pairs
-cyclonev vhdl
-cyclonev vhdl
-end family_language pairs
