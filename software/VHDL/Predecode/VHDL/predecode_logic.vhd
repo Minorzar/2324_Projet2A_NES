@@ -9,7 +9,7 @@
 --	3) Pass the opcode to the instruction register or pass all zeros if clear_ir is high.
 
 library IEEE;
-use IEEE.std_logic_1164.ALL;
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity predecode_logic is
 	Port (

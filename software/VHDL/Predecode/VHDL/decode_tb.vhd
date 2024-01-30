@@ -3,7 +3,7 @@
 -- Testbench for testing all modules together.
 
 library IEEE;
-use IEEE.std_logic_1164.ALL;
+use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity all_modules_tb is

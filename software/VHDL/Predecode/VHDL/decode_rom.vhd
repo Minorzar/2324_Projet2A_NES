@@ -7,7 +7,7 @@
 --	The PLA outputs are determined based on specific logic expressions derived from the input values.
 
 library IEEE;
-use IEEE.std_logic_1164.ALL;
+use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity decode_rom is

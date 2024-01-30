@@ -7,7 +7,7 @@
 --	The captured instruction is stored and provided as the output on subsequent clock edges.
 
 library IEEE;
-use IEEE.std_logic_1164.ALL;
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity instruction_register is
 	Port (

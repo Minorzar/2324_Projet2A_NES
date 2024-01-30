@@ -6,7 +6,7 @@
 -- The timing generator generates six timing signals, timing_n[0] through timing_n[5], which represent T0 through T5 cycles of the operation. These signals map to specific cycles of the processor's operation, such as opcode prefetch, operand prefetch, opcode execution, and additional execution cycles for multi-cycle instructions.
 
 library IEEE;
-use IEEE.std_logic_1164.ALL;
+use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity timing_generator is
