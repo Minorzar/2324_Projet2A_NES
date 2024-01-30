@@ -20,8 +20,6 @@ begin
 		if (rising_edge(i_clk)) then
 			if i_phi1 = '1' then
 				reg_data_out <= i_d_bus;
-			else
-				reg_data_out <= reg_data_out;
 			end if;
 		end if;
 	end process;

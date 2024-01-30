@@ -1,6 +1,6 @@
-  library IEEE;
+library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.all;
+use IEEE.NUMERIC_STD.ALL;
 
 entity CPU_ALU is
 	Port(
@@ -13,8 +13,8 @@ entity CPU_ALU is
 		i_or_select: in STD_LOGIC;
 		i_shift_right_select: in STD_LOGIC;
       i_carry: in STD_LOGIC;
-		o_result: out unsigned (7 downto 0);
-      o_carry: out STD_LOGIC;
+		b_result: buffer unsigned (7 downto 0);
+      b_carry: buffer STD_LOGIC;
       o_overflow: out STD_LOGIC);
 end CPU_ALU;
 
@@ -34,23 +34,23 @@ process(i_clk)
 				else
 					result_temp <= a_temp + b_temp;
 				end if;
-				o_carry <= result_temp(8);
+				b_carry <= result_temp(8);
 			else
-				o_carry <= '0';
+				b_carry <= '0';
 			end if;
 			if i_and_select = '1' then
-				o_result <= i_a_register and i_b_register;
+				b_result <= i_a_register and i_b_register;
 			end if;
 			if i_eor_select = '1' then
-				o_result <= i_a_register xor i_b_register;
+				b_result <= i_a_register xor i_b_register;
 			end if;
 			if i_or_select = '1' then
-				o_result <= i_a_register or i_b_register;
+				b_result <= i_a_register or i_b_register;
 			end if;
 			if i_shift_right_select = '1' then
-				o_result <= '0' & (i_a_register(7 downto 1) and i_b_register(7 downto 1));
+				b_result <= '0' & (i_a_register(7 downto 1) and i_b_register(7 downto 1));
 			end if;
-			o_overflow <= '0'; --TODO: give the right expression of overflow
+			o_overflow <= b_carry xor ((b_carry and ( b_result(7) or (not i_a_register(7)) or (not i_b_register(7)) ) ) or (b_result(7) and (not i_a_register(7)) and (not i_b_register (7))));
 		end if;
 	end process;
 end Behavioral;

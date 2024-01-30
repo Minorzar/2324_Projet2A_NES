@@ -6,6 +6,7 @@ entity CPU is
 	Port(
 		i_clk: in STD_LOGIC;
 		i_irq: in STD_LOGIC;
+		i_read_write: in STD_LOGIC;
 		i_ready: in STD_LOGIC;
 		i_test_ir5: in STD_LOGIC;
 		i_test_vector: in STD_LOGIC_VECTOR(60 downto 0);
@@ -23,8 +24,9 @@ architecture Behavioral of CPU is
 	signal alu_b_input: unsigned (7 downto 0);
 	signal phi1: STD_LOGIC;
 	signal phi2: STD_LOGIC;
-	signal acr: STD_LOGIC:='0';
-	signal avr: STD_LOGIC:='0';
+	signal rdy: STD_LOGIC;
+	signal acr: STD_LOGIC;
+	signal avr: STD_LOGIC;
 	signal pclc : STD_LOGIC;
 	signal dl_to_db: STD_LOGIC;
 	signal dl_to_adl: STD_LOGIC;
@@ -104,7 +106,7 @@ begin
 	port map(i_clk => i_clk, i_phi1 => phi1, i_adlh_to_ablh => adl_to_abl, o_address_bus => o_address_bus(7 downto 0), i_adlh_bus => adl_bus);
 	
 	alu: entity work.CPU_ALU
-	port map(i_clk => i_clk, i_a_register => alu_a_input, i_b_register => alu_b_input, i_sum_select => sum_select, i_and_select => and_select, i_eor_select => eor_select, i_or_select => or_select, i_shift_right_select => shift_right_select, i_carry => i_to_addc, o_result => alu_result, o_carry => acr, o_overflow => avr);
+	port map(i_clk => i_clk, i_a_register => alu_a_input, i_b_register => alu_b_input, i_sum_select => sum_select, i_and_select => and_select, i_eor_select => eor_select, i_or_select => or_select, i_shift_right_select => shift_right_select, i_carry => i_to_addc, b_result => alu_result, b_carry => acr, o_overflow => avr);
 	
 	b_input_register: entity work.CPU_b_input_register
 	port map(i_clk => i_clk, i_adl_to_add => adl_to_add, i_db_to_add => db_to_add, i_db_bar_to_add => db_bar_to_add, i_d_bus => d_bus, i_adl_bus => adl_bus, o_output => alu_b_input);
@@ -128,8 +130,11 @@ begin
 	port map(i_clk => i_clk, i_adh_to_pch => adh_to_pch, i_pch_to_adh => pch_to_adh, i_pch_to_db => pch_to_db, i_pcl_carry => pclc, i_pch_reload => pch_to_pch, o_d_bus => d_bus, io_adh_bus => adh_bus);
 	
 	random_control_logic: entity work.CPU_random_control_logic_test
-	port map(i_clk => i_clk, i_test_vector => i_test_vector, o_dl_to_db => dl_to_db, o_dl_to_adl => dl_to_adl, o_dl_to_adh => dl_to_adh, o_O_to_adh0 => O_to_adh0, o_O_to_adh1_7 => O_to_adh1_7, o_adh_to_abh => adh_to_abh, o_adl_to_abl => adl_to_abl, o_pcl_to_pcl => pcl_to_pcl, o_adl_to_pcl => adl_to_pcl, o_i_to_pc => i_to_pc, o_pcl_to_db => pcl_to_db, o_pcl_to_adl => pcl_to_adl, o_pch_to_pch => pch_to_pch, o_adh_to_pch => adh_to_pch, o_pch_to_db => pch_to_db, o_pch_to_adh => pch_to_adh, o_sb_to_adh => sb_to_adh, o_sb_to_db => sb_to_db, o_O_to_adl0 => O_to_adl0, o_O_to_adl1 => O_to_adl1, o_O_to_adl2 => O_to_adl2, o_s_to_adl => s_to_adl, o_sb_to_s => sb_to_s, o_s_to_s => s_to_s, o_s_to_sb => s_to_sb, o_db_bar_to_add => db_bar_to_add, o_db_to_add => db_to_add, o_adl_to_add => adl_to_add,
+	port map(i_clk => i_clk, i_test_vector => i_test_vector, i_rdy => rdy, o_dl_to_db => dl_to_db, o_dl_to_adl => dl_to_adl, o_dl_to_adh => dl_to_adh, o_O_to_adh0 => O_to_adh0, o_O_to_adh1_7 => O_to_adh1_7, o_adh_to_abh => adh_to_abh, o_adl_to_abl => adl_to_abl, o_pcl_to_pcl => pcl_to_pcl, o_adl_to_pcl => adl_to_pcl, o_i_to_pc => i_to_pc, o_pcl_to_db => pcl_to_db, o_pcl_to_adl => pcl_to_adl, o_pch_to_pch => pch_to_pch, o_adh_to_pch => adh_to_pch, o_pch_to_db => pch_to_db, o_pch_to_adh => pch_to_adh, o_sb_to_adh => sb_to_adh, o_sb_to_db => sb_to_db, o_O_to_adl0 => O_to_adl0, o_O_to_adl1 => O_to_adl1, o_O_to_adl2 => O_to_adl2, o_s_to_adl => s_to_adl, o_sb_to_s => sb_to_s, o_s_to_s => s_to_s, o_s_to_sb => s_to_sb, o_db_bar_to_add => db_bar_to_add, o_db_to_add => db_to_add, o_adl_to_add => adl_to_add,
 	o_i_to_addc => i_to_addc, o_sum_select => sum_select, o_and_select => and_select, o_eor_select =>eor_select, o_or_select =>or_select, o_shift_right_select => shift_right_select, o_add_to_adl => add_to_adl, o_add_to_sb_0_6 => add_to_sb_0_6, o_add_to_sb_7 => add_to_sb_7, o_O_to_add => O_to_add, o_sb_to_add => sb_to_add, o_sb_to_ac => sb_to_ac, o_ac_to_db => ac_to_db, o_ac_to_sb => ac_to_sb, o_sb_to_x => sb_to_x, o_x_to_sb => x_to_sb, o_sb_to_y => sb_to_y, o_y_to_sb => y_to_sb, o_p_to_db => p_to_db, o_db0_to_c => db0_to_c, o_ir5_to_c => ir5_to_c, o_acr_to_c => acr_to_c, o_db1_to_z => db1_to_z, o_dbz_to_z => dbz_to_z, o_db2_to_i => db2_to_i, o_ir5_to_i => ir5_to_i, o_db3_to_d => db3_to_d, o_ir5_to_d => ir5_to_d, o_db6_to_v => db6_to_v, o_avr_to_v => avr_to_v, o_i_to_v => i_to_v, o_db7_to_n => db7_to_n, o_read_write => b_read_write);
+	
+	ready_control: entity work.CPU_ready_control
+	port map(i_clk => i_clk, i_phi2 => phi2, i_ready => i_ready, i_read_write => i_read_write, o_rdy => rdy);
 	
 	stack_pointer: entity work.CPU_stack_pointer
 	port map(i_clk => i_clk, i_sb_to_s => sb_to_s, i_s_to_sb => s_to_sb, i_s_to_adl => s_to_adl, i_s_hold => s_to_s);

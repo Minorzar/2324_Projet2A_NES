@@ -5,8 +5,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity CPU_clock_generator is
 	Port(
 		i_clk: in STD_LOGIC;
-		b_phi1: buffer STD_LOGIC :='0';
-		o_phi2: out STD_LOGIC :='1');
+		b_phi1: buffer STD_LOGIC :='1';
+		o_phi2: out STD_LOGIC :='0');
 end CPU_clock_generator;
 
 architecture Behavioral of CPU_clock_generator is
