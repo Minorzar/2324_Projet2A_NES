@@ -9,5 +9,7 @@ Signal Origins (Modules):
 - pr: Predecode Register
 - pl: Predecode Logic
 - ir: Instruction Register
+- dr: Decode ROM
 - tgl: Timing Generator Logic
 - rcl: Random Control Logic
+- irc: Interrupt and Reset Control

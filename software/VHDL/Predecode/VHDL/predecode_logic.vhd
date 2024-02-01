@@ -1,6 +1,6 @@
--- predecode_logic.vhdl
+-- predecode_logic.vhd
 --
--- This VHDL module implements predecode logic.
+-- This VHDL module implements "Predecode Logic".
 --
 -- Description:
 --	The predecode logic block has three main functions:
@@ -14,10 +14,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity predecode_logic is
 	Port (
 		i_clk_1						: in std_logic;							-- Input clock signal
-		i_assert_interrupt_control	: in std_logic;							-- Input assert interrupt control signal
+		i_irc_aic					: in std_logic;							-- Input assert interrupt control signal from interrupt_and_reset_control
 		i_tgl_fetch					: in std_logic;							-- Input fetch signal from timing_generator_logic
 		i_pr_instruction			: in std_logic_vector(7 downto 0);		-- Input instruction from predecode_register
-		o_pl_instruction			: out std_logic_vector(7 downto 0);		-- Output predecoded instruction to instruction_register
+		o_pl_instruction			: out std_logic_vector(7 downto 0);		-- Output predecoded instruction
 		o_pl_implied				: out std_logic							-- Output signal indicating an opcode with implied addressing mode
 		o_pl_tzpre					: out std_logic;						-- Output signal indicating a two-cycle opcode
 	);
@@ -35,10 +35,11 @@ begin
 	-------------------------------------------
 	-- Clear Instruction Based on Conditions --
 	-------------------------------------------
-	-- Clear the instruction if either aic_n or clear is active;
-	-- otherwise, pass the predecode register data.
+	-- Clear the instruction if either aic_n or clear is active.
+	-- Otherwise, pass the predecode register data.
 	-------------------------------------------
 	s_ir_clear <= not (i_assert_interrupt_control and i_tgl_fetch);
+
 	process(i_pr_instruction, s_ir_clear)
 	begin
 		if s_ir_clear = '1' then
@@ -49,6 +50,8 @@ begin
 			o_pl_instruction <= i_pr_instruction;
 		end if;
 	end process;
+
+
 
 	--------------------------------------
 	-- Implied Instruction --
@@ -107,6 +110,8 @@ begin
 			o_implied <= s_mask_xxxx10x0;
 		end if;
 	end process;
+
+
 
 	---------------------------------------------
 	-- Two-Cycle Opcode Identification --

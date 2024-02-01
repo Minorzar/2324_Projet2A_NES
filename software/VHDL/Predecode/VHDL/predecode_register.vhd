@@ -1,6 +1,6 @@
 -- predecode_register.vhd
 --
--- This VHDL module implements a predecode register.
+-- This VHDL module implements "Predecode Register".
 --
 -- Description:
 -- The predecode register latches the input instruction from the data bus on the rising edge of the clock signal
@@ -13,7 +13,7 @@ entity predecode_register is
 	port (
 		i_clk_2				: in std_logic;						-- Input clock signal
 		i_db_instruction	: in std_logic_vector(7 downto 0);	-- Input instruction from the data bus
-		o_pr_instruction	: out std_logic_vector(7 downto 0)	-- Output instruction to predecode_logic
+		o_pr_instruction	: out std_logic_vector(7 downto 0)	-- Output instruction
 	);
 end entity predecode_register;
 

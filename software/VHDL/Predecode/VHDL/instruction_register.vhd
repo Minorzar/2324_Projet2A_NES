@@ -1,6 +1,6 @@
 -- instruction_register.vhd
 --
--- This VHDL module implements an instruction register.
+-- This VHDL module implements "Instruction Register".
 --
 -- Description:
 -- The instruction register latches the input instruction on the rising edge of the clock signal
@@ -26,7 +26,7 @@ begin
 		-- Update the load signal based on clock and fetch signals
         s_load_ir <= i_clk_1 and i_tgl_fetch;
 		if rising_edge(s_load_ir) then
-			-- Load the instruction from the predecoded logic
+			-- Load the instruction from predecode_logic
 			o_ir_instruction <= i_pl_instruction;
 		end if;
 	end process;
