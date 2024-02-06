@@ -36,7 +36,7 @@ begin
 	-------------------------------------------
 	-- Clear Instruction Based on Conditions --
 	-------------------------------------------
-	-- Clear the instruction if either aic_n or clear is active.
+	-- Clear the instruction if either assert interrupt control or clear is active.
 	-- Otherwise, pass the predecode register data.
 	-------------------------------------------
 	s_ir_clear <= not (i_irc_aic and i_tgl_fetch);
