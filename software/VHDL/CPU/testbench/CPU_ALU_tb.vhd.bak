@@ -1,0 +1,27 @@
+library ieee ;
+use ieee.std_logic_1164.all ;
+use ieee.numeric_std.all ;
+
+entity CPU_ALU_tb is
+end CPU_ALU_tb ;
+
+architecture testbench of CPU_ALU_tb is
+
+	component CPU_ALU
+		
+		port(
+			i_a_register: in unsigned (7 downto 0);
+			i_b_register: in unsigned (7 downto 0);
+			i_clk: in STD_LOGIC;
+			i_sum_select: in STD_LOGIC;
+			i_and_select: in STD_LOGIC;
+			i_eor_select: in STD_LOGIC;
+			i_or_select: in STD_LOGIC;
+			i_shift_right_select: in STD_LOGIC;
+			i_carry: in STD_LOGIC;
+			b_result: buffer unsigned (7 downto 0);
+			b_carry: buffer STD_LOGIC;
+			o_overflow: out STD_LOGIC
+		);
+		
+	end component ;
