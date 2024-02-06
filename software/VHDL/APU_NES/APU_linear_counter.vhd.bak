@@ -1,0 +1,13 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.all;
+
+entity APU_linear_counter is
+
+port(i_linear_counter_en : in STD_LOGIC;
+	  i_frame_counter : in STD_LOGIC;
+	  i_halt_flag : in STD_LOGIC;
+	  i_counter_load : in STD_LOGIC_VECTOR(4 DOWNTO 0);
+	  o_out_value : out STD_LOGIC_VECTOR(7 DOWNTO 0));
+
+end APU_linear_counter;
