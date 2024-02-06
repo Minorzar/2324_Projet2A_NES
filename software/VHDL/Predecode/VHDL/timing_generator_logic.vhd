@@ -1,6 +1,6 @@
 -- timing_generator_logic.vhd
 --
--- This VHDL module implements a timing generator for a processor.
+-- This VHDL module implements "Timing Generator Logic".
 --
 -- Description:
 -- The timing generator generates six timing signals, timing_n[0] through timing_n[5], which represent T0 through T5 cycles of the operation. These signals map to specific cycles of the processor's operation, such as opcode prefetch, operand prefetch, opcode execution, and additional execution cycles for multi-cycle instructions.
@@ -25,21 +25,21 @@ end timing_generator_logic;
 
 architecture Behavioral of timing_generator_logic is
 	-- Internal signals
-	signal s_timing_c2	: std_logic_vector(5 downto 0);		-- Latched value of timing signals on clk_2 with opposite sign
-	signal s_t_reset_c1	: std_logic_vector(5 downto 0);		-- Reset individual timing signals on clk_1
-	signal s_sync_c2	: std_logic;						-- Internal sync signal
-	signal s_t0_c2_rdy	: std_logic;						-- Signal to indicate if T0 is ready
+	signal s_timing_c2	: std_logic_vector(5 downto 0);			-- Latched value of timing signals on clk_2 with opposite sign
+	signal s_t_reset_c1	: std_logic_vector(5 downto 0);			-- Reset individual timing signals on clk_1
+	signal s_sync_c2	: std_logic;							-- Internal sync signal
+	signal s_t0_c2_rdy	: std_logic;							-- Signal to indicate if T0 is ready
 
 begin
 	-- Main timing signals assignment
-	o_timing_n(0) <= not s_t0;								-- Assign T0 signal (opcode prefetch)
-	o_timing_n(1) <= not s_t_reset_c1(1);					-- Assign T1 signal (operand prefetch)
-	o_timing_n(2) <= i_t_zero or s_t_reset_c1(2);			-- Assign T2 signal (opcode loaded in instruction register and executed)
-	o_timing_n(3) <= i_t_zero or s_t_reset_c1(3);			-- Assign T3 signal
-	o_timing_n(4) <= i_t_zero or s_t_reset_c1(4);			-- Assign T4 signal
-	o_timing_n(5) <= i_t_zero or s_t_reset_c1(5);			-- Assign T5 signal
+	o_timing_n(0) <= not s_t0;									-- Assign T0 signal (opcode prefetch)
+	o_timing_n(1) <= not s_t_reset_c1(1);						-- Assign T1 signal (operand prefetch)
+	o_timing_n(2) <= i_t_zero or s_t_reset_c1(2);				-- Assign T2 signal (opcode loaded in instruction register and executed)
+	o_timing_n(3) <= i_t_zero or s_t_reset_c1(3);				-- Assign T3 signal
+	o_timing_n(4) <= i_t_zero or s_t_reset_c1(4);				-- Assign T4 signal
+	o_timing_n(5) <= i_t_zero or s_t_reset_c1(5);				-- Assign T5 signal
 
-	o_fetch <= i_rc_rdy and s_sync_c2;						-- Calculate FETCH signal
+	o_fetch <= i_rc_rdy and s_sync_c2;							-- Calculate FETCH signal
 
 	-- t_reset signals assignment
 	s_t_reset_c1(0) <= not (s_sync_c2 or (not i_t_zero and i_pl_tzpre));							-- Assign T0 reset signal
@@ -70,5 +70,4 @@ begin
 			s_sync_c2 <= o_sync;							-- Latch the sync signal
 		end if;
 	end process;
-
 end Behavioral;

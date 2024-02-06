@@ -17,6 +17,7 @@ end placeholder;
 
 architecture Behavioral of placeholder is
 	signal placeholder			: std_logic;
+
 begin
 
-end Behavioral;
+end architecture Behavioral;

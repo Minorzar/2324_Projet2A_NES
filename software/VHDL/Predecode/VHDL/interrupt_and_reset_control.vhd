@@ -17,6 +17,7 @@ end interrupt_and_reset_control;
 
 architecture Behavioral of interrupt_and_reset_control is
 	signal placeholder			: std_logic;
+
 begin
 
-end Behavioral;
+end architecture Behavioral;

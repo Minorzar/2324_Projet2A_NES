@@ -18,6 +18,7 @@ entity predecode_register is
 end entity predecode_register;
 
 architecture Behavioral of predecode_register is
+
 begin
 	process (i_clk_2, i_db_instruction)
 	begin

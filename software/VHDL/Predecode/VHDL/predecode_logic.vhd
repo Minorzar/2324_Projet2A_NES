@@ -31,6 +31,7 @@ architecture Behavioral of predecode_logic is
 	signal s_mask_0xx01000		: std_logic;	-- Mask to identify instructions with the pattern 0xx01000
 	signal s_implied			: std_logic;	-- Signal indicating instructions with implied addressing mode
 	signal s_two_cycle_opcode	: std_logic;	-- Signal indicating two-cycle opcodes
+
 begin
 	-------------------------------------------
 	-- Clear Instruction Based on Conditions --
@@ -183,5 +184,4 @@ begin
 			o_pl_tzpre <= (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
 		end if;
 	end process;
-
 end Behavioral;

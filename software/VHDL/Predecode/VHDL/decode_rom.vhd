@@ -14,12 +14,13 @@ entity decode_rom is
 	Port (
 		i_ir_instruction	: in std_logic_vector(7 downto 0);		-- Input instruction from instruction_register
 		i_tgl_timing		: in std_logic_vector(5 downto 0);		-- Input T-n value from timing_generator_logic
-		o_dr_pla			: out std_logic_vector(129 downto 0)	-- Output PLA
+		o_dr_pla			: out std_logic_vector(129 downto 0)	-- Output programmable logic array
 	);
 end decode_rom;
 
 architecture Behavioral of decode_rom is
-	signal i_ir_instruction10 : std_logic;							-- Signal to store concatenation of i_ir_instruction(1) and i_ir_instruction(0)
+	signal i_ir_instruction10 : std_logic;	-- Signal to store concatenation of i_ir_instruction(1) and i_ir_instruction(0)
+
 begin
 	process(i_ir_instruction, i_tgl_timing)
 	begin
@@ -158,5 +159,4 @@ begin
 		o_dr_pla(128) <= not (o_dr_pla(129) or not i_ir_instruction(3) or i_ir_instruction(2) or i_ir_instruction(0));
 		o_dr_pla(129) <= not (i_ir_instruction(7) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or i_ir_instruction10);
 	end process;
-
 end Behavioral;
