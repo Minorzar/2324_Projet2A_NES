@@ -17,7 +17,6 @@ end ready_control;
 
 architecture Behavioral of ready_control is
 	signal placeholder			: std_logic;
-
 begin
 
-end architecture Behavioral;
+end Behavioral;

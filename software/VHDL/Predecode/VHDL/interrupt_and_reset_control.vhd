@@ -20,4 +20,4 @@ architecture Behavioral of interrupt_and_reset_control is
 
 begin
 
-end architecture Behavioral;
+end Behavioral;

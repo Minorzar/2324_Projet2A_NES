@@ -70,4 +70,5 @@ begin
 			s_sync_c2 <= o_sync;							-- Latch the sync signal
 		end if;
 	end process;
+
 end Behavioral;

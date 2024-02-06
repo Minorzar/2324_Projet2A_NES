@@ -31,4 +31,5 @@ begin
 			o_ir_instruction <= i_pl_instruction;
 		end if;
 	end process;
+
 end architecture Behavioral;

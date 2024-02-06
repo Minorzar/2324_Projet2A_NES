@@ -27,4 +27,5 @@ begin
 			o_pr_instruction <= i_db_instruction;
 		end if;
 	end process;
+
 end architecture Behavioral;
