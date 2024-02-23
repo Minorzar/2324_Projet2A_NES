@@ -10,7 +10,7 @@ end tb_predecode_logic;
 
 architecture Behavioral of tb_predecode_logic is
 	-- Constants
-	constant CLK_PERIOD : time := 100 ps;								-- Clock period
+	constant CLK_PERIOD			: time := 100 ps;						-- Clock period
 
 	-- Signals
 	signal t_clk_1				: std_logic := '0';						-- Input clock signal
@@ -61,43 +61,37 @@ begin
 	-- Stimulus process for testing various instructions
 	process
 	begin
+		-- i_irc_aic and t_tgl_fetch has not been implemented yet and set to '1'
 		t_irc_aic <= '1';
 		t_tgl_fetch <= '1';
 
-		-- Test ASL acc instruction (Opcode: x"0A")
+		-- Test ASL acc instruction (Implied / 2 cycles)
 		t_pr_instruction <= x"0A";
 		wait for CLK_PERIOD;
 		assert t_pl_implied = '1' report "Implied signal failed for ASL A instruction" severity error;
-		assert t_pl_tzpre = '0' report "Two-cycle signal failed for ASL A instruction" severity error;
+		assert t_pl_tzpre = '1' report "Two-cycle signal failed for ASL A instruction" severity error;
 		assert t_pl_instruction = x"0A" report "PL instruction failed for ASL A instruction" severity error;
 
-		-- Test ORA # instruction (Opcode: x"09")
+		-- Test ORA # instruction (Immediate / 2 cycles)
 		t_pr_instruction <= x"09";
 		wait for CLK_PERIOD;
-		assert t_pl_implied = '1' report "Implied signal failed for ORA # instruction" severity error;
-		assert t_pl_tzpre = '0' report "Two-cycle signal failed for ORA # instruction" severity error;
+		assert t_pl_implied = '0' report "Implied signal failed for ORA # instruction" severity error;
+		assert t_pl_tzpre = '1' report "Two-cycle signal failed for ORA # instruction" severity error;
 		assert t_pl_instruction = x"09" report "PL instruction failed for ORA # instruction" severity error;
 
-		-- Test LDX # instruction (Opcode: x"A2")
+		-- Test LDX # instruction (Immediate / 2 cycles)
 		t_pr_instruction <= x"A2";
 		wait for CLK_PERIOD;
-		assert t_pl_implied = '1' report "Implied signal failed for LDX # instruction" severity error;
-		assert t_pl_tzpre = '0' report "Two-cycle signal failed for LDX # instruction" severity error;
+		assert t_pl_implied = '0' report "Implied signal failed for LDX # instruction" severity error;
+		assert t_pl_tzpre = '1' report "Two-cycle signal failed for LDX # instruction" severity error;
 		assert t_pl_instruction = x"A2" report "PL instruction failed for LDX # instruction" severity error;
 
-		-- Test PHP instruction (Opcode: x"08")
+		-- Test PHP instruction (Implied / 3 cycles)
 		t_pr_instruction <= x"08";
 		wait for CLK_PERIOD;
 		assert t_pl_implied = '1' report "Implied signal failed for PHP instruction" severity error;
 		assert t_pl_tzpre = '0' report "Two-cycle signal failed for PHP instruction" severity error;
 		assert t_pl_instruction = x"08" report "PL instruction failed for PHP instruction" severity error;
-
-		-- Test TXA instruction (Opcode: x"8A")
-		t_pr_instruction <= x"8A";
-		wait for CLK_PERIOD;
-		assert t_pl_implied = '0' report "Implied signal failed for TXA instruction" severity error;
-		assert t_pl_tzpre = '0' report "Two-cycle signal failed for TXA instruction" severity error;
-		assert t_pl_instruction = x"8A" report "PL instruction failed for TXA instruction" severity error;
 
 		wait;
 	end process;

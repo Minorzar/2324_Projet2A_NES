@@ -39,9 +39,15 @@ begin
 	-- Clear the instruction if either assert interrupt control or clear is active.
 	-- Otherwise, pass the predecode register data.
 	-------------------------------------------
-	process (i_clk_1, i_pr_instruction)
+	s_ir_clear <= not (i_irc_aic and i_tgl_fetch);
+
+	process(i_pr_instruction, s_ir_clear)
 	begin
-		if rising_edge(i_clk_1) then
+		if s_ir_clear = '1' then
+			-- Clear instruction by assigning all zeros
+			o_pl_instruction <= (others => '0');
+		else
+			-- Pass through the predecoded instruction
 			o_pl_instruction <= i_pr_instruction;
 		end if;
 	end process;
@@ -97,6 +103,14 @@ begin
 		-- i_pr_instruction = x"7A" or	-- 01111010 (PLY)
 		-- i_pr_instruction = x"DA" or	-- 11011010 (PHX)
 		-- i_pr_instruction = x"FA"		-- 11111010 (PLX)
+	else '0';
+
+	s_mask_0xx01000 <= '1' when
+		-- Single-byte instructions
+		i_pr_instruction = x"08" or		-- 00001000 (PHP)
+		i_pr_instruction = x"28" or		-- 00101000 (PLP)
+		i_pr_instruction = x"48" or		-- 01001000 (PHA)
+		i_pr_instruction = x"68"		-- 01101000 (PLA)
 	else '0';
 
 	process(i_clk_1)
@@ -162,14 +176,6 @@ begin
 		-- i_pr_instruction = x"82" or	-- 10000010 (BRL rl)
 		-- i_pr_instruction = x"C2" or	-- 11000010 (REP #)
 		-- i_pr_instruction = x"E2"		-- 11100010 (SEP #)
-	else '0';
-
-	s_mask_0xx01000 <= '1' when
-		-- Single-byte instructions
-		i_pr_instruction = x"08" or		-- 00001000 (PHP)
-		i_pr_instruction = x"28" or		-- 00101000 (PLP)
-		i_pr_instruction = x"48" or		-- 01001000 (PHA)
-		i_pr_instruction = x"68"		-- 01101000 (PLA)
 	else '0';
 
 	process(i_clk_1)

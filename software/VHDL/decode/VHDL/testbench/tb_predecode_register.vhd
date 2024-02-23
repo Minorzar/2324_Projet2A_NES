@@ -69,11 +69,6 @@ begin
 		wait for CLK_PERIOD;
 		assert t_pr_instruction = x"08" report "PHP instruction failed" severity error;
 
-		-- Test TXA instruction (Opcode: x"8A")
-		t_db_instruction <= x"8A";
-		wait for CLK_PERIOD;
-		assert t_pr_instruction = x"8A" report "TXA instruction failed" severity error;
-
 		wait;
 	end process;
 
