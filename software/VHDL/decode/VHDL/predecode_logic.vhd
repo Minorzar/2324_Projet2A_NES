@@ -39,15 +39,9 @@ begin
 	-- Clear the instruction if either assert interrupt control or clear is active.
 	-- Otherwise, pass the predecode register data.
 	-------------------------------------------
-	s_ir_clear <= not (i_irc_aic and i_tgl_fetch);
-
-	process(i_pr_instruction, s_ir_clear)
+	process (i_clk_1, i_pr_instruction)
 	begin
-		if s_ir_clear = '1' then
-			-- Clear instruction by assigning all zeros
-			o_pl_instruction <= (others => '0');
-		else
-			-- Pass through the predecoded instruction
+		if rising_edge(i_clk_1) then
 			o_pl_instruction <= i_pr_instruction;
 		end if;
 	end process;

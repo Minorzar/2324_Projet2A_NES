@@ -10,7 +10,7 @@ end tb_predecode_register;
 
 architecture Behavioral of tb_predecode_register is
 	-- Constants
-	constant CLK_PERIOD			: time := 10 ns;					-- Clock period
+	constant CLK_PERIOD			: time := 100 ps;					-- Clock period
 
 	-- Signals
 	signal t_clk_2				: std_logic := '0';					-- Input lock signal

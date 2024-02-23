@@ -10,7 +10,7 @@ end tb_predecode_logic;
 
 architecture Behavioral of tb_predecode_logic is
 	-- Constants
-	constant CLK_PERIOD : time := 10 ns;								-- Clock period
+	constant CLK_PERIOD : time := 100 ps;								-- Clock period
 
 	-- Signals
 	signal t_clk_1				: std_logic := '0';						-- Input clock signal
@@ -61,6 +61,9 @@ begin
 	-- Stimulus process for testing various instructions
 	process
 	begin
+		t_irc_aic <= '1';
+		t_tgl_fetch <= '1';
+
 		-- Test ASL acc instruction (Opcode: x"0A")
 		t_pr_instruction <= x"0A";
 		wait for CLK_PERIOD;
