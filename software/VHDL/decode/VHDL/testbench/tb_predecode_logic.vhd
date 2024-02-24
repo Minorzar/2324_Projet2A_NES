@@ -68,30 +68,38 @@ begin
 		-- Test ASL acc instruction (Implied / 2 cycles)
 		t_pr_instruction <= x"0A";
 		wait for CLK_PERIOD;
+		assert t_pl_instruction = x"0A" report "PL instruction failed for ASL A instruction" severity error;
+		wait for CLK_PERIOD;
 		assert t_pl_implied = '1' report "Implied signal failed for ASL A instruction" severity error;
 		assert t_pl_tzpre = '1' report "Two-cycle signal failed for ASL A instruction" severity error;
-		assert t_pl_instruction = x"0A" report "PL instruction failed for ASL A instruction" severity error;
+		wait for CLK_PERIOD;
 
 		-- Test ORA # instruction (Immediate / 2 cycles)
 		t_pr_instruction <= x"09";
 		wait for CLK_PERIOD;
+		assert t_pl_instruction = x"09" report "PL instruction failed for ORA # instruction" severity error;
+		wait for CLK_PERIOD;
 		assert t_pl_implied = '0' report "Implied signal failed for ORA # instruction" severity error;
 		assert t_pl_tzpre = '1' report "Two-cycle signal failed for ORA # instruction" severity error;
-		assert t_pl_instruction = x"09" report "PL instruction failed for ORA # instruction" severity error;
+		wait for CLK_PERIOD;
 
 		-- Test LDX # instruction (Immediate / 2 cycles)
 		t_pr_instruction <= x"A2";
 		wait for CLK_PERIOD;
+		assert t_pl_instruction = x"A2" report "PL instruction failed for LDX # instruction" severity error;
+		wait for CLK_PERIOD;
 		assert t_pl_implied = '0' report "Implied signal failed for LDX # instruction" severity error;
 		assert t_pl_tzpre = '1' report "Two-cycle signal failed for LDX # instruction" severity error;
-		assert t_pl_instruction = x"A2" report "PL instruction failed for LDX # instruction" severity error;
+		wait for CLK_PERIOD;
 
 		-- Test PHP instruction (Implied / 3 cycles)
 		t_pr_instruction <= x"08";
 		wait for CLK_PERIOD;
+		assert t_pl_instruction = x"08" report "PL instruction failed for PHP instruction" severity error;
+		wait for CLK_PERIOD;
 		assert t_pl_implied = '1' report "Implied signal failed for PHP instruction" severity error;
 		assert t_pl_tzpre = '0' report "Two-cycle signal failed for PHP instruction" severity error;
-		assert t_pl_instruction = x"08" report "PL instruction failed for PHP instruction" severity error;
+		wait for CLK_PERIOD;
 
 		wait;
 	end process;

@@ -19,6 +19,6 @@ Sim dir               :  simulation/modelsim
 
 Info: Starting NativeLink simulation with ModelSim software
 Sourced NativeLink script /home/nightfore/intelFPGA_lite/22.1std/quartus/common/tcl/internal/nativelink/modelsim.tcl
-Warning: File decode_run_msim_rtl_vhdl.do already exists - backing up current file as decode_run_msim_rtl_vhdl.do.bak2
+Warning: File decode_run_msim_rtl_vhdl.do already exists - backing up current file as decode_run_msim_rtl_vhdl.do.bak3
 Info: Spawning ModelSim Simulation software 
 Info: NativeLink simulation flow was successful
