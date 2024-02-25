@@ -13,8 +13,8 @@ entity decode is
 		o_pr_instruction		: out std_logic_vector(7 downto 0);
 		o_pl_instruction		: out std_logic_vector(7 downto 0);
 		o_pl_implied			: out std_logic;
-		o_pl_tzpre				: out std_logic
-		o_ir_instruction		: out std_logic_vector(7 downto 0);
+		o_pl_tzpre				: out std_logic;
+		o_ir_instruction		: out std_logic_vector(7 downto 0)
 	);
 end decode;
 
@@ -85,10 +85,10 @@ begin
 	-- Instantiate instruction_register module
 	UUT_instruction_register: instruction_register
 	port map (
-		i_clk_1				=> t_clk_1,
-		i_tgl_fetch			=> t_tgl_fetch,
-		i_pl_instruction	=> t_pl_instruction,
-		o_ir_instruction	=> t_ir_instruction
+		i_clk_1				=> i_clk_1,
+		i_tgl_fetch			=> '1',					-- i_tgl_fetch has not been implemented and set to '1'
+		i_pl_instruction	=> s_pl_instruction,
+		o_ir_instruction	=> s_ir_instruction
 	);
 
 	-- Assign output signal from predecode_register to the top-level output port

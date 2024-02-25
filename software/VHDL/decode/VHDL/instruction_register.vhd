@@ -24,11 +24,12 @@ architecture Behavioral of instruction_register is
 begin
     process (i_clk_1, i_tgl_fetch, i_pl_instruction)
     begin
-		-- Update the load signal based on clock and fetch signals
-        s_load_ir <= i_clk_1 and i_tgl_fetch;
-		if rising_edge(s_load_ir) then
-			-- Load the instruction from predecode_logic
-			o_ir_instruction <= i_pl_instruction;
+		if rising_edge(i_clk_1) then
+			-- Load signal based on fetch signals
+			if i_tgl_fetch = '1' then
+				-- Load the instruction from predecode_logic
+				o_ir_instruction <= i_pl_instruction;
+			end if;
 		end if;
 	end process;
 

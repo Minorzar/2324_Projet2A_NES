@@ -10,7 +10,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity timing_generator_logic is
-	Port (
+	port (
 		i_clk_1			: in std_logic;							-- Input clock signal for latch signals
 		i_clk_2			: in std_logic;							-- Input clock signal for internal latches
 		i_rc_rdy		: in std_logic;							-- Input ready signal from ready_control

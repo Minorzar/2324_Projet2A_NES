@@ -58,10 +58,10 @@ begin
 		wait;
 	end process;
 
-	-- Stimulus process for testing various instructions
+	-- Stimulus process
 	process
 	begin
-		-- i_irc_aic and t_tgl_fetch has not been implemented yet and set to '1'
+		-- t_irc_aic and t_tgl_fetch has not been implemented yet and set to '1'
 		t_irc_aic <= '1';
 		t_tgl_fetch <= '1';
 

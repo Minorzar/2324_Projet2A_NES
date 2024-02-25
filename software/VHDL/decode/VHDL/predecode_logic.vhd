@@ -12,7 +12,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity predecode_logic is
-	Port (
+	port (
 		i_clk_1					: in std_logic;							-- Input clock signal
 		i_irc_aic				: in std_logic;							-- Input assert interrupt control signal from interrupt_and_reset_control
 		i_tgl_fetch				: in std_logic;							-- Input fetch signal from timing_generator_logic

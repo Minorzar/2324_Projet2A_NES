@@ -13,7 +13,7 @@ architecture Behavioral of tb_instruction_register is
 	constant CLK_PERIOD			: time := 100 ps;					-- Clock period
 
 	-- Signals
-	signal t_clk_1				: std_logic := '0';					-- Input lock signal
+	signal t_clk_1				: std_logic := '0';					-- Input clock signal
 	signal t_tgl_fetch			: std_logic;						-- Input fetch signal from timing_generator_logic
 	signal t_pl_instruction		: std_logic_vector(7 downto 0);		-- Input instruction from predecode_logic
 	signal t_ir_instruction		: std_logic_vector(7 downto 0);		-- Output instruction from instruction_register
@@ -49,9 +49,12 @@ begin
 		wait;
 	end process;
 
-	-- Stimulus process for testing various instructions
+	-- Stimulus process
 	process
 	begin
+		-- t_tgl_fetch has not been implemented yet and set to '1'
+		t_tgl_fetch <= '1';
+
 		-- Test ASL acc instruction (Opcode: x"0A")
 		t_pl_instruction <= x"0A";
 		wait for CLK_PERIOD;

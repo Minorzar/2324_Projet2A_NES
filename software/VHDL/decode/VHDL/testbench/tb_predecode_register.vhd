@@ -13,7 +13,7 @@ architecture Behavioral of tb_predecode_register is
 	constant CLK_PERIOD			: time := 100 ps;					-- Clock period
 
 	-- Signals
-	signal t_clk_2				: std_logic := '0';					-- Input lock signal
+	signal t_clk_2				: std_logic := '0';					-- Input clock signal
 	signal t_db_instruction		: std_logic_vector(7 downto 0);		-- Input instruction from data bus
 	signal t_pr_instruction		: std_logic_vector(7 downto 0);		-- Output instruction from predecode_register
 
@@ -46,7 +46,7 @@ begin
 		wait;
 	end process;
 
-	-- Stimulus process for testing various instructions
+	-- Stimulus process
 	process
 	begin
 		-- Test ASL acc instruction (Opcode: x"0A")
