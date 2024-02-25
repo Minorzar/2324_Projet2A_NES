@@ -14,6 +14,7 @@ entity decode is
 		o_pl_instruction		: out std_logic_vector(7 downto 0);
 		o_pl_implied			: out std_logic;
 		o_pl_tzpre				: out std_logic
+		o_ir_instruction		: out std_logic_vector(7 downto 0);
 	);
 end decode;
 
@@ -40,6 +41,16 @@ architecture Behavioral of decode is
 		);
 	end component;
 
+	-- Component declaration for instruction_register
+	component instruction_register is
+		port (
+			i_clk_1				: in std_logic;
+			i_tgl_fetch			: in std_logic;
+			i_pl_instruction	: in std_logic_vector(7 downto 0);
+			o_ir_instruction	: out std_logic_vector(7 downto 0)
+		);
+	end component;
+
 	-- Signal for output from predecode_register
 	signal s_pr_instruction		: std_logic_vector(7 downto 0);
 
@@ -48,9 +59,12 @@ architecture Behavioral of decode is
 	signal s_pl_implied			: std_logic;
 	signal s_pl_tzpre			: std_logic;
 
+	-- Signal for output from instruction_register
+	signal s_ir_instruction		: std_logic_vector(7 downto 0);
+
 begin
 	-- Instantiate predecode_register module
-	UUT_register: predecode_register
+	UUT_predecode_register: predecode_register
 	port map (
 		i_clk_2				=> i_clk_2,
 		i_db_instruction	=> i_db_instruction,
@@ -58,7 +72,7 @@ begin
 	);
 
 	-- Instantiate predecode_logic module
-	UUT_logic: predecode_logic
+	UUT_predecode_logic: predecode_logic
 	port map (
 		i_clk_1				=> i_clk_1,
 		i_irc_aic			=> '1',					-- i_irc_aic has not been implemented yet and set to '1'
@@ -67,6 +81,14 @@ begin
 		o_pl_instruction	=> s_pl_instruction,
 		o_pl_implied		=> s_pl_implied,
 		o_pl_tzpre			=> s_pl_tzpre
+	);
+	-- Instantiate instruction_register module
+	UUT_instruction_register: instruction_register
+	port map (
+		i_clk_1				=> t_clk_1,
+		i_tgl_fetch			=> t_tgl_fetch,
+		i_pl_instruction	=> t_pl_instruction,
+		o_ir_instruction	=> t_ir_instruction
 	);
 
 	-- Assign output signal from predecode_register to the top-level output port
@@ -77,5 +99,7 @@ begin
     o_pl_implied			<= s_pl_implied;
     o_pl_tzpre				<= s_pl_tzpre;
 
+	-- Assign output signal from instruction_register to the top-level output port
+	o_ir_instruction		<= s_ir_instruction;
 
 end Behavioral;
