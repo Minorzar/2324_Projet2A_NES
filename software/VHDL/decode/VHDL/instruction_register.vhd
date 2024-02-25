@@ -14,7 +14,7 @@ entity instruction_register is
 		i_clk_1				: in std_logic;						-- Input clock signal
 		i_tgl_fetch			: in std_logic;						-- Input fetch signal from timing_generator_logic
 		i_pl_instruction	: in std_logic_vector(7 downto 0);	-- Input instruction from predecode_logic
-		o_ir_instruction	: out std_logic_vector(7 downto 0)	-- Output instruction
+		o_ir_instruction	: out std_logic_vector(7 downto 0)	-- Output instruction from instruction_register
 	);
 end entity instruction_register;
 
