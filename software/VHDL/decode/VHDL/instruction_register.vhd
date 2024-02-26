@@ -19,7 +19,6 @@ entity instruction_register is
 end entity instruction_register;
 
 architecture Behavioral of instruction_register is
-	signal s_load_ir : std_logic := '0';
 
 begin
     process (i_clk_1, i_tgl_fetch, i_pl_instruction)

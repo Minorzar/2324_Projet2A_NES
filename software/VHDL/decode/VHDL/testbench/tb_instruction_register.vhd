@@ -52,7 +52,7 @@ begin
 	-- Stimulus process
 	process
 	begin
-		-- t_tgl_fetch has not been implemented yet and set to '1'
+		-- Initialize t_tgl_fetch to '1'
 		t_tgl_fetch <= '1';
 
 		-- Test ASL acc instruction (Opcode: x"0A")
@@ -62,16 +62,31 @@ begin
 
 		-- Test ORA # instruction (Opcode: x"09")
 		t_pl_instruction <= x"09";
+		t_tgl_fetch <= '0';		-- Disable fetch
+		wait for CLK_PERIOD;
+		assert t_ir_instruction = x"0A" report "Fetch disabled, unexpected instruction fetched" severity error;
+
+		t_tgl_fetch <= '1';		-- Enable fetch
 		wait for CLK_PERIOD;
 		assert t_ir_instruction = x"09" report "ORA # instruction failed" severity error;
 
 		-- Test LDX # instruction (Opcode: x"A2")
 		t_pl_instruction <= x"A2";
+		t_tgl_fetch <= '0';		-- Disable fetch
+		wait for CLK_PERIOD;
+		assert t_ir_instruction = x"09" report "Fetch disabled, unexpected instruction fetched" severity error;
+
+		t_tgl_fetch <= '1';		-- Enable fetch
 		wait for CLK_PERIOD;
 		assert t_ir_instruction = x"A2" report "LDX # instruction failed" severity error;
 
 		-- Test PHP instruction (Opcode: x"08")
 		t_pl_instruction <= x"08";
+		t_tgl_fetch <= '0';		-- Disable fetch
+		wait for CLK_PERIOD;
+		assert t_ir_instruction = x"A2" report "Fetch disabled, unexpected instruction fetched" severity error;
+
+		t_tgl_fetch <= '1';		-- Enable fetch
 		wait for CLK_PERIOD;
 		assert t_ir_instruction = x"08" report "PHP instruction failed" severity error;
 
