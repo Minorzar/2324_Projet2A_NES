@@ -18,19 +18,9 @@ architecture Behavioral of tb_instruction_register is
 	signal t_pl_instruction		: std_logic_vector(7 downto 0);		-- Input instruction from predecode_logic
 	signal t_ir_instruction		: std_logic_vector(7 downto 0);		-- Output instruction from instruction_register
 
-	-- Component declaration
-	component instruction_register
-		port (
-			i_clk_1				: in std_logic;
-			i_tgl_fetch			: in std_logic;
-			i_pl_instruction	: in std_logic_vector(7 downto 0);
-			o_ir_instruction	: out std_logic_vector(7 downto 0)
-		);
-	end component;
-
 begin
 	-- Instantiate the instruction_register module
-	UUT: instruction_register
+	UUT: entity work.instruction_register
 	port map (
 		i_clk_1				=> t_clk_1,
 		i_tgl_fetch			=> t_tgl_fetch,
@@ -38,7 +28,7 @@ begin
 		o_ir_instruction	=> t_ir_instruction
 	);
 
-	-- Clock generator process
+	-- Clock process
 	process
 	begin
 		-- Simulate for 100 ns

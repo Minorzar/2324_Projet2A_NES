@@ -21,22 +21,9 @@ architecture Behavioral of tb_predecode_logic is
 	signal t_pl_implied			: std_logic;							-- Output signal indicating an opcode with implied addressing mode
 	signal t_pl_tzpre			: std_logic;							-- Output signal indicating a two-cycle opcode
 
-	-- Component declaration
-	component predecode_logic
-		port (
-			i_clk_1				: in std_logic;
-			i_irc_aic			: in std_logic;
-			i_tgl_fetch			: in std_logic;
-			i_pr_instruction	: in std_logic_vector(7 downto 0);
-			o_pl_instruction	: out std_logic_vector(7 downto 0);
-			o_pl_implied		: out std_logic;
-			o_pl_tzpre			: out std_logic
-		);
-	end component;
-
 begin
 	-- Instantiate the predecode_logic module
-	UUT: predecode_logic
+	UUT: entity work.predecode_logic
 	port map (
 		i_clk_1				=> t_clk_1,
 		i_irc_aic			=> t_irc_aic,
@@ -47,7 +34,7 @@ begin
 		o_pl_tzpre			=> t_pl_tzpre
 	);
 
-	-- Clock generator process
+	-- Clock process
 	process
 	begin
 		-- Simulate for 100 ns

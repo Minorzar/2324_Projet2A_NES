@@ -17,25 +17,16 @@ architecture Behavioral of tb_predecode_register is
 	signal t_db_instruction		: std_logic_vector(7 downto 0);		-- Input instruction from data bus
 	signal t_pr_instruction		: std_logic_vector(7 downto 0);		-- Output instruction from predecode_register
 
-	-- Component declaration
-	component predecode_register
-		port (
-			i_clk_2				: in std_logic;
-			i_db_instruction	: in std_logic_vector(7 downto 0);
-			o_pr_instruction	: out std_logic_vector(7 downto 0)
-		);
-	end component;
-
 begin
 	-- Instantiate the predecode_register module
-	UUT: predecode_register
+	UUT: entity work.predecode_register
 	port map (
 		i_clk_2				=> t_clk_2,
 		i_db_instruction	=> t_db_instruction,
 		o_pr_instruction	=> t_pr_instruction
 	);
 
-	-- Clock generator process
+	-- Clock process
 	process
 	begin
 		-- Simulate for 100 ns
