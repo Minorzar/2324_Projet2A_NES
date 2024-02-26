@@ -51,6 +51,21 @@ architecture Behavioral of decode is
 		);
 	end component;
 
+	-- Component declaration for timing_generator_logic
+	component timing_generator_logic is
+		port (
+			i_clk_1				: in std_logic;
+			i_clk_2				: in std_logic;
+			i_rc_rdy			: in std_logic;
+			i_pl_tzpre			: in std_logic;
+			i_rcl_t_zero		: in std_logic;
+			i_rcl_t_res_1   	: in std_logic;
+			o_tgl_timing_n  	: out std_logic_vector(5 downto 0);
+			o_tgl_fetch			: out std_logic;
+			o_tgl_sync			: out std_logic
+		);
+	end component;
+
 	-- Signal for output from predecode_register
 	signal s_pr_instruction		: std_logic_vector(7 downto 0);
 
@@ -61,6 +76,11 @@ architecture Behavioral of decode is
 
 	-- Signal for output from instruction_register
 	signal s_ir_instruction		: std_logic_vector(7 downto 0);
+
+	-- Signals for timing_generator_logic outputs
+	signal s_tgl_timing_n		: std_logic_vector(5 downto 0);
+	signal s_tgl_fetch			: std_logic;
+	signal s_tgl_sync			: std_logic;
 
 begin
 	-- Instantiate predecode_register module
@@ -76,7 +96,7 @@ begin
 	port map (
 		i_clk_1				=> i_clk_1,
 		i_irc_aic			=> '1',					-- i_irc_aic has not been implemented yet and set to '1'
-		i_tgl_fetch			=> '1',					-- i_tgl_fetch has not been implemented and set to '1'
+		i_tgl_fetch			=> s_tgl_fetch,
 		i_pr_instruction	=> s_pr_instruction,
 		o_pl_instruction	=> s_pl_instruction,
 		o_pl_implied		=> s_pl_implied,
@@ -86,20 +106,39 @@ begin
 	UUT_instruction_register: instruction_register
 	port map (
 		i_clk_1				=> i_clk_1,
-		i_tgl_fetch			=> '1',					-- i_tgl_fetch has not been implemented and set to '1'
+		i_tgl_fetch			=> s_tgl_fetch,
 		i_pl_instruction	=> s_pl_instruction,
 		o_ir_instruction	=> s_ir_instruction
+	);
+
+	-- Instantiate timing_generator_logic module
+	UUT_timing_generator_logic: timing_generator_logic
+	port map (
+		i_clk_1				=> i_clk_1,
+		i_clk_2				=> i_clk_2,
+		i_rc_rdy			=> '1',					-- i_rc_rdy has not been implemented and set to '1'
+		i_pl_tzpre			=> s_pl_tzpre,
+		i_rcl_t_zero		=> '0',					-- i_rcl_t_zero has not been implemented and set to '0'
+		i_rcl_t_res_1		=> '0',					-- i_rcl_t_res_1 has not been implemented and set to '0'
+		o_tgl_timing_n		=> s_tgl_timing_n,
+		o_tgl_fetch			=> s_tgl_fetch,
+		o_tgl_sync			=> s_tgl_sync
 	);
 
 	-- Assign output signal from predecode_register to the top-level output port
 	o_pr_instruction		<= s_pr_instruction;
 
 	-- Assign output signal from predecode_logic to the top-level output port
-    o_pl_instruction		<= s_pl_instruction;
-    o_pl_implied			<= s_pl_implied;
-    o_pl_tzpre				<= s_pl_tzpre;
+	o_pl_instruction		<= s_pl_instruction;
+	o_pl_implied			<= s_pl_implied;
+	o_pl_tzpre				<= s_pl_tzpre;
 
 	-- Assign output signal from instruction_register to the top-level output port
 	o_ir_instruction		<= s_ir_instruction;
+
+	-- Assign output signal from timing_generator_logic to the top-level output port
+    o_pl_instruction		<= s_pl_instruction;
+    o_pl_implied			<= s_pl_implied;
+    o_pl_tzpre				<= s_pl_tzpre;
 
 end Behavioral;
