@@ -63,9 +63,18 @@ entity PPU is
 
 
     begin 
-        process(clk)
+        normal :process(clk) is
         begin 
-        end process;
+        end process normal;
+
+        reset :process(RST_n) is
+        begin 
+        if (rising_edge(RST_n)) then
+             REG_PPU(0)<="00000000"; -- PPUCTRL
+             REG_PPU(1)<="00000000"; -- PPUMASK
+             REG_PPU(5)<="00000000"; -- PPUSCROLL
+        end if;
+        end process reset;
 
     end PPU_rft;
 
