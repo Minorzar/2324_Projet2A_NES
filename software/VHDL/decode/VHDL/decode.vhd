@@ -15,7 +15,7 @@ entity decode is
 		o_pl_implied			: out std_logic;
 		o_pl_tzpre				: out std_logic;
 		o_ir_instruction		: out std_logic_vector(7 downto 0);
-		o_tgl_timing_n  		: out std_logic_vector(5 downto 0);
+		o_tgl_timing_n			: out std_logic_vector(5 downto 0);
 		o_tgl_fetch				: out std_logic;
 		o_tgl_sync				: out std_logic;
 		o_dr_pla				: out std_logic_vector(129 downto 0)
@@ -55,16 +55,16 @@ architecture Behavioral of decode is
 		);
 	end component;
 
-	-- Component declaration for timing_generator_logic
-	component timing_generator_logic is
+	-- Component declaration for timing_generation_logic
+	component timing_generation_logic is
 		port (
 			i_clk_1				: in std_logic;
 			i_clk_2				: in std_logic;
 			i_rc_rdy			: in std_logic;
 			i_pl_tzpre			: in std_logic;
 			i_rcl_t_zero		: in std_logic;
-			i_rcl_t_res_1   	: in std_logic;
-			o_tgl_timing_n  	: out std_logic_vector(5 downto 0);
+			i_rcl_t_res_1		: in std_logic;
+			o_tgl_timing_n		: out std_logic_vector(5 downto 0);
 			o_tgl_fetch			: out std_logic;
 			o_tgl_sync			: out std_logic
 		);
@@ -90,7 +90,7 @@ architecture Behavioral of decode is
 	-- Signal for output from instruction_register
 	signal s_ir_instruction		: std_logic_vector(7 downto 0);
 
-	-- Signals for timing_generator_logic outputs
+	-- Signals for timing_generation_logic outputs
 	signal s_tgl_timing_n		: std_logic_vector(5 downto 0);
 	signal s_tgl_fetch			: std_logic;
 	signal s_tgl_sync			: std_logic;
@@ -127,8 +127,8 @@ begin
 		o_ir_instruction	=> s_ir_instruction
 	);
 
-	-- Instantiate timing_generator_logic module
-	UUT_timing_generator_logic: timing_generator_logic
+	-- Instantiate timing_generation_logic module
+	UUT_timing_generation_logic: timing_generation_logic
 	port map (
 		i_clk_1				=> i_clk_1,
 		i_clk_2				=> i_clk_2,
@@ -160,12 +160,12 @@ begin
 	-- Assign output signal from instruction_register to the top-level output port
 	o_ir_instruction		<= s_ir_instruction;
 
-	-- Assign output signal from timing_generator_logic to the top-level output port
-    o_tgl_timing_n			<= s_tgl_timing_n;
-    o_tgl_fetch				<= s_tgl_fetch;
-    o_tgl_sync				<= s_tgl_sync;
+	-- Assign output signal from timing_generation_logic to the top-level output port
+	o_tgl_timing_n			<= s_tgl_timing_n;
+	o_tgl_fetch				<= s_tgl_fetch;
+	o_tgl_sync				<= s_tgl_sync;
 
 	-- Assign output signal from decode_rom to the top-level output port
-    o_dr_pla				<= s_dr_pla;
+	o_dr_pla				<= s_dr_pla;
 
 end Behavioral;

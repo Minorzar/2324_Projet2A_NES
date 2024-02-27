@@ -1,6 +1,6 @@
--- timing_generator_logic.vhd
+-- timing_generation_logic.vhd
 --
--- This VHDL module implements "Timing Generator Logic".
+-- This VHDL module implements "Timing Generation Logic".
 --
 -- Description:
 -- This module generates timing signals indicating the current cycle of the CPU operation and handles resets based on control signals.
@@ -9,7 +9,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity timing_generator_logic is
+entity timing_generation_logic is
 	port (
 		i_clk_1			: in std_logic;							-- Input clock signal
 		i_clk_2			: in std_logic;							-- Input clock signal
@@ -21,9 +21,9 @@ entity timing_generator_logic is
 		o_tgl_fetch		: out std_logic;						-- Output signal indicating instruction fetch
 		o_tgl_sync		: out std_logic							-- Output signal indicating instruction synchronization
 	);
-end timing_generator_logic;
+end timing_generation_logic;
 
-architecture Behavioral of timing_generator_logic is
+architecture Behavioral of timing_generation_logic is
 	signal s_timing_n	: std_logic_vector(5 downto 0);			-- Internal main timing signal
 	signal s_sync		: std_logic;							-- Internal synchronization signal
 	signal s_timing_c2	: std_logic_vector(5 downto 0);			-- Latched timing signals on clk_2 with opposite sign

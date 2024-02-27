@@ -1,14 +1,14 @@
--- tb_timing_generator_logic.vhd
+-- tb_timing_generation_logic.vhd
 --
--- This VHDL testbench simulates the behavior of the timing_generator_logic module.
+-- This VHDL testbench simulates the behavior of the timing_generation_logic module.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity tb_timing_generator_logic is
-end tb_timing_generator_logic;
+entity tb_timing_generation_logic is
+end tb_timing_generation_logic;
 
-architecture Behavioral of tb_timing_generator_logic is
+architecture Behavioral of tb_timing_generation_logic is
 	-- Constants
 	constant CLK_PERIOD			: time := 100 ps;					-- Clock period
 
@@ -24,8 +24,8 @@ architecture Behavioral of tb_timing_generator_logic is
 	signal t_tgl_sync			: std_logic;						-- Output signal indicating an instruction fetch is in progress
 	
 begin
-	-- Instantiate the timing_generator_logic module
-	UUT: entity work.timing_generator_logic
+	-- Instantiate the timing_generation_logic module
+	UUT: entity work.timing_generation_logic
 	port map (
 		i_clk_1				=> t_clk_1,
 		i_clk_2				=> t_clk_2,

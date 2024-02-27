@@ -13,22 +13,22 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity predecode_logic is
 	port (
-		i_clk_1					: in std_logic;							-- Input clock signal
-		i_irc_aic				: in std_logic;							-- Input assert interrupt control signal from interrupt_and_reset_control
-		i_tgl_fetch				: in std_logic;							-- Input fetch signal from timing_generator_logic
-		i_pr_instruction		: in std_logic_vector(7 downto 0);		-- Input instruction from predecode_register
-		o_pl_instruction		: out std_logic_vector(7 downto 0);		-- Output predecoded instruction
-		o_pl_implied			: out std_logic;						-- Output signal indicating an opcode with implied addressing mode
-		o_pl_tzpre				: out std_logic							-- Output signal indicating a two-cycle opcode
+		i_clk_1				: in std_logic;							-- Input clock signal
+		i_irc_aic			: in std_logic;							-- Input assert interrupt control signal from interrupt_and_reset_control
+		i_tgl_fetch			: in std_logic;							-- Input fetch signal from timing_generation_logic
+		i_pr_instruction	: in std_logic_vector(7 downto 0);		-- Input instruction from predecode_register
+		o_pl_instruction	: out std_logic_vector(7 downto 0);		-- Output predecoded instruction
+		o_pl_implied		: out std_logic;						-- Output signal indicating an opcode with implied addressing mode
+		o_pl_tzpre			: out std_logic							-- Output signal indicating a two-cycle opcode
 	);
 end predecode_logic;
 
 architecture Behavioral of predecode_logic is
-	signal s_ir_clear			: std_logic;	-- Signal to control clearing of the instruction register
-	signal s_mask_xxxx10x0		: std_logic;	-- Mask to identify instructions with the pattern xxxx10x0
-	signal s_mask_xxx010x1		: std_logic;	-- Mask to identify instructions with the pattern xxx010x1
-	signal s_mask_1xx000x0		: std_logic;	-- Mask to identify instructions with the pattern 1xx000x0
-	signal s_mask_0xx01000		: std_logic;	-- Mask to identify instructions with the pattern 0xx01000
+	signal s_ir_clear		: std_logic;							-- Signal to control clearing of the instruction register
+	signal s_mask_xxxx10x0	: std_logic;							-- Mask to identify instructions with the pattern xxxx10x0
+	signal s_mask_xxx010x1	: std_logic;							-- Mask to identify instructions with the pattern xxx010x1
+	signal s_mask_1xx000x0	: std_logic;							-- Mask to identify instructions with the pattern 1xx000x0
+	signal s_mask_0xx01000	: std_logic;							-- Mask to identify instructions with the pattern 0xx01000
 
 begin
 	-------------------------------------------
