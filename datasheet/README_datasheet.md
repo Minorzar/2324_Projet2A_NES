@@ -1,67 +1,68 @@
 # NES Documentation
 
-## About the NES console
+## About the NES Console
 
-### Nintendo Entertainment System Documentation
-- Source: [NESDev](https://www.nesdev.org/)
-- Document: [NESDoc.pdf](https://www.nesdev.org/NESDoc.pdf)
+### Documentation and Manuals:
+- **Nintendo Entertainment System Documentation:** [NESDev](https://www.nesdev.org/)
+    - File: [NESDoc.pdf](https://www.nesdev.org/NESDoc.pdf)
+- **Everynes NES Hardware Specifications:** [Problemkaputt](https://problemkaputt.de/nes.htm)
+    - File: [everynes.htm](https://problemkaputt.de/everynes.htm)
 
-### Everynes NES Hardware Specifications
-- Source: [Problemkaputt](https://problemkaputt.de/nes.htm)
-- Document: [everynes.htm](https://problemkaputt.de/everynes.htm)
-
-### Wiring diagram of RF Famicom
-- Source: [PPU pinout](https://www.nesdev.org/wiki/PPU_pinout)
-- Document: [Neswires.jpg](https://www.nesdev.org/wiki/File:Neswires.jpg)
-
-## NES Hardware Development Guide (Brad Taylor)
-- Document: [NES hardware development guide.txt](https://www.nesdev.org/NES%20hardware%20development%20guide.txt)
+### Wiring Diagrams and Guides:
+- **Wiring Diagram of RF Famicom:** [PPU pinout](https://www.nesdev.org/wiki/PPU_pinout)
+    - File: [Neswires.jpg](https://www.nesdev.org/wiki/File:Neswires.jpg)
+- **NES Hardware Development Guide (Brad Taylor):**
+    - File: [NES hardware development guide.txt](https://www.nesdev.org/NES%20hardware%20development%20guide.txt)
 
 
 
 ## CPU: 6502 / 2A03
 
-### 6502 all 256 Opcodes
-- Web: [6502.txt](https://www.nesdev.org/6502.txt)
+### Documentation and Manuals:
+- **6502 Microprocessor:**
+  - File: [6502.txt](https://www.nesdev.org/6502.txt)
+- **65xx Processor Data:**
+  - Files: [65xx Opcode Chart.xls, 65xx Opcode List.txt, 65xx Processor Data.txt](https://www.romhacking.net/documents/318/)
+- **MC6500 Microcomputer Family Programming Manual:**
+  - File: [mos_microcomputers_programming_manual.pdf](https://archive.org/details/mos_microcomputers_programming_manual/page/n3/mode/2up)
+- **W65C02S Technical Documentation:**
+  - File: [w65c02s.pdf](https://www.westerndesigncenter.com/wdc/documentation/w65c02s.pdf)
+- **2A03 Technical Reference:**
+  - File: [2A03 technical reference.txt](https://www.nesdev.org/2A03%20technical%20reference.txt)
 
-### 6502 Instructions Set
-- Web: [The 6502 Instruction Set Decoded.webarchive](https://llx.com/Neil/a2/opcodes.html)
-- Web: [6502 Addressing Modes.webarchive](https://wiki.cdot.senecacollege.ca/wiki/6502_Addressing_Modes)
-- Document: [MC6500 Microcomputer Family Programming Manual](https://archive.org/details/mos_microcomputers_programming_manual/page/n3/mode/2up)
+### Instruction Set and Opcodes:
+- **The 6502/65C02/65C816 Instruction Set Decoded:**
+  - File: [The 6502 Instruction Set Decoded.webarchive](https://llx.com/Neil/a2/opcodes.html)
+- **CPU Unofficial Opcodes:**
+  - Link: [Wiki](https://www.nesdev.org/wiki/CPU_unofficial_opcodes)
+- **6502 Cycle Times:**
+  - Link: [6502 Cycle Times](https://www.nesdev.org/wiki/6502_cycle_times)
 
-### 65xx Opcode Chart / List / Data
-- Source [CPU unofficial opcodes](https://www.nesdev.org/wiki/CPU_unofficial_opcodes)
-- Document: [65xx Processor Data](https://www.romhacking.net/documents/318/)
-
-### Reverse Engineering the MOS 6502 CPU
-- Source: [Hanson's Block Diagram](https://www.nesdev.org/wiki/Visual6502wiki/Hanson%27s_Block_Diagram)
-- Document: [6502-Block-Diagram.pdf](https://www.witwright.com/DonPub/6502-Block-Diagram.pdf)
-
-### W65C02S 8-bit Microprocessor
-- Source: [W65C02S 8-bit Microprocessor](https://www.westerndesigncenter.com/wdc/w65c02s-chip.php)
-- Document: [w65c02s.pdf](https://www.westerndesigncenter.com/wdc/documentation/w65c02s.pdf)
-
-### 2A03 Technical Reference (Brad Taylor)
-- Document: [2A03 technical reference.txt](https://www.nesdev.org/2A03%20technical%20reference.txt)
-
-### 6502 Colorized Block Diagram
-- Source: [6502 Colorized Block Diagram](http://forum.6502.org/viewtopic.php?t=1744)
-- Document: [6502-Block-Diagram-Colorized.png](http://i.imgur.com/BkZ9o.png)
-
-
+### Block Diagrams and Simulation:
+- **Hanson's Block Diagram:**
+  - File: [6502-Block-Diagram.pdf](https://www.nesdev.org/wiki/Visual6502wiki/Hanson's_Block_Diagram)
+- **6502 Colorized Block Diagram:**
+  - Source: [Link](http://forum.6502.org/viewtopic.php?t=1744)
+  - File: [6502-Block-Diagram-Colorized.png](http://i.imgur.com/BkZ9o.png)
+- **Visual Transistor-level Simulation of the 6502 CPU:**
+  - Link: [Visual Transistor-level Simulation of the 6502 CPU](http://www.visual6502.org)
 
 ## PPU: 2C02
 
 ### 2C02 Technical Reference (Brad Taylor)
-- Document: [NTSC 2C02 technical reference.txt](https://www.nesdev.org/2C02%20technical%20reference.txt)
+- File: [NTSC 2C02 technical reference.txt](https://www.nesdev.org/2C02%20technical%20reference.txt)
+
+
 
 ## SRAM: HM-6116
-- Document: [HM0-6116-2](https://www.alldatasheet.fr/datasheet-pdf/pdf/98517/ETC/HM-6116.html)
+- File: [HM0-6116-2](https://www.alldatasheet.fr/datasheet-pdf/pdf/98517/ETC/HM-6116.html)
 
-## Reference
+
+
+## Miscellaneous
 - Video: [Reverse Engineering the MOS 6502 CPU](https://youtu.be/fWqBmmPQP40)
 - Video: [Writing a 6502 in Verilog](https://youtube.com/playlist?list=PLGTIvEdBrUVnng1HLEQUlTR-3jaAZR2hH&si=uNh22q17pI4NQR0W)
-- Website: [Nintendo Entertainment System (NES) Architecture: Rodrigo Copetti](https://www.copetti.org/writings/consoles/nes/)
-- Website: [Nintendo Entertainment System (NES) Documentation: 8bitworkshop](https://8bitworkshop.com/docs/platforms/nes/)
-- Website: [Obelisk's 6502 Guide](https://www.nesdev.org/obelisk-6502-guide/)
-- Website: [Reconstruction of the MOS 6502 on the Cyclone II FPGA](https://www.cs.columbia.edu/~sedwards/classes/2013/4840/reports/6502.pdf)
+- Link: [Nintendo Entertainment System (NES) Architecture: Rodrigo Copetti](https://www.copetti.org/writings/consoles/nes/)
+- Link: [Nintendo Entertainment System (NES) Documentation: 8bitworkshop](https://8bitworkshop.com/docs/platforms/nes/)
+- Link: [Obelisk's 6502 Guide](https://www.nesdev.org/obelisk-6502-guide/)
+- Link: [Reconstruction of the MOS 6502 on the Cyclone II FPGA](https://www.cs.columbia.edu/~sedwards/classes/2013/4840/reports/6502.pdf)
