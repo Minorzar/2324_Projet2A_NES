@@ -17,6 +17,7 @@ architecture testbench of CPU_stack_pointer_tb is
 			i_s_hold		: in STD_LOGIC;
 			o_adl_bus	: out unsigned (7 downto 0);
 			io_s_bus		: inout unsigned (7 downto 0)
+		
 		);
 	
 	end component ;

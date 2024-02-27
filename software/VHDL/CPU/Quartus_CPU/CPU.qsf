@@ -60,7 +60,7 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH stack_pointer -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH adder_hold_register_testbench -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME xy_testbench -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id xy_testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME CPU_xy_register_tb -section_id xy_testbench
@@ -100,19 +100,24 @@ set_global_assignment -name VHDL_SHOW_LMF_MAPPING_MESSAGES OFF
 set_global_assignment -name EDA_TEST_BENCH_NAME ALU_testbench -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ALU_testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME CPU_ALU_tb -section_id ALU_testbench
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name VHDL_FILE ../testbench/CPU_a_input_register.vhd
 set_global_assignment -name EDA_TEST_BENCH_NAME a_input_register -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id a_input_register
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME CPU_a_input_register -section_id a_input_register
 set_global_assignment -name VHDL_FILE ../testbench/CPU_stack_pointer_tb.vhd
+set_global_assignment -name EDA_TEST_BENCH_NAME stack_pointer -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id stack_pointer
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME CPU_stack_pointer_tb -section_id stack_pointer
+set_global_assignment -name VHDL_FILE ../testbench/CPU_adder_hold_register_tb.vhd
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbench/CPU_xy_register_tb.vhd -section_id xy_testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbench/CPU_clock_generator_tb.vhd -section_id clock_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbench/CPU_address_bus_register_tb.vhd -section_id address_bus_register
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbench/CPU_ac_register_tb.vhd -section_id ac_register
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbench/CPU_ALU_tb.vhd -section_id ALU_testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbench/CPU_a_input_register.vhd -section_id a_input_register
-set_global_assignment -name EDA_TEST_BENCH_NAME stack_pointer -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id stack_pointer
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME CPU_stack_pointer_tb -section_id stack_pointer
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbench/CPU_stack_pointer_tb.vhd -section_id stack_pointer
+set_global_assignment -name EDA_TEST_BENCH_NAME adder_hold_register_testbench -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id adder_hold_register_testbench
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME CPU_adder_hold_register_tb -section_id adder_hold_register_testbench
+set_global_assignment -name EDA_TEST_BENCH_FILE ../testbench/CPU_adder_hold_register_tb.vhd -section_id adder_hold_register_testbench
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
