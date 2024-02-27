@@ -6,18 +6,39 @@ entity APU_length_counter is
 
 port(i_length_counter_en : in STD_LOGIC;
 	  i_frame_counter : in STD_LOGIC;
+	  i_clk : in STD_LOGIC;
 	  i_halt_flag : in STD_LOGIC;
 	  i_counter_load : in STD_LOGIC_VECTOR(4 DOWNTO 0);
-	  o_out_value : out STD_LOGIC_VECTOR(7 DOWNTO 0));
+	  o_enabler : out STD_LOGIC);
+	  
 
 end APU_length_counter;
-architecture length_counter of APU_length_counter is
 
+architecture length_counter of APU_length_counter is
+signal count_value : unsigned(7 DOWNTO 0);
 begin
 
+	process(i_clk)
+		begin
+			if rising_edge(i_clk) then
+				if (i_frame_counter = '1') then
+					if (i_length_counter_en = '1' and i_halt_flag = '1' and count_value /= "00000000") then
+						count_value <= count_value - "00000001";
+						-- o_enabler <= '1';
+						end if;
+						
+					if (i_length_counter_en = '1') then
+						count_value <= "00000000";
+						-- o_enabler <= '0';
+						end if;
+					end if;
+				end if;
+	end process;
+			
+		
 --Linear counter part--
 
-o_out_value <= "00011110" when i_counter_load = "11111" else
+count_value <= "00011110" when i_counter_load = "11111" else
 "00011100" when i_counter_load = "11101" else
 "00011010" when i_counter_load = "11011" else
 "00011000" when i_counter_load = "11001" else
