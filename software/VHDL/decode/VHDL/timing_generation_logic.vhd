@@ -13,11 +13,11 @@ entity timing_generation_logic is
 	port (
 		i_clk_1			: in std_logic;							-- Input clock signal
 		i_clk_2			: in std_logic;							-- Input clock signal
-		i_rc_rdy		: in std_logic;							-- Input ready signal from ready_control
-		i_pl_tzpre		: in std_logic;							-- Input signal from predecode_logic set high when the opcode is a two-cycle opcode 
+		i_rc_rdy		: in std_logic;							-- Input (active high) ready signal from ready_control
+		i_pl_tzpre		: in std_logic;							-- Input (active low) signal from predecode_logic set high when the opcode is a two-cycle opcode 
 		i_rcl_t_zero	: in std_logic;							-- Input signal from random_control_logic to reset timing registers
 		i_rcl_t_res_1	: in std_logic;							-- Input signal from random_control_logic to reset timing register 1
-		o_tgl_timing_n	: out std_logic_vector(5 downto 0);		-- Output main timing signals 0-5 (active low)
+		o_tgl_timing_n	: out std_logic_vector(5 downto 0);		-- Output (active low) main timing signals 0-5
 		o_tgl_fetch		: out std_logic;						-- Output signal indicating instruction fetch
 		o_tgl_sync		: out std_logic							-- Output signal indicating instruction synchronization
 	);
@@ -47,8 +47,8 @@ begin
 	o_tgl_fetch <= i_rc_rdy and s_sync_c2;						-- Output fetch signal
 
 	-- Reset conditions
-	s_t_reset(0) <= not (s_sync or (not i_rcl_t_zero and i_pl_tzpre));							-- Reset T0 signal
-	s_t_reset(1) <= s_timing_c2(0) and i_rc_rdy;												-- Reset T1 signal
+	s_t_reset(0) <= not (s_sync or (not i_rcl_t_zero and i_pl_tzpre));							-- Reset T0 signal (reset active low)
+	s_t_reset(1) <= s_timing_c2(0) and i_rc_rdy;												-- Reset T1 signal (reset active low)
 	s_t_reset(2) <= not ((s_timing_c2(2) and not i_rc_rdy) or (s_sync_c2 and i_rc_rdy));		-- Reset T2 signal
 	s_t_reset(3) <= not ((s_timing_c2(3) and not i_rc_rdy) or (s_timing_c2(2) and i_rc_rdy));	-- Reset T3 signal
 	s_t_reset(4) <= not ((s_timing_c2(4) and not i_rc_rdy) or (s_timing_c2(3) and i_rc_rdy));	-- Reset T4 signal

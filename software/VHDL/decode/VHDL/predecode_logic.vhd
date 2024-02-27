@@ -14,12 +14,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity predecode_logic is
 	port (
 		i_clk_1				: in std_logic;							-- Input clock signal
-		i_irc_aic			: in std_logic;							-- Input assert interrupt control signal from interrupt_and_reset_control
+		i_irc_aic			: in std_logic;							-- Input assert interrupt control signal from interrupt_and_reset_control (break in progress)
 		i_tgl_fetch			: in std_logic;							-- Input fetch signal from timing_generation_logic
 		i_pr_instruction	: in std_logic_vector(7 downto 0);		-- Input instruction from predecode_register
 		o_pl_instruction	: out std_logic_vector(7 downto 0);		-- Output predecoded instruction
-		o_pl_implied		: out std_logic;						-- Output signal indicating an opcode with implied addressing mode
-		o_pl_tzpre			: out std_logic							-- Output signal indicating a two-cycle opcode
+		o_pl_implied		: out std_logic;						-- Output signal (active high) indicating an opcode with implied addressing mode
+		o_pl_tzpre			: out std_logic							-- Output signal (active low) indicating a two-cycle opcode
 	);
 end predecode_logic;
 
@@ -179,8 +179,8 @@ begin
 			-- Implied addressing mode
 			o_pl_implied <= s_mask_xxxx10x0;
 
-			-- Two-cycle instruction flag
-			o_pl_tzpre <= (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
+			-- Two-cycle instruction flag (active low)
+			o_pl_tzpre <= not (s_mask_xxx010x1 or s_mask_1xx000x0 or (s_mask_xxxx10x0 and not s_mask_0xx01000));
 		end if;
 	end process;
 

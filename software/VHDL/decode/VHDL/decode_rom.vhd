@@ -23,7 +23,7 @@ architecture Behavioral of decode_rom is
 	signal s_pla129			: std_logic;							-- Internal signal to store PLA 129 output
 
 begin
-	process(i_ir_instruction, i_tgl_timing_n)
+	process(i_ir_instruction, i_tgl_timing_n, s_instruction10, s_pla129)
 	begin
 		-- Calculate intermediate signals based on the input instruction and timing
 		s_instruction10 <= i_ir_instruction(1) or i_ir_instruction(0);

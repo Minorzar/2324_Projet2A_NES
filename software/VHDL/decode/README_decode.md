@@ -44,6 +44,8 @@ The design architecture is structured around several key components:
   - File: [The 6502 Instruction Set Decoded.webarchive](https://llx.com/Neil/a2/opcodes.html)
 - **6502 Cycle Times:**
   - Link: [6502 Cycle Times](https://www.nesdev.org/wiki/6502_cycle_times)
+- **6502 Timing States:** 
+  - Link: [Visual6502wiki - 6502 Timing States](https://www.nesdev.org/wiki/Visual6502wiki/6502_Timing_States)
 - **Hanson's Block Diagram:**
   - File: [6502-Block-Diagram.pdf](https://www.nesdev.org/wiki/Visual6502wiki/Hanson's_Block_Diagram)
 - **Visual Transistor-level Simulation of the 6502 CPU:**

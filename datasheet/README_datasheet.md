@@ -35,8 +35,11 @@
   - File: [The 6502 Instruction Set Decoded.webarchive](https://llx.com/Neil/a2/opcodes.html)
 - **CPU Unofficial Opcodes:**
   - Link: [Wiki](https://www.nesdev.org/wiki/CPU_unofficial_opcodes)
+### CPU Timing States:
 - **6502 Cycle Times:**
   - Link: [6502 Cycle Times](https://www.nesdev.org/wiki/6502_cycle_times)
+- **6502 Timing States:** 
+  - Link: [Visual6502wiki - 6502 Timing States](https://www.nesdev.org/wiki/Visual6502wiki/6502_Timing_States)
 
 ### Block Diagrams and Simulation:
 - **Hanson's Block Diagram:**
