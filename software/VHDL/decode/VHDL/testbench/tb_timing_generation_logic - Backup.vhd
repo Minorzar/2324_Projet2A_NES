@@ -56,10 +56,38 @@ begin
 	-- Stimulus process
 	process
 	begin
-		-- Reset
+		wait for CLK_PERIOD;
+
+		t_rc_rdy		<= '0';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		
+		-- Reset T2-T5
 		t_rc_rdy		<= '0';
 		t_pl_tzpre		<= '0';
 		t_rcl_t_zero	<= '1';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+
+		-- T1
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+
+		-- T2
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '1';
+		wait for CLK_PERIOD;
+
+		t_rc_rdy		<= '0';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
 		t_rcl_t_res_1	<= '0';
 		wait for CLK_PERIOD;
 

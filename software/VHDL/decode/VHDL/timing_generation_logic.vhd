@@ -47,8 +47,8 @@ begin
 	o_tgl_fetch <= i_rc_rdy and s_sync_c2;						-- Output fetch signal
 
 	-- Reset conditions
-	s_t_reset(0) <= not (s_sync or (not i_rcl_t_zero and i_pl_tzpre));							-- Reset T0 signal (reset active low)
-	s_t_reset(1) <= s_timing_c2(0) and i_rc_rdy;												-- Reset T1 signal (reset active low)
+	s_t_reset(0) <= not (s_sync or (not i_rcl_t_zero and i_pl_tzpre));							-- Reset T0 signal
+	s_t_reset(1) <= s_timing_c2(0) and i_rc_rdy;												-- Reset T1 signal
 	s_t_reset(2) <= not ((s_timing_c2(2) and not i_rc_rdy) or (s_sync_c2 and i_rc_rdy));		-- Reset T2 signal
 	s_t_reset(3) <= not ((s_timing_c2(3) and not i_rc_rdy) or (s_timing_c2(2) and i_rc_rdy));	-- Reset T3 signal
 	s_t_reset(4) <= not ((s_timing_c2(4) and not i_rc_rdy) or (s_timing_c2(3) and i_rc_rdy));	-- Reset T4 signal
