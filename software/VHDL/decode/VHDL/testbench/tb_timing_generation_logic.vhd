@@ -56,14 +56,120 @@ begin
 	-- Stimulus process
 	process
 	begin
+		-- UUUUUU
+
 		-- Reset
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '1';
+
+		wait for CLK_PERIOD;
+		-- 1111UU
+
 		t_rc_rdy		<= '0';
 		t_pl_tzpre		<= '0';
 		t_rcl_t_zero	<= '1';
-		t_rcl_t_res_1	<= '0';
+		t_rcl_t_res_1	<= '1';
+
 		wait for CLK_PERIOD;
+		-- 111110
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+
+		wait for CLK_PERIOD;
+		-- 111101
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '1';
+
+		wait for CLK_PERIOD;
+		-- 111010
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+
+		wait for CLK_PERIOD/2;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '1';
+
+		wait for CLK_PERIOD/2;
+		-- 110100
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+
+		wait for CLK_PERIOD/2;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '1';
+
+		wait for CLK_PERIOD/2;
+		-- 101100
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+
+		wait for CLK_PERIOD/2;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '1';
+
+		wait for CLK_PERIOD/2;
+		-- 011001
+
+
+
+		-- Reset
+		wait for CLK_PERIOD;
+		t_rc_rdy		<= '0';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '1';
+		t_rcl_t_res_1	<= '1';
+		-- 111111
+
+		wait for CLK_PERIOD;
+		-- 111110
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+
+		wait for CLK_PERIOD;
+		-- 111101
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '1';
 
 		wait;
+		-- 111011
+		-- 110011
+		-- 100011
+		-- 000011
+		-- 000011
+		-- ...
+
 	end process;
 
 end Behavioral;
