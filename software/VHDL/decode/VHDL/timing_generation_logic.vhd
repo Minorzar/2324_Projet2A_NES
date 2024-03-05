@@ -69,9 +69,9 @@ begin
 	end process;
 
 	-- Latch timing signals on clk_2
-	process (i_clk_2)
+	process (i_clk_2, s_timing_n)
 	begin
-		if rising_edge(i_clk_2) then
+		if i_clk_2 = '1' then
 			s_timing_c2 <= not s_timing_n;	-- Latch timing signals on clk_2 with opposite sign
 			s_sync_c2 <= s_sync;			-- Synchronization signal for clk_2
 		end if;

@@ -80,7 +80,14 @@ begin
 		t_rcl_t_zero	<= '0';
 		t_rcl_t_res_1	<= '0';
 
-		wait for CLK_PERIOD;
+		wait for CLK_PERIOD/2;
+
+		t_rc_rdy		<= '0';
+		t_pl_tzpre		<= '0';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '1';
+
+		wait for CLK_PERIOD/2;
 		-- 111101
 
 		t_rc_rdy		<= '1';
@@ -162,13 +169,11 @@ begin
 		t_rcl_t_zero	<= '0';
 		t_rcl_t_res_1	<= '1';
 
-		wait;
+		wait for CLK_PERIOD*4;
 		-- 111011
 		-- 110011
 		-- 100011
 		-- 000011
-		-- 000011
-		-- ...
 
 	end process;
 
