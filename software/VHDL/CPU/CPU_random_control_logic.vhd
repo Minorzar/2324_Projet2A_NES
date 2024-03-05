@@ -71,15 +71,17 @@ entity CPU_random_control_logic is
 		o_p_to_db: out STD_LOGIC;
 		o_db0_to_c: out STD_LOGIC;
 		o_ir5_to_c: out STD_LOGIC;
-		o_acr_to_c: out STD_LOGIC;
+		b_acr_to_c: buffer STD_LOGIC;
 		o_db1_to_z: out STD_LOGIC;
-		o_dbz_to_z: out STD_LOGIC;
+		b_dbz_to_z: buffer STD_LOGIC;
 		o_db2_to_i: out STD_LOGIC;
 		o_ir5_to_i: out STD_LOGIC;
 		o_db3_to_d: out STD_LOGIC;
 		o_ir5_to_d: out STD_LOGIC;
 		o_db6_to_v: out STD_LOGIC;
 		o_avr_to_v: out STD_LOGIC;
+		o_0_to_v: out STD_LOGIC;
+		o_1_to_v: out STD_LOGIC;
 		o_i_to_v: out STD_LOGIC;
 		o_db7_to_n:out STD_LOGIC;
 		b_t1_reset:buffer STD_LOGIC;
@@ -87,6 +89,24 @@ entity CPU_random_control_logic is
 end CPU_random_control_logic;
 
 architecture Behavioral of CPU_random_control_logic is
+signal br_taken: STD_LOGIC;
+signal op_mem: STD_LOGIC;
+signal store: STD_LOGIC;
+signal op_ands: STD_LOGIC;
+signal z_test: STD_LOGIC;
+signal short_circuit_branch_add: STD_LOGIC;
+signal short_circuit: STD_LOGIC;
+signal stack_op_rdy: STD_LOGIC;
+signal bb_or_cpxy_or_inxy: STD_LOGIC;
+signal pre_adl_to_add: STD_LOGIC; 
+signal pre_db_bar_to_add: STD_LOGIC;
+signal adh_math: STD_LOGIC;
+signal pre_add_sb06: STD_LOGIC;
+signal inc_sb: STD_LOGIC;
+signal alu_cout_held_if_not_rdy: STD_LOGIC;
+signal dl_to_pch: STD_LOGIC;
+signal srs: STD_LOGIC;
+signal db_to_p: STD_LOGIC;
 
 signal reg_adh_to_pch: STD_LOGIC;
 signal reg_sb_to_adh: STD_LOGIC;
@@ -109,6 +129,7 @@ signal reg_t1_reset: STD_LOGIC;
 signal reg_pre_fetch: STD_LOGIC;
 signal reg_branch_back: STD_LOGIC;
 signal reg_branch_back_delayed: STD_LOGIC;
+signal reg_short_circuit_branch_add: STD_LOGIC;
 signal reg_t2_br: STD_LOGIC;
 signal reg_short_circuit: STD_LOGIC;
 signal reg_short_circuit_hold: STD_LOGIC;
@@ -116,6 +137,21 @@ signal reg_bb_or_cpxy_or_inxy: STD_LOGIC;
 signal reg_return_and_adl_add: STD_LOGIC;
 signal reg_inc_sb: STD_LOGIC;
 signal reg_c_set: STD_LOGIC;
+signal reg_alu_cout_held_if_not_rdy: STD_LOGIC;
+signal reg_alu_cout_held_if_not_rdy_delayed: STD_LOGIC;
+signal reg_need_sb7: STD_LOGIC;
+signal reg_need_sb7_delayed: STD_LOGIC;
+signal reg_carry_flag: STD_LOGIC;
+signal reg_rdy_srs: STD_LOGIC;
+signal reg_srs: STD_LOGIC;
+signal reg_srs_delayed: STD_LOGIC;
+signal reg_pd_load: STD_LOGIC;
+signal reg_pla_109: STD_LOGIC;
+signal reg_pla_113: STD_LOGIC;
+signal reg_mem_write: STD_LOGIC;
+signal reg_set_overflow: STD_LOGIC;
+signal reg_set_overflow_delayed: STD_LOGIC;
+signal reg_set_overflow_delayed_again: STD_LOGIC;
 signal reg_adl_to_pcl: STD_LOGIC;
 signal reg_pcl_to_adl: STD_LOGIC;
 signal reg_pcl_to_pcl: STD_LOGIC;
@@ -141,20 +177,25 @@ signal reg_or_select: STD_LOGIC;
 signal reg_shift_right_select: STD_LOGIC;
 signal reg_sum_select: STD_LOGIC;
 
-variable br_taken: STD_LOGIC:= not i_ir5 xor (( i_dr(121) and not i_dr(126) and i_p_register(0)) or ( not i_dr(121) and not i_dr(126) and i_p_register(1)) or (i_dr(121) and i_dr(126) and i_p_register(7)) or (not i_dr(121) and i_dr(126) and i_p_register(6)));
-variable op_mem: STD_LOGIC:= i_dr(111) or i_dr(122) or i_dr(123) or i_dr(124) or i_dr(125);
-variable store: STD_LOGIC:= i_dr(97) and op_mem;
-variable op_ands: STD_LOGIC:= i_dr(69) or i_dr(70);
-variable z_test: STD_LOGIC:= (i_dr(14) or i_dr(15) or i_dr(16) or i_dr(18) or i_dr(19) or i_dr(20)or i_dr(58) or i_dr(59) or i_dr(60) or i_dr(61) or i_dr(62) or i_dr(63) or i_dr(64) or op_ands or reg_shift_inc_dec_mem_rdy_delayed);
-variable short_circuit: STD_LOGIC:= i_dr(100) or i_dr(101) or i_dr(102) or i_dr(103) or i_dr(104) or i_dr(105) or reg_shift_inc_dec_mem_rdy_delayed or (op_mem and not(i_dr(106) or i_dr(107)) and not i_dr(96));
-variable stack_op_rdy: STD_LOGIC:= reg_rdy_phi1 and (i_dr(21) or i_dr(22) or i_dr(23) or i_dr(24) or i_dr(25) or i_dr(26));
-variable bb_or_cpxy_or_inxy: STD_LOGIC:= i_dr(49) or i_dr(50) or (not reg_branch_back and i_dr(93));
-variable pre_adl_to_add: STD_LOGIC:= (i_dr(33) and not i_dr(34)) or i_dr(35) or i_dr(36) or i_dr(37) or i_dr(38) or i_dr(39) or not i_rdy;
-variable pre_db_bar_to_add: STD_LOGIC:= i_rdy and (i_dr(51) or i_dr(56) or bb_or_cpxy_or_inxy);
-variable adh_math: STD_LOGIC:= i_dr(71) or i_dr(72) or i_dr(73);
-variable pre_add_sb06: STD_LOGIC:= adh_math or reg_t1_reset or reg_shift_inc_dec_mem_rdy_delayed or i_dr(56) or stack_op_rdy;
-
 begin
+	br_taken <= not i_ir5 xor (( i_dr(121) and not i_dr(126) and i_p_register(0)) or ( not i_dr(121) and not i_dr(126) and i_p_register(1)) or (i_dr(121) and i_dr(126) and i_p_register(7)) or (not i_dr(121) and i_dr(126) and i_p_register(6)));
+	op_mem <= i_dr(111) or i_dr(122) or i_dr(123) or i_dr(124) or i_dr(125);
+	store <= i_dr(97) and op_mem;
+	op_ands<= i_dr(69) or i_dr(70);
+	z_test <= (i_dr(14) or i_dr(15) or i_dr(16) or i_dr(18) or i_dr(19) or i_dr(20)or i_dr(58) or i_dr(59) or i_dr(60) or i_dr(61) or i_dr(62) or i_dr(63) or i_dr(64) or op_ands or reg_shift_inc_dec_mem_rdy_delayed);
+	short_circuit_branch_add <= reg_op_t3_branch_rdy and (i_alu_carry_out or reg_branch_back) and not (i_alu_carry_out and reg_branch_back);
+	short_circuit <= short_circuit_branch_add or reg_short_circuit_hold;
+	stack_op_rdy <= reg_rdy_phi1 and (i_dr(21) or i_dr(22) or i_dr(23) or i_dr(24) or i_dr(25) or i_dr(26));
+	bb_or_cpxy_or_inxy <= i_dr(49) or i_dr(50) or (not reg_branch_back and i_dr(93));
+	pre_adl_to_add <= (i_dr(33) and not i_dr(34)) or i_dr(35) or i_dr(36) or i_dr(37) or i_dr(38) or i_dr(39) or not i_rdy;
+	pre_db_bar_to_add <= i_rdy and (i_dr(51) or i_dr(56) or bb_or_cpxy_or_inxy);
+	adh_math <= i_dr(71) or i_dr(72) or i_dr(73);
+	pre_add_sb06 <= adh_math or reg_t1_reset or reg_shift_inc_dec_mem_rdy_delayed or i_dr(56) or stack_op_rdy;
+	inc_sb <= i_dr(39) or i_dr(40) or i_dr(41) or i_dr(42) or i_dr(43) or (i_dr(44) and reg_shift_inc_dec_mem);
+	alu_cout_held_if_not_rdy <= not( i_alu_carry_out and reg_rdy_phi1_delayed) or (reg_rdy_phi1_delayed and reg_alu_cout_held_if_not_rdy_delayed);
+	dl_to_pch <= i_t0 and (i_dr(94) or i_dr(95) or i_dr(96));
+	srs <= i_dr(75) or (reg_shift_inc_dec_mem and i_dr(76));
+	db_to_p <= i_rdy and reg_pd_load;
 	
 	process(i_clk)
 	begin
@@ -164,18 +205,28 @@ begin
 				reg_rdy_phi2_delayed <= reg_rdy_phi2;
 				reg_shift_inc_dec_mem <= reg_op_shift_inc_dec_mem or (not i_rdy and reg_shift_inc_dec_mem_delayed);
 				reg_shift_inc_dec_mem_rdy_delayed <= reg_shift_inc_dec_mem_rdy;
+				reg_alu_cout_held_if_not_rdy <= alu_cout_held_if_not_rdy;
 				reg_pcl_to_db <= b_pch_to_db and i_rdy;
-				reg_t1_reset <= b_t1_reset
+				reg_t1_reset <= b_t1_reset;
 				if reg_branch_back_delayed = 'X' then
 					reg_branch_back <= '1';
 				else
 					reg_branch_back <= (i_db7 or not reg_t2_br) and (reg_branch_back_delayed or reg_t2_br);
 				end if;
 				reg_short_circuit <= short_circuit;
+				if reg_need_sb7_delayed = 'X' then
+					reg_need_sb7 <= '0';
+				else
+					reg_need_sb7 <= (not reg_carry_flag and reg_rdy_srs) or (not reg_rdy_srs and reg_need_sb7_delayed);
+				end if;
+				reg_srs_delayed <= reg_srs;
+				reg_set_overflow <= i_set_overflow;
+				reg_set_overflow_delayed_again <= reg_set_overflow_delayed;
 				o_and_select <= reg_and_select;
 				o_eor_select <= reg_eor_select;
 				o_or_select <= reg_or_select;
 				o_sum_select <= reg_sum_select;
+				o_read_write <= not (reg_mem_write and i_rdy and not i_reset_in_progress);
 				
 			else
 				reg_rdy_phi2 <= i_rdy;
@@ -183,15 +234,23 @@ begin
 				reg_ind_y_or_abs_idx <= not (i_dr(91) or i_dr(92));
 				reg_shift_inc_dec_mem_rdy <= reg_shift_inc_dec_mem and i_rdy;
 				reg_op_shift_inc_dec_mem <= i_rdy and (i_dr(106) or i_dr(107)) and (i_dr(111) or i_dr(122) or i_dr(123) or i_dr(124) or i_dr(125));
-				reg_force_t_res_x <= i_reset or pre_fetch_rdy or (i_rdy and short_circuit);
+				reg_force_t_res_x <= i_reset or (reg_pre_fetch and not reg_reset) or (i_rdy and short_circuit);
 				reg_reset <= i_reset;
-				reg_pre_fetch <= hold_sync or (i_rdy and (i_t0 or t2_br_taken));
+				reg_pre_fetch <= (not i_rdy and reg_t1_reset) or (i_rdy and (i_t0 or (not br_taken and i_dr(80))));
 				reg_t2_br <= i_dr(80);
 				reg_short_circuit_hold <= not (reg_rdy_phi1 or not i_reset or not reg_short_circuit);
 				reg_op_t3_branch_rdy <= i_dr(93) and reg_rdy_phi1_delayed;
 				reg_bb_or_cpxy_or_inxy <= bb_or_cpxy_or_inxy;
 				reg_return_and_adl_add <= i_dr(47) and pre_adl_to_add;
 				reg_c_set <= i_dr(54) or (i_p_register(0) and (reg_shift_inc_dec_mem or i_t0) and (i_dr(52) or i_dr(53)));
+				reg_alu_cout_held_if_not_rdy_delayed <= reg_alu_cout_held_if_not_rdy;
+				reg_srs <= srs;
+				reg_rdy_srs <= reg_rdy_phi1 and srs;
+				reg_pd_load <= i_dr(114) or i_dr(115);
+				reg_pla_109 <= i_dr(109);
+				reg_pla_113 <= i_dr(113);
+				reg_set_overflow_delayed <= reg_set_overflow;
+				reg_mem_write <= reg_shift_inc_dec_mem or reg_shift_inc_dec_mem_rdy_delayed or i_dr(98) or i_dr(100) or store or i_dr(77) or i_dr(78) or reg_pcl_to_db;
 				reg_o_to_add <= stack_op_rdy  or i_break_done or inc_sb or not i_rdy or i_dr(30)or i_dr(31) or i_dr(45) or i_dr(47) or i_dr(48);
 				reg_adl_to_pcl <= (i_dr(93) and i_phi1) or i_dr(84) or i_t0 or not reg_pcl_to_adl;
 				reg_adh_to_pch <= i_t0 or reg_sync or i_dr(80) or i_dr(83) or i_dr(84) or i_dr(93);
@@ -215,25 +274,29 @@ begin
 				o_dl_to_adl <= i_dr(81) or i_dr(82);
 				o_dl_to_adh <= (i_t0 and (i_dr(94) or i_dr(95) or i_dr(96))) or i_dr(84) or i_dr(89) or i_dr(90) or i_dr(91);
 				o_sb_to_adh <= adh_math or i_dr(93);
-				o_adh_to_abh <= ((((i_dr(28) or i_dr(56) or i_dr(84) or i_dr(89) or i_dr(90) or i_dr(91) or reg_adh_to_pch) and i_rdy) or (reg_rdy_phi1 and alu_cout_held_if_not_rdy and reg_sb_to_adh))and not i_dr(93)) or zero_adl0;
+				o_adh_to_abh <= ((((i_dr(28) or i_dr(56) or i_dr(84) or i_dr(89) or i_dr(90) or i_dr(91) or reg_adh_to_pch) and i_rdy) or (reg_rdy_phi1 and alu_cout_held_if_not_rdy and reg_sb_to_adh))and not i_dr(93)) or i_zero_adl0;
 				o_adl_to_abl <= not (i_dr(71) or i_dr(72) or not i_rdy)  and not ( reg_shift_inc_dec_mem or reg_shift_inc_dec_mem_rdy_delayed);
 				o_pcl_to_adl <= reg_pcl_to_adl;
-				o_pch_to_adh <= i_dr(93) or not(reg_pcl_adl or (i_t0 and (i_dr(94) or i_dr(95) or i_dr(96))) or (rdy_phi2_delayed and i_dr(73)));
+				o_pch_to_adh <= i_dr(93) or not(reg_pcl_to_adl or (i_t0 and (i_dr(94) or i_dr(95) or i_dr(96))) or (reg_rdy_phi2_delayed and i_dr(73)));
 				b_pch_to_db <= i_dr(77) or i_dr(78);
 				o_pcl_to_db <= reg_pcl_to_db;
 				o_sb_to_db <= i_dr(48) or ((store and i_dr(0)) or (store and i_dr(12))) or i_dr(67) or i_dr(80) or (reg_shift_inc_dec_mem and i_dr(55)) or (z_test and not op_ands) or reg_t1_reset;
 				o_s_to_adl <= i_dr(35) or (reg_rdy_phi1 and i_dr(21));
-				o_add_to_adl <= not ( adh_math or not(i_dr(26) or i_dr(84) or i_dr(85) or i_dr(86) or i_dr(87) or i_dr(88) or i_dr(89)))
+				o_add_to_adl <= not ( adh_math or not(i_dr(26) or i_dr(84) or i_dr(85) or i_dr(86) or i_dr(87) or i_dr(88) or i_dr(89)));
+				o_add_to_sb_7 <= pre_add_sb06 and (reg_need_sb7 or reg_srs_delayed or not i_dr(27));
+				b_acr_to_c <= i_dr(112) or i_dr(116) or i_dr(117) or i_dr(118) or i_dr(119) or (i_dr(107) and reg_shift_inc_dec_mem_delayed);
+				o_1_to_v <= not( reg_set_overflow or not reg_set_overflow_delayed_again);
+				o_0_to_v <= i_dr(127);
 			end if;
 		end if;
 	end process;
+	
 	o_adh_to_pch <= reg_adh_to_pch and i_phi1;
 	o_pch_to_pch <= (not reg_adh_to_pch) and i_phi1;
-	o_adl_pcl <= reg_adl_to_pcl and i_phi1;
+	o_adl_to_pcl <= reg_adl_to_pcl and i_phi1;
 	o_pcl_to_pcl <= (not reg_adl_to_pcl) and i_phi1;
 	reg_pcl_to_adl <= i_dr(56) or i_dr(80) or i_dr(83) or (i_t0 and (not reg_rdy_phi1) and not (i_dr(94) or i_dr(95) or i_dr(96))) or reg_t1_reset;
-	reg_dl_to_pch <= i_t0 and (i_dr(94) or i_dr(95) or i_dr(96));
-	o_i_to_pc <= (reg_i_to_pc and reg_break_in_progess) or (reg_break_in_progess and reg_short_circuit_branch_add);
+	o_i_to_pc <= (reg_i_to_pc and reg_break_in_progress) or (reg_break_in_progress and reg_short_circuit_branch_add);
 	o_sb_to_ac <= reg_sb_to_ac and i_phi1;
 	o_ac_to_db <= reg_ac_to_db and i_phi1;
 	o_ac_to_sb <= reg_ac_to_sb and i_phi1;
@@ -249,4 +312,11 @@ begin
 	o_db_to_add <= reg_db_to_add and i_phi1;
 	o_o_to_add <= reg_o_to_add and i_phi1;
 	o_sb_to_add <= not reg_o_to_add and i_phi1;
+	o_db0_to_c <= db_to_p;
+	o_db1_to_z <= db_to_p;
+	o_db2_to_i <= db_to_p;
+	o_db7_to_n <= not( reg_pla_109 or (not b_dbz_to_z and not reg_pd_load));
+	b_dbz_to_z <= z_test or i_dr(109) or b_acr_to_c;
+	o_ir5_to_d <= i_dr(120);
+	o_db6_to_v <= reg_pd_load or reg_pla_113;
 end Behavioral;
