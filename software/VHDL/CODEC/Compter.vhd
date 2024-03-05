@@ -7,7 +7,7 @@ port (
     MCLK: in std_logic;
     DACLRCK: out std_logic;
     BCLK: out std_logic;
-    EN : out std_logic;
+    EN : out std_logic
 );
 end Compter;
 

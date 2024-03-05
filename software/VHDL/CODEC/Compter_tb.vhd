@@ -30,7 +30,7 @@ begin
             
             Mclk <= not Mclk;
 
-
+            
         end loop; 
             finished <= true;
             wait
