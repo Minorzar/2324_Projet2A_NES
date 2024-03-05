@@ -59,9 +59,9 @@ begin
 	s_t0 <= s_t_reset(0) or (s_timing_c2(0) and not s_t0_c2_rdy);	-- Generate T0 signal
 
 	-- Latch timing signals on clk_1
-	process (i_clk_1)
+	process (i_clk_1, i_rcl_t_res_1, s_t_reset)
 	begin
-		if rising_edge(i_clk_1) then
+		if i_clk_1 = '1' then
 			s_sync <= i_rcl_t_res_1;		-- Update synchronization signal with the value from random_control_logic
 			s_t_reset_c1 <= s_t_reset;		-- Update individual timing signal resets on clk_1
 			o_tgl_sync <= s_sync;			-- Output synchronization signal
