@@ -1,7 +1,7 @@
 @SOME good point about the FPGA use and its codec
 
 Name codec : WM8731
-
+	
 Search about WM8731 use in Quartus Tuto 
 16 register of 16 bit !!!
 
