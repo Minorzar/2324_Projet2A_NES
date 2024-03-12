@@ -10,7 +10,7 @@ end tb_decode_rom;
 
 architecture Behavioral of tb_decode_rom is
 	-- Constants
-	constant CLK_PERIOD			: time := 200 ps;					-- Clock period
+	constant CLK_PERIOD			: time := 100 ps;					-- Clock period
 
 	-- Signals
 	signal t_ir_instruction		: std_logic_vector(7 downto 0);		-- Input instruction from instruction_register
@@ -25,7 +25,7 @@ architecture Behavioral of tb_decode_rom is
 		1 => "UUU100U1"
 	);
 	constant Timings : TimingArray := (
-		0 => "000001",
+		0 => "UUUUUU",
 		1 => "UU0UUU"
 	);
 
@@ -48,10 +48,11 @@ begin
 			-- Send timing
 			t_tgl_timing_n <= Timings(i);
 
+			wait for CLK_PERIOD;
+
 			-- Check output and raise assertion if not expected
 			assert t_dr_pla(i) = '1' report "Output mismatch at index " & integer'image(i) severity error;
 
-			wait for CLK_PERIOD;
 		end loop;
 		wait;
 	end process;
