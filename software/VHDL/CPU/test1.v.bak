@@ -1,9 +1,0 @@
-module test1(in1, vect, out);
-
-input in1;
-input [1:0] vect;
-output out;
-
-assign out = in1 or vect;
-
-endmodule
