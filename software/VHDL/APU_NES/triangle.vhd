@@ -4,28 +4,30 @@ use IEEE.NUMERIC_STD.all;
 
 entity triangle is 
 
-	port( i_en_seq :in STD_LOGIC;
-			i_reset :in STD_LOGIC;
-			i_clk :in STD_LOGIC;
-			i_linear_counter:in STD_LOGIC;
-			i_length_counter:in STD_LOGIC;
-			o_level :out STD_LOGIC_VECTOR(3 DOWNTO 0));
+	port( 
+			i_en_seq        :	in STD_LOGIC;
+			i_reset         :	in STD_LOGIC;
+			i_clk    		 :	in STD_LOGIC;
+			i_linear_counter:	in STD_LOGIC;
+			i_length_counter:	in STD_LOGIC;
+			o_level         :	out STD_LOGIC_VECTOR(3 DOWNTO 0));
 			
 end triangle;
 
 architecture sequencer of triangle is
-signal reg_step : unsigned(4 DOWNTO 0);
+signal reg_step : unsigned(4 DOWNTO 0) := "10000";
 begin
 	
 	process(i_clk)
-	begin
+	begin	
 		if rising_edge(i_clk) then
-		if (i_linear_counter = '1' and i_length_counter = '1' and i_en_seq = '1') then
-		reg_step <= reg_step + "00001";
-		else reg_step <= "00000";
+			if (i_linear_counter = '1' and i_length_counter = '1' and i_en_seq = '1') then
+				reg_step <= reg_step + "00001";
+			else 
+				reg_step <= "10000";
+			end if;
 		end if;
-		end if;
-		end process;
+	end process;
 
 	o_level <= "1111" when reg_step = "00000" or reg_step = "11111" else
 	"1110" when reg_step = "00001" or reg_step = "11110" else
