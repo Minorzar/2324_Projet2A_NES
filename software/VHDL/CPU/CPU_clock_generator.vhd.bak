@@ -1,9 +1,0 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-
-entity CPU_clock_generator is
-	Port(
-		i_clk: in STD_LOGIC;
-		o_phi1: in STD_LOGIC;
-		o_phi2: in STD_LOGIC;
