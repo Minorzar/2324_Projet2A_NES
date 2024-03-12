@@ -4,3 +4,5 @@
 **/simulation/
 **/db/
 !**/.git/objects/db/
+**/*.bak
+**/NEScartridge-backups

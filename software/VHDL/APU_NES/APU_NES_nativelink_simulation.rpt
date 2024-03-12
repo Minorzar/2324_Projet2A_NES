@@ -19,6 +19,9 @@ Sim dir               :  simulation\questa
 
 Info: Starting NativeLink simulation with Questa Intel FPGA software
 Sourced NativeLink script e:/intel/quartus/common/tcl/internal/nativelink/modelsim.tcl
+<<<<<<< HEAD
 Warning: File APU_NES_run_msim_rtl_vhdl.do already exists - backing up current file as APU_NES_run_msim_rtl_vhdl.do.bak1
+=======
+>>>>>>> 1f0a1e8cc651d2bc980006d2b129c9154cd89ee0
 Info: Spawning Questa Intel FPGA Simulation software 
 Info: NativeLink simulation flow was successful
