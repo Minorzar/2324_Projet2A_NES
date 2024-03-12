@@ -13,11 +13,11 @@ entity timing_generation_logic is
 	port (
 		i_clk_1			: in std_logic;							-- Input clock signal
 		i_clk_2			: in std_logic;							-- Input clock signal
-		i_rc_rdy		: in std_logic;							-- Input (active high) ready signal from ready_control
-		i_pl_tzpre		: in std_logic;							-- Input (active low) signal from predecode_logic set high when the opcode is a two-cycle opcode 
+		i_rc_rdy		: in std_logic;							-- Input ready signal from ready_control (active low)
+		i_pl_tzpre		: in std_logic;							-- Input signal from predecode_logic set high when the opcode is a two-cycle opcode (active low)
 		i_rcl_t_zero	: in std_logic;							-- Input signal from random_control_logic to reset timing registers
 		i_rcl_t_res_1	: in std_logic;							-- Input signal from random_control_logic to reset timing register 1
-		o_tgl_timing_n	: out std_logic_vector(5 downto 0);		-- Output (active low) main timing signals 0-5
+		o_tgl_timing_n	: out std_logic_vector(5 downto 0);		-- Output signal indicating T-n value (active low)
 		o_tgl_fetch		: out std_logic;						-- Output signal indicating instruction fetch
 		o_tgl_sync		: out std_logic							-- Output signal indicating instruction synchronization
 	);
