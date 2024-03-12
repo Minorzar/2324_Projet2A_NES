@@ -60,6 +60,8 @@ entity PPU is
 
         signal s_in_AD : unsigned(7 downto 0);
         signal s_out_AD : unsigned (7 downto 0);
+        
+        signal full_reset_count : integer;
 
 
     begin 
@@ -70,6 +72,12 @@ entity PPU is
         reset :process(RST_n) is
         begin 
         if (rising_edge(RST_n)) then
+            full_reset_count<=0;
+             REG_PPU(0)<="10000000"; -- PPUCTRL
+             REG_PPU(1)<="00000000"; -- PPUMASK
+             REG_PPU(5)<="00000000"; -- PPUSCROLL
+            while loop
+            end loop;
              REG_PPU(0)<="00000000"; -- PPUCTRL
              REG_PPU(1)<="00000000"; -- PPUMASK
              REG_PPU(5)<="00000000"; -- PPUSCROLL

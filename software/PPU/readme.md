@@ -220,7 +220,7 @@ REGISTER
 
             FOR PPUSCROLL (0x2005)  
 
-                0-7 : fine scroll position (two writes X pos Y pos)
+                0-7 : fine scroll position (two writes X pos Y pos) AKA the position of the camera on the screen
 
 
             FOR PPUADDR (0x2006)  
