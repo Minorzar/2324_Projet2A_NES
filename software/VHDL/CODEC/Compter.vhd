@@ -23,12 +23,12 @@ process(MCLK)
         if(rising_edge(MCLK)) then
 
             cpt=cpt+1;
-            
+            EN<=0;
             DACLRCK<=cpt[2];
             BCLK<=cpt[4];
 
             if (cpt[2]==cpt[4]==0)then
-                EN<=0; 
+                EN<=1; 
             end if; 
 
         end if; 
