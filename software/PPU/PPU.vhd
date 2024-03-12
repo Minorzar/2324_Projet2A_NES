@@ -22,8 +22,8 @@ entity PPU is
     AD : inout unsigned(7 downto 0); -- data or information inout with PPU's BUS
     -- / link to the CHR data BUS
     
-    EXT : in unsigned(3 downto 0); 
-    A_CPU : in unsigned(2 downto 0); -- address exchange with CPU 
+    EXT : inout unsigned(3 downto 0); 
+    i_A_CPU : in unsigned(2 downto 0); -- address exchange with CPU 
     A_PPU : out unsigned(5 downto 0);-- / link to the CHR Add BUS
 
 
@@ -46,7 +46,43 @@ entity PPU is
 
 
     architecture PPU_rft of PPU is 
+        subtype word_8 is unsigned(7 downto 0);
 
+        type REG_PPU is array(0 to 7) of word_8;
+        signal REG: REG_PPU; 
+
+        type OAM_PPU is array(0 to 64*4) of word_8;
+        signal OAM: OAM_PPU;
+
+        --Set up to use the inout of  AD and D 
+        signal s_in_D : unsigned(7 downto 0);
+        signal s_out_D : unsigned(7 downto 0);
+
+        signal s_in_AD : unsigned(7 downto 0);
+        signal s_out_AD : unsigned (7 downto 0);
+        
+        signal full_reset_count : integer;
+
+
+    begin 
+        normal :process(clk) is
+        begin 
+        end process normal;
+
+        reset :process(RST_n) is
+        begin 
+        if (rising_edge(RST_n)) then
+            full_reset_count<=0;
+             REG_PPU(0)<="10000000"; -- PPUCTRL
+             REG_PPU(1)<="00000000"; -- PPUMASK
+             REG_PPU(5)<="00000000"; -- PPUSCROLL
+            while loop
+            end loop;
+             REG_PPU(0)<="00000000"; -- PPUCTRL
+             REG_PPU(1)<="00000000"; -- PPUMASK
+             REG_PPU(5)<="00000000"; -- PPUSCROLL
+        end if;
+        end process reset;
 
     end PPU_rft;
 
