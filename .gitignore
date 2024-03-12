@@ -4,8 +4,5 @@
 **/simulation/
 **/db/
 !**/.git/objects/db/
-<<<<<<< HEAD
 **/*.bak
-=======
 **/NEScartridge-backups
->>>>>>> 40ba58ac3b5e17892c46c300854f0fbf235cebee
