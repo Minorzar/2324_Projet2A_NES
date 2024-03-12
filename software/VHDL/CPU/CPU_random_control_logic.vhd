@@ -21,7 +21,7 @@ entity CPU_random_control_logic is
 		i_alu_carry_out: in STD_LOGIC;
 		i_break_done: in STD_LOGIC;
 		i_zero_adl0: in STD_LOGIC;
-		i_p_register: STD_LOGIC_VECTOR(7 downto 0);
+		i_p_register: in STD_LOGIC_VECTOR(7 downto 0);
 		o_dl_to_db: out STD_LOGIC;
 		o_dl_to_adl: out STD_LOGIC;
 		o_dl_to_adh: out STD_LOGIC;
