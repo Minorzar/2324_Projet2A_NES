@@ -10,16 +10,18 @@ end tb_decode_rom;
 
 architecture Behavioral of tb_decode_rom is
 	-- Constants
-	constant CLK_PERIOD			: time := 100 ps;					-- Clock period
+	constant CLK_PERIOD			: time := 200 ps;
 
 	-- Signals
-	signal t_ir_instruction		: std_logic_vector(7 downto 0);		-- Input instruction from instruction_register
-	signal t_tgl_timing_n		: std_logic_vector(5 downto 0);		-- Input T-n value from timing_generation_logic (active low)
-	signal t_dr_pla				: std_logic_vector(129 downto 0);	-- Output programmable logic array (active high)
+	signal t_ir_instruction		: std_logic_vector(7 downto 0);
+	signal t_tgl_timing_n		: std_logic_vector(5 downto 0);
+	signal t_dr_pla				: std_logic_vector(129 downto 0);
 
 	-- Define arrays to hold test vectors
 	type InstructionArray is array (natural range <>) of std_logic_vector(7 downto 0);
 	type TimingArray is array (natural range <>) of std_logic_vector(5 downto 0);
+
+	-- Define input instructions
 	constant Instructions : InstructionArray := (
 		0 => "100UU100",
 		1 => "UUU100U1",
@@ -45,7 +47,7 @@ architecture Behavioral of tb_decode_rom is
 		21 => "00100000",
 		22 => "00000000",
 		23 => "0U001000",
-		24 => "011000UU",
+		24 => "01100000",
 		25 => "0U101000",
 		26 => "01000000",
 		27 => "011UUU1U",
@@ -74,7 +76,7 @@ architecture Behavioral of tb_decode_rom is
 		50 => "110UUUU1",
 		51 => "111UUUU1",
 		52 => "U11UUUU1",
-		53 => "001UUUU1",
+		53 => "001UUU1U",
 		54 => "01U01100",
 		55 => "00UUUU1U",
 		56 => "00100000",
@@ -134,7 +136,7 @@ architecture Behavioral of tb_decode_rom is
 		110 => "00U11000",
 		111 => "UUU101UU",
 		112 => "U11UUUU1",
-		113 => "00101U00",
+		113 => "0010U100",
 		114 => "00101000",
 		115 => "01000000",
 		116 => "110UUUU1",
@@ -152,6 +154,8 @@ architecture Behavioral of tb_decode_rom is
 		128 => "UUUU10U0",
 		129 => "0UU01000"
 	);
+
+	-- Define input timings
 	constant Timings : TimingArray := (
 		0 => "UUUUUU",
 		1 => "UU0UUU",
@@ -297,25 +301,32 @@ begin
 	-- Stimulus process
 	process
 	begin
+		-- Iterate through each test vector
 		for i in Instructions'range loop
-			-- Modify t_dr_pla(129) based on index i
-			if i = 83 or i = 90 or i = 128 then
-				-- Set t_dr_pla(129) to '1' for certain indices
-				t_dr_pla(129) <= '1';
-			end if;
-
 			-- Send instruction
 			t_ir_instruction <= Instructions(i);
 
 			-- Send timing
 			t_tgl_timing_n <= Timings(i);
 
+            -- Simulate behavior for specific instructions
+			if i = 83 or i = 90 or i = 128 then
+				for j in 0 to 7 loop
+					if Instructions(i)(j) = 'U' then
+						t_ir_instruction(j) <= not Instructions(129)(j);
+					end if;
+				end loop;
+			end if;
+
+            -- Wait for clock period
 			wait for CLK_PERIOD;
 
 			-- Check output and raise assertion if not expected
 			assert t_dr_pla(i) = '1' report "Output mismatch at index " & integer'image(i) severity error;
 
 		end loop;
+
+        -- Wait indefinitely
 		wait;
 	end process;
 
