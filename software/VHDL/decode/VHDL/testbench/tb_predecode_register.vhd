@@ -10,12 +10,24 @@ end tb_predecode_register;
 
 architecture Behavioral of tb_predecode_register is
 	-- Constants
-	constant CLK_PERIOD			: time := 100 ps;					-- Clock period
+	constant CLK_PERIOD			: time := 200 ps;
 
 	-- Signals
-	signal t_clk_2				: std_logic := '0';					-- Input clock signal
-	signal t_db_instruction		: std_logic_vector(7 downto 0);		-- Input instruction from data bus
-	signal t_pr_instruction		: std_logic_vector(7 downto 0);		-- Output instruction from predecode_register
+	signal t_clk_2				: std_logic := '0';
+	signal t_db_instruction		: std_logic_vector(7 downto 0);
+	signal t_pr_instruction		: std_logic_vector(7 downto 0);
+
+	-- Define arrays to hold test vectors
+	type InstructionArray is array (natural range <>) of std_logic_vector(7 downto 0);
+
+	-- Define input instructions
+	constant Instructions : InstructionArray := (
+		0 => "UUUUUUUU",	-- No operation
+		1 => x"0A",			-- ASL acc
+		2 => x"09",			-- ORA #
+		3 => x"A2",			-- LDX #
+		4 => x"08"			-- PHP
+	);
 
 begin
 	-- Instantiate the predecode_register module
@@ -31,7 +43,9 @@ begin
 	begin
 		-- Simulate for 100 ns
 		while now < 100 ns loop
-			t_clk_2 <= not t_clk_2; -- Toggle the clock
+			t_clk_1 <= '1';
+			wait for CLK_PERIOD / 2;
+			t_clk_1 <= '0';
 			wait for CLK_PERIOD / 2;
 		end loop;
 		wait;
@@ -40,26 +54,15 @@ begin
 	-- Stimulus process
 	process
 	begin
-		-- Test ASL acc instruction (Opcode: x"0A")
-		t_db_instruction <= x"0A";
-		wait for CLK_PERIOD;
-		assert t_pr_instruction = x"0A" report "ASL acc instruction failed" severity error;
+        -- Iterate through each test vector, starting from index 1
+		for i in 1 to Instructions'high loop
+			-- Test instruction
+			t_pl_instruction <= Instructions(i);
+			wait for CLK_PERIOD;
+			assert t_ir_instruction = Instructions(i) report "Instruction failed" severity error;
+		end loop;
 
-		-- Test ORA # instruction (Opcode: x"09")
-		t_db_instruction <= x"09";
-		wait for CLK_PERIOD;
-		assert t_pr_instruction = x"09" report "ORA # instruction failed" severity error;
-
-		-- Test LDX # instruction (Opcode: x"A2")
-		t_db_instruction <= x"A2";
-		wait for CLK_PERIOD;
-		assert t_pr_instruction = x"A2" report "LDX # instruction failed" severity error;
-
-		-- Test PHP instruction (Opcode: x"08")
-		t_db_instruction <= x"08";
-		wait for CLK_PERIOD;
-		assert t_pr_instruction = x"08" report "PHP instruction failed" severity error;
-
+        -- Wait indefinitely
 		wait;
 	end process;
 
