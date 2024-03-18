@@ -22,7 +22,7 @@ architecture Behavioral of tb_timing_generation_logic is
 	signal t_tgl_timing_n		: std_logic_vector(5 downto 0);		-- Output signal indicating T-n value (active low)
 	signal t_tgl_fetch			: std_logic;						-- Output signal indicating a fetch instruction is needed
 	signal t_tgl_sync			: std_logic;						-- Output signal indicating an instruction fetch is in progress
-	
+
 begin
 	-- Instantiate the timing_generation_logic module
 	UUT: entity work.timing_generation_logic

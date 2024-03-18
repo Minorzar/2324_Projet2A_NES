@@ -22,35 +22,21 @@ architecture Behavioral of tb_predecode_logic is
 	signal t_pl_tzpre			: std_logic;
 
 	-- Define arrays to hold test vectors
-	type InstructionArray is array (natural range <>) of std_logic_vector(7 downto 0);
-	type ImpliedArray is array (natural range <>) of std_logic;
-	type TzPreArray is array (natural range <>) of std_logic;
+	type TestVectorRecord is record
+		tv_instruction			: std_logic_vector(7 downto 0);
+		tv_implied				: std_logic_vector(7 downto 0);
+		tv_tzpre				: std_logic;
+	end record;
+	
+	type TestVectorArray is array (natural range <>) of TestVectorRecord;
 
-	-- Define input instructions
-	constant Instructions : InstructionArray := (
-		0 => "UUUUUUUU",	-- No operation
-		1 => x"0A",			-- ASL acc
-		2 => x"09",			-- ORA #
-		3 => x"A2",			-- LDX #
-		4 => x"08"			-- PHP
-	);
-
-	-- Define implied status
-	constant Implied : ImpliedArray := (
-		0 => 'U',			-- No operation
-		1 => '1',			-- ASL acc
-		2 => '0',			-- ORA #
-		3 => '0',			-- LDX #
-		4 => '1'			-- PHP
-	);
-
-	-- Define 2-cycles status
-	constant TzPre : TzPreArray := (
-		0 => 'U',			-- No operation
-		1 => '1',			-- ASL acc
-		2 => '1',			-- ORA #
-		3 => '1',			-- LDX #
-		4 => '0'			-- PHP
+	-- Define input vectors
+	constant TestVectors : TestVectorArray := (
+		0 => ("UUUUUUUU", 'U'), 	-- No operation
+		1 => (x"0A", '1', '1'),		-- ASL acc
+		2 => (x"09", '0', '0'),		-- ORA #
+		3 => (x"A2", '0', '0'),		-- LDX #
+		4 => (x"08", '1', '1')		-- PHP
 	);
 
 begin
@@ -71,7 +57,9 @@ begin
 	begin
 		-- Simulate for 100 ns
 		while now < 100 ns loop
-			t_clk_1 <= not t_clk_1; -- Toggle the clock
+			t_clk_1 <= '1';
+			wait for CLK_PERIOD / 2;
+			t_clk_1 <= '0';
 			wait for CLK_PERIOD / 2;
 		end loop;
 		wait;
@@ -84,19 +72,21 @@ begin
 		t_irc_aic <= '1';
 		t_tgl_fetch <= '1';
 
-        -- Iterate through each test vector, starting from index 1
-		for i in 1 to Instructions'high loop
+		-- Iterate through each test vector, starting from index 1
+		for i in 1 to TestVectors'high loop
 			-- Test instruction
-			t_pr_instruction <= Instructions(i);
+			t_pr_instruction <= TestVectors(i).tv_instruction;
 			wait for CLK_PERIOD;
-			assert t_pl_instruction = Instructions(i) report "Instruction failed" severity error;
+
+			assert t_pl_instruction = TestVectors(i).tv_instruction report "Instruction failed at index " & integer'image(i) severity error;
 			wait for CLK_PERIOD;
-			assert t_pl_implied = Implied(i) report "Implied signal failed" severity error;
-			assert t_pl_tzpre = TzPre(i) report "Two-cycle signal failed" severity error;
+
+			assert t_pl_implied = TestVectors(i).tv_implied report "Implied signal failed at index " & integer'image(i) severity error;
+			assert t_pl_tzpre = TestVectors(i).tv_tzpre report "Two-cycle signal failed at index " & integer'image(i) severity error;
 			wait for CLK_PERIOD;
 		end loop;
 
-        -- Wait indefinitely
+		-- Wait indefinitely
 		wait;
 	end process;
 

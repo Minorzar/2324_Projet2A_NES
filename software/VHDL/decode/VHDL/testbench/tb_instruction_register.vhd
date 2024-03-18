@@ -10,13 +10,25 @@ end tb_instruction_register;
 
 architecture Behavioral of tb_instruction_register is
 	-- Constants
-	constant CLK_PERIOD			: time := 100 ps;					-- Clock period
+	constant CLK_PERIOD			: time := 200 ps;
 
 	-- Signals
-	signal t_clk_1				: std_logic := '0';					-- Input clock signal
-	signal t_tgl_fetch			: std_logic;						-- Input fetch signal from timing_generation_logic
-	signal t_pl_instruction		: std_logic_vector(7 downto 0);		-- Input instruction from predecode_logic
-	signal t_ir_instruction		: std_logic_vector(7 downto 0);		-- Output instruction from instruction_register
+	signal t_clk_1				: std_logic := '0';
+	signal t_tgl_fetch			: std_logic;
+	signal t_pl_instruction		: std_logic_vector(7 downto 0);
+	signal t_ir_instruction		: std_logic_vector(7 downto 0);
+
+	-- Define arrays to hold test vectors
+	type InstructionArray is array (natural range <>) of std_logic_vector(7 downto 0);
+
+	-- Define input instructions
+	constant Instructions : InstructionArray := (
+		0 => "UUUUUUUU",	-- No operation
+		1 => x"0A",			-- ASL acc
+		2 => x"09",			-- ORA #
+		3 => x"A2",			-- LDX #
+		4 => x"08"			-- PHP
+	);
 
 begin
 	-- Instantiate the instruction_register module
@@ -33,7 +45,9 @@ begin
 	begin
 		-- Simulate for 100 ns
 		while now < 100 ns loop
-			t_clk_1 <= not t_clk_1; -- Toggle the clock
+			t_clk_1 <= '1';
+			wait for CLK_PERIOD / 2;
+			t_clk_1 <= '0';
 			wait for CLK_PERIOD / 2;
 		end loop;
 		wait;
@@ -42,44 +56,22 @@ begin
 	-- Stimulus process
 	process
 	begin
-		-- Initialize t_tgl_fetch to '1'
-		t_tgl_fetch <= '1';
+		-- Iterate through each test vector, starting from index 1
+		for i in 1 to Instructions'high loop
+			-- Test instruction
+			t_pl_instruction <= Instructions(i);
+			wait for CLK_PERIOD;
 
-		-- Test ASL acc instruction (Opcode: x"0A")
-		t_pl_instruction <= x"0A";
-		wait for CLK_PERIOD;
-		assert t_ir_instruction = x"0A" report "ASL acc instruction failed" severity error;
+			-- Check if fetched instruction matches the previous one
+			assert t_ir_instruction = Instructions(i-1) report "Fetch disabled, unexpected instruction fetched at index " & integer'image(i) severity error;
+			t_tgl_fetch <= '1';		-- Enable fetch
 
-		-- Test ORA # instruction (Opcode: x"09")
-		t_pl_instruction <= x"09";
-		t_tgl_fetch <= '0';		-- Disable fetch
-		wait for CLK_PERIOD;
-		assert t_ir_instruction = x"0A" report "Fetch disabled, unexpected instruction fetched" severity error;
+			wait for CLK_PERIOD;
+			assert t_ir_instruction = Instructions(i) report "Fetch enabled, instruction fetch failed at index " & integer'image(i) severity error;
+			t_tgl_fetch <= '0';		-- Disable fetch
+		end loop;
 
-		t_tgl_fetch <= '1';		-- Enable fetch
-		wait for CLK_PERIOD;
-		assert t_ir_instruction = x"09" report "ORA # instruction failed" severity error;
-
-		-- Test LDX # instruction (Opcode: x"A2")
-		t_pl_instruction <= x"A2";
-		t_tgl_fetch <= '0';		-- Disable fetch
-		wait for CLK_PERIOD;
-		assert t_ir_instruction = x"09" report "Fetch disabled, unexpected instruction fetched" severity error;
-
-		t_tgl_fetch <= '1';		-- Enable fetch
-		wait for CLK_PERIOD;
-		assert t_ir_instruction = x"A2" report "LDX # instruction failed" severity error;
-
-		-- Test PHP instruction (Opcode: x"08")
-		t_pl_instruction <= x"08";
-		t_tgl_fetch <= '0';		-- Disable fetch
-		wait for CLK_PERIOD;
-		assert t_ir_instruction = x"A2" report "Fetch disabled, unexpected instruction fetched" severity error;
-
-		t_tgl_fetch <= '1';		-- Enable fetch
-		wait for CLK_PERIOD;
-		assert t_ir_instruction = x"08" report "PHP instruction failed" severity error;
-
+		-- Wait indefinitely
 		wait;
 	end process;
 

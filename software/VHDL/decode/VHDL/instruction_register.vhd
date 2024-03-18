@@ -21,8 +21,8 @@ end entity instruction_register;
 architecture Behavioral of instruction_register is
 
 begin
-    process (i_clk_1, i_tgl_fetch, i_pl_instruction)
-    begin
+	process (i_clk_1, i_tgl_fetch, i_pl_instruction)
+	begin
 		if rising_edge(i_clk_1) then
 			-- Load signal based on fetch signal
 			if i_tgl_fetch = '1' then

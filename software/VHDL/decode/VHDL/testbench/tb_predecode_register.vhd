@@ -43,9 +43,9 @@ begin
 	begin
 		-- Simulate for 100 ns
 		while now < 100 ns loop
-			t_clk_1 <= '1';
+			t_clk_2 <= '1';
 			wait for CLK_PERIOD / 2;
-			t_clk_1 <= '0';
+			t_clk_2 <= '0';
 			wait for CLK_PERIOD / 2;
 		end loop;
 		wait;
@@ -54,15 +54,15 @@ begin
 	-- Stimulus process
 	process
 	begin
-        -- Iterate through each test vector, starting from index 1
+		-- Iterate through each test vector, starting from index 1
 		for i in 1 to Instructions'high loop
 			-- Test instruction
-			t_pl_instruction <= Instructions(i);
+			t_db_instruction <= Instructions(i);
 			wait for CLK_PERIOD;
-			assert t_ir_instruction = Instructions(i) report "Instruction failed" severity error;
+			assert t_pr_instruction = Instructions(i) report "Instruction failed at index " & integer'image(i) severity error;
 		end loop;
 
-        -- Wait indefinitely
+		-- Wait indefinitely
 		wait;
 	end process;
 
