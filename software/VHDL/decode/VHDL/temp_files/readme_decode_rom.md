@@ -1,132 +1,132 @@
-| PLA Index | ir(i)    | t_n(i) |
-|-----------|----------|--------|
-| 0         | 100UU100 | UUUUUU |
-| 1         | UUU100U1 | UU0UUU |
-| 2         | UUU110U1 | UUU0UU |
-| 3         | 1U001000 | UUUUU0 |
-| 4         | 10011000 | UUUUU0 |
-| 5         | 1100UU00 | UUUUU0 |
-| 6         | UUU1U1UU | UUU0UU |
-| 7         | 10UUUU1U | UUUUUU |
-| 8         | UUU000U1 | UUU0UU |
-| 9         | 10001010 | UUUUU0 |
-| 10        | 1100101U | UUUUU0 |
-| 11        | 1110UU00 | UUUUU0 |
-| 12        | 100UUU1U | UUUUUU |
-| 13        | 1001101U | UUUUU0 |
-| 14        | 101UUU1U | UUUUU0 |
-| 15        | 1100101U | UUUU0U |
-| 16        | 11101000 | UUUU0U |
-| 17        | 1011101U | UUUUU0 |
-| 18        | 1U001000 | UUUU0U |
-| 19        | 101UU100 | UUUUU0 |
-| 20        | 1010UU00 | UUUUU0 |
-| 21        | 00100000 | UUUUU0 |
-| 22        | 00000000 | 0UUUUU |
-| 23        | 0U001000 | UUUUU0 |
-| 24        | 011000UU | U0UUUU |
-| 25        | 0U101000 | UU0UUU |
-| 26        | 01000000 | 0UUUUU |
-| 27        | 011UUU1U | UUUUUU |
-| 28        | UUUUUUUU | UUU0UU |
-| 29        | 010UUUU1 | UUUUU0 |
-| 30        | 01U01100 | UUUUUU |
-| 31        | UUU011UU | UUU0UU |
-| 32        | 000UUUU1 | UUUUU0 |
-| 33        | UUUU0UUU | UUU0UU |
-| 34        | UUUUUUUU | UUUUU0 |
-| 35        | 0UU0U000 | UUU0UU |
-| 36        | 0UU0UU00 | UU0UUU |
-| 37        | 00U00000 | U0UUUU |
-| 38        | 01000000 | U0UUUU |
-| 39        | UUU000U1 | UU0UUU |
-| 40        | UUU100U1 | U0UUUU |
-| 41        | UUU100U1 | UUU0UU |
-| 42        | UUU11UUU | UU0UUU |
-| 43        | 0U101000 | UUUUUU |
-| 44        | 111UUU1U | UUUUUU |
-| 45        | UUU000U1 | U0UUUU |
-| 46        | UUU100U1 | UU0UUU |
-| 47        | 01U00000 | UUUUUU |
-| 48        | 00100000 | UUU0UU |
-| 49        | 11U0UU00 | UUUUU0 |
-| 50        | 110UUUU1 | UUUUU0 |
-| 51        | 111UUUU1 | UUUUU0 |
-| 52        | U11UUUU1 | UUUUU0 |
-| 53        | 001UUUU1 | UUUUUU |
-| 54        | 01U01100 | UU0UUU |
-| 55        | 00UUUU1U | UUUUUU |
-| 56        | 00100000 | 0UUUUU |
-| 57        | 0UU0U000 | UUU0UU |
-| 58        | 10011000 | UUUUU0 |
-| 59        | 0UUUUUU1 | UUUU0U |
-| 60        | U11UUUU1 | UUUU0U |
-| 61        | 0UU0101U | UUUU0U |
-| 62        | 1000101U | UUUUU0 |
-| 63        | 01101000 | UUUUU0 |
-| 64        | 101UUUU1 | UUUUU0 |
-| 65        | UUUUUUU1 | UUUUU0 |
-| 66        | 10101000 | UUUUU0 |
-| 67        | 0UU0101U | UUUUU0 |
-| 68        | 1010101U | UUUUU0 |
-| 69        | 0010U100 | UUUUU0 |
-| 70        | 001UUUU1 | UUUUU0 |
-| 71        | UUU11UUU | U0UUUU |
-| 72        | UUU100U1 | 0UUUUU |
-| 73        | UUU10000 | UUUUU0 |
-| 74        | 01001000 | UUU0UU |
-| 75        | 01U0101U | UUUUU0 |
-| 76        | 01UUUU1U | UUUUUU |
-| 77        | 00000000 | UUU0UU |
-| 78        | 00100000 | UU0UUU |
-| 79        | 100UUUU1 | UUUUUU |
-| 80        | UUU10000 | UUU0UU |
-| 81        | UUUU01UU | UUU0UU |
-| 82        | UUUU00U1 | UUU0UU |
-| 83        | UUUU1UUU | UUU0UU | pla129
-| 84        | 01100000 | 0UUUUU |
-| 85        | UUUUUUUU | U0UUUU |
-| 86        | UUUUUUUU | UU0UUU |
-| 87        | 0U000000 | UUUUU0 |
-| 88        | 01U01100 | UUUUU0 |
-| 89        | UU0000U1 | 0UUUUU |
-| 90        | UUUU1UUU | UU0UUU | pla129
-| 91        | UUU100U1 | U0UUUU |
-| 92        | UUU11UUU | UU0UUU |
-| 93        | UUU10000 | UU0UUU |
-| 94        | 0U000000 | UUUUUU |
-| 95        | 00100000 | UUUUUU |
-| 96        | 01U01100 | UUUUUU |
-| 97        | 100UUUUU | UUUUUU |
-| 98        | 00000000 | U0UUUU |
-| 99        | 00001000 | UUU0UU |
-| 100       | 0U001000 | UUU0UU |
-| 101       | 01U00000 | 0UUUUU |
-| 102       | 01U01100 | U0UUUU |
-| 103       | 00100000 | 0UUUUU |
-| 104       | 01001100 | UUU0UU |
-| 105       | 0U101000 | UU0UUU |
-| 106       | U1UUUU1U | UUUUUU |
-| 107       | 00UUUU1U | UUUUUU |
-| 108       | 01U11000 | UUUUU0 |
-| 109       | 0010U100 | UUUU0U |
-| 110       | 00U11000 | UUUUU0 |
-| 111       | UUU101UU | UU0UUU |
-| 112       | U11UUUU1 | UUUU0U |
-| 113       | 00101U00 | UUUUU0 |
-| 114       | 00101000 | UUUUU0 |
-| 115       | 01000000 | U0UUUU |
-| 116       | 110UUUU1 | UUUU0U |
-| 117       | 11U01100 | UUUU0U |
-| 118       | 00U0101U | UUUU0U |
-| 119       | 11U00U00 | UUUU0U |
-| 120       | 11U11000 | UUUUU0 |
-| 121       | U0UUUUUU | UUUUUU |
-| 122       | UUU011UU | UU0UUU |
-| 123       | UUU001UU | UUU0UU |
-| 124       | UUUU00U1 | 0UUUUU |
-| 125       | UUU11UUU | U0UUUU |
-| 126       | 0UUUUUUU | UUUUUU |
-| 127       | 10111000 | UUUUUU |
-| 128       | UUUU10U0 | UUUUUU | pla 129
-| 129       | 0UU01000 | UUUUUU |
+| PLA Index | i_ir_instruction(i) | i_tgl_timing_n(i) | pla129(i) |
+|-----------|---------------------|-------------------| --------- |
+| 0         | 100UU100            | UUUUUU            | No        |
+| 1         | UUU100U1            | UU0UUU            | No        |
+| 2         | UUU110U1            | UUU0UU            | No        |
+| 3         | 1U001000            | UUUUU0            | No        |
+| 4         | 10011000            | UUUUU0            | No        |
+| 5         | 1100UU00            | UUUUU0            | No        |
+| 6         | UUU1U1UU            | UUU0UU            | No        |
+| 7         | 10UUUU1U            | UUUUUU            | No        |
+| 8         | UUU000U1            | UUU0UU            | No        |
+| 9         | 10001010            | UUUUU0            | No        |
+| 10        | 1100101U            | UUUUU0            | No        |
+| 11        | 1110UU00            | UUUUU0            | No        |
+| 12        | 100UUU1U            | UUUUUU            | No        |
+| 13        | 1001101U            | UUUUU0            | No        |
+| 14        | 101UUU1U            | UUUUU0            | No        |
+| 15        | 1100101U            | UUUU0U            | No        |
+| 16        | 11101000            | UUUU0U            | No        |
+| 17        | 1011101U            | UUUUU0            | No        |
+| 18        | 1U001000            | UUUU0U            | No        |
+| 19        | 101UU100            | UUUUU0            | No        |
+| 20        | 1010UU00            | UUUUU0            | No        |
+| 21        | 00100000            | UUUUU0            | No        |
+| 22        | 00000000            | 0UUUUU            | No        |
+| 23        | 0U001000            | UUUUU0            | No        |
+| 24        | 01100000            | U0UUUU            | No        |
+| 25        | 0U101000            | UU0UUU            | No        |
+| 26        | 01000000            | 0UUUUU            | No        |
+| 27        | 011UUU1U            | UUUUUU            | No        |
+| 28        | UUUUUUUU            | UUU0UU            | No        |
+| 29        | 010UUUU1            | UUUUU0            | No        |
+| 30        | 01U01100            | UUUUUU            | No        |
+| 31        | UUU011UU            | UUU0UU            | No        |
+| 32        | 000UUUU1            | UUUUU0            | No        |
+| 33        | UUUU0UUU            | UUU0UU            | No        |
+| 34        | UUUUUUUU            | UUUUU0            | No        |
+| 35        | 0UU0U000            | UUU0UU            | No        |
+| 36        | 0UU0UU00            | UU0UUU            | No        |
+| 37        | 00U00000            | U0UUUU            | No        |
+| 38        | 01000000            | U0UUUU            | No        |
+| 39        | UUU000U1            | UU0UUU            | No        |
+| 40        | UUU100U1            | U0UUUU            | No        |
+| 41        | UUU100U1            | UUU0UU            | No        |
+| 42        | UUU11UUU            | UU0UUU            | No        |
+| 43        | 0U101000            | UUUUUU            | No        |
+| 44        | 111UUU1U            | UUUUUU            | No        |
+| 45        | UUU000U1            | U0UUUU            | No        |
+| 46        | UUU100U1            | UU0UUU            | No        |
+| 47        | 01U00000            | UUUUUU            | No        |
+| 48        | 00100000            | UUU0UU            | No        |
+| 49        | 11U0UU00            | UUUUU0            | No        |
+| 50        | 110UUUU1            | UUUUU0            | No        |
+| 51        | 111UUUU1            | UUUUU0            | No        |
+| 52        | U11UUUU1            | UUUUU0            | No        |
+| 53        | 001UUU1U            | UUUUUU            | No        |
+| 54        | 01U01100            | UU0UUU            | No        |
+| 55        | 00UUUU1U            | UUUUUU            | No        |
+| 56        | 00100000            | 0UUUUU            | No        |
+| 57        | 0UU0U000            | UUU0UU            | No        |
+| 58        | 10011000            | UUUUU0            | No        |
+| 59        | 0UUUUUU1            | UUUU0U            | No        |
+| 60        | U11UUUU1            | UUUU0U            | No        |
+| 61        | 0UU0101U            | UUUU0U            | No        |
+| 62        | 1000101U            | UUUUU0            | No        |
+| 63        | 01101000            | UUUUU0            | No        |
+| 64        | 101UUUU1            | UUUUU0            | No        |
+| 65        | UUUUUUU1            | UUUUU0            | No        |
+| 66        | 10101000            | UUUUU0            | No        |
+| 67        | 0UU0101U            | UUUUU0            | No        |
+| 68        | 1010101U            | UUUUU0            | No        |
+| 69        | 0010U100            | UUUUU0            | No        |
+| 70        | 001UUUU1            | UUUUU0            | No        |
+| 71        | UUU11UUU            | U0UUUU            | No        |
+| 72        | UUU100U1            | 0UUUUU            | No        |
+| 73        | UUU10000            | UUUUU0            | No        |
+| 74        | 01001000            | UUU0UU            | No        |
+| 75        | 01U0101U            | UUUUU0            | No        |
+| 76        | 01UUUU1U            | UUUUUU            | No        |
+| 77        | 00000000            | UUU0UU            | No        |
+| 78        | 00100000            | UU0UUU            | No        |
+| 79        | 100UUUU1            | UUUUUU            | No        |
+| 80        | UUU10000            | UUU0UU            | No        |
+| 81        | UUUU01UU            | UUU0UU            | No        |
+| 82        | UUUU00U1            | UUU0UU            | No        |
+| 83        | UUUU1UUU            | UUU0UU            | Yes       |
+| 84        | 01100000            | 0UUUUU            | No        |
+| 85        | UUUUUUUU            | U0UUUU            | No        |
+| 86        | UUUUUUUU            | UU0UUU            | No        |
+| 87        | 0U000000            | UUUUU0            | No        |
+| 88        | 01U01100            | UUUUU0            | No        |
+| 89        | UU0000U1            | 0UUUUU            | No        |
+| 90        | UUUU1UUU            | UU0UUU            | Yes       |
+| 91        | UUU100U1            | U0UUUU            | No        |
+| 92        | UUU11UUU            | UU0UUU            | No        |
+| 93        | UUU10000            | UU0UUU            | No        |
+| 94        | 0U000000            | UUUUUU            | No        |
+| 95        | 00100000            | UUUUUU            | No        |
+| 96        | 01U01100            | UUUUUU            | No        |
+| 97        | 100UUUUU            | UUUUUU            | No        |
+| 98        | 00000000            | U0UUUU            | No        |
+| 99        | 00001000            | UUU0UU            | No        |
+| 100       | 0U001000            | UUU0UU            | No        |
+| 101       | 01U00000            | 0UUUUU            | No        |
+| 102       | 01U01100            | U0UUUU            | No        |
+| 103       | 00100000            | 0UUUUU            | No        |
+| 104       | 01001100            | UUU0UU            | No        |
+| 105       | 0U101000            | UU0UUU            | No        |
+| 106       | U1UUUU1U            | UUUUUU            | No        |
+| 107       | 00UUUU1U            | UUUUUU            | No        |
+| 108       | 01U11000            | UUUUU0            | No        |
+| 109       | 0010U100            | UUUU0U            | No        |
+| 110       | 00U11000            | UUUUU0            | No        |
+| 111       | UUU101UU            | UU0UUU            | No        |
+| 112       | U11UUUU1            | UUUU0U            | No        |
+| 113       | 0010U100            | UUUUU0            | No        |
+| 114       | 00101000            | UUUUU0            | No        |
+| 115       | 01000000            | U0UUUU            | No        |
+| 116       | 110UUUU1            | UUUU0U            | No        |
+| 117       | 11U01100            | UUUU0U            | No        |
+| 118       | 00U0101U            | UUUU0U            | No        |
+| 119       | 11U00U00            | UUUU0U            | No        |
+| 120       | 11U11000            | UUUUU0            | No        |
+| 121       | U0UUUUUU            | UUUUUU            | No        |
+| 122       | UUU011UU            | UU0UUU            | No        |
+| 123       | UUU001UU            | UUU0UU            | No        |
+| 124       | UUUU00U1            | 0UUUUU            | No        |
+| 125       | UUU11UUU            | U0UUUU            | No        |
+| 126       | 0UUUUUUU            | UUUUUU            | No        |
+| 127       | 10111000            | UUUUUU            | No        |
+| 128       | UUUU10U0            | UUUUUU            | Yes       |
+| 129       | 0UU01000            | UUUUUU            | No        |
