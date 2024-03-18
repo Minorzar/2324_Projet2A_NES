@@ -24,7 +24,7 @@ architecture Behavioral of tb_predecode_logic is
 	-- Define arrays to hold test vectors
 	type TestVectorRecord is record
 		tv_instruction			: std_logic_vector(7 downto 0);
-		tv_implied				: std_logic_vector(7 downto 0);
+		tv_implied				: std_logic;
 		tv_tzpre				: std_logic;
 	end record;
 	
@@ -32,11 +32,11 @@ architecture Behavioral of tb_predecode_logic is
 
 	-- Define input vectors
 	constant TestVectors : TestVectorArray := (
-		0 => ("UUUUUUUU", 'U'), 	-- No operation
-		1 => (x"0A", '1', '1'),		-- ASL acc
-		2 => (x"09", '0', '0'),		-- ORA #
-		3 => (x"A2", '0', '0'),		-- LDX #
-		4 => (x"08", '1', '1')		-- PHP
+		0 => ("UUUUUUUU", 'U', 'U'), 	-- No operation
+		1 => ("00001010", '1', '0'),	-- ASL acc
+		2 => ("00001001", '0', '0'),	-- ORA #
+		3 => ("10100010", '0', '0'),	-- LDX #
+		4 => ("00001000", '1', '1')		-- PHP
 	);
 
 begin
