@@ -11,37 +11,20 @@ port (
 );
 end Compter;
 
-architecture Compter_rtf of Compter is
+architecture Compter_rtl of Compter is
+    signal unsigned(7 downto 0) : cpt := x"00";
+begin
 
+    process(i_mclk)
+        begin
+            if(rising_edge(i_mclk)) then
+                cpt <= cpt + 1;
+            end if; 
+    end process;
 
+    o_dacklrck<=cpt(7); -- f_dacklrck = f_mclk / 256 
+    o_bclk<=cpt(3);     -- f_bclk = f_mclk / 8
 
-    signal unsigned(8 downto 0) : cpt :="00000000";
-    
+    o_en<='1' when (cpt = x"FF") else '0';
 
-process(i_mclk)
-    begin
-        if(rising_edge(i_mclk)) then
-            
-            if(cpt="11111111")then
-                    cpt<="00000000";
-                    o_en<='1';
-                    o_dacklrck<=cpt(8);
-                    o_bclk<=cpt(4);
-            else
-                    o_en<='0';
-                    cpt<=cpt+"00000001";
-                    o_dacklrck<=cpt(8);
-                    o_bclk<=cpt(4);
-
-                    if (cpt(8)='0' and cpt(4)='0')then
-                        o_en<='1'; 
-                    end if; 
-            end if;
-
-        end if; 
-end process;
-
-
-
-end Compter_rtf;
-
+end Compter_rtl;
