@@ -14,10 +14,11 @@ entity envelope_gen is
 			o_envelope_out :out STD_LOGIC_VECTOR(3 downto 0));
 end envelope_gen;
 
+
 architecture envelope of envelope_gen is
-signal reset : STD_LOGIC;
-signal counter : unsigned(3 downto 0);
-signal counter_clk : STD_LOGIC;
+	signal reset : STD_LOGIC;
+	signal counter : unsigned(3 downto 0);
+	signal counter_clk : STD_LOGIC;
 begin
 	process(i_clk)
 		begin 
