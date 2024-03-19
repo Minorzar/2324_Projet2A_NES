@@ -1,111 +1,117 @@
-UUUUUX : s_timing_n(0)
-=> not s_t0
-=> not (s_t_reset(0) or (s_timing_c2(0) and not s_t0_c2_rdy))
-=> not s_t_reset(0) and not (s_timing_c2(0) and not s_t0_c2_rdy)
-=> not s_t_reset(0) and (not s_timing_c2(0) or s_t0_c2_rdy)
-=> not (not (s_sync or (not i_rcl_t_zero and i_pl_tzpre))) and (not (not s_timing_n(0) [CLK2]) or (s_timing_c2(0) and i_rc_rdy))
-=> (s_sync or (not i_rcl_t_zero and i_pl_tzpre)) and (s_timing_n(0) [CLK2] or (not s_timing_n(0) [CLK2] and i_rc_rdy))
-=> (i_rcl_t_res_1 [CLK1] or (not i_rcl_t_zero and i_pl_tzpre)) and (s_timing_n(0) [CLK2] or i_rc_rdy)
+| rdy | tzpre | t_zero | t_res_1 | timing_n_prev | timing_n_current |
+|-----|-------|--------|---------|---------------|------------------|
+| U   | U     | U      | U       | UUUUUU        | UUUUUU           |
 
-UUUUU0 : s_timing_n(0) = 0 [CLK1]
-=> (i_rcl_t_res_1 [CLK1] or (not i_rcl_t_zero and i_pl_tzpre)) and (s_timing_n(0) [CLK2] or i_rc_rdy) = 0
-=> (i_rcl_t_res_1 or (not i_rcl_t_zero and i_pl_tzpre)) and (s_timing_n(0) [CLK2] or i_rc_rdy) = 0
-
-=>(i_rcl_t_res_1 or (not i_rcl_t_zero and i_pl_tzpre)) = 0 or (s_timing_n(0) [CLK2] or i_rc_rdy) = 0
-=>(i_rcl_t_res_1 = 0 and (i_rcl_t_zero = 1 and i_pl_tzpre = 0)) or (s_timing_n(0) [CLK2] = 0 and i_rc_rdy = 0)
-
-UUUUU1 : s_timing_n(0) = 1 [CLK1]
-=> (i_rcl_t_res_1 or (not i_rcl_t_zero and i_pl_tzpre)) and (s_timing_n(0) [CLK2] or i_rc_rdy) = 1
-=> (i_rcl_t_res_1 or (not i_rcl_t_zero and i_pl_tzpre)) and (s_timing_n(0) [CLK2] or i_rc_rdy) = 1
-=>(i_rcl_t_res_1 or (not i_rcl_t_zero and i_pl_tzpre)) = 1 and (s_timing_n(0) [CLK2] or i_rc_rdy) = 1
-=>(i_rcl_t_res_1 = 1 or (i_rcl_t_zero = 0 and i_pl_tzpre = 1)) and (s_timing_n(0) [CLK2] = 1 or i_rc_rdy = 1)
+timing_n [CLK2] = timing_n_prev
 
 
 
-UUUUXU : s_timing_n(1)
-=> not s_t_reset_c1(1)
-=> not s_t_reset(1) [CLK1]
-=> not (s_timing_c2(0) and i_rc_rdy) [CLK1]
-=> not (not s_timing_n(0) [CLK2] and i_rc_rdy) [CLK1]
-=> (s_timing_n(0) [CLK2] or not i_rc_rdy) [CLK1]
+UUUUUX : timing_n(0) = X
+=> not t0
+=> not (t_reset(0) or (timing_c2(0) and not t0_c2_rdy))
+	=> not t_reset(0) and not (timing_c2(0) and not t0_c2_rdy)
+	=> not t_reset(0) and (not timing_c2(0) or t0_c2_rdy)
+=> not (not (sync or (not t_zero and tzpre))) and (not (not timing_n(0) [CLK2]) or (timing_c2(0) and rdy))
+	=> not (not sync and not (not t_zero and tzpre)) and (timing_n(0) [CLK2] or (timing_c2(0) and rdy))
+	=> not (not sync and (t_zero or not tzpre)) and (timing_n(0) [CLK2] or (timing_c2(0) and rdy))
+	=> (sync or not (t_zero or not tzpre)) and (timing_n(0) [CLK2] or (timing_c2(0) and rdy))
+	=> (sync or (not t_zero and tzpre)) and (timing_n(0) [CLK2] or (timing_c2(0) and rdy))
+=> (sync or (not t_zero and tzpre)) and (timing_n(0) [CLK2] or (not timing_n(0) [CLK2] and rdy))
+	=> (sync or (not t_zero and tzpre)) and (timing_n(0) [CLK2] or rdy)
+=> (t_res_1 [CLK1] or (not t_zero and tzpre)) and (timing_n(0) [CLK2] or rdy)
 
-UUUU0U : s_timing_n(1) = 0 [CLK1]
-=> (s_timing_n(0) [CLK2] or not i_rc_rdy) [CLK1] = 0
-=> (s_timing_n(0) [CLK2] or not i_rc_rdy) = 0
-=> (s_timing_n(0) [CLK2] = 0 and i_rc_rdy = 1)
+UUUUU0 : timing_n(0) = 0
+=> ((t_res_1 [CLK1] or (not t_zero and tzpre)) and (timing_n(0) [CLK2] or rdy)) = 0
+=> (t_res_1 [CLK1] or (not t_zero and tzpre)) = 0 or (timing_n(0) [CLK2] or rdy) = 0
+=> (t_res_1 [CLK1] = 0 and (not t_zero and tzpre) = 0) or (timing_n(0) [CLK2] = 0 and rdy = 0)
+=> (t_res_1 [CLK1] = 0 and (t_zero = 1 or tzpre = 0)) or (timing_n(0) [CLK2] = 0 and rdy = 0)
 
-UUUU1U : s_timing_n(1) = 1 [CLK1]
-=> (s_timing_n(0) [CLK2] or not i_rc_rdy) [CLK1] = 1
-=> (s_timing_n(0) [CLK2] or not i_rc_rdy) = 1
-=> (s_timing_n(0) [CLK2] = 1 or i_rc_rdy = 0)
-
-
-
-UUUXUU : s_timing_n(2)
-=> i_rcl_t_zero or s_t_reset_c1(2)
-=> i_rcl_t_zero or s_t_reset(2) [CLK1]
-=> i_rcl_t_zero or not ((s_timing_c2(2) and not i_rc_rdy) or (s_sync_c2 and i_rc_rdy)) [CLK1]
-=> i_rcl_t_zero or not ((not s_timing_n(2) [CLK2] and not i_rc_rdy) or (s_sync [CLK2] and i_rc_rdy)) [CLK1]
-=> i_rcl_t_zero or not ((not s_timing_n(2) [CLK2] and not i_rc_rdy) or (i_rcl_t_res_1 [CLK1->CLK2] and i_rc_rdy)) [CLK1]
-=> i_rcl_t_zero or (not (not s_timing_n(2) [CLK2] and not i_rc_rdy) and not (i_rcl_t_res_1 [CLK1->CLK2] and i_rc_rdy)) [CLK1]
-=> i_rcl_t_zero or ((s_timing_n(2) [CLK2] or i_rc_rdy) and (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy)) [CLK1]
-
-UUU0UU : s_timing_n(2) = 0 [CLK1]
-=> i_rcl_t_zero or ((s_timing_n(2) [CLK2] or i_rc_rdy) and (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy)) [CLK1] = 0
-=> i_rcl_t_zero or ((s_timing_n(2) [CLK2] or i_rc_rdy) and (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy)) = 0
-=>i_rcl_t_zero = 0 and ((s_timing_n(2) [CLK2] or i_rc_rdy) and (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy)) = 0
-=>i_rcl_t_zero = 0 and ((s_timing_n(2) [CLK2] or i_rc_rdy) = 0 or (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy) = 0)
-=>i_rcl_t_zero = 0 and ((s_timing_n(2) [CLK2] = 0 and i_rc_rdy = 0) or (i_rcl_t_res_1 [CLK1->CLK2] = 1 and i_rc_rdy = 1))
-
-UUU1UU : s_timing_n(2) = 1 [CLK1]
-=> i_rcl_t_zero or ((s_timing_n(2) [CLK2] or i_rc_rdy) and (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy)) [CLK1] = 1
-=> i_rcl_t_zero or ((s_timing_n(2) [CLK2] or i_rc_rdy) and (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy)) = 1
-=> i_rcl_t_zero = 1 or ((s_timing_n(2) [CLK2] or i_rc_rdy) and (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy)) = 1
-=> i_rcl_t_zero = 1 or ((s_timing_n(2) [CLK2] or i_rc_rdy) = 1 and (not i_rcl_t_res_1 [CLK1->CLK2] or not i_rc_rdy) = 1)
-=> i_rcl_t_zero = 1 or ((s_timing_n(2) [CLK2] = 1 or i_rc_rdy = 1) and (i_rcl_t_res_1 [CLK1->CLK2] = 0 or i_rc_rdy = 0))
+UUUUU1 : timing_n(0) = 1
+=> ((t_res_1 [CLK1] or (not t_zero and tzpre)) and (timing_n(0) [CLK2] or rdy)) = 1
+=> (t_res_1 [CLK1] or (not t_zero and tzpre)) = 1 and (timing_n(0) [CLK2] or rdy) = 1
+=> (t_res_1 [CLK1] = 1 or (not t_zero and tzpre) = 1) and (timing_n(0) [CLK2] = 1 or rdy = 1)
+=> (t_res_1 [CLK1] = 1 or (t_zero = 0 and tzpre = 1)) and (timing_n(0) [CLK2] = 1 or rdy = 1)
 
 
 
-UUXUUU : s_timing_n(3)
-=> i_rcl_t_zero or s_t_reset_c1(3)
-=> i_rcl_t_zero or s_t_reset(3) [CLK1]
-=> i_rcl_t_zero or not ((s_timing_c2(3) and not i_rc_rdy) or (s_timing_c2(2) and i_rc_rdy)) [CLK1]
-=> i_rcl_t_zero or (not (s_timing_c2(3) and not i_rc_rdy) and not (s_timing_c2(2) and i_rc_rdy)) [CLK1]
-=> i_rcl_t_zero or ((not s_timing_c2(3) or i_rc_rdy) and (not s_timing_c2(2) or not i_rc_rdy)) [CLK1]
-=> i_rcl_t_zero or ((s_timing_n(3) [CLK2] or i_rc_rdy) and (s_timing_n(2) [CLK2] or not i_rc_rdy)) [CLK1]
+UUUUXU : timing_n(1) = X
+=> not t_reset_c1(1)
+=> not t_reset(1) [CLK1]
+=> not (timing_c2(0) and rdy) [CLK1]
+	=> not timing_c2(0) [CLK1] or not rdy [CLK1]
+=> timing_n(0) [CLK2->CLK1] or not rdy [CLK1]
 
-UU0UUU : s_timing_n(3) = 0 [CLK1]
-=> i_rcl_t_zero or ((s_timing_n(3) [CLK2] or i_rc_rdy) and (s_timing_n(2) [CLK2] or not i_rc_rdy)) [CLK1] = 0
-=> i_rcl_t_zero or ((s_timing_n(3) [CLK2] or i_rc_rdy) and (s_timing_n(2) [CLK2] or not i_rc_rdy)) = 0
-=> i_rcl_t_zero = 0 and ((s_timing_n(3) [CLK2] or i_rc_rdy) and (s_timing_n(2) [CLK2] or not i_rc_rdy)) = 0
-=> i_rcl_t_zero = 0 and ((s_timing_n(3) [CLK2] or i_rc_rdy) = 0 or (s_timing_n(2) [CLK2] or not i_rc_rdy) = 0)
-=> i_rcl_t_zero = 0 and ((s_timing_n(3) [CLK2] = 0 and i_rc_rdy = 0) or (s_timing_n(2) [CLK2] = 0 and i_rc_rdy = 1))
+UUUU0U : timing_n(1) = 0
+=> (timing_n(0) [CLK2->CLK1] or not rdy [CLK1]) = 0
+=> timing_n(0) [CLK2->CLK1] = 0 and rdy [CLK1] = 1
 
-UU1UUU : s_timing_n(3) = 1 [CLK1]
-=> i_rcl_t_zero or ((s_timing_n(3) [CLK2] or i_rc_rdy) and (s_timing_n(2) [CLK2] or not i_rc_rdy)) [CLK1] = 1
-=> i_rcl_t_zero or ((s_timing_n(3) [CLK2] or i_rc_rdy) and (s_timing_n(2) [CLK2] or not i_rc_rdy)) = 1
-=> i_rcl_t_zero = 1 or ((s_timing_n(3) [CLK2] or i_rc_rdy) and (s_timing_n(2) [CLK2] or not i_rc_rdy)) = 1
-=> i_rcl_t_zero = 1 or ((s_timing_n(3) [CLK2] or i_rc_rdy) = 1 and (s_timing_n(2) [CLK2] or not i_rc_rdy) = 1)
-=> i_rcl_t_zero = 1 or ((s_timing_n(3) [CLK2] = 1 or i_rc_rdy = 1) and (s_timing_n(2) [CLK2] = 1 or not i_rc_rdy = 0))
+UUUU1U : timing_n(1) = 1
+=> (timing_n(0) [CLK2->CLK1] or not rdy [CLK1]) = 1
+=> timing_n(0) [CLK2->CLK1] = 1 or rdy [CLK1] = 0
 
 
 
-UXUUUU : s_timing_n(4)
-=> i_rcl_t_zero or ((s_timing_n(4) [CLK2] or i_rc_rdy) and (s_timing_n(3) [CLK2] or not i_rc_rdy)) [CLK1]
+UUUXUU : timing_n(2) = X
+=> t_zero or t_reset_c1(2)
+=> t_zero or t_reset(2) [CLK1]
+=> t_zero or not ((timing_c2(2) and not rdy) or (sync_c2 and rdy)) [CLK1]
+	=> t_zero or (not (timing_c2(2) and not rdy) and not (sync_c2 and rdy)) [CLK1]
+	=> t_zero or ((not timing_c2(2) or rdy) and (not sync_c2 or not rdy)) [CLK1]
+=> t_zero or ((timing_n(2) [CLK2] or rdy) and (not sync [CLK2] or not rdy)) [CLK1]
+=> t_zero or ((timing_n(2) [CLK2] or rdy) and (not t_res_1 [CLK1->CLK2] or not rdy)) [CLK1]
 
-U0UUUU : s_timing_n(4) = 0 [CLK1]
-=> i_rcl_t_zero = 0 and ((s_timing_n(4) [CLK2] = 0 and i_rc_rdy = 0) or (s_timing_n(3) [CLK2] = 0 and i_rc_rdy = 1))
+UUU0UU : timing_n(2) = 0
+=> (t_zero or ((timing_n(2) [CLK2] or rdy) and (not t_res_1 [CLK1->CLK2] or not rdy)) [CLK1]) = 0
+=> t_zero = 0 and ((timing_n(2) [CLK2] or rdy) and (not t_res_1 [CLK1->CLK2] or not rdy)) [CLK1] = 0
+=> t_zero = 0 and ((timing_n(2) [CLK2] or rdy) = 0 or (not t_res_1 [CLK1->CLK2] or not rdy) = 0) [CLK1] 
+=> t_zero = 0 and ((timing_n(2) [CLK2] = 0 and rdy = 0) or (t_res_1 [CLK1->CLK2] = 1 and rdy = 1)) [CLK1] 
 
-U1UUUU : s_timing_n(4) = 1 [CLK1]
-=> i_rcl_t_zero = 1 or ((s_timing_n(4) [CLK2] = 1 or i_rc_rdy = 1) and (s_timing_n(3) [CLK2] = 1 or not i_rc_rdy = 0))
+UUU1UU : timing_n(2) = 1
+=> (t_zero or ((timing_n(2) [CLK2] or rdy) and (not t_res_1 [CLK1->CLK2] or not rdy)) [CLK1]) = 1
+=> t_zero = 1 or ((timing_n(2) [CLK2] or rdy) and (not t_res_1 [CLK1->CLK2] or not rdy)) [CLK1] = 1
+=> t_zero = 1 or ((timing_n(2) [CLK2] or rdy) = 1 and (not t_res_1 [CLK1->CLK2] or not rdy) = 1) [CLK1]
+=> t_zero = 1 or ((timing_n(2) [CLK2] = 1 or rdy = 1) and (t_res_1 [CLK1->CLK2] = 0 or rdy = 0)) [CLK1]
 
 
 
-XUUUUU : s_timing_n(5)
-=> i_rcl_t_zero or ((s_timing_n(5) [CLK2] or i_rc_rdy) and (s_timing_n(4) [CLK2] or not i_rc_rdy)) [CLK1]
+UUXUUU : timing_n(3) = X
+=> t_zero or t_reset_c1(3)
+=> t_zero or t_reset(3) [CLK1]
+=> t_zero or not ((timing_c2(3) and not rdy) or (timing_c2(2) and rdy)) [CLK1]
+	=> t_zero or (not (timing_c2(3) and not rdy) and not (timing_c2(2) and rdy)) [CLK1]
+	=> t_zero or ((not timing_c2(3) or rdy) and (not timing_c2(2) or not rdy)) [CLK1]
+=> t_zero or ((timing_n(3) [CLK2] or rdy) and (timing_n(2) [CLK2] or not rdy)) [CLK1]
 
-0UUUUU : s_timing_n(5) = 0 [CLK1]
-=> i_rcl_t_zero = 0 and ((s_timing_n(5) [CLK2] = 0 and i_rc_rdy = 0) or (s_timing_n(4) [CLK2] = 0 and i_rc_rdy = 1))
+UU0UUU : timing_n(3) = 0
+=> (t_zero or ((timing_n(3) [CLK2] or rdy) and (timing_n(2) [CLK2] or not rdy)) [CLK1]) = 0
+=> t_zero = 0 and ((timing_n(3) [CLK2] or rdy) and (timing_n(2) [CLK2] or not rdy)) [CLK1] = 0
+=> t_zero = 0 and ((timing_n(3) [CLK2] or rdy) = 0 or (timing_n(2) [CLK2] or not rdy) = 0) [CLK1]
+=> t_zero = 0 and ((timing_n(3) [CLK2] = 0 and rdy = 0) or (timing_n(2) [CLK2] = 0 and rdy = 1)) [CLK1]
 
-1UUUUU : s_timing_n(5) = 1 [CLK1]
-=> i_rcl_t_zero = 1 or ((s_timing_n(5) [CLK2] = 1 or i_rc_rdy = 1) and (s_timing_n(4) [CLK2] = 1 or not i_rc_rdy = 0))
+UU1UUU : timing_n(3) = 1
+=> (t_zero or ((timing_n(3) [CLK2] or rdy) and (timing_n(2) [CLK2] or not rdy)) [CLK1]) = 1
+=> t_zero = 1 or ((timing_n(3) [CLK2] or rdy) and (timing_n(2) [CLK2] or not rdy)) [CLK1] = 1
+=> t_zero = 1 or ((timing_n(3) [CLK2] or rdy) = 1 and (timing_n(2) [CLK2] or not rdy) = 1) [CLK1]
+=> t_zero = 1 or ((timing_n(3) [CLK2] = 1 or rdy = 1) and (timing_n(2) [CLK2] = 1 or rdy = 0)) [CLK1]
+
+
+
+UXUUUU : timing_n(4) = X
+=> t_zero or ((timing_n(4) [CLK2] or rdy) and (timing_n(3) [CLK2] or not rdy)) [CLK1]
+
+U0UUUU : timing_n(4) = 0
+=> t_zero = 0 and ((timing_n(4) [CLK2] = 0 and rdy = 0) or (timing_n(3) [CLK2] = 0 and rdy = 1)) [CLK1]
+
+U1UUUU : timing_n(4) = 1
+=> t_zero = 1 or ((timing_n(4) [CLK2] = 1 or rdy = 1) and (timing_n(3) [CLK2] = 1 or rdy = 0)) [CLK1]
+
+
+
+XUUUUU : timing_n(5) = X
+=> t_zero or ((timing_n(5) [CLK2] or rdy) and (timing_n(4) [CLK2] or not rdy)) [CLK1]
+
+0UUUUU : timing_n(5) = 0
+=> t_zero = 0 and ((timing_n(5) [CLK2] = 0 and rdy = 0) or (timing_n(4) [CLK2] = 0 and rdy = 1)) [CLK1]
+
+1UUUUU : timing_n(5) = 1
+=> t_zero = 1 or ((timing_n(5) [CLK2] = 1 or rdy = 1) and (timing_n(4) [CLK2] = 1 or rdy = 0)) [CLK1]

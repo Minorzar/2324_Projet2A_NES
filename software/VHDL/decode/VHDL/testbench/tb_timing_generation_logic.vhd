@@ -10,18 +10,18 @@ end tb_timing_generation_logic;
 
 architecture Behavioral of tb_timing_generation_logic is
 	-- Constants
-	constant CLK_PERIOD			: time := 200 ps;					-- Clock period
+	constant CLK_PERIOD			: time := 200 ps;
 
 	-- Signals
-	signal t_clk_1				: std_logic;						-- Input clock signal for latch signals
-	signal t_clk_2				: std_logic;						-- Input clock signal for internal latches
-	signal t_rc_rdy				: std_logic;						-- Input ready signal from ready_control
-	signal t_pl_tzpre			: std_logic;						-- Input signal set high when the opcode is a two-cycle opcode from predecode_logic
-	signal t_rcl_t_zero			: std_logic;						-- Input signal to reset timing registers from random_control_logic
-	signal t_rcl_t_res_1		: std_logic;						-- Input signal to reset timing register 1 from random_control_logic
-	signal t_tgl_timing_n		: std_logic_vector(5 downto 0);		-- Output signal indicating T-n value (active low)
-	signal t_tgl_fetch			: std_logic;						-- Output signal indicating a fetch instruction is needed
-	signal t_tgl_sync			: std_logic;						-- Output signal indicating an instruction fetch is in progress
+	signal t_clk_1				: std_logic;
+	signal t_clk_2				: std_logic;
+	signal t_rc_rdy				: std_logic;
+	signal t_pl_tzpre			: std_logic;
+	signal t_rcl_t_zero			: std_logic;
+	signal t_rcl_t_res_1		: std_logic;
+	signal t_tgl_timing_n		: std_logic_vector(5 downto 0);
+	signal t_tgl_fetch			: std_logic;
+	signal t_tgl_sync			: std_logic;
 
 begin
 	-- Instantiate the timing_generation_logic module
