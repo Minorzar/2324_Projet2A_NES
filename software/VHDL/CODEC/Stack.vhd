@@ -19,6 +19,8 @@ architecture Stack_rtf of Stack is
 
     signal unsigned(15 downto 0): Mem;
 
+begin
+
 process(i_Mclk)
 
     begin
@@ -26,7 +28,7 @@ process(i_Mclk)
 
                 Mem<=i_Data;
 
-            if(i_en==1) then 
+            if(i_en= "1") then 
 
                 o_Data<=Mem;
 

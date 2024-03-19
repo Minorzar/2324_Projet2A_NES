@@ -2,32 +2,43 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity Codec_top_tb is 
-end Stack_tb; 
+entity Compter_tb is 
+end Compter_tb;
 
-architecture Codec_top_test of Codec_top_tb is 
+architecture NCompteur of Compter_tb is 
 
-    signal iData : unsigned(15 downto 0); 
-    signal iclk : std_logic;
-    signal ien : std_logic;
-    signal oData : unsigned(15 downto 0);
- 
-begin 
-    Codec_top : entity work.Codec_top
+signal Mclk : std_logic;
+signal Daclrck : std_logic;
+signal bclk : std_logic; 
+signal en : std_logic;
+
+-- benche variable 
+constant CLK_PERIOD : time := 5 ns;
+signal finished : boolean := false;
+
+begin
+    Compter : entity work.Codec_top
     port map(
-        i_Data=>iData,
-        i_clk=>iclk,
-        i_en=>ien,
-        o_Data=>oData
+
+        MCLK=>Mclk,
+        DACLRCK =>Daclrck,
+        BCLK=>bclk,
+        EN=>en
+
+
     );
 
 benche : process
 begin 
+        for k in 0 to 1024 loop
+            
+            Mclk <= not Mclk;
+            wait for(CLK_PERIOD);
+            
+        end loop; 
+            finished <= true;
+            wait;
 
+end process benche;
 
-        finished <= true;
-        wait
-end process benche; 
-
-
-end Codec_top_test; 
+end NCompteur;
