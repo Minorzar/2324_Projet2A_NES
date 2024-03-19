@@ -272,6 +272,8 @@ begin
 				reg_shift_right_select <= i_dr(75) or (i_dr(76) and reg_shift_inc_dec_mem);
 				reg_sum_select <= not (op_ands or i_dr(29) or i_dr(32) or not i_rdy or i_dr(75) or (i_dr(76) and reg_shift_inc_dec_mem));
 				o_dl_to_adl <= i_dr(81) or i_dr(82);
+				o_O_to_adh0 <= i_dr(81) or i_dr(82);
+				o_O_to_adh1_7 <= i_dr(57) or i_dr(81) or i_dr(82);
 				o_dl_to_adh <= (i_t0 and (i_dr(94) or i_dr(95) or i_dr(96))) or i_dr(84) or i_dr(89) or i_dr(90) or i_dr(91);
 				o_sb_to_adh <= adh_math or i_dr(93);
 				o_adh_to_abh <= ((((i_dr(28) or i_dr(56) or i_dr(84) or i_dr(89) or i_dr(90) or i_dr(91) or reg_adh_to_pch) and i_rdy) or (reg_rdy_phi1 and alu_cout_held_if_not_rdy and reg_sb_to_adh))and not i_dr(93)) or i_zero_adl0;
@@ -287,6 +289,7 @@ begin
 				b_acr_to_c <= i_dr(112) or i_dr(116) or i_dr(117) or i_dr(118) or i_dr(119) or (i_dr(107) and reg_shift_inc_dec_mem_delayed);
 				o_1_to_v <= not( reg_set_overflow or not reg_set_overflow_delayed_again);
 				o_0_to_v <= i_dr(127);
+				o_dl_to_db <= i_dr(80) or i_dr(102) or reg_shift_inc_dec_mem or i_break_done or inc_sb or i_dr(45) or i_dr(46) or i_dr(47) or i_dr(48) or (not i_dr(128) and (i_t0 or i_dr(83)));
 			end if;
 		end if;
 	end process;
