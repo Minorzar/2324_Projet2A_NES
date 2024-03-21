@@ -1,56 +1,64 @@
-|-----|-------|--------|---------|---------------|------------------|
-| rdy | tzpre | t_zero | t_res_1 | timing_n_prev | timing_n_current |
-|-----|-------|--------|---------|---------------|------------------|
-| U   | U     | U      | U       | UUUUUU        | UUUUUU           |
-|-----|-------|--------|---------|---------------|------------------|
-| U   | U     | 1      | 0       | UUUUUU        | UUUUU0           |
-| U   | 0     | U      | 0       | UUUUUU        | UUUUU0           |
-| 0   | U     | U      | U       | UUUUU0        | UUUUU0           |
-|-----|-------|--------|---------|---------------|------------------|
-| 1   | U     | U      | U       | UUUUU1        | UUUUU1           |
-| 1   | U     | 1      | U       | UUUUU1        | UUUUU1           |
-| 1   | 1     | U      | 0       | UUUUU1        | UUUUU1           |
-|-----|-------|--------|---------|---------------|------------------|
-| 1   | U     | U      | U       | UUUUU0        | UUUU0U           |
-|-----|-------|--------|---------|---------------|------------------|
-| U   | U     | U      | U       | UUUU1U        | UUUU1U           |
-| 0   | U     | U      | U       | UUUUUU        | UUUU1U           |
-|-----|-------|--------|---------|---------------|------------------|
-| U   | U     | 0      | U       | UUUUUU        | UUU0UU           |
-| 1   | U     | 0      | 1       | UUUUUU        | UUU0UU           |
-| 0   | U     | 0      | U       | UUU0UU        | UUU0UU           |
-|-----|-------|--------|---------|---------------|------------------|
-| U   | U     | 1      | U       | UUUUUU        | UUU1UU           |
-| U   | U     | U      | 0       | UUU1UU        | UUU1UU           |
-| 0   | U     | U      | U       | UUU1UU        | UUU1UU           |
-| 1   | U     | U      | 0       | UUUUUU        | UUU1UU           |
-|-----|-------|--------|---------|---------------|------------------|
-| 1   | U     | 0      | U       | UUU0UU        | UU0UUU           |
-| 0   | U     | 0      | U       | UU0UUU        | UU0UUU           |
-|-----|-------|--------|---------|---------------|------------------|
-| U   | U     | 1      | U       | UUUUUU        | UU1UUU           |
-| U   | U     | U      | U       | UU11UU        | UU1UUU           |
-| 0   | U     | U      | U       | UU1UUU        | UU1UUU           |
-| 1   | U     | U      | U       | UUU1UU        | UU1UUU           |
-|-----|-------|--------|---------|---------------|------------------|
-| 0   | U     | 0      | U       | U0UUUU        | U0UUUU           |
-| 1   | U     | U      | U       | UU0UUU        | U0UUUU           |
-|-----|-------|--------|---------|---------------|------------------|
-| U   | U     | 1      | U       | UUUUUU        | U1UUUU           |
-| U   | U     | U      | U       | U11UUU        | U1UUUU           |
-| 0   | U     | U      | U       | U1UUUU        | U1UUUU           |
-| 1   | U     | U      | U       | UU1UUU        | U1UUUU           |
-|-----|-------|--------|---------|---------------|------------------|
-| 0   | U     | 0      | U       | 0UUUUU        | 0UUUUU           |
-| 1   | U     | U      | U       | U0UUUU        | 0UUUUU           |
-|-----|-------|--------|---------|---------------|------------------|
-| U   | U     | 1      | U       | UUUUUU        | 1UUUUU           |
-| U   | U     | U      | U       | 11UUUU        | 1UUUUU           |
-| 0   | U     | U      | U       | 1UUUUU        | 1UUUUU           |
-| 1   | U     | U      | U       | U1UUUU        | 1UUUUU           |
-|-----|-------|--------|---------|---------------|------------------|
+| rdy | tzpre | t_zero | t_res_1 | timing_n_prev |  timing_n_current |
+|-----|-------|--------|---------|---------------| ------------------|
+|  U  |   U   |   U    |    U    |    UUUUUU     |      UUUUUU       |
+|  U  |   U   |   1    |    0    |    UUUUUU     |      UUUUU0       |
+|  U  |   0   |   U    |    0    |    UUUUUU     |      UUUUU0       |
+|  0  |   U   |   U    |    U    |    UUUUU0     |      UUUUU0       |
+|  U  |   U   |   U    |    1    |    UUUUU1     |      UUUUU1       |
+|  1  |   U   |   U    |    1    |    UUUUUU     |      UUUUU1       |
+|  U  |   1   |   0    |    U    |    UUUUU1     |      UUUUU1       |
+|  1  |   1   |   0    |    U    |    UUUUUU     |      UUUUU1       |
+|  1  |   U   |   U    |    U    |    UUUUU0     |      UUUU0U       |
+|  U  |   U   |   U    |    U    |    UUUUU1     |      UUUU1U       |
+|  0  |   U   |   U    |    U    |    UUUUUU     |      UUUU1U       |
+|  1  |   U   |   0    |    1    |    UUUUUU     |      UUU0UU       |
+|  0  |   U   |   0    |    U    |    UUU0UU     |      UUU0UU       |
+|  U  |   U   |   1    |    U    |    UUUUUU     |      UUU1UU       |
+|  U  |   U   |   U    |    0    |    UUU1UU     |      UUU1UU       |
+|  0  |   U   |   U    |    U    |    UUU1UU     |      UUU1UU       |
+|  1  |   U   |   U    |    0    |    UUUUUU     |      UUU1UU       |
+|  1  |   U   |   0    |    U    |    UUU0UU     |      UU0UUU       |
+|  0  |   U   |   0    |    U    |    UU0UUU     |      UU0UUU       |
+|  U  |   U   |   1    |    U    |    UUUUUU     |      UU1UUU       |
+|  U  |   U   |   U    |    U    |    UU11UU     |      UU1UUU       |
+|  0  |   U   |   U    |    U    |    UU1UUU     |      UU1UUU       |
+|  1  |   U   |   U    |    U    |    UUU1UU     |      UU1UUU       |
+|  0  |   U   |   0    |    U    |    U0UUUU     |      U0UUUU       |
+|  1  |   U   |   U    |    U    |    UU0UUU     |      U0UUUU       |
+|  U  |   U   |   1    |    U    |    UUUUUU     |      U1UUUU       |
+|  U  |   U   |   U    |    U    |    U11UUU     |      U1UUUU       |
+|  0  |   U   |   U    |    U    |    U1UUUU     |      U1UUUU       |
+|  1  |   U   |   U    |    U    |    UU1UUU     |      U1UUUU       |
+|  0  |   U   |   0    |    U    |    0UUUUU     |      0UUUUU       |
+|  1  |   U   |   U    |    U    |    U0UUUU     |      0UUUUU       |
+|  U  |   U   |   1    |    U    |    UUUUUU     |      1UUUUU       |
+|  U  |   U   |   U    |    U    |    11UUUU     |      1UUUUU       |
+|  0  |   U   |   U    |    U    |    1UUUUU     |      1UUUUU       |
+|  1  |   U   |   U    |    U    |    U1UUUU     |      1UUUUU       |
 
+Init
+UUUUUU	rdy = U & tzpre = U & t_zero = U & t_res_1 = U
+111110	rdy = 0 & tzpre = U & t_zero = 1 & t_res_1 = 0
+111101	rdy = 1 & tzpre = U & t_zero = U & t_res_1 = 1
 
+6 Cycles Opcode
+111011	rdy = 1 & tzpre = 1 & t_zero = 0 & t_res_1 = 0
+110111	rdy = 1 & tzpre = 1 & t_zero = 0 & t_res_1 = 0
+101111	rdy = 1 & tzpre = 1 & t_zero = 0 & t_res_1 = 0
+011111	rdy = 1 & tzpre = 1 & t_zero = 0 & t_res_1 = 0
+111110	rdy = 0 & tzpre = U & t_zero = 1 & t_res_1 = 0
+111101	rdy = 1 & tzpre = U & t_zero = U & t_res_1 = 1
+
+2 Cycles Opcode
+111010	rdy = 1 & tzpre = 0 & t_zero = 0 & t_res_1 = 0
+111101	rdy = 1 & tzpre = U & t_zero = 1 & t_res_1 = 1
+
+5 Cycles Opcode
+111011	rdy = 1 & tzpre = 1 & t_zero = 0 & t_res_1 = 0
+110111	rdy = 1 & tzpre = 1 & t_zero = 0 & t_res_1 = 0
+101111	rdy = 1 & tzpre = 1 & t_zero = 0 & t_res_1 = 0
+111110	rdy = 0 & tzpre = U & t_zero = 1 & t_res_1 = 0
+111101	rdy = 1 & tzpre = U & t_zero = U & t_res_1 = 1
 
 UUUUUX : timing_n(0) = X
 => not t0
