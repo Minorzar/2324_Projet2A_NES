@@ -11,27 +11,27 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity timing_generation_logic is
 	port (
-		i_clk_1			: in std_logic;							-- Input clock signal
-		i_clk_2			: in std_logic;							-- Input clock signal
-		i_rc_rdy		: in std_logic;							-- Input ready signal from ready_control (active low)
-		i_pl_tzpre		: in std_logic;							-- Input signal from predecode_logic set high when the opcode is a two-cycle opcode (active low)
-		i_rcl_t_zero	: in std_logic;							-- Input signal from random_control_logic to reset timing registers
-		i_rcl_t_res_1	: in std_logic;							-- Input signal from random_control_logic to reset timing register 1
+		i_clk_1			: in std_logic;							-- Input clock signal (rising edge)
+		i_clk_2			: in std_logic;							-- Input clock signal (rising edge)
+		i_rc_rdy		: in std_logic;							-- Input signal from ready_control indicating ready (active high)
+		i_pl_tzpre		: in std_logic;							-- Input signal from predecode_logic indicating a two-cycle opcode (active low)
+		i_rcl_t_zero	: in std_logic;							-- Input signal from random_control_logic to reset timing registers (active high)
+		i_rcl_t_res_1	: in std_logic;							-- Input signal from random_control_logic indicating pre-latched version of sync signal on clk_1
 		o_tgl_timing_n	: out std_logic_vector(5 downto 0);		-- Output signal indicating T-n value (active low)
 		o_tgl_fetch		: out std_logic;						-- Output signal indicating instruction fetch
-		o_tgl_sync		: out std_logic							-- Output signal indicating instruction synchronization
+		o_tgl_sync		: out std_logic							-- Output signal indicating instruction fetch in progress (active high)
 	);
 end timing_generation_logic;
 
 architecture Behavioral of timing_generation_logic is
-	signal s_timing_n	: std_logic_vector(5 downto 0);			-- Internal main timing signal
-	signal s_sync		: std_logic;							-- Internal synchronization signal
-	signal s_timing_c2	: std_logic_vector(5 downto 0);			-- Latched timing signals on clk_2 with opposite sign
+	signal s_timing_n	: std_logic_vector(5 downto 0);			-- Main timing signal
+	signal s_timing_c2	: std_logic_vector(5 downto 0);			-- Main timing signal on clk_2 (with opposite sign)
+	signal s_t_reset	: std_logic_vector(5 downto 0);			-- Individual timing signal resets
 	signal s_t_reset_c1	: std_logic_vector(5 downto 0);			-- Individual timing signal resets on clk_1
+	signal s_t0_c2_rdy	: std_logic;							-- Indicate if T0 is ready on clk_2
+	signal s_t0			: std_logic;							-- Indicate T0 (opcode prefetch)
+	signal s_sync		: std_logic;							-- Synchronization signal on clk_1
 	signal s_sync_c2	: std_logic;							-- Synchronization signal on clk_2
-	signal s_t_reset	: std_logic_vector(5 downto 0);			-- Internal signal for individual timing signal resets
-	signal s_t0_c2_rdy	: std_logic;							-- Signal to indicate if T0 is ready on clk_2
-	signal s_t0			: std_logic;							-- T0 signal (opcode prefetch)
 
 begin
 	-- Main timing signals assignment

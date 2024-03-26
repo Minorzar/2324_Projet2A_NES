@@ -11,7 +11,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity predecode_register is
 	port (
-		i_clk_2				: in std_logic;						-- Input clock signal
+		i_clk_2				: in std_logic;						-- Input clock signal (rising edge)
 		i_db_instruction	: in std_logic_vector(7 downto 0);	-- Input instruction from the data bus
 		o_pr_instruction	: out std_logic_vector(7 downto 0)	-- Output instruction
 	);
