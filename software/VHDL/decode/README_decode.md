@@ -49,14 +49,16 @@ The design architecture is structured around several key components:
 - **6502 Microprocessor:**
   - File: [6502.txt](https://www.nesdev.org/6502.txt)
 - **The 6502/65C02/65C816 Instruction Set Decoded:**
-  - File: [The 6502 Instruction Set Decoded.webarchive](https://llx.com/Neil/a2/opcodes.html)
+  - File: [6502 Instruction Set.webarchive](https://llx.com/Neil/a2/opcodes.html)
 - **6502 Cycle Times:**
-  - Link: [6502 Cycle Times](https://www.nesdev.org/wiki/6502_cycle_times)
+  - File: [6502 Cycle Times.webarchive](https://www.nesdev.org/wiki/6502_cycle_times)
 - **6502 Timing States:** 
-  - Link: [Visual6502wiki - 6502 Timing States](https://www.nesdev.org/wiki/Visual6502wiki/6502_Timing_States)
-- **Hanson's Block Diagram:**
-  - File: [6502-Block-Diagram.pdf](https://www.nesdev.org/wiki/Visual6502wiki/Hanson's_Block_Diagram)
+  - File: [6502 Timing States.webarchive](https://www.nesdev.org/wiki/Visual6502wiki/6502_Timing_States)
+- **Hanson's 6502 Block Diagram:**
+  - File: [6502 Block Diagram.pdf](https://www.nesdev.org/wiki/Visual6502wiki/Hanson's_Block_Diagram)
+- **Hanson's 6502 Colorized Block Diagram:**
+  - File: [6502 Block Diagram Colorized.png](http://forum.6502.org/viewtopic.php?t=1744)
 - **Visual Transistor-level Simulation of the 6502 CPU:**
   - Link: [Visual Transistor-level Simulation of the 6502 CPU](http://www.visual6502.org)
 - **6502 Simulation Repository:**
-  - Repository: [6502sim](https://github.com/klynch71/6502sim)
+  - Link: [6502sim](https://github.com/klynch71/6502sim)
