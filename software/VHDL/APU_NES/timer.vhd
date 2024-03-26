@@ -5,15 +5,15 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity Timer is
     generic (
-        TIMER_WIDTH : integer := 11   -- Width of the timer value
+        TIMER_WIDTH : integer := 11   
     );
     Port (
-        i_clk     : in  std_logic;    -- System clock input
-        i_reset   : in  std_logic;    -- Reset input
-        i_load    : in  std_logic;    -- Load input
+        i_clk     : in  std_logic;    
+        i_reset   : in  std_logic;    
+        i_load    : in  std_logic;    
         i_timer   : in  std_logic_vector(TIMER_WIDTH - 1 downto 0); -- Input for timer value
-        o_timer   : out std_logic;    -- Timer output
-        o_carry   : out std_logic     -- Carry output when timer resets
+        o_timer   : out std_logic;   
+        o_carry   : out std_logic     
     );
 end Timer;
 

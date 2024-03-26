@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY shift_register
+set_global_assignment -name TOP_LEVEL_ENTITY APU_Sweep
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:34:18  JANUARY 30, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
@@ -71,6 +71,8 @@ set_global_assignment -name VHDL_FILE envelope_gen.vhd
 set_global_assignment -name VHDL_FILE clk_divider.vhd
 set_global_assignment -name VHDL_FILE timer.vhd
 set_global_assignment -name VHDL_FILE shift_register.vhd
+set_global_assignment -name VHDL_FILE APU_noise.vhd
+set_global_assignment -name VHDL_FILE APU_Sweep.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
