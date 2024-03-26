@@ -22,7 +22,8 @@ entity CPU_p_register is
 		i_i_to_v: in STD_LOGIC;
 		i_db7_to_n: in STD_LOGIC;
 		i_p_to_db: in STD_LOGIC;
-		io_d_bus: inout unsigned (7 downto 0));
+		io_d_bus: inout unsigned (7 downto 0);
+		o_status: buffer STD_LOGIC_VECTOR(7 downto 0));
 end CPU_p_register;
 
 architecture Behavioral of CPU_p_register is
@@ -79,5 +80,6 @@ begin
 
 	io_d_bus <= unsigned(reg_p) when i_p_to_db = '1' else
 		(others => 'Z');
+	o_status <= reg_p;
 
 end Behavioral;

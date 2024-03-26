@@ -8,18 +8,18 @@ entity CPU_random_control_logic is
 		i_rdy: in STD_LOGIC;
 		i_phi1: in STD_LOGIC;
 		i_phi2: in STD_LOGIC;
-		i_set_overflow: in STD_LOGIC;
-		i_dr: in unsigned(129 downto 0);--the decode ROM array
+		i_dr: in STD_LOGIC_VECTOR(129 downto 0);--the decode ROM array
 		i_reset: in STD_LOGIC;
 		i_reset_in_progress: in STD_LOGIC;
 		i_break_in_progress: in STD_LOGIC;
+		i_break_done: in STD_LOGIC;
 		i_implied_addressing: in STD_LOGIC;
 		i_two_cycle: in STD_LOGIC;
+		i_set_overflow: in STD_LOGIC;
 		i_t0: in STD_LOGIC;
 		i_ir5: in STD_LOGIC;
 		i_db7: in STD_LOGIC;
 		i_alu_carry_out: in STD_LOGIC;
-		i_break_done: in STD_LOGIC;
 		i_zero_adl0: in STD_LOGIC;
 		i_p_register: in STD_LOGIC_VECTOR(7 downto 0);
 		o_dl_to_db: out STD_LOGIC;
