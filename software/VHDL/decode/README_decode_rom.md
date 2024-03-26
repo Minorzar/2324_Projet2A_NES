@@ -1,6 +1,8 @@
-## ROM Configuration for Decode Module
+# Decode ROM
 
-This table represents the configuration of the Read-Only Memory (ROM) employed within the decode module. The ROM, often referred to as a Programmable Logic Array (PLA), maps specific instruction bytes and timing values to corresponding control signals utilized by the 6502 processor.
+This README outlines the Decode ROM module of the 6502 processor. The ROM, also known as a Programmable Logic Array (PLA), serves to map particular instruction bytes and timing values to corresponding control signals utilized by the processor. The README includes a truth table facilitating the determination of the PLA active index based on the input instruction and timing states.
+
+## Truth Table
 
 | PLA Index | i_ir_instruction(i) | i_tgl_timing_n(i) | pla129(i) |
 |-----------|---------------------|-------------------| --------- |
