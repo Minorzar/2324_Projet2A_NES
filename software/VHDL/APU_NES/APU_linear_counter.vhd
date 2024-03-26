@@ -80,6 +80,6 @@ process(i_clk)
 				end if;
 			end if;
 		end if;
-		end process;
+	end process;
 
 end linear_counter;

@@ -18,10 +18,12 @@ architecture Behavioral of clk_divider is
 begin
     process (i_clk, i_reset)
     begin
+	 
         if i_reset = '1' then
             counter <= "1111";
             o_clk <= '0';
 				end if;
+				
         if rising_edge(i_clk) then
 		  
             if counter = 0 then
