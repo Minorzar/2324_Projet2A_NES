@@ -1,6 +1,10 @@
 -- decode.vhd
 --
 -- This VHDL module implements the top-level decoder for the NES FPGA project.
+--
+-- Description:
+-- The decoder is responsible for interpreting incoming instruction bytes, deriving control signals,
+-- and facilitating proper instruction execution within the 6502 processor architecture.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

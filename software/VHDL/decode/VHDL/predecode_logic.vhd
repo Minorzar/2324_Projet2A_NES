@@ -3,17 +3,17 @@
 -- This VHDL module implements "Predecode Logic".
 --
 -- Description:
---	The predecode logic block has three main functions:
---	1) Indicate if an opcode is one cycle via the implied output
---	2) Indicate if an opcode is two cycles via the o_pl_tzpre output
---	3) Pass the opcode to the instruction register or pass all zeros if clear_ir is high.
+-- The predecode logic block has three main functions:
+-- 1) Indicate if an opcode is one cycle via the implied output
+-- 2) Indicate if an opcode is two cycles via the o_pl_tzpre output
+-- 3) Pass the opcode to the instruction register or pass all zeros if clear_ir is high.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity predecode_logic is
 	port (
-		i_clk_1				: in std_logic;							-- Input clock signal
+		i_clk_1				: in std_logic;							-- Input clock signal (rising edge)
 		i_irc_aic			: in std_logic;							-- Input assert interrupt control signal from interrupt_and_reset_control (break in progress)
 		i_tgl_fetch			: in std_logic;							-- Input fetch signal from timing_generation_logic
 		i_pr_instruction	: in std_logic_vector(7 downto 0);		-- Input instruction from predecode_register
