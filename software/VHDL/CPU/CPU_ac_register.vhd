@@ -13,7 +13,7 @@ entity CPU_ac_register is
 end CPU_ac_register;
 
 architecture Behavioral of CPU_ac_register is
-	signal reg_ac: unsigned (7 downto 0);
+	signal reg_ac: unsigned (7 downto 0):= x"00";
 begin
 	process(i_clk)
 		begin

@@ -6,13 +6,16 @@ entity CPU is
 	Port(
 		i_clk: in STD_LOGIC;
 		i_irq: in STD_LOGIC;
+		i_nmi: in STD_LOGIC;
 		i_read_write: in STD_LOGIC;
 		i_ready: in STD_LOGIC;
-		i_test_ir5: in STD_LOGIC;
-		i_test_vector: in STD_LOGIC_VECTOR(60 downto 0);
+		i_reset: in STD_LOGIC;
+		i_set_overflow: in STD_LOGIC;
 		o_address_bus: out unsigned (15 downto 0);
 		b_read_write: buffer STD_LOGIC;
-		io_data_bus: inout unsigned (7 downto 0));
+		io_data_bus: inout unsigned (7 downto 0);
+		o_sync: out STD_LOGIC);
+
 end CPU;
 architecture Behavioral of CPU is
 	signal s_bus: unsigned (7 downto 0);
@@ -22,12 +25,24 @@ architecture Behavioral of CPU is
 	signal alu_result: unsigned (7 downto 0);
 	signal alu_a_input: unsigned (7 downto 0);
 	signal alu_b_input: unsigned (7 downto 0);
+	signal decode_rom_output: STD_LOGIC_VECTOR (129 downto 0);
+	signal p_register_out: STD_LOGIC_VECTOR (7 downto 0);
+	signal instruction_register: STD_LOGIC_VECTOR (7 downto 0);
+	signal timing_register: STD_LOGIC_VECTOR(5 downto 0);
 	signal phi1: STD_LOGIC;
 	signal phi2: STD_LOGIC;
 	signal rdy: STD_LOGIC;
 	signal acr: STD_LOGIC;
 	signal avr: STD_LOGIC;
 	signal pclc : STD_LOGIC;
+	signal reset: STD_LOGIC;
+	signal reset_in_progress: STD_LOGIC;
+	signal interrupt_in_progress: STD_LOGIC;
+	signal break_done: STD_LOGIC;
+	signal break_in_progress: STD_LOGIC;
+	signal implied_addressing: STD_LOGIC;
+	signal two_cycle: STD_LOGIC;
+	signal zero_adl: STD_LOGIC_VECTOR(2 downto 0);
 	signal dl_to_db: STD_LOGIC;
 	signal dl_to_adl: STD_LOGIC;
 	signal dl_to_adh: STD_LOGIC;
@@ -87,7 +102,11 @@ architecture Behavioral of CPU is
 	signal db6_to_v: STD_LOGIC;
 	signal avr_to_v: STD_LOGIC;
 	signal i_to_v: STD_LOGIC;
+	signal O_to_v: STD_LOGIC;
 	signal db7_to_n: STD_LOGIC;
+	signal t1_reset: STD_LOGIC;
+	signal t_zero: STD_LOGIC;
+	
 begin
 	
 	a_input_register: entity work.CPU_a_input_register
@@ -117,24 +136,32 @@ begin
 	data_output_register_buffer: entity work.CPU_data_output_register_buffer
 	port map(i_clk => i_clk, i_phi1 => phi1, i_phi2 => phi2, i_d_bus => d_bus, i_read_write => b_read_write, o_data_bus => io_data_bus);
 	
+	decode: entity work.decode
+	port map(i_clk => i_clk, i_clk_1 => phi1, i_clk_2 => phi2, i_db_instruction => std_logic_vector(io_data_bus), i_aic => not break_in_progress, i_rdy => rdy, i_t_zero => t_zero, i_t_res_1 => t1_reset, o_pl_implied => implied_addressing, o_pl_tzpre => two_cycle, o_ir_instruction => instruction_register, o_tgl_timing_n => timing_register, o_tgl_sync => o_sync, o_dr_pla => decode_rom_output);
+	
 	input_data_latch: entity work.CPU_input_data_latch
 	port map(i_clk => i_clk, i_phi2 => phi2, i_data_bus => io_data_bus, i_dl_to_db => dl_to_db, i_dl_to_adl => dl_to_adl, i_dl_to_adh => dl_to_adh, o_d_bus => d_bus, o_adl_bus => adl_bus, o_adh_bus => adh_bus);
 	
 	p_register: entity work.CPU_p_register
-	port map(i_clk => i_clk, i_ir5 => i_test_ir5, i_acr => acr, i_avr => avr, i_db0_to_c => db0_to_c, i_ir5_to_c => ir5_to_c, i_acr_to_c => acr_to_c, i_db1_to_z => db1_to_z, i_dbz_to_z => dbz_to_z, i_db2_to_i => db2_to_i, i_ir5_to_i => ir5_to_i, i_db3_to_d => db3_to_d, i_ir5_to_d => ir5_to_d, i_db6_to_v => db6_to_v, i_avr_to_v => avr_to_v, i_i_to_v => i_to_v, i_db7_to_n => db7_to_n, i_p_to_db => p_to_db, io_d_bus => d_bus);
+	port map(i_clk => i_clk, i_ir5 => instruction_register(5), i_acr => acr, i_avr => avr, i_db0_to_c => db0_to_c, i_ir5_to_c => ir5_to_c, i_acr_to_c => acr_to_c, i_db1_to_z => db1_to_z, i_dbz_to_z => dbz_to_z, i_db2_to_i => db2_to_i, i_ir5_to_i => ir5_to_i, i_db3_to_d => db3_to_d, i_ir5_to_d => ir5_to_d, i_db6_to_v => db6_to_v, i_avr_to_v => avr_to_v, i_i_to_v => i_to_v, i_db7_to_n => db7_to_n, i_p_to_db => p_to_db, io_d_bus => d_bus, o_status => p_register_out);
 	
 	program_counter_low: entity work.CPU_program_counter_low
-	port map(i_clk => i_clk, i_adl_to_pcl => adl_to_pcl, i_pcl_to_adl => pcl_to_adl, i_pcl_to_db => pcl_to_db, i_pcl_increment => i_to_pc, i_pcl_reload => pcl_to_pcl, o_carry => pclc, o_d_bus => d_bus, io_adl_bus => adl_bus);
+	port map(i_clk => i_clk, i_phi2 => phi2, i_adl_to_pcl => adl_to_pcl, i_pcl_to_adl => pcl_to_adl, i_pcl_to_db => pcl_to_db, i_pcl_increment => i_to_pc, i_pcl_reload => pcl_to_pcl, o_carry => pclc, o_d_bus => d_bus, io_adl_bus => adl_bus);
 	
 	program_counter_high: entity work.CPU_program_counter_high
-	port map(i_clk => i_clk, i_adh_to_pch => adh_to_pch, i_pch_to_adh => pch_to_adh, i_pch_to_db => pch_to_db, i_pcl_carry => pclc, i_pch_reload => pch_to_pch, o_d_bus => d_bus, io_adh_bus => adh_bus);
+	port map(i_clk => i_clk, i_phi2 => phi2, i_adh_to_pch => adh_to_pch, i_pch_to_adh => pch_to_adh, i_pch_to_db => pch_to_db, i_pcl_carry => pclc, i_pch_reload => pch_to_pch, o_d_bus => d_bus, io_adh_bus => adh_bus);
 	
-	random_control_logic: entity work.CPU_random_control_logic_test
-	port map(i_clk => i_clk, i_test_vector => i_test_vector, i_rdy => rdy, o_dl_to_db => dl_to_db, o_dl_to_adl => dl_to_adl, o_dl_to_adh => dl_to_adh, o_O_to_adh0 => O_to_adh0, o_O_to_adh1_7 => O_to_adh1_7, o_adh_to_abh => adh_to_abh, o_adl_to_abl => adl_to_abl, o_pcl_to_pcl => pcl_to_pcl, o_adl_to_pcl => adl_to_pcl, o_i_to_pc => i_to_pc, o_pcl_to_db => pcl_to_db, o_pcl_to_adl => pcl_to_adl, o_pch_to_pch => pch_to_pch, o_adh_to_pch => adh_to_pch, o_pch_to_db => pch_to_db, o_pch_to_adh => pch_to_adh, o_sb_to_adh => sb_to_adh, o_sb_to_db => sb_to_db, o_O_to_adl0 => O_to_adl0, o_O_to_adl1 => O_to_adl1, o_O_to_adl2 => O_to_adl2, o_s_to_adl => s_to_adl, o_sb_to_s => sb_to_s, o_s_to_s => s_to_s, o_s_to_sb => s_to_sb, o_db_bar_to_add => db_bar_to_add, o_db_to_add => db_to_add, o_adl_to_add => adl_to_add,
-	o_i_to_addc => i_to_addc, o_sum_select => sum_select, o_and_select => and_select, o_eor_select =>eor_select, o_or_select =>or_select, o_shift_right_select => shift_right_select, o_add_to_adl => add_to_adl, o_add_to_sb_0_6 => add_to_sb_0_6, o_add_to_sb_7 => add_to_sb_7, o_O_to_add => O_to_add, o_sb_to_add => sb_to_add, o_sb_to_ac => sb_to_ac, o_ac_to_db => ac_to_db, o_ac_to_sb => ac_to_sb, o_sb_to_x => sb_to_x, o_x_to_sb => x_to_sb, o_sb_to_y => sb_to_y, o_y_to_sb => y_to_sb, o_p_to_db => p_to_db, o_db0_to_c => db0_to_c, o_ir5_to_c => ir5_to_c, o_acr_to_c => acr_to_c, o_db1_to_z => db1_to_z, o_dbz_to_z => dbz_to_z, o_db2_to_i => db2_to_i, o_ir5_to_i => ir5_to_i, o_db3_to_d => db3_to_d, o_ir5_to_d => ir5_to_d, o_db6_to_v => db6_to_v, o_avr_to_v => avr_to_v, o_i_to_v => i_to_v, o_db7_to_n => db7_to_n, o_read_write => b_read_write);
+	random_control_logic: entity work.CPU_random_control_logic
+	port map(i_clk => i_clk, i_rdy => rdy, i_phi1 => phi1, i_phi2 => phi2, i_dr => decode_rom_output, i_reset => reset, i_reset_in_progress => reset_in_progress, i_break_in_progress => break_in_progress, i_break_done => break_done, i_implied_addressing => implied_addressing, i_two_cycle => two_cycle, i_set_overflow => i_set_overflow, i_t0 => timing_register(0), i_ir5 => instruction_register(5), i_db7 => d_bus(7), i_alu_carry_out => acr, i_zero_adl0 => zero_adl(0), i_p_register => p_register_out,
+	o_dl_to_db => dl_to_db, o_dl_to_adl => dl_to_adl, o_dl_to_adh => dl_to_adh, o_O_to_adh0 => O_to_adh0, o_O_to_adh1_7 => O_to_adh1_7, o_adh_to_abh => adh_to_abh, o_adl_to_abl => adl_to_abl, o_pcl_to_pcl => pcl_to_pcl, o_adl_to_pcl => adl_to_pcl, o_i_to_pc => i_to_pc, o_pcl_to_db => pcl_to_db, o_pcl_to_adl => pcl_to_adl, o_pch_to_pch => pch_to_pch, o_adh_to_pch => adh_to_pch, b_pch_to_db => pch_to_db, o_pch_to_adh => pch_to_adh, b_sb_to_adh => sb_to_adh, o_sb_to_db => sb_to_db, o_s_to_adl => s_to_adl,
+	o_sb_to_s => sb_to_s, o_s_to_s => s_to_s, o_s_to_sb => s_to_sb, o_db_bar_to_add => db_bar_to_add, o_db_to_add => db_to_add, o_adl_to_add => adl_to_add, o_i_to_addc => i_to_addc, o_sum_select => sum_select, o_and_select => and_select, o_eor_select =>eor_select, o_or_select =>or_select, o_shift_right_select => shift_right_select, o_add_to_adl => add_to_adl, o_add_to_sb_0_6 => add_to_sb_0_6, o_add_to_sb_7 => add_to_sb_7, o_O_to_add => O_to_add, o_sb_to_add => sb_to_add, o_sb_to_ac => sb_to_ac, o_ac_to_db => ac_to_db,
+	o_ac_to_sb => ac_to_sb, o_sb_to_x => sb_to_x, o_x_to_sb => x_to_sb, o_sb_to_y => sb_to_y, o_y_to_sb => y_to_sb, o_p_to_db => p_to_db, o_db0_to_c => db0_to_c, o_ir5_to_c => ir5_to_c, b_acr_to_c => acr_to_c, o_db1_to_z => db1_to_z, b_dbz_to_z => dbz_to_z, o_db2_to_i => db2_to_i, o_ir5_to_i => ir5_to_i, o_db3_to_d => db3_to_d, o_ir5_to_d => ir5_to_d, o_db6_to_v => db6_to_v, o_avr_to_v => avr_to_v, o_1_to_v => i_to_v, o_db7_to_n => db7_to_n, b_t1_reset => t1_reset, o_read_write => b_read_write, o_reg_reset => t_zero);
 	
 	ready_control: entity work.CPU_ready_control
 	port map(i_clk => i_clk, i_phi2 => phi2, i_ready => i_ready, i_read_write => i_read_write, o_rdy => rdy);
+	
+	reset_interrupt_control: entity work.CPU_interrupt_reset_control
+	port map(i_clk => i_clk, i_phi1 => phi1, i_phi2 => phi2, i_nmi => i_nmi, i_irq => i_irq, i_reset => i_reset, i_rdy => i_ready, i_t0 => timing_register(0), i_t2_branch => decode_rom_output(80), i_t5_break => decode_rom_output(22), i_interrupt_flag => p_register_out(2), b_reset_out => reset, b_reset_in_progress => reset_in_progress, b_interrupt_in_progress => interrupt_in_progress, b_break_done => break_done, o_aic => break_in_progress, o_zero_adl => zero_adl);
 	
 	stack_pointer: entity work.CPU_stack_pointer
 	port map(i_clk => i_clk, i_sb_to_s => sb_to_s, i_s_to_sb => s_to_sb, i_s_to_adl => s_to_adl, i_s_hold => s_to_s);
@@ -172,15 +199,15 @@ begin
 					else adh_bus(7 downto 1) <= (others => 'Z');
 					end if;
 				end if;
-				if O_to_adl0 = '1' then
+				if zero_adl(0) = '1' then
 					adl_bus(0) <= '0';
 					else adl_bus(0) <= 'Z';
 				end if;
-				if O_to_adl1 = '1' then
+				if zero_adl(1) = '1' then
 					adl_bus(1) <= '0';
 					else adl_bus(1) <= 'Z';
 				end if;
-				if O_to_adl2 = '1' then
+				if zero_adl(2) = '1' then
 					adl_bus(2) <= '0';
 					else adl_bus(2) <= 'Z';
 				end if;

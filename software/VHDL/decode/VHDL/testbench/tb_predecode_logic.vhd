@@ -10,16 +10,34 @@ end tb_predecode_logic;
 
 architecture Behavioral of tb_predecode_logic is
 	-- Constants
-	constant CLK_PERIOD			: time := 100 ps;						-- Clock period
+	constant CLK_PERIOD			: time := 200 ps;
 
 	-- Signals
-	signal t_clk_1				: std_logic := '0';						-- Input clock signal
-	signal t_irc_aic			: std_logic;							-- Input assert interrupt control signal from interrupt_and_reset_control
-	signal t_tgl_fetch			: std_logic;							-- Input fetch signal from timing_generation_logic
-	signal t_pr_instruction		: std_logic_vector(7 downto 0);			-- Input instruction from predecode_register
-	signal t_pl_instruction		: std_logic_vector(7 downto 0);			-- Output predecoded instruction
-	signal t_pl_implied			: std_logic;							-- Output signal indicating an opcode with implied addressing mode
-	signal t_pl_tzpre			: std_logic;							-- Output signal indicating a two-cycle opcode
+	signal t_clk_1				: std_logic := '0';
+	signal t_irc_aic			: std_logic;
+	signal t_tgl_fetch			: std_logic;
+	signal t_pr_instruction		: std_logic_vector(7 downto 0);
+	signal t_pl_instruction		: std_logic_vector(7 downto 0);
+	signal t_pl_implied			: std_logic;
+	signal t_pl_tzpre			: std_logic;
+
+	-- Define arrays to hold test vectors
+	type TestVectorRecord is record
+		tv_instruction			: std_logic_vector(7 downto 0);
+		tv_implied				: std_logic;
+		tv_tzpre				: std_logic;
+	end record;
+	
+	type TestVectorArray is array (natural range <>) of TestVectorRecord;
+
+	-- Define input vectors
+	constant TestVectors : TestVectorArray := (
+		0 => ("UUUUUUUU", 'U', 'U'), 	-- No operation
+		1 => ("00001010", '1', '0'),	-- ASL acc
+		2 => ("00001001", '0', '0'),	-- ORA #
+		3 => ("10100010", '0', '0'),	-- LDX #
+		4 => ("00001000", '1', '1')		-- PHP
+	);
 
 begin
 	-- Instantiate the predecode_logic module
@@ -39,7 +57,9 @@ begin
 	begin
 		-- Simulate for 100 ns
 		while now < 100 ns loop
-			t_clk_1 <= not t_clk_1; -- Toggle the clock
+			t_clk_1 <= '1';
+			wait for CLK_PERIOD / 2;
+			t_clk_1 <= '0';
 			wait for CLK_PERIOD / 2;
 		end loop;
 		wait;
@@ -48,46 +68,25 @@ begin
 	-- Stimulus process
 	process
 	begin
-		-- t_irc_aic and t_tgl_fetch has not been implemented yet and set to '1'
+		-- Initialise t_irc_aic and t_tgl_fetch to '1'
 		t_irc_aic <= '1';
 		t_tgl_fetch <= '1';
 
-		-- Test ASL acc instruction (Implied / 2 cycles)
-		t_pr_instruction <= x"0A";
-		wait for CLK_PERIOD;
-		assert t_pl_instruction = x"0A" report "PL instruction failed for ASL A instruction" severity error;
-		wait for CLK_PERIOD;
-		assert t_pl_implied = '1' report "Implied signal failed for ASL A instruction" severity error;
-		assert t_pl_tzpre = '1' report "Two-cycle signal failed for ASL A instruction" severity error;
-		wait for CLK_PERIOD;
+		-- Iterate through each test vector, starting from index 1
+		for i in 1 to TestVectors'high loop
+			-- Test instruction
+			t_pr_instruction <= TestVectors(i).tv_instruction;
+			wait for CLK_PERIOD;
 
-		-- Test ORA # instruction (Immediate / 2 cycles)
-		t_pr_instruction <= x"09";
-		wait for CLK_PERIOD;
-		assert t_pl_instruction = x"09" report "PL instruction failed for ORA # instruction" severity error;
-		wait for CLK_PERIOD;
-		assert t_pl_implied = '0' report "Implied signal failed for ORA # instruction" severity error;
-		assert t_pl_tzpre = '1' report "Two-cycle signal failed for ORA # instruction" severity error;
-		wait for CLK_PERIOD;
+			assert t_pl_instruction = TestVectors(i).tv_instruction report "Instruction failed at index " & integer'image(i) severity error;
+			wait for CLK_PERIOD;
 
-		-- Test LDX # instruction (Immediate / 2 cycles)
-		t_pr_instruction <= x"A2";
-		wait for CLK_PERIOD;
-		assert t_pl_instruction = x"A2" report "PL instruction failed for LDX # instruction" severity error;
-		wait for CLK_PERIOD;
-		assert t_pl_implied = '0' report "Implied signal failed for LDX # instruction" severity error;
-		assert t_pl_tzpre = '1' report "Two-cycle signal failed for LDX # instruction" severity error;
-		wait for CLK_PERIOD;
+			assert t_pl_implied = TestVectors(i).tv_implied report "Implied signal failed at index " & integer'image(i) severity error;
+			assert t_pl_tzpre = TestVectors(i).tv_tzpre report "Two-cycle signal failed at index " & integer'image(i) severity error;
+			wait for CLK_PERIOD;
+		end loop;
 
-		-- Test PHP instruction (Implied / 3 cycles)
-		t_pr_instruction <= x"08";
-		wait for CLK_PERIOD;
-		assert t_pl_instruction = x"08" report "PL instruction failed for PHP instruction" severity error;
-		wait for CLK_PERIOD;
-		assert t_pl_implied = '1' report "Implied signal failed for PHP instruction" severity error;
-		assert t_pl_tzpre = '0' report "Two-cycle signal failed for PHP instruction" severity error;
-		wait for CLK_PERIOD;
-
+		-- Wait indefinitely
 		wait;
 	end process;
 
