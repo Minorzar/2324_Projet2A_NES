@@ -11,40 +11,40 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity timing_generation_logic is
 	port (
-		i_clk_1			: in std_logic;							-- Input clock signal (rising edge)
-		i_clk_2			: in std_logic;							-- Input clock signal (rising edge)
-		i_rc_rdy		: in std_logic;							-- Input signal from ready_control indicating ready (active high)
-		i_pl_tzpre		: in std_logic;							-- Input signal from predecode_logic indicating a two-cycle opcode (active low)
-		i_rcl_t_zero	: in std_logic;							-- Input signal from random_control_logic to reset timing registers (active high)
-		i_rcl_t_res_1	: in std_logic;							-- Input signal from random_control_logic indicating pre-latched version of sync signal on clk_1
-		o_tgl_timing_n	: out std_logic_vector(5 downto 0);		-- Output signal indicating T-n value (active low)
-		o_tgl_fetch		: out std_logic;						-- Output signal indicating instruction fetch
-		o_tgl_sync		: out std_logic							-- Output signal indicating instruction fetch in progress (active high)
+		i_clk_1				: in std_logic;							-- Input clock signal (rising edge)
+		i_clk_2				: in std_logic;							-- Input clock signal (rising edge)
+		i_rc_rdy			: in std_logic;							-- Input signal from ready_control indicating ready (active high)
+		i_pl_tzpre			: in std_logic;							-- Input signal from predecode_logic indicating a two-cycle opcode (active low)
+		i_rcl_t_zero		: in std_logic;							-- Input signal from random_control_logic to reset timing registers (active high)
+		i_rcl_t_res_1		: in std_logic;							-- Input signal from random_control_logic indicating pre-latched version of sync signal on clk_1
+		o_tgl_timing_n		: out std_logic_vector(5 downto 0);		-- Output signal indicating T-n value (active low)
+		o_tgl_fetch			: out std_logic;						-- Output signal indicating instruction fetch
+		o_tgl_sync			: out std_logic							-- Output signal indicating instruction fetch in progress (active high)
 	);
 end timing_generation_logic;
 
 architecture Behavioral of timing_generation_logic is
-	signal s_timing_n	: std_logic_vector(5 downto 0);			-- Main timing signal
-	signal s_timing_c2	: std_logic_vector(5 downto 0);			-- Main timing signal on clk_2 (with opposite sign)
-	signal s_t_reset	: std_logic_vector(5 downto 0);			-- Individual timing signal resets
-	signal s_t_reset_c1	: std_logic_vector(5 downto 0);			-- Individual timing signal resets on clk_1
-	signal s_t0_c2_rdy	: std_logic;							-- Indicate if T0 is ready on clk_2
-	signal s_t0			: std_logic;							-- Indicate T0 (opcode prefetch)
-	signal s_sync		: std_logic;							-- Synchronization signal on clk_1
-	signal s_sync_c2	: std_logic;							-- Synchronization signal on clk_2
+	signal s_timing_n		: std_logic_vector(5 downto 0);			-- Main timing signal
+	signal s_timing_c2		: std_logic_vector(5 downto 0);			-- Main timing signal on clk_2 (with opposite sign)
+	signal s_t_reset		: std_logic_vector(5 downto 0);			-- Individual timing signal resets
+	signal s_t_reset_c1		: std_logic_vector(5 downto 0);			-- Individual timing signal resets on clk_1
+	signal s_t0_c2_rdy		: std_logic;							-- Indicate if T0 is ready on clk_2
+	signal s_t0				: std_logic;							-- Indicate T0 (opcode prefetch)
+	signal s_sync			: std_logic;							-- Synchronization signal on clk_1
+	signal s_sync_c2		: std_logic;							-- Synchronization signal on clk_2
 
 begin
 	-- Main timing signals assignment
-	s_timing_n(0) <= not s_t0;									-- T0 signal (opcode prefetch)
-	s_timing_n(1) <= not s_t_reset_c1(1);						-- T1 signal (operand prefetch)
-	s_timing_n(2) <= i_rcl_t_zero or s_t_reset_c1(2);			-- T2 signal (opcode loaded in instruction register and executed)
-	s_timing_n(3) <= i_rcl_t_zero or s_t_reset_c1(3);			-- T3 signal
-	s_timing_n(4) <= i_rcl_t_zero or s_t_reset_c1(4);			-- T4 signal
-	s_timing_n(5) <= i_rcl_t_zero or s_t_reset_c1(5);			-- T5 signal
-	o_tgl_timing_n <= s_timing_n;								-- Output main timing signals
+	s_timing_n(0) <= not s_t0;										-- T0 signal (opcode prefetch)
+	s_timing_n(1) <= not s_t_reset_c1(1);							-- T1 signal (operand prefetch)
+	s_timing_n(2) <= i_rcl_t_zero or s_t_reset_c1(2);				-- T2 signal (opcode loaded in instruction register and executed)
+	s_timing_n(3) <= i_rcl_t_zero or s_t_reset_c1(3);				-- T3 signal
+	s_timing_n(4) <= i_rcl_t_zero or s_t_reset_c1(4);				-- T4 signal
+	s_timing_n(5) <= i_rcl_t_zero or s_t_reset_c1(5);				-- T5 signal
+	o_tgl_timing_n <= s_timing_n;									-- Output main timing signals
 
 	-- Generate fetch signal
-	o_tgl_fetch <= i_rc_rdy and s_sync_c2;						-- Output fetch signal
+	o_tgl_fetch <= i_rc_rdy and s_sync_c2;							-- Output fetch signal
 
 	-- Reset conditions
 	s_t_reset(0) <= not (s_sync or (not i_rcl_t_zero and i_pl_tzpre));							-- Reset T0 signal
