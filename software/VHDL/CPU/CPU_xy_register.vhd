@@ -11,7 +11,7 @@ entity CPU_xy_register is
 end CPU_xy_register;
 
 architecture Behavioral of CPU_xy_register is
-	signal reg_xy : unsigned (7 downto 0);
+	signal reg_xy : unsigned (7 downto 0):= x"00";
 begin
 	process(i_clk)
 	begin

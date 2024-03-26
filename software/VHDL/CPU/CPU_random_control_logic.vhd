@@ -86,6 +86,7 @@ entity CPU_random_control_logic is
 end CPU_random_control_logic;
 
 architecture Behavioral of CPU_random_control_logic is
+--combinational signals used to simplify expressions
 signal br_taken: STD_LOGIC;
 signal op_mem: STD_LOGIC;
 signal store: STD_LOGIC;
@@ -105,6 +106,7 @@ signal dl_to_pch: STD_LOGIC;
 signal srs: STD_LOGIC;
 signal db_to_p: STD_LOGIC;
 
+--internal registers
 signal reg_adh_to_pch: STD_LOGIC;
 signal reg_indirect_address: STD_LOGIC;
 signal reg_rdy_phi1: STD_LOGIC;
