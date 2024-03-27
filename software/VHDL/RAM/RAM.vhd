@@ -7,7 +7,7 @@ port(
     clk: in std_logic;
     w_en: in std_logic; 
     data : inout std_logic_vector(7 downto 0);
-    adress: in std_logic_vector(12 downto 0)
+    adress: in std_logic_vector(10 downto 0)
 );
 end RAM;
 
@@ -22,9 +22,9 @@ architecture RAM_rtf of RAM is
     begin
         if (rising_edge(clk))then 
             if (w_en='1') then
-                reg(to_integer(unsigned(adress(11 downto 0))))<=data;
+                reg(to_integer(unsigned(adress)))<=data;
             else 
-                data<=reg(to_integer(unsigned(adress(11 downto 0))));
+                data<=reg(to_integer(unsigned(adress)));
             end if;
         end if;
     end process; 
