@@ -14,8 +14,7 @@ end RAM;
 architecture RAM_rtf of RAM is 
     subtype DAT is std_logic_vector (7 downto 0);
     type MEMORY is array (0 to 2047) of DAT;
-    signal reg : MEMORY:=(others => "00000000");
-
+    signal reg : MEMORY:=(others => "00000000"); 
     begin 
 
     process(clk)
@@ -23,11 +22,13 @@ architecture RAM_rtf of RAM is
         if (rising_edge(clk))then 
             if (w_en='1') then
                 reg(to_integer(unsigned(adress)))<=data;
+					 data<= "ZZZZZZZZ";
             else 
                 data<=reg(to_integer(unsigned(adress)));
             end if;
         end if;
-    end process; 
+    end process;
+	 --data<=reg(to_integer(unsigned(adress))) when w_en='0' else (others => 'Z');
 
 
 
