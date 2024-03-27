@@ -13,40 +13,40 @@ entity CPU_ALU is
       i_or_select          : in  STD_LOGIC;
       i_shift_right_select : in  STD_LOGIC;
       i_carry              : in  STD_LOGIC;
-      b_result             : buffer unsigned(7 downto 0);
-      b_carry              : buffer STD_LOGIC;
+      o_result             : out unsigned(7 downto 0);
+      o_carry              : out STD_LOGIC;
       o_overflow           : out STD_LOGIC);
 end CPU_ALU;
 
 architecture Behavioral of CPU_ALU is
-   signal a_temp       : unsigned(8 downto 0);
-   signal b_temp       : unsigned(8 downto 0);
    signal result_temp  : unsigned(8 downto 0);
+	signal buf_result: unsigned(7 downto 0);
+	signal buf_carry:STD_LOGIC;
 begin
    process(i_clk)
    begin
       if rising_edge(i_clk) then
          if i_sum_select = '1' then
-            a_temp <= '0' & i_a_register;
-            b_temp <= '0' & i_b_register;
             if i_carry = '1' then
-               result_temp <= a_temp + b_temp + "00000001";
+               result_temp <= ('0' & i_a_register) + ('0' & i_b_register) + "00000001";
             else
-               result_temp <= a_temp + b_temp;
+               result_temp <= ('0' & i_a_register) + ('0' & i_b_register);
             end if;
-            b_carry <= result_temp(8);
-            b_result <= result_temp(7 downto 0);
+            buf_carry <= result_temp(8);
+            buf_result <= result_temp(7 downto 0);
          elsif i_and_select = '1' then
-            b_result <= i_a_register and i_b_register;
+            buf_result <= i_a_register and i_b_register;
          elsif i_eor_select = '1' then
-            b_result <= i_a_register xor i_b_register;
+            buf_result <= i_a_register xor i_b_register;
          elsif i_or_select = '1' then
-            b_result <= i_a_register or i_b_register;
+            buf_result <= i_a_register or i_b_register;
          elsif i_shift_right_select = '1' then
-            b_result <= '0' & (i_a_register(7 downto 1) and i_b_register(7 downto 1));
+            buf_result <= '0' & (i_a_register(7 downto 1) and i_b_register(7 downto 1));
          end if;
-         o_overflow <= b_carry xor ((b_carry and (b_result(7) or (not i_a_register(7)) or (not i_b_register(7)))) 
-										or (b_result(7) and (not i_a_register(7)) and (not i_b_register(7))));
-        end if;
-    end process;
+         o_overflow <= buf_carry xor ((buf_carry and (buf_result(7) or (not i_a_register(7)) or (not i_b_register(7)))) 
+										or (buf_result(7) and (not i_a_register(7)) and (not i_b_register(7))));
+      end if;
+   end process;
+	o_carry <= buf_carry;
+	o_result <= buf_result;
 end Behavioral;
