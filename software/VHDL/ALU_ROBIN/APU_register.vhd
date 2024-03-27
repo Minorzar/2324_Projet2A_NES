@@ -121,9 +121,11 @@ end APU_register;
 architecture APU_register_rtf of APU_register is
 
 	subtype DAT is std_logic_vector(7 downto 0);
-	type MEMORY is array (2**15	downto 0) of DAT;
+	type MEMORY is array (0 to 2**16) of DAT;
+	--type MEMORY is array (0 to 18) of DAT
 	signal reg: MEMORY;
 	
+	--signal index is integer;
 	
 	begin 
 	
@@ -134,7 +136,7 @@ architecture APU_register_rtf of APU_register is
 				reg(to_integer((addr)))<=data;
 			else
 			
-				data<=reg(to_integer(addr));
+				--data<=reg(to_integer(addr));
 				
 				o_interrupt <=reg(to_integer("0100000000010101"))(7); -- cause read only
 				o_frame <=reg(to_integer("0100000000010101"))(6); -- cause read only
@@ -142,6 +144,52 @@ architecture APU_register_rtf of APU_register is
 			end if;
 		end if; 
 	end process; 
+	
+	
+	data <=reg(to_integer(addr))  when w_en = '0' else  "ZZZZZZZZ" ;
+	
+	--process(addr)
+	-- begin
+	-- case addr is 
+	-- when "0100000000000000" =>
+		-- index<=0;
+	-- when "0100000000000001" =>
+		-- index<=1;
+	-- when "0100000000000010" =>
+		-- index<=2;
+	-- when "0100000000000011" =>
+		-- index<=3;
+	-- when "0100000000000100" =>
+		-- index<=4;
+	-- when "0100000000000101" =>
+		-- index<=5;
+	-- when "0100000000000110" =>
+		-- index<=6;
+	-- when "0100000000000111" =>
+		-- index<=7;
+	-- when "0100000000001000" =>
+		-- index<=8;
+	-- when "0100000000001001" =>
+		-- index<=9;
+	-- when "0100000000001010" =>
+		-- index<=10;
+	-- when "0100000000001011" =>
+		-- index<=11;
+	-- when "0100000000001100" =>
+		-- index<=12;
+	-- when "0100000000001101" =>
+		-- index<=13;
+	-- when "0100000000001110" =>
+		-- index<=14;
+	-- when "0100000000001111" =>
+		-- index<=15;
+	-- when "0100000000010000" =>
+		-- index<=16;
+	-- when "0100000000010001" =>
+		-- index<=17;
+	-- when others =>
+		-- index<=18;
+	-- end process;
 	
 	
 	
