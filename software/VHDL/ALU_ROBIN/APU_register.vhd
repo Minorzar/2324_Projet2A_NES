@@ -13,6 +13,7 @@ entity APU_register is
 		data : inout unsigned(7 downto 0);
 		--data : inout std_logic_vector(7 downto 0);
 		
+		en : in std_logic;
 		w_en : in std_logic; 
 		
 		
@@ -131,20 +132,22 @@ architecture APU_register_rtf of APU_register is
 
 	begin 
 		process(clk)
-	begin
-		if (rising_edge(clk)) then
-			if (w_en='1') then
-				reg(index)<=std_logic_vector(s_data);
-			else
-			
-				
-				o_interrupt <=reg(15)(7); -- cause read only
-				--to_integer("0100000000010101")
-				o_frame <=reg(15)(6); -- cause read only
+			begin
+				if (rising_edge(clk)) then
+					if(en='1') then
+						if (w_en='1') then
+							reg(index)<=std_logic_vector(s_data);
+						else
+						
+							
+							o_interrupt <=reg(15)(7); -- cause read only
+							--to_integer("0100000000010101")
+							o_frame <=reg(15)(6); -- cause read only
 
-				
-			end if;
-		end if; 
+							
+						end if;
+					end if;
+				end if; 
 	end process; 
 	
 	s_data <= data;
