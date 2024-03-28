@@ -10,14 +10,18 @@ architecture NCompteur of Compter_tb is
 signal Mclk : std_logic;
 signal Daclrck : std_logic;
 signal bclk : std_logic; 
-signal en : std_logic
+signal en : std_logic;
+
+-- benche variable 
+constant CLK_PERIOD : time := 5 ns;
+signal finished : boolean := false;
 
 begin
-    Compter : entity work.Compter
+    Compter : entity work.Codec_top
     port map(
 
         MCLK=>Mclk,
-        DACLRCK =>Daclrck,
+        DACLRCK => Daclrck,
         BCLK=>bclk,
         EN=>en
 
@@ -29,13 +33,12 @@ begin
         for k in 0 to 1024 loop
             
             Mclk <= not Mclk;
-
+            wait for(CLK_PERIOD);
             
         end loop; 
             finished <= true;
-            wait
+            wait;
 
 end process benche;
-
 
 end NCompteur;

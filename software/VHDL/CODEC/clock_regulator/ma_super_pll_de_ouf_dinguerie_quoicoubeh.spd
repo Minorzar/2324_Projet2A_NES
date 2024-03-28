@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="ma_super_pll_de_ouf_dinguerie_quoicoubeh_sim/ma_super_pll_de_ouf_dinguerie_quoicoubeh.vho"
+   type="VHDL" />
+ <topLevel name="ma_super_pll_de_ouf_dinguerie_quoicoubeh" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

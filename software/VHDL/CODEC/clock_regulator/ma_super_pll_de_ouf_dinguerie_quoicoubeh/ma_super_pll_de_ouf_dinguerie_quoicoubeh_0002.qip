@@ -1,0 +1,4 @@
+set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "*ma_super_pll_de_ouf_dinguerie_quoicoubeh_0002*|altera_pll:altera_pll_i*|*"
+ 
+set_instance_assignment -name PLL_AUTO_RESET OFF -to "*ma_super_pll_de_ouf_dinguerie_quoicoubeh_0002*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_BANDWIDTH_PRESET AUTO -to "*ma_super_pll_de_ouf_dinguerie_quoicoubeh_0002*|altera_pll:altera_pll_i*|*"

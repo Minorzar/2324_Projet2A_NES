@@ -4,19 +4,26 @@
 
 This VHDL module implements the top-level decoder for the NES FPGA project. The decoder is responsible for interpreting incoming instruction bytes, deriving control signals, and facilitating proper instruction execution within the 6502 processor architecture.
 
+## Top-Level Module
+
+- **decode.vhd**: This module serves as the top-level decoder for the NES FPGA project. The decoder is responsible for interpreting incoming instruction bytes, deriving control signals, and facilitating proper instruction execution within the 6502 processor architecture.
+
 ## Design Architecture
 
 The design architecture is structured around several key components:
 
-1. **Predecode Register**: Processes the incoming instruction byte and prepares it for further decoding stages.
+1. **Predecode Register**: The predecode register latches the input instruction from the data bus on the rising edge of the clock signal and provides the latched instruction as output on subsequent clock edges.
 
-2. **Predecode Logic**: Interprets the predecoded instruction and derives additional control signals and information.
+2. **Predecode Logic**: The predecode logic block has three main functions:
+   - Indicate if an opcode is one cycle via the implied output.
+   - Indicate if an opcode is two cycles via the `o_pl_tzpre` output.
+   - Pass the opcode to the instruction register or pass all zeros if `clear_ir` is high.
 
-3. **Instruction Register**: Captures the final decoded instruction for further processing.
+3. **Instruction Register**: The instruction register latches the input instruction on the rising edge of the clock signal and provides the latched instruction as output on subsequent clock edges.
 
-4. **Timing Generation Logic**: Generates timing signals required for proper instruction execution, synchronized with the CPU clock.
+4. **Timing Generation Logic**: This module generates timing signals indicating the current cycle of the CPU operation and handles resets based on control signals.
 
-5. **Decode ROM**: Utilizes the decoded instruction and timing information to generate the appropriate control signals for the CPU.
+5. **Decode ROM**: The decode ROM decodes the input instruction register and timing information to generate outputs for a PLA. The PLA outputs are determined based on specific logic expressions derived from the input values.
 
 ## Signal Types
 
@@ -24,6 +31,7 @@ The design architecture is structured around several key components:
 - **o**: Output
 - **s**: Signal
 - **t**: Testbench
+- **tv**: Test Vector
 
 ## Signal Origins (Modules)
 
@@ -41,12 +49,16 @@ The design architecture is structured around several key components:
 - **6502 Microprocessor:**
   - File: [6502.txt](https://www.nesdev.org/6502.txt)
 - **The 6502/65C02/65C816 Instruction Set Decoded:**
-  - File: [The 6502 Instruction Set Decoded.webarchive](https://llx.com/Neil/a2/opcodes.html)
+  - File: [6502 Instruction Set.webarchive](https://llx.com/Neil/a2/opcodes.html)
 - **6502 Cycle Times:**
-  - Link: [6502 Cycle Times](https://www.nesdev.org/wiki/6502_cycle_times)
+  - File: [6502 Cycle Times.webarchive](https://www.nesdev.org/wiki/6502_cycle_times)
 - **6502 Timing States:** 
-  - Link: [Visual6502wiki - 6502 Timing States](https://www.nesdev.org/wiki/Visual6502wiki/6502_Timing_States)
-- **Hanson's Block Diagram:**
-  - File: [6502-Block-Diagram.pdf](https://www.nesdev.org/wiki/Visual6502wiki/Hanson's_Block_Diagram)
+  - File: [6502 Timing States.webarchive](https://www.nesdev.org/wiki/Visual6502wiki/6502_Timing_States)
+- **Hanson's 6502 Block Diagram:**
+  - File: [6502 Block Diagram.pdf](https://www.nesdev.org/wiki/Visual6502wiki/Hanson's_Block_Diagram)
+- **Hanson's 6502 Colorized Block Diagram:**
+  - File: [6502 Block Diagram Colorized.png](http://forum.6502.org/viewtopic.php?t=1744)
 - **Visual Transistor-level Simulation of the 6502 CPU:**
   - Link: [Visual Transistor-level Simulation of the 6502 CPU](http://www.visual6502.org)
+- **6502 Simulation Repository:**
+  - Link: [6502sim](https://github.com/klynch71/6502sim)

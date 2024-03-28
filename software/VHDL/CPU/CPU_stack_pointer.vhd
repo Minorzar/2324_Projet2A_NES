@@ -14,7 +14,7 @@ entity CPU_stack_pointer is
 end CPU_stack_pointer;
 
 architecture Behavioral of CPU_stack_pointer is
-	signal reg_s: unsigned (7 downto 0);
+	signal reg_s: unsigned (7 downto 0):= x"FD";
 begin
 	process(i_clk)
 	begin
