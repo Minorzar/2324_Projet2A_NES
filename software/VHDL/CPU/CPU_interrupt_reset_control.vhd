@@ -20,7 +20,8 @@ entity CPU_interrupt_reset_control is
 		b_interrupt_in_progress: buffer STD_LOGIC;
 		b_break_done: buffer STD_LOGIC;
 		o_aic: out STD_LOGIC;
-		o_zero_adl: out STD_LOGIC_VECTOR(2 downto 0));
+		o_zero_adl: out STD_LOGIC_VECTOR(2 downto 0)
+		);
 end CPU_interrupt_reset_control;
 
 architecture Behavioral of CPU_interrupt_reset_control is
