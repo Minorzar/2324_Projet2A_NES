@@ -36,9 +36,9 @@ entity CPU_random_control_logic is
 		o_pcl_to_adl: out STD_LOGIC;
 		o_pch_to_pch: out STD_LOGIC;
 		o_adh_to_pch: out STD_LOGIC;
-		b_pch_to_db: buffer STD_LOGIC;
+		o_pch_to_db: out STD_LOGIC;
 		o_pch_to_adh: out STD_LOGIC;
-		b_sb_to_adh: buffer STD_LOGIC;
+		o_sb_to_adh: out STD_LOGIC;
 		o_sb_to_db: out STD_LOGIC;
 		o_s_to_adl: out STD_LOGIC;
 		o_sb_to_s: out STD_LOGIC;
@@ -68,9 +68,9 @@ entity CPU_random_control_logic is
 		o_p_to_db: out STD_LOGIC;
 		o_db0_to_c: out STD_LOGIC;
 		o_ir5_to_c: out STD_LOGIC;
-		b_acr_to_c: buffer STD_LOGIC;
+		o_acr_to_c: out STD_LOGIC;
 		o_db1_to_z: out STD_LOGIC;
-		b_dbz_to_z: buffer STD_LOGIC;
+		o_dbz_to_z: out STD_LOGIC;
 		o_db2_to_i: out STD_LOGIC;
 		o_ir5_to_i: out STD_LOGIC;
 		o_db3_to_d: out STD_LOGIC;
@@ -80,7 +80,7 @@ entity CPU_random_control_logic is
 		o_0_to_v: out STD_LOGIC;
 		o_1_to_v: out STD_LOGIC;
 		o_db7_to_n:out STD_LOGIC;
-		b_t1_reset:buffer STD_LOGIC;
+		o_t1_reset:out STD_LOGIC;
 		o_read_write:out STD_LOGIC;
 		o_reg_reset:out STD_LOGIC);
 end CPU_random_control_logic;
@@ -175,6 +175,13 @@ signal reg_shift_right_select: STD_LOGIC;
 signal reg_sum_select: STD_LOGIC;
 signal reg_t_res_x: STD_LOGIC;
 
+--dummy signals that allow to use the values of outputs
+signal buf_pch_to_db: STD_LOGIC;
+signal buf_sb_to_adh: STD_LOGIC;
+signal buf_acr_to_c: STD_LOGIC;
+signal buf_dbz_to_z: STD_LOGIC;
+signal buf_t1_reset: STD_LOGIC;
+
 begin
 	br_taken <= not i_ir5 xor (( i_dr(121) and not i_dr(126) and i_p_register(0)) or ( not i_dr(121) and not i_dr(126) and i_p_register(1)) or (i_dr(121) and i_dr(126) and i_p_register(7)) or (not i_dr(121) and i_dr(126) and i_p_register(6)));
 	op_mem <= i_dr(111) or i_dr(122) or i_dr(123) or i_dr(124) or i_dr(125);
@@ -204,8 +211,8 @@ begin
 				reg_shift_inc_dec_mem <= reg_op_shift_inc_dec_mem or (not i_rdy and reg_shift_inc_dec_mem_delayed);
 				reg_shift_inc_dec_mem_rdy_delayed <= reg_shift_inc_dec_mem_rdy;
 				reg_alu_cout_held_if_not_rdy <= alu_cout_held_if_not_rdy;
-				reg_pcl_to_db <= b_pch_to_db and i_rdy;
-				reg_t1_reset <= b_t1_reset;
+				reg_pcl_to_db <= buf_pch_to_db and i_rdy;
+				reg_t1_reset <= buf_t1_reset;
 				if reg_branch_back_delayed = 'X' then
 					reg_branch_back <= '1';
 				else
@@ -284,18 +291,18 @@ begin
 				o_O_to_adh0 <= i_dr(81) or i_dr(82);
 				o_O_to_adh1_7 <= i_dr(57) or i_dr(81) or i_dr(82);
 				o_dl_to_adh <= dl_to_pch or i_dr(84) or i_dr(89) or i_dr(90) or i_dr(91);
-				b_sb_to_adh <= adh_math or i_dr(93);
-				o_adh_to_abh <= ((((i_dr(28) or i_dr(56) or i_dr(84) or i_dr(89) or i_dr(90) or i_dr(91) or reg_adh_to_pch) and i_rdy) or (reg_rdy_phi1 and alu_cout_held_if_not_rdy and b_sb_to_adh))and not i_dr(93)) or i_zero_adl0;
+				buf_sb_to_adh <= adh_math or i_dr(93);
+				o_adh_to_abh <= ((((i_dr(28) or i_dr(56) or i_dr(84) or i_dr(89) or i_dr(90) or i_dr(91) or reg_adh_to_pch) and i_rdy) or (reg_rdy_phi1 and alu_cout_held_if_not_rdy and buf_sb_to_adh))and not i_dr(93)) or i_zero_adl0;
 				o_adl_to_abl <= not (i_dr(71) or i_dr(72) or not i_rdy)  and not ( reg_shift_inc_dec_mem or reg_shift_inc_dec_mem_rdy_delayed);
 				o_pcl_to_adl <= reg_pcl_to_adl;
 				o_pch_to_adh <= i_dr(93) or not(reg_pcl_to_adl or dl_to_pch or (reg_rdy_phi2_delayed and i_dr(73)));
-				b_pch_to_db <= i_dr(77) or i_dr(78);
+				buf_pch_to_db <= i_dr(77) or i_dr(78);
 				o_pcl_to_db <= reg_pcl_to_db;
 				o_sb_to_db <= i_dr(48) or ((store and i_dr(0)) or (store and i_dr(12))) or i_dr(67) or i_dr(80) or (reg_shift_inc_dec_mem and i_dr(55)) or (z_test and not op_ands) or reg_t1_reset;
 				o_s_to_adl <= i_dr(35) or (reg_rdy_phi1 and i_dr(21));
 				o_add_to_adl <= not ( adh_math or not(i_dr(26) or i_dr(84) or i_dr(85) or i_dr(86) or i_dr(87) or i_dr(88) or i_dr(89)));
 				o_add_to_sb_7 <= pre_add_sb06 and (reg_need_sb7 or reg_srs_delayed or not i_dr(27));
-				b_acr_to_c <= i_dr(112) or i_dr(116) or i_dr(117) or i_dr(118) or i_dr(119) or (i_dr(107) and reg_shift_inc_dec_mem_delayed);
+				buf_acr_to_c <= i_dr(112) or i_dr(116) or i_dr(117) or i_dr(118) or i_dr(119) or (i_dr(107) and reg_shift_inc_dec_mem_delayed);
 				o_1_to_v <= not( reg_set_overflow or not reg_set_overflow_delayed_again);
 				o_0_to_v <= i_dr(127);
 				o_dl_to_db <= i_dr(80) or i_dr(102) or reg_shift_inc_dec_mem or i_break_done or inc_sb or i_dr(45) or i_dr(46) or i_dr(47) or i_dr(48) or (not i_dr(128) and (i_t0 or i_dr(83)));
@@ -318,7 +325,7 @@ begin
 	o_x_to_sb <= reg_x_to_sb and i_phi1;
 	o_sb_to_y <= reg_sb_to_y and i_phi1;
 	o_y_to_sb <= reg_y_to_sb and i_phi1;
-	b_t1_reset <= (reg_pre_fetch and reg_reset) or (i_rdy and ((reg_op_t3_branch_rdy and (i_alu_carry_out or reg_branch_back) and not (i_alu_carry_out and reg_branch_back)) or reg_short_circuit_hold));
+	buf_t1_reset <= (reg_pre_fetch and reg_reset) or (i_rdy and ((reg_op_t3_branch_rdy and (i_alu_carry_out or reg_branch_back) and not (i_alu_carry_out and reg_branch_back)) or reg_short_circuit_hold));
 	o_sb_to_s <= reg_sb_to_s and i_phi1;
 	o_s_to_s <= not reg_sb_to_s and i_phi1;
 	o_adl_to_add <= reg_adl_to_add and i_phi1;
@@ -330,8 +337,8 @@ begin
 	o_db1_to_z <= db_to_p;
 	o_db2_to_i <= db_to_p;
 	o_db3_to_d <= db_to_p;
-	o_db7_to_n <= not( reg_pla_109 or (not b_dbz_to_z and not reg_pd_load));
-	b_dbz_to_z <= z_test or i_dr(109) or b_acr_to_c;
+	o_db7_to_n <= not( reg_pla_109 or (not buf_dbz_to_z and not reg_pd_load));
+	buf_dbz_to_z <= z_test or i_dr(109) or buf_acr_to_c;
 	o_ir5_to_d <= i_dr(120);
 	o_db6_to_v <= reg_pd_load or reg_pla_113;
 	o_p_to_db <= i_dr(98) or i_dr(99);
@@ -339,4 +346,10 @@ begin
 	o_ir5_to_c <= i_dr(110);
 	o_avr_to_v <= i_dr(112);
 	o_reg_reset <= not reg_t_res_x;
+	
+	o_pch_to_db <= buf_pch_to_db;
+	o_sb_to_adh <= buf_sb_to_adh;
+	o_acr_to_c <= buf_acr_to_c;
+	o_dbz_to_z <= buf_dbz_to_z;
+	o_t1_reset <= buf_t1_reset;
 end Behavioral;
