@@ -10,7 +10,7 @@ entity APU_register is
 		-- for the read/write part of the register	
 		
 		addr : in unsigned(15 downto 0);
-		data : inout unsigned(7 downto 0);
+		data : inout std_logic_vector(7 downto 0);
 		--data : inout std_logic_vector(7 downto 0);
 		
 		en : in std_logic;
@@ -128,7 +128,7 @@ architecture APU_register_rtf of APU_register is
 	signal reg : MEMORY:=(others => "00000000");
 	
 	signal index : integer:=0;
-	signal s_data : unsigned(7 downto 0);	
+	signal s_data : std_logic_vector(7 downto 0);	
 
 	begin 
 		process(clk)
@@ -136,7 +136,7 @@ architecture APU_register_rtf of APU_register is
 				if (rising_edge(clk)) then
 					if(en='1') then
 						if (w_en='1') then
-							reg(index)<=std_logic_vector(s_data);
+							reg(index)<=s_data;
 						else
 						
 							
@@ -151,7 +151,7 @@ architecture APU_register_rtf of APU_register is
 	end process; 
 	
 	s_data <= data;
-	data <=unsigned(reg(index))  when w_en = '0' else  (others => 'Z') ;
+	data <=reg(index)  when w_en = '0' else  (others => 'Z') ;
 
 	
 	process(clk)
