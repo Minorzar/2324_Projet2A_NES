@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY clk_divider
+set_global_assignment -name TOP_LEVEL_ENTITY timer
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:34:18  JANUARY 30, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
@@ -53,14 +53,9 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name VHDL_FILE triangle.vhd
-<<<<<<< HEAD
 set_global_assignment -name VHDL_FILE APU_length_counter.vhd
 set_global_assignment -name VHDL_FILE APU_linear_counter.vhd
 set_global_assignment -name VHDL_FILE APU_frame_counter.vhd
-<<<<<<< HEAD
-=======
->>>>>>> main
-=======
 set_global_assignment -name VHDL_FILE triangle_tb.vhd
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -72,14 +67,13 @@ set_global_assignment -name EDA_TEST_BENCH_NAME triangle_testbench -section_id e
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id triangle_testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME triangle_tb -section_id triangle_testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE triangle_tb.vhd -section_id triangle_testbench
->>>>>>> c13902ba83169c37383f2c590acd7d02a53b0f8d
+set_global_assignment -name VHDL_FILE envelope_gen.vhd
+set_global_assignment -name VHDL_FILE clk_divider.vhd
+set_global_assignment -name VHDL_FILE timer.vhd
+set_global_assignment -name VHDL_FILE shift_register.vhd
+set_global_assignment -name VHDL_FILE APU_noise.vhd
+set_global_assignment -name VHDL_FILE APU_Sweep.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-<<<<<<< HEAD
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name VHDL_FILE envelope_gen.vhd
-=======
-set_global_assignment -name VHDL_FILE APU_length_counter.vhd
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
->>>>>>> 1f0a1e8cc651d2bc980006d2b129c9154cd89ee0

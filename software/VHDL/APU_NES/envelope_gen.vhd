@@ -14,10 +14,11 @@ entity envelope_gen is
 			o_envelope_out :out STD_LOGIC_VECTOR(3 downto 0));
 end envelope_gen;
 
+
 architecture envelope of envelope_gen is
-signal reset : STD_LOGIC;
-signal counter : unsigned(3 downto 0);
-signal counter_clk : STD_LOGIC;
+	signal reset : STD_LOGIC;
+	signal counter : unsigned(3 downto 0);
+	signal counter_clk : STD_LOGIC;
 begin
 	process(i_clk)
 		begin 
@@ -30,12 +31,12 @@ begin
 				end if;
 				
 				if (i_constant_vol_flag ='1') then 
-					o_envelope_out <= i_envlope_param;
+					o_envelope_out <= i_envelope_param;
 				else
-					o_envelope_out <= counter;
-				end if
+					o_envelope_out <= STD_LOGIC_VECTOR(counter);
+				end if;
 				
-				if (i_loop_flag = '1' and counter = '0') then
+				if (i_loop_flag = '1' and counter = "0000") then
 					counter <= "1111";
 					end if;
 					
@@ -46,3 +47,4 @@ begin
 			end if;
 			
 	end process;
+end envelope;
