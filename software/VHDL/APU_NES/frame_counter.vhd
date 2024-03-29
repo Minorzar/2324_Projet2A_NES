@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.all;
 
-entity APU_frame_counter is 
+entity frame_counter is 
 
 	port( i_en_seq : in STD_LOGIC;
 			i_reset  : in STD_LOGIC;
@@ -12,9 +12,9 @@ entity APU_frame_counter is
 			o_L      : out STD_LOGIC;
 			o_enable : out STD_LOGIC);
 			
-end APU_frame_counter;
+end frame_counter;
 
-architecture frame_counter_IO of APU_frame_counter is
+architecture Behavorial of frame_counter is
 signal step : unsigned(2 downto 0);
 begin 
 process(i_clk)
@@ -43,5 +43,5 @@ end process;
 	o_enable <= '1' when ((i_en_seq = '0') or (i_en_seq = '1' and step /= "100")) else
 	'0';
 			
-end frame_counter_IO;
+end Behavorial;
  
