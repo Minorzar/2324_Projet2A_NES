@@ -172,48 +172,50 @@ begin
 	y_register: entity work.CPU_xy_register
 	port map(i_clk => i_clk, i_sb_to_xy => sb_to_y, i_xy_to_sb => y_to_sb, io_s_bus => s_bus);
 	
-	process(i_clk)
+	/*
+--	--pulling up the busses
+	process(d_bus)
 	begin
-		if (rising_edge(i_clk)) then
-			if phi2 = '1' then
-				d_bus <= (others => '1');
-				s_bus <= (others => '1');
-				adl_bus <= (others => '1');
-				adh_bus <= (others => '1');
-			else
-				s_bus <= (others => 'Z');
-				adl_bus(7 downto 3) <= (others => 'Z');
-				if sb_to_db = '1' then
-					d_bus <= s_bus;
-					else d_bus <= (others => 'Z');
-				end if;
-				if sb_to_adh = '1' then
-					adh_bus <= s_bus;
-				else
-					if O_to_adh0 = '1' then
-						adh_bus(0) <= '0';
-					else adh_bus(0) <= 'Z';
-					end if;
-					if O_to_adh1_7 = '1' then
-						adl_bus(7 downto 1) <= (others => '0');
-					else adh_bus(7 downto 1) <= (others => 'Z');
-					end if;
-				end if;
-				if zero_adl(0) = '1' then
-					adl_bus(0) <= '0';
-					else adl_bus(0) <= 'Z';
-				end if;
-				if zero_adl(1) = '1' then
-					adl_bus(1) <= '0';
-					else adl_bus(1) <= 'Z';
-				end if;
-				if zero_adl(2) = '1' then
-					adl_bus(2) <= '0';
-					else adl_bus(2) <= 'Z';
-				end if;
+		for i in 0 to 7 loop
+			if d_bus(i) = 'Z' then
+				d_bus(i) <= '1';
 			end if;
-		end if;
+		end loop;
 	end process;
+	
+	process(s_bus)
+	begin
+		for i in 0 to 7 loop
+			if s_bus(i) = 'Z' then
+				s_bus(i) <= '1';
+			end if;
+		end loop;
+	end process;
+	
+	process(adl_bus)
+	begin
+		for i in 0 to 7 loop
+			if adl_bus(i) = 'Z' then
+				adl_bus(i) <= '1';
+			end if;
+		end loop;
+	end process;
+	
+	process(adh_bus, O_to_adh0, O_to_adh1_7)
+	begin
+		if O_to_adh0 ='1' then
+			adl_bus(0) <= '0';
+		end if;
+		if O_to_adh1_7 ='1' then
+			adl_bus(7 downto 1) <= "0000000";
+		end if;
+		for i in 0 to 7 loop
+			if adh_bus(i) = 'Z' then
+				adh_bus(i) <= '1';
+			end if;
+		end loop;
+	end process;
+	*/
 	
 	o_read_write <= buf_read_write;
 	
