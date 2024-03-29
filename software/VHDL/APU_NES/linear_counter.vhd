@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.all;
 
-entity APU_linear_counter is
+entity linear_counter is
 
 port(i_linear_counter_en : in STD_LOGIC;
 	  i_clk : in STD_LOGIC;
@@ -13,7 +13,7 @@ port(i_linear_counter_en : in STD_LOGIC;
 
 end APU_linear_counter;
 
-architecture linear_counter of APU_linear_counter is
+architecture Behavorial of linear_counter is
 
 signal length_value : unsigned(7 DOWNTO 0);
 signal linear_counter_en_OLD : STD_LOGIC;
@@ -82,4 +82,4 @@ process(i_clk)
 		end if;
 	end process;
 
-end linear_counter;
+end Behavorial;

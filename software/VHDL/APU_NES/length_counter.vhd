@@ -2,19 +2,19 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.all;
 
-entity APU_length_counter is
+entity length_counter is
 
 port(i_length_counter_en : in STD_LOGIC;
-	  i_frame_counter : in STD_LOGIC;
-	  i_clk : in STD_LOGIC;
-	  i_halt_flag : in STD_LOGIC;
-	  i_counter_load : in STD_LOGIC_VECTOR(4 DOWNTO 0);
-	  o_enabler : out STD_LOGIC);
+	  i_frame_counter     : in STD_LOGIC;
+	  i_clk               : in STD_LOGIC;
+	  i_halt_flag         : in STD_LOGIC;
+	  i_counter_load      : in STD_LOGIC_VECTOR(4 DOWNTO 0);
+	  o_enabler           : out STD_LOGIC);
 	  
 
-end APU_length_counter;
+end length_counter;
 
-architecture length_counter of APU_length_counter is
+architecture Behavorial of length_counter is
 signal length_value : unsigned(7 DOWNTO 0);
 signal linear_counter_en_OLD : STD_LOGIC;
 begin
@@ -118,5 +118,5 @@ process(i_clk)
 	end if;
 end process;
 
-end length_counter;
+end Behavorial;
 

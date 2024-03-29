@@ -15,7 +15,7 @@ entity envelope_gen is
 end envelope_gen;
 
 
-architecture envelope of envelope_gen is
+architecture Behavorial of envelope_gen is
 	signal reset : STD_LOGIC;
 	signal counter : unsigned(3 downto 0);
 	signal counter_clk : STD_LOGIC;
@@ -47,4 +47,4 @@ begin
 			end if;
 			
 	end process;
-end envelope;
+end Behavorial;
