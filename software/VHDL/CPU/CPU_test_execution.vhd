@@ -130,7 +130,7 @@ begin
 	port map(i_clk => i_clk, i_phi2 => phi2, i_adh_to_pch => adh_to_pch, i_pch_to_adh => pch_to_adh, i_pch_to_db => pch_to_db, i_pcl_carry => pclc, i_pch_reload => pch_to_pch, o_d_bus => d_bus, io_adh_bus => adh_bus);
 	
 	pullup: entity work.CPU_pullup
-	port map(o_s_bus => s_bus, o_d_bus => d_bus, o_adl_bus => adl_bus, o_adh_bus => adh_bus);
+	port map(io_s_bus => s_bus, io_d_bus => d_bus, io_adl_bus => adl_bus, io_adh_bus => adh_bus);
 	
 	stack_pointer: entity work.CPU_stack_pointer
 	port map(i_clk => i_clk, i_sb_to_s => sb_to_s, i_s_to_sb => s_to_sb, i_s_to_adl => s_to_adl, i_s_hold => s_to_s);

@@ -14,7 +14,7 @@ entity CPU_test_control is
 		i_acr: in STD_LOGIC; --ALU carry
 		i_p_register_out: in STD_LOGIC_VECTOR(7 downto 0); --status register
 		o_read_write: out STD_LOGIC;
-		i_data_bus: inout unsigned (7 downto 0);
+		i_data_bus: in unsigned (7 downto 0);
 		o_sync: out STD_LOGIC;
 		
 		--control signals outputted from random_control_logic
