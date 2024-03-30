@@ -9,6 +9,7 @@ port(i_length_counter_en : in STD_LOGIC;
 	  i_clk               : in STD_LOGIC;
 	  i_halt_flag         : in STD_LOGIC;
 	  i_counter_load      : in STD_LOGIC_VECTOR(4 DOWNTO 0);
+	  
 	  o_enabler           : out STD_LOGIC);
 	  
 
