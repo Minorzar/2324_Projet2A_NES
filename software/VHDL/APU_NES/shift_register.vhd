@@ -8,7 +8,7 @@ entity shift_register is
         i_shift  : in  std_logic;
         i_clk    : in  std_logic;
         o_data   : out std_logic
-		  
+			
     );
 	 
 end shift_register;

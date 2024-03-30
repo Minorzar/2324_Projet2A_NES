@@ -4,11 +4,17 @@ use IEEE.NUMERIC_STD.all;
 
 entity linear_counter is
 
-port(i_linear_counter_en : in STD_LOGIC;
-	  i_clk : in STD_LOGIC;
-	  i_halt_flag : in STD_LOGIC;
-	  o_enabler : out STD_LOGIC;
-	  i_counter_load : in STD_LOGIC_VECTOR(4 DOWNTO 0));
+port(
+
+	  i_linear_counter_en : in STD_LOGIC;
+	  i_clk               : in STD_LOGIC;
+	  i_halt_flag         : in STD_LOGIC;
+	  i_frame_counter     : in std_logic;
+	  i_counter_load      : in STD_LOGIC_VECTOR(4 DOWNTO 0);
+	  
+	  o_enabler           : out STD_LOGIC
+	  
+);
 	  
 
 end APU_linear_counter;
@@ -22,7 +28,8 @@ begin
 process(i_clk)
 	begin
 		if rising_edge(i_clk) then
-		
+			if (i_frame_counter = '0') then
+			
 			-- Assign the counter value
 			if linear_counter_en_OLD /= i_linear_counter_en then
 				case i_counter_load is
@@ -80,6 +87,7 @@ process(i_clk)
 				end if;
 			end if;
 		end if;
+	end if;
 	end process;
 
 end Behavorial;
