@@ -91,7 +91,6 @@ architecture Structural of CPU_test_control is
 	signal pclc : STD_LOGIC;
 	signal reset: STD_LOGIC;
 	signal reset_in_progress: STD_LOGIC;
-	signal interrupt_in_progress: STD_LOGIC;
 	signal break_done: STD_LOGIC;
 	signal break_in_progress: STD_LOGIC;
 	signal implied_addressing: STD_LOGIC;
@@ -119,7 +118,7 @@ begin
 	port map(i_clk => i_clk, i_phi2 => phi2, i_ready => i_ready, i_read_write => buf_read_write, o_rdy => rdy);
 	
 	reset_interrupt_control: entity work.CPU_interrupt_reset_control
-	port map(i_clk => i_clk, i_phi1 => phi1, i_phi2 => phi2, i_nmi => i_nmi, i_irq => i_irq, i_reset => i_reset, i_rdy => i_ready, i_t0 => timing_register(0), i_t2_branch => decode_rom_output(80), i_t5_break => decode_rom_output(22), i_interrupt_flag => i_p_register_out(2), o_reset_out => reset, o_reset_in_progress => reset_in_progress, o_interrupt_in_progress => interrupt_in_progress, o_break_done => break_done, o_aic => break_in_progress, o_zero_adl => zero_adl);
+	port map(i_clk => i_clk, i_phi1 => phi1, i_phi2 => phi2, i_nmi => i_nmi, i_irq => i_irq, i_reset => i_reset, i_rdy => i_ready, i_t0 => timing_register(0), i_t2_branch => decode_rom_output(80), i_t5_break => decode_rom_output(22), i_interrupt_flag => i_p_register_out(2), o_reset_out => reset, o_reset_in_progress => reset_in_progress, o_interrupt_in_progress => open, o_break_done => break_done, o_aic => break_in_progress, o_zero_adl => zero_adl);
 	
 	o_read_write <= buf_read_write;
 	

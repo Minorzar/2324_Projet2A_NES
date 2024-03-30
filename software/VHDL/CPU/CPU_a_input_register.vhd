@@ -7,12 +7,12 @@ entity CPU_a_input_register is
 		i_clk: in STD_LOGIC;
 		i_sb_to_add: in STD_LOGIC;
 		i_O_to_add: in STD_LOGIC;
-		i_s_bus: in unsigned (7 downto 0);
-		o_output: out unsigned (7 downto 0));
+		i_s_bus: in STD_LOGIC_VECTOR (7 downto 0);
+		o_output: out STD_LOGIC_VECTOR (7 downto 0));
 end CPU_a_input_register;
 
 architecture Behavioral of CPU_a_input_register is
-	signal reg_a: unsigned (7 downto 0);
+	signal reg_a: STD_LOGIC_VECTOR (7 downto 0);
 begin
 	process(i_clk)
 	begin

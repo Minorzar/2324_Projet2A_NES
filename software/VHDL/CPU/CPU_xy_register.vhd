@@ -6,23 +6,18 @@ entity CPU_xy_register is
 	Port(
 		i_clk: in STD_LOGIC;
 		i_sb_to_xy: in STD_LOGIC;
-		i_xy_to_sb: in STD_LOGIC;
-		io_s_bus: inout unsigned (7 downto 0));
+		i_s_bus: in STD_LOGIC_VECTOR (7 downto 0);
+		o_reg_out: out STD_LOGIC_VECTOR (7 downto 0):= x"00");
 end CPU_xy_register;
 
 architecture Behavioral of CPU_xy_register is
-	signal reg_xy : unsigned (7 downto 0):= x"00";
 begin
 	process(i_clk)
 	begin
 		if (rising_edge(i_clk)) then
 			if i_sb_to_xy = '1' then
-				reg_xy <= io_s_bus;
+				o_reg_out <= i_s_bus;
 			end if;
 		end if;
 	end process;
-
-	io_s_bus <= reg_xy when i_xy_to_sb = '1' else
-		(others => 'Z');
-
 end Behavioral;
