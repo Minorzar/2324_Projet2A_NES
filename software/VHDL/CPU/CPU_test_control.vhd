@@ -14,7 +14,7 @@ entity CPU_test_control is
 		i_acr: in STD_LOGIC; --ALU carry
 		i_p_register_out: in STD_LOGIC_VECTOR(7 downto 0); --status register
 		o_read_write: out STD_LOGIC;
-		io_data_bus: inout unsigned (7 downto 0);
+		i_data_bus: in unsigned (7 downto 0);
 		o_sync: out STD_LOGIC;
 		
 		--control signals outputted from random_control_logic
@@ -91,7 +91,6 @@ architecture Structural of CPU_test_control is
 	signal pclc : STD_LOGIC;
 	signal reset: STD_LOGIC;
 	signal reset_in_progress: STD_LOGIC;
-	signal interrupt_in_progress: STD_LOGIC;
 	signal break_done: STD_LOGIC;
 	signal break_in_progress: STD_LOGIC;
 	signal implied_addressing: STD_LOGIC;
@@ -107,7 +106,7 @@ begin
 	port map(i_clk => i_clk, o_phi1 => phi1, o_phi2 => phi2);
 	
 	decode: entity work.decode
-	port map(i_clk => i_clk, i_clk_1 => phi1, i_clk_2 => phi2, i_db_instruction => std_logic_vector(io_data_bus), i_aic => not break_in_progress, i_rdy => rdy, i_t_zero => t_zero, i_t_res_1 => t1_reset, o_pl_implied => implied_addressing, o_pl_tzpre => two_cycle, o_ir_instruction => instruction_register, o_tgl_timing_n => timing_register, o_tgl_sync => o_sync, o_dr_pla => decode_rom_output);
+	port map(i_clk => i_clk, i_clk_1 => phi1, i_clk_2 => phi2, i_db_instruction => std_logic_vector(i_data_bus), i_aic => not break_in_progress, i_rdy => rdy, i_t_zero => t_zero, i_t_res_1 => t1_reset, o_pl_implied => implied_addressing, o_pl_tzpre => two_cycle, o_ir_instruction => instruction_register, o_tgl_timing_n => timing_register, o_tgl_sync => o_sync, o_dr_pla => decode_rom_output);
 	
 	random_control_logic: entity work.CPU_random_control_logic
 	port map(i_clk => i_clk, i_rdy => rdy, i_phi1 => phi1, i_phi2 => phi2, i_dr => decode_rom_output, i_reset => reset, i_reset_in_progress => reset_in_progress, i_break_in_progress => break_in_progress, i_break_done => break_done, i_implied_addressing => implied_addressing, i_two_cycle => two_cycle, i_set_overflow => i_set_overflow, i_t0 => timing_register(0), i_ir5 => instruction_register(5), i_db7 => i_db7, i_alu_carry_out => i_acr, i_zero_adl0 => zero_adl(0), i_p_register => i_p_register_out,
@@ -119,7 +118,7 @@ begin
 	port map(i_clk => i_clk, i_phi2 => phi2, i_ready => i_ready, i_read_write => buf_read_write, o_rdy => rdy);
 	
 	reset_interrupt_control: entity work.CPU_interrupt_reset_control
-	port map(i_clk => i_clk, i_phi1 => phi1, i_phi2 => phi2, i_nmi => i_nmi, i_irq => i_irq, i_reset => i_reset, i_rdy => i_ready, i_t0 => timing_register(0), i_t2_branch => decode_rom_output(80), i_t5_break => decode_rom_output(22), i_interrupt_flag => i_p_register_out(2), o_reset_out => reset, o_reset_in_progress => reset_in_progress, o_interrupt_in_progress => interrupt_in_progress, o_break_done => break_done, o_aic => break_in_progress, o_zero_adl => zero_adl);
+	port map(i_clk => i_clk, i_phi1 => phi1, i_phi2 => phi2, i_nmi => i_nmi, i_irq => i_irq, i_reset => i_reset, i_rdy => i_ready, i_t0 => timing_register(0), i_t2_branch => decode_rom_output(80), i_t5_break => decode_rom_output(22), i_interrupt_flag => i_p_register_out(2), o_reset_out => reset, o_reset_in_progress => reset_in_progress, o_interrupt_in_progress => open, o_break_done => break_done, o_aic => break_in_progress, o_zero_adl => zero_adl);
 	
 	o_read_write <= buf_read_write;
 	

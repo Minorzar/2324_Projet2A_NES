@@ -15,10 +15,10 @@ entity CPU_interrupt_reset_control is
 		i_t2_branch: in STD_LOGIC;
 		i_t5_break: in STD_LOGIC;
 		i_interrupt_flag: in STD_LOGIC;
-		o_reset_out: buffer STD_LOGIC;
-		o_reset_in_progress: buffer STD_LOGIC;
-		o_interrupt_in_progress: buffer STD_LOGIC;
-		o_break_done: buffer STD_LOGIC;
+		o_reset_out: out STD_LOGIC;
+		o_reset_in_progress: out STD_LOGIC;
+		o_interrupt_in_progress: out STD_LOGIC;
+		o_break_done: out STD_LOGIC;
 		o_aic: out STD_LOGIC;
 		o_zero_adl: out STD_LOGIC_VECTOR(2 downto 0)
 		);
