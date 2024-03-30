@@ -3,8 +3,8 @@
 -- This VHDL module implements "Decode ROM".
 --
 -- Description:
---	The decode ROM decodes the input instruction register and T-n value to generate outputs for a PLA.
---	The PLA outputs are determined based on specific logic expressions derived from the input values.
+-- The decode ROM decodes the input instruction register and timing information to generate outputs for a PLA.
+-- The PLA outputs are determined based on specific logic expressions derived from the input values.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -49,34 +49,34 @@ begin
 		o_dr_pla(16) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or not i_ir_instruction(6) or not i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
 		o_dr_pla(17) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
 		o_dr_pla(18) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
-		o_dr_pla(19) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or i_ir_instruction(4) or s_instruction10);
+		o_dr_pla(19) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(2) or s_instruction10);
 		o_dr_pla(20) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or i_ir_instruction(4) or s_instruction10);
 		o_dr_pla(21) <= not (i_tgl_timing_n(0) or i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
-		o_dr_pla(22) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(23) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(2));
-		o_dr_pla(24) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or not i_ir_instruction(6) or not i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(25) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(26) <= not (i_tgl_timing_n(0) or i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(27) <= not (i_tgl_timing_n(0) or i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(4) or i_ir_instruction(3) or not i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(28) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or not i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(29) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or not i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(30) <= not (i_tgl_timing_n(0) or i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(31) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or not i_ir_instruction(4) or i_ir_instruction(3) or not i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(32) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(33) <= not (i_tgl_timing_n(2) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(34) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
-		o_dr_pla(35) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(36) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(37) <= not (i_tgl_timing_n(0) or i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
-		o_dr_pla(38) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or not i_ir_instruction(4) or i_ir_instruction(3) or not i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(39) <= not (i_tgl_timing_n(2) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(40) <= not (i_tgl_timing_n(2) or i_ir_instruction(4) or not i_ir_instruction(3) or not i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(41) <= not (i_tgl_timing_n(1) or i_ir_instruction(7) or not i_ir_instruction(5) or not i_ir_instruction(3) or not i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(42) <= not (i_tgl_timing_n(1) or i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(5) or not i_ir_instruction(3) or not i_ir_instruction(1));
-		o_dr_pla(43) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(44) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
-		o_dr_pla(45) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or i_ir_instruction(5) or not i_ir_instruction(3) or not i_ir_instruction(2) or not i_ir_instruction(1));
-		o_dr_pla(46) <= not (i_tgl_timing_n(1) or not i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(22) <= not (i_tgl_timing_n(5) or i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(23) <= not (i_tgl_timing_n(0) or i_ir_instruction(7) or i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(24) <= not (i_tgl_timing_n(4) or i_ir_instruction(7) or not i_ir_instruction(6) or not i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(25) <= not (i_tgl_timing_n(3) or i_ir_instruction(7) or not i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(26) <= not (i_tgl_timing_n(5) or i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(27) <= not (i_ir_instruction(7) or not i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(1));
+		o_dr_pla(28) <= not (i_tgl_timing_n(2));
+		o_dr_pla(29) <= not (i_tgl_timing_n(0) or i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(5) or not i_ir_instruction(0));
+		o_dr_pla(30) <= not (i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(4) or not i_ir_instruction(3) or not i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(31) <= not (i_tgl_timing_n(2) or i_ir_instruction(4) or not i_ir_instruction(3) or not i_ir_instruction(2));
+		o_dr_pla(32) <= not (i_tgl_timing_n(0) or i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(5) or not i_ir_instruction(0));
+		o_dr_pla(33) <= not (i_tgl_timing_n(2) or i_ir_instruction(3));
+		o_dr_pla(34) <= not (i_tgl_timing_n(0));
+		o_dr_pla(35) <= not (i_tgl_timing_n(2) or i_ir_instruction(7) or i_ir_instruction(4) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(36) <= not (i_tgl_timing_n(3) or i_ir_instruction(7) or i_ir_instruction(4) or s_instruction10);
+		o_dr_pla(37) <= not (i_tgl_timing_n(4) or i_ir_instruction(7) or i_ir_instruction(6) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(38) <= not (i_tgl_timing_n(4) or i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(39) <= not (i_tgl_timing_n(3) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(0));
+		o_dr_pla(40) <= not (i_tgl_timing_n(4) or not i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(0));
+		o_dr_pla(41) <= not (i_tgl_timing_n(2) or not i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(0));
+		o_dr_pla(42) <= not (i_tgl_timing_n(3) or not i_ir_instruction(4) or not i_ir_instruction(3));
+		o_dr_pla(43) <= not (i_ir_instruction(7) or not i_ir_instruction(5) or i_ir_instruction(4) or not i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
+		o_dr_pla(44) <= not (not i_ir_instruction(7) or not i_ir_instruction(6) or not i_ir_instruction(5) or not i_ir_instruction(1));
+		o_dr_pla(45) <= not (i_tgl_timing_n(4) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(0));
+		o_dr_pla(46) <= not (i_tgl_timing_n(3) or not i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or not i_ir_instruction(0));
 		o_dr_pla(47) <= not (i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
 		o_dr_pla(48) <= not (i_tgl_timing_n(2) or i_ir_instruction(7) or i_ir_instruction(6) or not i_ir_instruction(5) or i_ir_instruction(4) or i_ir_instruction(3) or i_ir_instruction(2) or s_instruction10);
 		o_dr_pla(49) <= not (i_tgl_timing_n(0) or not i_ir_instruction(7) or not i_ir_instruction(6) or i_ir_instruction(4) or s_instruction10);

@@ -10,19 +10,19 @@ end tb_timing_generation_logic;
 
 architecture Behavioral of tb_timing_generation_logic is
 	-- Constants
-	constant CLK_PERIOD			: time := 200 ps;					-- Clock period
+	constant CLK_PERIOD			: time := 200 ps;
 
 	-- Signals
-	signal t_clk_1				: std_logic;						-- Input clock signal for latch signals
-	signal t_clk_2				: std_logic;						-- Input clock signal for internal latches
-	signal t_rc_rdy				: std_logic;						-- Input ready signal from ready_control
-	signal t_pl_tzpre			: std_logic;						-- Input signal set high when the opcode is a two-cycle opcode from predecode_logic
-	signal t_rcl_t_zero			: std_logic;						-- Input signal to reset timing registers from random_control_logic
-	signal t_rcl_t_res_1		: std_logic;						-- Input signal to reset timing register 1 from random_control_logic
-	signal t_tgl_timing_n		: std_logic_vector(5 downto 0);		-- Output signal indicating T-n value (active low)
-	signal t_tgl_fetch			: std_logic;						-- Output signal indicating a fetch instruction is needed
-	signal t_tgl_sync			: std_logic;						-- Output signal indicating an instruction fetch is in progress
-	
+	signal t_clk_1				: std_logic;
+	signal t_clk_2				: std_logic;
+	signal t_rc_rdy				: std_logic;
+	signal t_pl_tzpre			: std_logic;
+	signal t_rcl_t_zero			: std_logic;
+	signal t_rcl_t_res_1		: std_logic;
+	signal t_tgl_timing_n		: std_logic_vector(5 downto 0);
+	signal t_tgl_fetch			: std_logic;
+	signal t_tgl_sync			: std_logic;
+
 begin
 	-- Instantiate the timing_generation_logic module
 	UUT: entity work.timing_generation_logic
@@ -56,50 +56,203 @@ begin
 	-- Stimulus process
 	process
 	begin
+		--------------------------------------
+		-- Initialisation --
+		--------------------------------------
+		t_rc_rdy		<= 'U';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= 'U';
+		t_rcl_t_res_1	<= 'U';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "UUUUUU" report "Failed" severity error;
+
 		t_rc_rdy		<= '0';
-		t_pl_tzpre		<= '0';
+		t_pl_tzpre		<= 'U';
 		t_rcl_t_zero	<= '1';
 		t_rcl_t_res_1	<= '0';
-		-- 111110 (clk_1)
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111110" report "Failed" severity error;
 
-		wait for CLK_PERIOD / 2;
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= 'U';
+		t_rcl_t_res_1	<= '1';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111101" report "Failed" severity error;
+
+		--------------------------------------
+		-- 6 Cycles Opcode --
+		--------------------------------------
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111011" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "110111" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "101111" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "011111" report "Failed" severity error;
+
 		t_rc_rdy		<= '0';
-		t_pl_tzpre		<= '0';
+		t_pl_tzpre		<= 'U';
 		t_rcl_t_zero	<= '1';
 		t_rcl_t_res_1	<= '0';
-		-- 111110 (clk_2)
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111110" report "Failed" severity error;
 
-		wait for CLK_PERIOD / 2;
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= 'U';
+		t_rcl_t_res_1	<= '1';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111101" report "Failed" severity error;
+
+		--------------------------------------
+		-- 2 Cycles Opcode --
+		--------------------------------------
 		t_rc_rdy		<= '1';
 		t_pl_tzpre		<= '0';
 		t_rcl_t_zero	<= '0';
-		t_rcl_t_res_1	<= '1';
-		-- 111101 (clk_1)
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111010" report "Failed" severity error;
 
-		wait for CLK_PERIOD / 2;
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= '1';
+		t_rcl_t_res_1	<= '1';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111101" report "Failed" severity error;
+
+		--------------------------------------
+		-- 5 Cycles Opcode --
+		--------------------------------------
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111011" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "110111" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "101111" report "Failed" severity error;
+
+		t_rc_rdy		<= '0';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= '1';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111110" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= 'U';
+		t_rcl_t_res_1	<= '1';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111101" report "Failed" severity error;
+
+		--------------------------------------
+		-- 4 Cycles Opcode --
+		--------------------------------------
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111011" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "110111" report "Failed" severity error;
+
+		t_rc_rdy		<= '0';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= '1';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111110" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= 'U';
+		t_rcl_t_res_1	<= '1';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111101" report "Failed" severity error;
+
+		--------------------------------------
+		-- 3 Cycles Opcode --
+		--------------------------------------
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= '1';
+		t_rcl_t_zero	<= '0';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111011" report "Failed" severity error;
+
+		t_rc_rdy		<= '0';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= '1';
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111110" report "Failed" severity error;
+
+		t_rc_rdy		<= '1';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= 'U';
+		t_rcl_t_res_1	<= '1';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111101" report "Failed" severity error;
+
+		--------------------------------------
+		-- 2 Cycles Opcode --
+		--------------------------------------
 		t_rc_rdy		<= '1';
 		t_pl_tzpre		<= '0';
 		t_rcl_t_zero	<= '0';
-		t_rcl_t_res_1	<= '1';
-		-- 111101 (clk_2)
+		t_rcl_t_res_1	<= '0';
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111010" report "Failed" severity error;
 
-		wait for CLK_PERIOD / 2;
 		t_rc_rdy		<= '1';
-		t_pl_tzpre		<= '0';
-		t_rcl_t_zero	<= '0';
+		t_pl_tzpre		<= 'U';
+		t_rcl_t_zero	<= '1';
 		t_rcl_t_res_1	<= '1';
-		-- 111011 (clk_1)
+		wait for CLK_PERIOD;
+		assert t_tgl_timing_n = "111101" report "Failed" severity error;
 
-		wait for CLK_PERIOD / 2;
-		t_rc_rdy		<= '1';
-		t_pl_tzpre		<= '0';
-		t_rcl_t_zero	<= '0';
-		t_rcl_t_res_1	<= '1';
-		-- 111011 (clk_2)
-
-		wait for CLK_PERIOD / 2;
-		-- 110011 (clk_1)
-
+		-- Wait indefinitely
 		wait;
 
 	end process;
