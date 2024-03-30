@@ -31,7 +31,6 @@ begin
 						  
                 end if;
             end if;
-        end if;
     end process;
 
     o_timer <= '1' when timer_reg = "0000000000" else '0'; -- Timer output high when timer is zero

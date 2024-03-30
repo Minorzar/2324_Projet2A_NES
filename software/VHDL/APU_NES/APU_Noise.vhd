@@ -20,8 +20,9 @@ entity APU_Noise is
 	o_out_noise            : out std_logic_vector(3 downto 0)
  
 );
+end APU_noise;
 
-architecture Behavioral of APU_noise is
+architecture Behavorial of APU_noise is
 
 signal timer_en   : std_logic;
 signal shift_out  : std_logic;
@@ -30,7 +31,6 @@ signal env_out    : std_logic_vector(3 downto 0);
 signal timer_table_out : std_logic_vector(10 downto 0);
 
 begin
-
 timer : entity work.timer
 port map(
 
@@ -45,7 +45,7 @@ port map(
 shift_register : entity work.shift_register
 port map(
 
-	i_data   => --to define,
+	i_data   => '0', --to define,
    i_shift  => '1',
    i_clk    => timer_en,
    o_data   => shift_out
@@ -68,7 +68,7 @@ port map(
 envelope_gen : entity work.envelope_gen
 port map(
 
-	i_start_flag        => -- to define,
+	i_start_flag        => '0',-- to define,
 	i_loop_flag         => i_loop_flag,
 	i_constant_vol_flag => i_constant_volume_flag,
 	i_envelope_param    => i_env_volume,
@@ -128,3 +128,6 @@ process(i_clk)
 					when "1111" =>
 						timer_table_out <= "11101100001"; -- not the valid value . Error on the datasheet ?
 					end case;
+				end if;
+			end process;
+end Behavorial;

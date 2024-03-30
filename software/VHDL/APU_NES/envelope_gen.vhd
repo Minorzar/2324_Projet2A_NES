@@ -26,7 +26,8 @@ architecture Behavorial of envelope_gen is
 begin
 	process(i_clk)
 		begin 
-			if rising_edge(i_frame_clk) then
+			if rising_edge(i_clk) then
+				if i_frame_clk = '1' then
 			
 				if (i_start_flag = '1') then
 				
@@ -35,6 +36,7 @@ begin
 					
 				else
 					reset <= '0';
+					
 				end if;
 				
 				if (i_constant_vol_flag ='1') then 
@@ -58,6 +60,6 @@ begin
 					end if;
 					
 			end if;
-			
+			end if;
 	end process;
 end Behavorial;

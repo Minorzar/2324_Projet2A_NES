@@ -17,7 +17,7 @@ port(
 );
 	  
 
-end APU_linear_counter;
+end linear_counter;
 
 architecture Behavorial of linear_counter is
 
