@@ -1,0 +1,251 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity CPU_test_control_tb is
+end CPU_test_control_tb ;
+
+architecture testbench of CPU_test_control_tb is
+	component CPU_test_control
+		Port(
+			i_clk: in STD_LOGIC;
+			i_irq: in STD_LOGIC;
+			i_nmi: in STD_LOGIC;
+			i_ready: in STD_LOGIC;
+			i_reset: in STD_LOGIC;
+			i_set_overflow: in STD_LOGIC;
+			i_db7: in STD_LOGIC; -- d_bus(7)
+			i_acr: in STD_LOGIC; --ALU carry
+			i_p_register_out: in STD_LOGIC_VECTOR(7 downto 0); --status register
+			o_read_write: out STD_LOGIC;
+			i_data_bus: in unsigned (7 downto 0);
+			o_sync: out STD_LOGIC;
+
+			--control signals outputted from random_control_logic
+
+			o_dl_to_db: out STD_LOGIC;
+			o_dl_to_adl: out STD_LOGIC;
+			o_dl_to_adh: out STD_LOGIC;
+			o_O_to_adh0: out STD_LOGIC;
+			o_O_to_adh1_7: out STD_LOGIC;
+			o_adh_to_abh: out STD_LOGIC;
+			o_adl_to_abl: out STD_LOGIC;
+			o_pcl_to_pcl: out STD_LOGIC;
+			o_adl_to_pcl: out STD_LOGIC;
+			o_i_to_pc: out STD_LOGIC;
+			o_pcl_to_db: out STD_LOGIC;
+			o_pcl_to_adl: out STD_LOGIC;
+			o_pch_to_pch: out STD_LOGIC;
+			o_adh_to_pch: out STD_LOGIC;
+			o_pch_to_db: out STD_LOGIC;
+			o_pch_to_adh: out STD_LOGIC;
+			o_sb_to_adh: out STD_LOGIC;
+			o_sb_to_db: out STD_LOGIC;
+			o_s_to_adl: out STD_LOGIC;
+			o_sb_to_s: out STD_LOGIC;
+			o_s_to_s: out STD_LOGIC;
+			o_s_to_sb: out STD_LOGIC;
+			o_db_bar_to_add: out STD_LOGIC;
+			o_db_to_add: out STD_LOGIC;
+			o_adl_to_add: out STD_LOGIC;
+			o_i_to_addc: out STD_LOGIC;
+			o_sum_select: out STD_LOGIC;
+			o_and_select: out STD_LOGIC;
+			o_eor_select: out STD_LOGIC;
+			o_or_select: out STD_LOGIC;
+			o_shift_right_select: out STD_LOGIC;
+			o_add_to_adl: out STD_LOGIC;
+			o_add_to_sb_0_6: out STD_LOGIC;
+			o_add_to_sb_7: out STD_LOGIC;
+			o_O_to_add: out STD_LOGIC;
+			o_sb_to_add: out STD_LOGIC;
+			o_sb_to_ac: out STD_LOGIC;
+			o_ac_to_db: out STD_LOGIC;
+			o_ac_to_sb: out STD_LOGIC;
+			o_sb_to_x: out STD_LOGIC;
+			o_x_to_sb: out STD_LOGIC;
+			o_sb_to_y: out STD_LOGIC;
+			o_y_to_sb: out STD_LOGIC;
+			o_p_to_db: out STD_LOGIC;
+			o_db0_to_c: out STD_LOGIC;
+			o_ir5_to_c: out STD_LOGIC;
+			o_acr_to_c: out STD_LOGIC;
+			o_db1_to_z: out STD_LOGIC;
+			o_dbz_to_z: out STD_LOGIC;
+			o_db2_to_i: out STD_LOGIC;
+			o_ir5_to_i: out STD_LOGIC;
+			o_db3_to_d: out STD_LOGIC;
+			o_ir5_to_d: out STD_LOGIC;
+			o_db6_to_v: out STD_LOGIC;
+			o_avr_to_v: out STD_LOGIC;
+			o_0_to_v: out STD_LOGIC;
+			o_1_to_v: out STD_LOGIC;
+			o_db7_to_n: out STD_LOGIC
+		);
+	end component ;
+
+	constant clk_period : time := 50 ns ;
+
+	signal Si_clk: STD_LOGIC;
+	signal Si_irq: STD_LOGIC;
+	signal Si_nmi: STD_LOGIC;
+	signal Si_ready: STD_LOGIC;
+	signal Si_reset: STD_LOGIC;
+	signal Si_set_overflow: STD_LOGIC;
+	signal Si_db7: STD_LOGIC; -- d_bus(7)
+	signal Si_acr: STD_LOGIC; --ALU carry
+	signal Si_p_register_out: STD_LOGIC_VECTOR(7 downto 0); --status register
+	signal So_read_write: STD_LOGIC;
+	signal Si_data_bus: unsigned (7 downto 0);
+	signal So_sync: STD_LOGIC;
+
+	--control signals outputted from random_control_logic
+
+	signal So_dl_to_db: STD_LOGIC;
+	signal So_dl_to_adl: STD_LOGIC;
+	signal So_dl_to_adh: STD_LOGIC;
+	signal So_O_to_adh0: STD_LOGIC;
+	signal So_O_to_adh1_7: STD_LOGIC;
+	signal So_adh_to_abh: STD_LOGIC;
+	signal So_adl_to_abl: STD_LOGIC;
+	signal So_pcl_to_pcl: STD_LOGIC;
+	signal So_adl_to_pcl: STD_LOGIC;
+	signal So_i_to_pc: STD_LOGIC;
+	signal So_pcl_to_db: STD_LOGIC;
+	signal So_pcl_to_adl: STD_LOGIC;
+	signal So_pch_to_pch: STD_LOGIC;
+	signal So_adh_to_pch: STD_LOGIC;
+	signal So_pch_to_db: STD_LOGIC;
+	signal So_pch_to_adh: STD_LOGIC;
+	signal So_sb_to_adh: STD_LOGIC;
+	signal So_sb_to_db: STD_LOGIC;
+	signal So_s_to_adl: STD_LOGIC;
+	signal So_sb_to_s: STD_LOGIC;
+	signal So_s_to_s: STD_LOGIC;
+	signal So_s_to_sb: STD_LOGIC;
+	signal So_db_bar_to_add: STD_LOGIC;
+	signal So_db_to_add: STD_LOGIC;
+	signal So_adl_to_add: STD_LOGIC;
+	signal So_i_to_addc: STD_LOGIC;
+	signal So_sum_select: STD_LOGIC;
+	signal So_and_select: STD_LOGIC;
+	signal So_eor_select: STD_LOGIC;
+	signal So_or_select: STD_LOGIC;
+	signal So_shift_right_select: STD_LOGIC;
+	signal So_add_to_adl: STD_LOGIC;
+	signal So_add_to_sb_0_6: STD_LOGIC;
+	signal So_add_to_sb_7: STD_LOGIC;
+	signal So_O_to_add: STD_LOGIC;
+	signal So_sb_to_add: STD_LOGIC;
+	signal So_sb_to_ac: STD_LOGIC;
+	signal So_ac_to_db: STD_LOGIC;
+	signal So_ac_to_sb: STD_LOGIC;
+	signal So_sb_to_x: STD_LOGIC;
+	signal So_x_to_sb: STD_LOGIC;
+	signal So_sb_to_y: STD_LOGIC;
+	signal So_y_to_sb: STD_LOGIC;
+	signal So_p_to_db: STD_LOGIC;
+	signal So_db0_to_c: STD_LOGIC;
+	signal So_ir5_to_c: STD_LOGIC;
+	signal So_acr_to_c: STD_LOGIC;
+	signal So_db1_to_z: STD_LOGIC;
+	signal So_dbz_to_z: STD_LOGIC;
+	signal So_db2_to_i: STD_LOGIC;
+	signal So_ir5_to_i: STD_LOGIC;
+	signal So_db3_to_d: STD_LOGIC;
+	signal So_ir5_to_d: STD_LOGIC;
+	signal So_db6_to_v: STD_LOGIC;
+	signal So_avr_to_v: STD_LOGIC;
+	signal So_0_to_v: STD_LOGIC;
+	signal So_1_to_v: STD_LOGIC;
+	signal So_db7_to_n: STD_LOGIC ;
+
+	begin
+
+	module : CPU_test_control
+	        port map(
+	            i_clk => Si_clk,
+                i_irq => Si_irq,
+                i_nmi => Si_nmi,
+                i_ready => Si_ready,
+                i_reset => Si_reset,
+                i_set_overflow => Si_set_overflow,
+                i_db7 => Si_db7,
+                i_acr => Si_acr,
+                i_p_register_out => Si_p_register_out,
+                o_read_write => So_read_write,
+                i_data_bus => Si_data_bus,
+                o_sync => So_sync,
+
+                --control signals outputted from random_control_logic
+
+                o_dl_to_db => So_dl_to_db,
+                o_dl_to_adl => So_dl_to_adl,
+                o_dl_to_adh => So_dl_to_adh,
+                o_O_to_adh0 => So_O_to_adh0,
+                o_O_to_adh1_7 => So_O_to_adh1_7,
+                o_adh_to_abh => So_adh_to,
+                o_adl_to_abl => So_adl_to_abl,
+                o_pcl_to_pcl => So_pcl_to_pcl,
+                o_adl_to_pcl => So_adl_to_pcl,
+                o_i_to_pc => So_i_to_pc,
+                o_pcl_to_db => So_pcl_to_db,
+                o_pcl_to_adl => So_pcl_to_adl,
+                o_pch_to_pch => So_pch_to_pch,
+                o_adh_to_pch => So_adh_to_pch,
+                o_pch_to_db => So_pch_to_db,
+                o_pch_to_adh => So_pch_to_adh,
+                o_sb_to_adh => So_sb_to_adh,
+                o_sb_to_db => So_sb_to_db,
+                o_s_to_adl => So_s_to_adl,
+                o_sb_to_s => So_sb_to_s,
+                o_s_to_s => So_s_to_s,
+                o_s_to_sb => So_s_to_sb,
+                o_db_bar_to_add => So_db_bar_to_add,
+                o_db_to_add => So_db_to_add,
+                o_adl_to_add => So_adl_to_add,
+                o_i_to_addc => So_i_to_addc,
+                o_sum_select => So_sum_select,
+                o_and_select => So_and_select,
+                o_eor_select => So_eor_select,
+                o_or_select => So_or_select,
+                o_shift_right_select => So_shift_right_select,
+                o_add_to_adl => So_add_to_adl,
+                o_add_to_sb_0_6 => So_add_to_sb_0_6,
+                o_add_to_sb_7 => So_add_to_sb_7,
+                o_O_to_add => So_O_to_add,
+                o_sb_to_add => So_sb_to_add,
+                o_sb_to_ac => So_sb_to_ac,
+                o_ac_to_db => So_ac_to_db,
+                o_ac_to_sb => So_ac_to_sb,
+                o_sb_to_x => So_sb_to_x,
+                o_x_to_sb => So_x_to_sb,
+                o_sb_to_y => So_sb_to_y,
+                o_y_to_sb => So_y_to_sb,
+                o_p_to_db => So_p_to_db,
+                o_db0_to_c => So_db0_to_c,
+                o_ir5_to_c => So_ir5_to_c,
+                o_acr_to_c => So_acr_to_c,
+                o_db1_to_z => So_db1_to_z,
+                o_dbz_to_z => So_dbz_to_z,
+                o_db2_to_i => So_db2_to_i,
+                o_ir5_to_i => So_ir5_to_i,
+                o_db3_to_d => So_db3_to_d,
+                o_ir5_to_d => So_ir5_to_d,
+                o_db6_to_v => So_db6_to_v,
+                o_avr_to_v => So_avr_to_v,
+                o_0_to_v => So_0_to_v,
+                o_1_to_v => So_1_to_v,
+                o_db7_to_n => So_db7_to_n
+            ) ;
+
+    process_clk : process
+        begin
+            Si_clk <= '1' ;
+            wait for clk_period/2 ;
+            Si_clk <= '0' ;
+            wait for clk_period/2 ;
+        end process ;
+
+    process_testbench : process
+        begin            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;            i_data_bus <= "11101010";            wait for 10 ns ;        end process;end testbench;

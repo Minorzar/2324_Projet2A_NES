@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity Stack is 
+entity Codec_top is 
 
 port(
 
@@ -13,26 +13,29 @@ port(
     o_Data: out unsigned(15 downto 0)
 
 );
-end Stack; 
+end Codec_top; 
 
-architecture Stack_rtf of Stack is 
+architecture Codec_top_rtf of Codec_top is 
 
-    signal unsigned(15 downto 0): Mem;
-
-begin
+    signal Mem: unsigned(15 downto 0);
+	 
+begin 
 
 process(i_Mclk)
 
     begin
         if(rising_edge(i_Mclk)) then 
 
-            Mem<=i_Data;
-            if(i_en= '1') then 
+                Mem<=i_Data;
+
+            if (i_en = '1') then 
+
                 o_Data<=Mem;
+
             end if; 
 
         end if; 
 
 end process;
 
-end Stack_rtf; 
+end Codec_top_rtf; 

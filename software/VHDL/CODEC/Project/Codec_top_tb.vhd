@@ -21,7 +21,7 @@ begin
     port map(
 
         MCLK=>Mclk,
-        DACLRCK => Daclrck,
+        DACLRCK =>Daclrck,
         BCLK=>bclk,
         EN=>en
 
