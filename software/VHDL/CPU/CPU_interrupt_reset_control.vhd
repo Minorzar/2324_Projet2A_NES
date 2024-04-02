@@ -15,31 +15,31 @@ entity CPU_interrupt_reset_control is
 		i_t2_branch: in STD_LOGIC;
 		i_t5_break: in STD_LOGIC;
 		i_interrupt_flag: in STD_LOGIC;
-		o_reset_out: out STD_LOGIC;
-		o_reset_in_progress: out STD_LOGIC;
-		o_interrupt_in_progress: out STD_LOGIC;
-		o_break_done: out STD_LOGIC;
-		o_aic: out STD_LOGIC;
-		o_zero_adl: out STD_LOGIC_VECTOR(2 downto 0));
+		o_reset_out: out STD_LOGIC :='0';
+		o_reset_in_progress: out STD_LOGIC :='0';
+		o_interrupt_in_progress: out STD_LOGIC :='0';
+		o_break_done: out STD_LOGIC :='0';
+		o_aic: out STD_LOGIC :='0';
+		o_zero_adl: out STD_LOGIC_VECTOR(2 downto 0) :=(others => '0'));
 end CPU_interrupt_reset_control;
 
 architecture Behavioral of CPU_interrupt_reset_control is
-signal reg_reset: STD_LOGIC;
-signal reg_reset_out: STD_LOGIC;
-signal reg_clear_int_g: STD_LOGIC;
-signal reg_break_done: STD_LOGIC;
-signal reg_nmi_g: STD_LOGIC;
-signal reg_reset_not_done: STD_LOGIC;
-signal reg_nmi_g_delayed: STD_LOGIC;
-signal reg_nmi_l: STD_LOGIC;
-signal reg_nmi_l_or_vec: STD_LOGIC;
-signal reg_nmi_delayed: STD_LOGIC;
-signal reg_vec: STD_LOGIC_VECTOR(1 downto 0);
-signal reg_vec_or: STD_LOGIC;
-signal reg_interrupt_in_progress: STD_LOGIC;
-signal reg_irq_delayed: STD_LOGIC;
-signal reg_nmi_p: STD_LOGIC;
-signal reg_irq: STD_LOGIC;
+signal reg_reset: STD_LOGIC:='0';
+signal reg_reset_out: STD_LOGIC:='0';
+signal reg_clear_int_g: STD_LOGIC:='0';
+signal reg_break_done: STD_LOGIC:='0';
+signal reg_nmi_g: STD_LOGIC:='0';
+signal reg_reset_not_done: STD_LOGIC:='0';
+signal reg_nmi_g_delayed: STD_LOGIC:='0';
+signal reg_nmi_l: STD_LOGIC:='0';
+signal reg_nmi_l_or_vec: STD_LOGIC:='0';
+signal reg_nmi_delayed: STD_LOGIC:='0';
+signal reg_vec: STD_LOGIC_VECTOR(1 downto 0):=(others => '0');
+signal reg_vec_or: STD_LOGIC:='0';
+signal reg_interrupt_in_progress: STD_LOGIC:='0';
+signal reg_irq_delayed: STD_LOGIC:='0';
+signal reg_nmi_p: STD_LOGIC:='0';
+signal reg_irq: STD_LOGIC:='0';
 
 
 signal nmi_g: STD_LOGIC;
@@ -47,10 +47,10 @@ signal nmi_l: STD_LOGIC;
 signal vec: STD_LOGIC_VECTOR(1 downto 0);
 signal vec_or: STD_LOGIC;
 
-signal buf_reset_out: STD_LOGIC;
-signal buf_reset_in_progress: STD_LOGIC;
-signal buf_interrupt_in_progress: STD_LOGIC;
-signal buf_break_done: STD_LOGIC;
+signal buf_reset_out: STD_LOGIC:='0';
+signal buf_reset_in_progress: STD_LOGIC:='0';
+signal buf_interrupt_in_progress: STD_LOGIC:='0';
+signal buf_break_done: STD_LOGIC:='0';
 
 
 begin

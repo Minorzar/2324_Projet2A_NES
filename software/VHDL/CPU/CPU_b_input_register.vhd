@@ -10,7 +10,7 @@ entity CPU_b_input_register is
       i_db_bar_to_add: in STD_LOGIC;
 		i_d_bus: in STD_LOGIC_VECTOR (7 downto 0);
       i_adl_bus: in STD_LOGIC_VECTOR (7 downto 0);
-      o_output: out STD_LOGIC_VECTOR (7 downto 0));
+      o_output: out STD_LOGIC_VECTOR (7 downto 0) :=(others => '1'));
 end CPU_b_input_register;
 
 architecture Behavioral of CPU_b_input_register is

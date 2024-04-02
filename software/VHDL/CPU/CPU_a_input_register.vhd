@@ -12,7 +12,7 @@ entity CPU_a_input_register is
 end CPU_a_input_register;
 
 architecture Behavioral of CPU_a_input_register is
-	signal reg_a: STD_LOGIC_VECTOR (7 downto 0);
+	signal reg_a: STD_LOGIC_VECTOR (7 downto 0) :=(others => '1');
 begin
 	process(i_clk)
 	begin

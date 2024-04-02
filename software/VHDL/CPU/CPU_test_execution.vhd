@@ -73,10 +73,10 @@ entity CPU_test_execution is
 end CPU_test_execution;
 
 architecture Behavioral of CPU_test_execution is
-	signal s_bus: STD_LOGIC_VECTOR (7 downto 0);
-	signal d_bus: STD_LOGIC_VECTOR (7 downto 0);
-	signal adl_bus: STD_LOGIC_VECTOR (7 downto 0);
-	signal adh_bus: STD_LOGIC_VECTOR (7 downto 0);
+	signal s_bus: STD_LOGIC_VECTOR (7 downto 0) := (others => '1');
+	signal d_bus: STD_LOGIC_VECTOR (7 downto 0) := (others => '1');
+	signal adl_bus: STD_LOGIC_VECTOR (7 downto 0) := (others => '1');
+	signal adh_bus: STD_LOGIC_VECTOR (7 downto 0) := (others => '1');
 	signal alu_result: STD_LOGIC_VECTOR (7 downto 0);
 	signal alu_a_input: STD_LOGIC_VECTOR (7 downto 0);
 	signal alu_b_input: STD_LOGIC_VECTOR (7 downto 0);
@@ -117,7 +117,7 @@ begin
 	port map(i_clk => i_clk, i_phi1 => phi1, i_adlh_to_ablh => adl_to_abl, o_address_bus => o_address_bus(7 downto 0), i_adlh_bus => adl_bus);
 	
 	alu: entity work.CPU_ALU
-	port map(i_clk => i_clk, i_a_register => alu_a_input, i_b_register => alu_b_input, i_sum_select => sum_select, i_and_select => and_select, i_eor_select => eor_select, i_or_select => or_select, i_shift_right_select => shift_right_select, i_carry => i_to_addc, o_result => alu_result, o_carry => acr, o_overflow => avr);
+	port map(i_a_register => alu_a_input, i_b_register => alu_b_input, i_sum_select => sum_select, i_and_select => and_select, i_eor_select => eor_select, i_or_select => or_select, i_shift_right_select => shift_right_select, i_carry => i_to_addc, o_result => alu_result, o_carry => acr, o_overflow => avr);
 	
 	b_input_register: entity work.CPU_b_input_register
 	port map(i_clk => i_clk, i_adl_to_add => adl_to_add, i_db_to_add => db_to_add, i_db_bar_to_add => db_bar_to_add, i_d_bus => d_bus, i_adl_bus => adl_bus, o_output => alu_b_input);

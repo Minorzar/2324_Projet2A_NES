@@ -23,12 +23,13 @@ entity CPU_p_register is
 		i_O_to_v: in STD_LOGIC;
 		i_db7_to_n: in STD_LOGIC;
 		i_d_bus: in STD_LOGIC_VECTOR (7 downto 0);
-		o_reg_out: out STD_LOGIC_VECTOR(7 downto 0):= "11111111");
+		o_reg_out: out STD_LOGIC_VECTOR(7 downto 0):= "00101100");
 end CPU_p_register;
 
 architecture Behavioral of CPU_p_register is
 begin
 	o_reg_out(5) <= '1';
+	o_reg_out(4) <= '1';
 	process(i_clk)
 		begin
 			if (rising_edge(i_clk)) then

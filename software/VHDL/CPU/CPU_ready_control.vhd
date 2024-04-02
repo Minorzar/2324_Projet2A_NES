@@ -8,7 +8,7 @@ entity CPU_ready_control is
 		i_phi2: in STD_LOGIC;
 		i_ready: in STD_LOGIC;
 		i_read_write: in STD_LOGIC;
-		o_rdy: out STD_LOGIC);
+		o_rdy: out STD_LOGIC := '0');
 end CPU_ready_control;
 
 architecture Behavioral of CPU_ready_control is
